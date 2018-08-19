@@ -5,3 +5,7 @@
  */
 
 /*# sourceMappingURL=custom.css.map */
+.graygraygray {
+  -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+  filter: grayscale(100%);
+}
