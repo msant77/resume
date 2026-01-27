@@ -1,1523 +1,626 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marco Santana — Full-Stack Engineer</title>
+  <meta name="description" content="Resume of Marco Santana — Full-Stack Engineer with 25+ years of experience spanning web development, cloud architecture, and AI engineering.">
 
-    <head>
+  <!-- Flash-free theme detection -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 
-        <title>Marco Santana Resume</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <meta name="description" content="">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to content</a>
 
-        <!-- Google Font: Lato -->
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <!-- Moon icon (shown in light mode) -->
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <!-- Sun icon (shown in dark mode) -->
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
 
-        <!-- FontAwesome -->
-        <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <div class="container">
+      <img src="assets/images/header/avatar1.png" alt="Photo of Marco Santana" class="avatar" width="160" height="160">
+      <h1 class="site-header__name">Marco Santana</h1>
+      <p class="site-header__title">Full-Stack Engineer</p>
+      <p class="site-header__contact">
+        <!-- Map pin -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Santa Catarina, Brazil &nbsp;|&nbsp;
+        <!-- Envelope -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:2px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:marcosantana@msn.com">marcosantana@msn.com</a>
+      </p>
+      <p class="site-header__phone">
+        <!-- Phone -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +55 48 9 9173-3374
+      </p>
+      <nav class="social-links" aria-label="Social profiles">
+        <a href="https://www.linkedin.com/in/marcosantana" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/msant77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
 
-        <!-- Nivo Lightbox-->
-        <link rel="stylesheet" href="assets/plugins/nivo-lightbox/nivo-lightbox.css" />
-        <link rel="stylesheet" href="assets/plugins/nivo-lightbox/themes/default/default.css" />
+  <!-- ==================== MAIN ==================== -->
+  <main id="main">
 
-        <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
-        
-        <!-- Themes -->
-        <link rel="stylesheet" href="assets/css/themes.dark.css">
-        <!--<link rel="stylesheet" href="assets/css/themes.dark.css">-->
-        
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- ===== ABOUT ===== -->
+    <section class="section about animate-on-scroll" id="about">
+      <div class="container">
+        <h2 class="section__title">About</h2>
+        <p>
+          With over <strong>25 years in software engineering</strong>, I have built a career that spans full-stack development, database architecture, cloud infrastructure, and technical leadership. My work has ranged from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and AI-driven products at H2O.ai.
+        </p>
+        <p>
+          My career began at <strong>Microsoft Brazil</strong>, where I spent six years progressing from seminar delivery to managing innovation centers across the country. Since then, I have led architecture for a telemedicine startup, designed dynamic form generation and taxonomy systems for a North American e-procurement platform, and built production UI for H2O.ai's machine-learning tools using React and TypeScript.
+        </p>
+        <p>
+          Today I focus on <strong>AI engineering</strong> — LLM integration, RAG pipelines, prompt engineering, and AI-assisted development workflows — alongside my core strengths in React, TypeScript, and cloud-native architecture. I value pragmatic design, clean code, and work that makes a tangible difference.
+        </p>
+        <p class="about__languages">
+          <strong>Languages:</strong> Portuguese (native) · English (full professional) · Spanish (elementary)
+        </p>
+      </div>
+    </section>
 
-        <!-- jQuery -->
-        <script src="assets/js/jquery.min.js"></script>
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section animate-on-scroll" id="experience">
+      <div class="container">
+        <h2 class="section__title">Experience</h2>
 
-        <!-- dense.js (Retina plugin) -->
-        <script src="assets/js/dense.js"></script>
+        <div class="timeline">
 
-        <!-- Nivo Lightbox -->
-        <script src="assets/plugins/nivo-lightbox/nivo-lightbox.min.js"></script>
+          <!-- Sabbatical -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">AI Engineering / Studies</h3>
+            </div>
+            <div class="timeline__meta">
+              <span>Apr 2024 – Present</span>
+            </div>
+            <div class="timeline__description">
+              <p>Focused period of study and independent development. Deepening expertise in AI engineering — LLMs, retrieval-augmented generation, prompt engineering, and AI-assisted workflows. Building an open-source music notation ecosystem in Dart and Flutter: the ICLF specification for plain-text chord sheets, a parser library, a music-theory package, and Chordo, a cross-platform application for rendering and editing chord sheets with planned AI-powered chord suggestions.</p>
+            </div>
+          </article>
 
-        <!-- ScrollReveal -->
-        <script src="assets/js/scrollreveal.min.js"></script>
+          <!-- H2O.ai -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">H2O.ai</h3>
+              <p class="timeline__role">Frontend Engineer</p>
+            </div>
+            <div class="timeline__meta">
+              <span>May 2020 – Apr 2024 · 4 years</span>
+              <span>Laguna, SC, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Built and maintained the user interface for H2O.ai's machine-learning platform in React and TypeScript. Developed shared component libraries, collaborated closely with design and backend teams, and contributed to internal developer tooling.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Storybook</span>
+              <span>Fluent UI</span>
+              <span>Go</span>
+              <span>Buf.Build</span>
+              <span>Adobe XD</span>
+            </div>
+          </article>
 
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
+          <!-- BairesDev -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">BairesDev</h3>
+            </div>
+            <div class="timeline__meta">
+              <span>Aug 2018 – Apr 2020 · 1 year 9 months</span>
+              <span>Florian&oacute;polis, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Designed and implemented solutions for a North American e-procurement SaaS platform, progressing from senior engineer to team lead.</p>
+            </div>
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Technical Team Lead</p>
+              <p class="timeline__subrole-meta">Sep 2019 – Apr 2020</p>
+              <p class="timeline__subrole-desc">Led the team designing and implementing Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services. Onboarded new developers, provided day-to-day technical support to the team, and led grooming and planning meetings.</p>
+            </div>
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Senior Full Stack Engineer</p>
+              <p class="timeline__subrole-meta">Aug 2018 – Sep 2019</p>
+              <p class="timeline__subrole-desc">Designed and implemented solutions with Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>AWS Lambda</span>
+              <span>API Gateway</span>
+              <span>Node.js</span>
+              <span>React</span>
+            </div>
+          </article>
 
-    </head>
+          <!-- Softplan -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Softplan</h3>
+              <p class="timeline__role">Full Stack Developer</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Mar 2018 – Sep 2018 · 7 months</span>
+              <span>Florian&oacute;polis, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Built web applications for the civil engineering and construction industry.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>Angular</span>
+            </div>
+          </article>
 
-    <body>
+          <!-- Portal Telemedicina -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Portal Telemedicina</h3>
+              <p class="timeline__role">Lead Technical Architect</p>
+            </div>
+            <div class="timeline__meta">
+              <span>May 2015 – Mar 2018 · ~3 years</span>
+              <span>Florian&oacute;polis, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Architected and developed a progressive web application for telemedicine. Managed multi-cloud infrastructure spanning IBM SoftLayer, AWS, Azure, and Google Cloud. Supported hiring and onboarding of technical staff.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>ASP.NET Web API</span>
+              <span>Entity Framework</span>
+              <span>SQL Server</span>
+              <span>AngularJS</span>
+              <span>AWS</span>
+              <span>Azure</span>
+              <span>Google Cloud</span>
+            </div>
+          </article>
 
-        <div class="c-preloader  js-preloader">
-            <div class="c-preloader__spinner  t-preloader__spinner"></div>
+          <!-- Guru das Ondas -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Guru das Ondas</h3>
+              <p class="timeline__role">Web Architect / Developer / Partner-Owner</p>
+            </div>
+            <div class="timeline__meta">
+              <span>May 2014 – May 2015</span>
+              <span>Laguna, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Co-founded and built a surf-related web platform from the ground up.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>PHP</span>
+              <span>AWS</span>
+              <span>NGINX</span>
+            </div>
+          </article>
+
+          <!-- Fresh Media -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Fresh Media</h3>
+              <p class="timeline__role">Web Solutions Architect</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Oct 2014 – Feb 2015</span>
+            </div>
+            <div class="timeline__description">
+              <p>Designed and built web solutions using WordPress, AWS, PHP, Node.js, and AngularJS.</p>
+            </div>
+          </article>
+
+          <!-- Geogrid Maps -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Geogrid Maps</h3>
+              <p class="timeline__role">Senior Web Developer</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Jan 2014 – Jun 2014</span>
+            </div>
+            <div class="timeline__description">
+              <p>Migrated GIS features from Flash/ActionScript to JavaScript. Built Google Maps V3 integration for geospatial data visualization.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>JavaScript</span>
+              <span>Google Maps V3</span>
+            </div>
+          </article>
+
+          <!-- Intersena -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Intersena</h3>
+              <p class="timeline__role">Senior Software Developer / Architect / DBA</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Oct 2010 – Mar 2014</span>
+            </div>
+            <div class="timeline__description">
+              <p>Freelance role focused on feature development, database performance optimization, and rewriting complex data routines.</p>
+            </div>
+          </article>
+
+          <!-- Cetil Sistemas -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Cetil Sistemas</h3>
+              <p class="timeline__role">Senior Software Architect</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Nov 2008 – Sep 2010</span>
+              <span>Florian&oacute;polis, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Led architecture and development of NFSe (electronic invoice) and time-clock systems. Mentored developers, conducted technical interviews, and served as interim engineering manager.</p>
+            </div>
+          </article>
+
+          <!-- Imagem Tecnologia -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Imagem Tecnologia</h3>
+              <p class="timeline__role">Systems Analyst / Developer</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Jun 2007 – Oct 2008</span>
+              <span>Joinville, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Built a web-based GPS tracking system with real-time Google Maps integration for public transit monitoring.</p>
+            </div>
+            <div class="timeline__tech">
+              <span>ASP.NET</span>
+              <span>SQL Server</span>
+              <span>Google Maps</span>
+            </div>
+          </article>
+
+          <!-- SOCIESC -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">SOCIESC</h3>
+              <p class="timeline__role">Instructor, Student To Business</p>
+            </div>
+            <div class="timeline__meta">
+              <span>Apr 2008 – Jun 2008</span>
+              <span>Joinville, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Taught a 200-hour Microsoft .NET course covering C#, ASP.NET, and ORM fundamentals. Achieved 100% positive student feedback.</p>
+            </div>
+          </article>
+
+          <!-- Microsoft Brazil -->
+          <article class="timeline__item animate-on-scroll">
+            <div class="timeline__header">
+              <h3 class="timeline__company">Microsoft Brazil</h3>
+            </div>
+            <div class="timeline__meta">
+              <span>1998 – 2004 · 6 years</span>
+              <span>S&atilde;o Paulo, Brazil</span>
+            </div>
+            <div class="timeline__description">
+              <p>Six years at Microsoft spanning four roles, progressing from technical evangelism to innovation center management.</p>
+            </div>
+
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Innovation Center Program Manager</p>
+              <p class="timeline__subrole-meta">2002 – 2004</p>
+              <p class="timeline__subrole-desc">Selected and mentored top-performing students to build .NET applications. Managed innovation centers across six Brazilian cities: S&atilde;o Paulo, Rio de Janeiro, Curitiba, Porto Alegre, Recife, and Fortaleza.</p>
+            </div>
+
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Account Technical Specialist</p>
+              <p class="timeline__subrole-meta">2001 – 2002</p>
+              <p class="timeline__subrole-desc">Engaged with IT departments at assigned accounts, identified sales opportunities through technology assessment, and served as a liaison between support and technical teams.</p>
+            </div>
+
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Applications Engineer</p>
+              <p class="timeline__subrole-meta">1999 – 2001</p>
+              <p class="timeline__subrole-desc">Created training materials for the Microsoft Partners Channel. Supported line-of-business application development across enterprise verticals.</p>
+            </div>
+
+            <div class="timeline__subrole">
+              <p class="timeline__subrole-title">Seminar Group Member</p>
+              <p class="timeline__subrole-meta">1998 – 1999</p>
+              <p class="timeline__subrole-desc">Developed scenarios and delivered seminars on Microsoft technology nationwide.</p>
+            </div>
+          </article>
+
+        </div><!-- /.timeline -->
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section animate-on-scroll" id="projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/iclf-standard" target="_blank" rel="noopener noreferrer">ICLF Standard</a>
+            </h3>
+            <p class="project-card__desc">Inline Chorded Lyrics Format — an open plain-text specification for notating song lyrics with precisely positioned chords. Designed for human readability so musicians can open an <code>.iclf</code> file and play instantly. Supports syllable-precise chord alignment, extensible metadata directives, and accessibility for screen readers. Licensed under Creative Commons BY 4.0.</p>
+            <div class="timeline__tech">
+              <span>Specification</span>
+              <span>Shell</span>
+              <span>CC BY 4.0</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/iclf-parser" target="_blank" rel="noopener noreferrer">ICLF Parser</a>
+            </h3>
+            <p class="project-card__desc">A Dart library that parses and validates ICLF files into structured data models. Classifies documents as valid, invalid, or recoverable — applying automatic corrections where possible. Supports dynamic spec loading from GitHub and MD5 hashing for change detection.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>Parsing</span>
+              <span>Validation</span>
+              <span>MIT</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/music-theory" target="_blank" rel="noopener noreferrer">Music Theory</a>
+            </h3>
+            <p class="project-card__desc">A Dart package and CLI providing programmatic access to music theory concepts — notes, intervals, chords, instruments, and transposition. Serves as the theoretical foundation for the ICLF ecosystem and related music applications.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>CLI</span>
+              <span>Music Theory</span>
+              <span>MIT</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">Chordo</h3>
+            <p class="project-card__desc">A cross-platform Flutter application that helps musicians organize, view, and refine their chord sheets. Renders ICLF files with syllable-precise chord alignment, features a collapsible chord diagram panel, responsive single- and two-column layouts, and supports tempo-driven strumming animation. Planned features include AI-powered suggestions for chord evolutions and inversions to encourage improvisation.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>Flutter</span>
+              <span>Cross-Platform</span>
+              <span>In Progress</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section animate-on-scroll" id="skills">
+      <div class="container container--wide">
+        <h2 class="section__title">Skills</h2>
+
+        <div class="skills-grid">
+
+          <div class="skills-category">
+            <h3 class="skills-category__title">Languages &amp; Frameworks</h3>
+            <div class="skills-category__tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">C# / .NET</span>
+              <span class="skill-tag">Go</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">HTML / CSS</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3 class="skills-category__title">AI &amp; Machine Learning</h3>
+            <div class="skills-category__tags">
+              <span class="skill-tag">LLM Integration</span>
+              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag">RAG Pipelines</span>
+              <span class="skill-tag">AI-Assisted Development</span>
+              <span class="skill-tag">H2O.ai Platform</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3 class="skills-category__title">Cloud &amp; Infrastructure</h3>
+            <div class="skills-category__tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Azure</span>
+              <span class="skill-tag">Google Cloud</span>
+              <span class="skill-tag">IBM SoftLayer</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">NGINX</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3 class="skills-category__title">Data &amp; Databases</h3>
+            <div class="skills-category__tags">
+              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">Entity Framework</span>
+              <span class="skill-tag">Data Modeling</span>
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3 class="skills-category__title">Tools &amp; Practices</h3>
+            <div class="skills-category__tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Storybook</span>
+              <span class="skill-tag">Buf.Build</span>
+              <span class="skill-tag">Agile / Scrum</span>
+              <span class="skill-tag">System Architecture</span>
+              <span class="skill-tag">API Design</span>
+              <span class="skill-tag">Technical Leadership</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RECOMMENDATIONS ===== -->
+    <section class="section animate-on-scroll" id="recommendations">
+      <div class="container">
+        <h2 class="section__title">Recommendations</h2>
+
+        <div class="recommendations">
+
+          <div class="recommendation-card animate-on-scroll">
+            <blockquote>
+              <p>Marco is an exceptional professional with deep knowledge and remarkable technical command. He possesses the rare ability to convey complex ideas with clarity, making him an outstanding communicator and collaborator. His work is consistently of the highest quality, and his commitment to excellence is evident in everything he does. I wholeheartedly recommend Marco for any team looking for a talented, dedicated, and thoughtful engineer.</p>
+            </blockquote>
+            <div class="recommendation-card__author">
+              <p class="recommendation-card__name">Claudio Fernando Maciel</p>
+              <p class="recommendation-card__title">CTO, Brokerme</p>
+            </div>
+          </div>
+
+          <div class="recommendation-card animate-on-scroll">
+            <blockquote>
+              <p>I had the pleasure of working with Marco at Microsoft Brazil. He is a focused, hard-working professional with deep expertise across databases, web development, and software architecture. Marco is always eager to learn and share knowledge, and he brings a rare combination of technical skill and genuine teamwork. Any organization would benefit from his contributions.</p>
+            </blockquote>
+            <div class="recommendation-card__author">
+              <p class="recommendation-card__name">Rob Ranches</p>
+              <p class="recommendation-card__title">BI Architect / Data Scientist, Bausch Health</p>
+            </div>
+          </div>
+
+          <div class="recommendation-card animate-on-scroll">
+            <blockquote>
+              <p>Marco is an extraordinary professional with solid expertise in software development and architecture. He approaches every project with diligence, creativity, and a genuine desire to deliver the best possible solution. His ability to work across technologies and lead teams makes him an invaluable asset. I highly recommend him.</p>
+            </blockquote>
+            <div class="recommendation-card__author">
+              <p class="recommendation-card__name">Jean Paulo da Silva Ramos</p>
+              <p class="recommendation-card__title">CEO, Ecovilas</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VOLUNTEER ===== -->
+    <section class="section animate-on-scroll" id="volunteer">
+      <div class="container">
+        <h2 class="section__title">Volunteer Work</h2>
+
+        <div class="volunteer-card">
+          <h3 class="volunteer-card__org">SOS Gravata</h3>
+          <p class="volunteer-card__role">Creator, Developer &amp; Maintainer</p>
+          <p class="volunteer-card__meta">Oct 2013 – Present</p>
+          <p class="volunteer-card__desc">Environmental protection initiative focused on defending coastal ecosystems and aquifer areas in the Gravat&aacute; region of Santa Catarina. Build and maintain the project's web presence and community outreach tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="section animate-on-scroll" id="education">
+      <div class="container">
+        <h2 class="section__title">Education</h2>
+
+        <div class="education-item">
+          <h3 class="education-item__school">FECAP &mdash; Funda&ccedil;&atilde;o Escola de Com&eacute;rcio &Aacute;lvares Penteado</h3>
+          <p class="education-item__degree">Data Processing Technology</p>
+          <p class="education-item__dates">1993 – 1995</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="section animate-on-scroll" id="certifications">
+      <div class="container">
+        <h2 class="section__title">Certifications</h2>
+
+        <div class="certification-item">
+          <h3 class="certification-item__name">Designing Desktop Applications with Microsoft Visual Basic 6.0</h3>
+          <p class="certification-item__id">Exam 70-176</p>
         </div>
 
-        <div class="c-main-container  js-main-container">
-
-
-
-            <!-- ################################ -->
-            <!-- ############ HEADER ############ -->
-            <!-- ################################ -->
-            
-            <section class="o-section o-section--header  t-section  t-section--header">
-                <div class="c-header">
-
-                    <div class="o-section__header-bg  t-section__header"></div>
-                    <div class="o-section__content-bg  t-section__content"></div>
-
-                    <div class="o-container">
-                        <div class="o-section__container">
-
-                            <header class="o-section__header  c-header__header  t-section__header">
-                                <div class="c-header__inner-header">
-
-                                    <div class="c-header__avatar">
-                                        <div class="a-header  c-avatar">
-                                            <img class="c-avatar__img graygraygray" src="assets/images/header/avatar1.png" alt="">
-                                        </div><!-- /c-avatar -->
-                                    </div><!-- /c-header-avatar -->
-
-                                </div><!-- /c-header__inner-header -->
-                            </header><!-- /o-section__header -->
-
-                            <div class="o-section__content  c-header__content  t-section__content">
-                                <div class="c-header__inner-content">
-
-                                    <div class="c-header__top">
-
-                                        <div class="c-header__brand">
-
-                                            <div class="c-brand">
-                                                <h1 class="c-brand__title  t-title">
-                                                    <span class="c-brand__sizer">
-                                                        <span class="a-header  c-brand__first-word  t-title__first-word">
-                                                            Marco
-                                                        </span>
-                                                        <span class="a-header  c-brand__second-word  t-title__second-word">
-                                                            Santana
-                                                        </span>
-                                                    </span>
-                                                </h1>
-                                                <h2 class="a-header  c-brand__sub-title  t-sub-title">
-                                                    <span class="c-brand__sizer">
-                                                        Sr. Software Engineer &amp; DevOps
-                                                    </span>
-                                                </h2>
-                                            </div><!-- /c-brand -->
-
-                                        </div><!-- /c-header__brand -->
-
-                                        <ul class="c-header__social-buttons  c-social-buttons">
-                                            <li class="a-header">
-                                                <a href="https://www.linkedin.com/in/marcosantana77/" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-header">
-                                                <a href="https://github.com/msant77" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-github"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-header">
-                                                <a href="https://stackoverflow.com/users/3280069/marcosantana" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-stack-overflow"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-header">
-                                              <a href="https://facebook.com/marcosantana77" target="_blank" class="c-social-button  t-social-button">
-                                                  <i class="fa  fa-lg  fa-facebook"></i>
-                                              </a>
-                                          </li>
-                                      </ul><!-- /c-header__social-buttons -->
-
-                                    </div><!-- /c-header__top -->
-
-                                    <div class="c-header__contact">
-
-                                        <hr class="a-header  c-header__contact-divider" />
-
-                                        <div class="o-grid">
-
-                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                                <div class="a-header  o-content">
-                                                    <div class="o-content__body">
-                                                        <h4>Location</h4>
-                                                        <address>
-                                                            Florianópolis, Brazil
-                                                        </address>
-                                                    </div>
-                                                </div><!-- /o-content -->
-                                            </div><!-- /o-grid__col -->
-
-                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                                <div class="a-header  o-content">
-                                                    <div class="o-content__body">
-                                                        <h4>Phone</h4>
-                                                        <p>
-                                                            +55 48 9 9608 4789
-                                                        </p>
-                                                    </div>
-                                                </div><!-- /o-content -->
-                                            </div><!-- /o-grid__col -->
-
-                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                                <div class="a-header  o-content">
-                                                    <div class="o-content__body">
-                                                        <a href="http://msant.org" target="_blank" class="t-link-container">
-                                                            <h4>Web</h4>
-                                                            <p>
-                                                                <span class="t-link-container__item--blended">
-                                                                    msant.org
-                                                                </span>
-                                                            </p>
-                                                        </a><!-- /o-link-container -->
-                                                    </div>
-                                                </div><!-- /o-content -->
-                                            </div><!-- /o-grid__col -->
-
-                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                                <div class="a-header  o-content">
-                                                    <div class="o-content__body">
-                                                        <a href="#" target="_blank" class="t-link-container">
-                                                            <h4>Email</h4>
-                                                            <p>
-                                                                <span class="t-link-container__item--blended">
-                                                                    marcosantana@msn.com
-                                                                </span>
-                                                            </p>
-                                                        </a><!-- /o-link-container -->
-                                                    </div>
-                                                </div><!-- /o-content -->
-                                            </div><!-- /o-grid__col -->
-
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /c-header__contact -->
-
-                                </div><!-- /c-header__inner-content -->
-                            </div><!-- /o-section__content -->
-
-                        </div><!-- /o-section__container -->
-
-                    </div><!-- /o-container -->
-
-                </div><!-- /c-header -->
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ############ INTRO ############# -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Intro
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    What I am all about.
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-content">
-                                <div class="c-intro">
-                                    <div class="o-content__body">
-                                      <p>
-                                        Fullstack developer, DBA and DevOps with over two decades of software programming, database design and networks implementations. Extremely up to date with all the new stuff, but yet with that experienced eye to identify new good tech and make them work fast and productively. I like to keep learning, and my work need to be meaningful, helping people, creating an impact in the product.
-                                      </p>
-                                      <p>
-                                        Savvy on Cloud Services from all the major providers, with at least one year with each, and also working with cross-providers and multi-cloud scenarios. 
-                                      </p>
-                                      <p>
-                                        Spent over six years at Microsoft Brazil where the opportunity of working with the biggest companies in my country has taken place, helping out sales team to raise revenue through technology support. 
-                                      </p>
-                                      <p>
-                                        I like to consider myself as a versatile developer, using the right language for the right project, and constantly exploring new ideas and solutions. 
-                                      </p>
-                                      <p>
-                                        For more than fifteen years I have been writing software for Microsoft platform, more than ten years for corporate web sites, intranet applications and mobile applications. 
-                                      </p>
-                                      <p>
-                                        I am currently focusing on establishing a state of art knowledge on cloud solutions, through the integration of Google Cloud Services, Amazon Web Services, Softlayer and Azure with frameworks well accepted by the market such as .NET Framework with SQL and Oracle, MEAN Stack, PHP with mySql, Wordpress and others. You give me a technology to work with, you see your investments return with profits graciously.                                        
-                                      </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ########## EXPERTISE ########### -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Expertise
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Meaningul resilience.
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                              01
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Software Development</h3>
-                                            <p>
-                                              Throughout these over 20 years of experience, making software while following tendencies and technology evolution becomes more of a business than only writing code. The beautiful art of reinventing myself has turned out to me to be my most highlighted skill, being followed closely by a keen eye to be aware very beforehand of what is going to happen to a software architecturally speaking.                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                              02
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Software Architecture</h3>
-                                            <p>
-                                              Put a developer team to work together with a mission but without an architectural pragmatic approach and all those brilliant ideas will probably become a mess with either hyper choices or lazy approaches. Let alone the lack of quality or overzealous code. Architecture is the computer science of putting the best technology at work to those requirements a project needs in order for being delivered to the customer with full satisfaction and user astonishment.                                             </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                              03
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>JavaScript</h3>
-                                            <p>
-                                              I am a little bias to talk about my JavaScript skills. That's because this is the language I am truly in love with, at the very passion phase. I have been writing code with just about anything, but few technologies and languages I could see as the ones to make technology to jump an era or two and become a true milestone to mankind's evolution. I love ES6, I don't like TypeScript so much, but I know it fairly well, of course, I stick with ES6 all the way. AngularJS, Angular, Vue.js, and jQuery are all front-end frameworks that I deal very well with. Node.JS is my living room.                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                04
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Databases</h3>
-                                            <p>
-                                              Databases are probably the first thing I had contact with, yet when I was still a child. I learned dBase and Cobol data structures, then SQL Server when it was still a beta spin-off from Sybase and I have been with it since then. I have worked extensively with Oracle, MySql and in the last few years, I have given NO-SQL technologies all the attention they deserve. Mongo DB has become my favorite prototyping choice. Mixing both relational and non-relational is not only fun but also a need in most projects we see nowadays.
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                              05
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>.NET</h3>
-                                            <p>
-                                              Windows Forms, ASP.NET, MVC, Web API and .NET Core: Yes, I have done it all. I am working with .Net since its Beta 3, being able to foresee all its strengths and weaknesses throughout their almost two decades of existence. Do you really need .NET and C# at your architectural design? I am the one to make it happen for you.
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                06
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Cloud</h3>
-                                            <p>
-                                              Today cloud hosting and services is a necessity for any given project. To take advantage of every single provider at its best and avoid its pitfalls is a required need for the software engineer that takes himself seriously. I have worked extensively with AWS, Azure, Google Cloud, IBM and also a lot with shared host providers such as GoDaddy.
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                07
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Team Work and Leadership</h3>
-                                            <p>
-                                              Last but never the least, teamwork. Afterall one cannot accomplish great things alone. I love to work with talented people. Throughout my career, I had the opportunity and honor of leading great teams of unique professionals at all stages of their careers. I also had the privilege of being lead by great leaders and I learned a lot from them. I am currently not the leader of my team, but I admire my coordinator and his skills not only as a skilled software developer but also as a humane and caring team head.                                            </p>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                            </div><!-- /o-grid -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ############ SKILLS ############ -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Skills
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    The hardest task to evaluate yourself and yet keeping the humbleness
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    80<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>C#</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="80"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    90<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>JavaScript</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="90"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    70<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>Git</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="70"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    65<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>Bash</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="65"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    90<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>SQL Server</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="90"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    50<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>HTML/CSS</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="50"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    75<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>Cloud Services</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="75"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <div class="o-media  o-media--block">
-                                            <div class="o-media__figure">
-                                                <div class="c-number  t-primary-color">
-                                                    30<small>%</small>
-                                                </div>
-                                            </div>
-                                            <div class="o-media__body">
-                                                <h3>Hardware and IOT</h3>
-                                            </div>
-                                        </div>
-                                        <div class="c-progress-bar  o-content__body  t-border-color-bg  u-mt-text">
-                                            <div class="a-progress-bar  c-progress-bar__filler  t-primary-bg" data-percent="30"></div>
-                                        </div>
-                                    </div>
-                                </div><!-- /o-grid__col -->
-
-                            </div><!-- /o-grid -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ########## EXPERIENCE ########## -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Experience
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Keep busy.
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  u-pb-0">
-                            
-                            <div class="a-experience-timeline  c-timeline  t-border-color">
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Mar 2018 &ndash; Present
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Softplan Planejamento e Sistemas
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    SR. Fullstack Engineer
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Florianópolis, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Help to design and write the code along with a super skilled squad team innovative solutions for the civil engineering and construction business.
-                                                </p>
-                                                <p>
-                                                  We use agile, nodejs, mongo and Angular 1 to 5 to make those apps look cool and perform faster and cheaper.
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    May 2015 &ndash; Mar 2018
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Portal Telemedicina
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    Lead Technical Architect
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Florianópolis, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                              <p>
-                                                Designed architecture and developed the end-to-end of a new progressive web app based on Asp.Net Web API 2.2, EF 6, Sql Server, AngularJS, Grunt, Functional Programming and Cloud Integration, creating an internal framework and standards to agile the whole development cycle, making the work of new developers swift and easy. 
-                                              </p>
-                                              <p>
-                                                Manage whatever tasks needed to keep Windows and Linux servers up, running, fast and secure on IBM's SoftLayer, Amazon's Aws, Microsoft's Azure and Google Cloud.
-                                              </p>
-                                              <p>
-                                                Giving assistance to the hiring process of new technical people by evaluation candidates resumes and public technical profiles, interviewing and supporting the on-boarding of new employees. 
-                                              </p>                                            
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    May 2014 &ndash; May 2015
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Guru das Ondas
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    Architect and Developer
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Laguna, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Maintenance Developer, adding new features, migrating solution from shared host to Amazon Web Services, upgrading environment to more up to date technology set, securing the application and the environment against hackers and crackers.
-                                                </p>
-                                                <p>
-                                                  Technology: Node.js, MongoDB, PHP, jQuery, MySQL, Amazon AWS (EC2, RDS, S3), Ubuntu, Git, Mercurial, NGINX. 
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Jan 2014 &ndash; Jun 2014
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Geogrid Maps
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    SR. Web Developer
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Tubarão, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Writing code to support the migration of specific GIS features from Flash Action Script to Java Script and jQuery. Using new HTML5 features such as local storage, workers and css animation. Integrating flash application, google maps v3, jstree 3 and php through JSON and Ajax.
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Oct 2010 &ndash; Mar 2014
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Intersena
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    SR. Software Engineer, Architect and DBA
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Freelance, Home Office, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Writing new features and fixing bugs whenever needed. Also responsible for improving performance through the appliance of new technology concepts as well as developing and/or rewriting complex routines and transactions.
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Nov 2008 &ndash; Sep 2010
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Cetil
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    SR. Software Architect
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Florianópolis, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Project NFSe (Nota Fiscal de Serviço Eletronica - Eletronic Services Invoice)
-                                                  <ul>
-                                                    <li>
-                                                      Architecture, Database and Class Design
-                                                    </li>
-                                                    <li>
-                                                      Security core design and implementation with Security Access Level
-                                                    </li>
-                                                    <li>
-                                                        Database implementation and maintenance
-                                                    </li>
-                                                    <li>
-                                                      Team technology brainstorm (for LINQ and MVC)
-                                                    </li>
-                                                    <li>
-                                                      Overall bugs and feature improvements maintenance
-                                                    </li>
-                                                  </ul>
-                                                </p>
-
-                                                <p>
-                                                  Project Clock punch 
-                                                  <ul>
-                                                    <li>
-                                                      Architecture, Database and Security Core Design and Implementation
-                                                    </li>
-                                                    <li>
-                                                      Overall bugs and feature improvements maintenance and creation of unit tests
-                                                    </li>
-                                                    <li>
-                                                      Core page design and implementation for reporting activities
-                                                    </li>
-                                                  </ul>
-                                                </p>
-  
-                                                <p>
-                                                  Provided leadership and mentoring to team of developers
-                                                  <ul>
-                                                    <li>
-                                                      Technical Interviews and Coaching
-                                                    </li>
-                                                    <li>
-                                                      Elaboration of tests
-                                                    </li>
-                                                    <li>
-                                                      Selected as interim acting manager during absence of manager
-                                                    </li>
-                                                  </ul>
-                                                </p>
-  
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Apr 2008 &ndash; Jun 2008
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    SOCIESC
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                    Instructor
-                                                </h4>
-                                                <div class="c-work__location">
-                                                    Joinville, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                              <p>
-                                                Delivered a class of the Microsoft Student To Business program. This course with 200 hours took half of those hours with classes about the framework, C#, ASP.Net and ORM for SQL Server, and them with the remaining time to support the students gathered in teams of four to develop an end-to-end application. 100% of good and great feedbacks from students and professors.
-                                              </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                    Jan 2007 &ndash; Oct 2008
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                    Imagem Tecnologia
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                  System Analyst &amp; Developer
-                                                </h4>
-                                                <div class="c-work__location">
-                                                  Joinville, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Written Web GPS ASP.NET/Sql Server system for public bus and shuttle company in order to track their vehicles and monitor possible malfunction and/or danger situations
-                                                </p>
-                                                <p>
-                                                  Used Google Maps APIs to pinpoint in real-time the vehicles, terminals, bus stops and routes
-                                                </p>
-                                                <p>
-                                                  Defined deadlines and performing most project management tasks
-                                                </p>
-                                                  
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                  2002 &ndash; 2004
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                  Microsoft
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                  Innovation Center Program Manager
-                                                </h4>
-                                                <div class="c-work__location">
-                                                  São Paulo, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Identify key students for the innovation center program, prepare those students to write applications with .NET Framework 1.x and support the development of a proof pilot to leverage the technology adoption
-                                                </p>
-                                                <p>
-                                                  Keep students and professors up to date with .Net best practices absorbed throughout the world
-                                                </p>
-                                                <p>
-                                                  Perform business and administration tasks in the absence of a manager and keeping the satisfaction from all centers above average
-                                                </p>
-                                                <p>
-                                                  Performed all the above tasks at the following centers: São Paulo, Rio de Janeiro, Curitiba, Porto Alegre, Recife e Fortaleza
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                  2001 &ndash; 2002
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                  Microsoft
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                  Account Technical Specialist
-                                                </h4>
-                                                <div class="c-work__location">
-                                                  São Paulo, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Responsible for having a track of the whole IT department at all accounts I was assigned to
-                                                </p>
-                                                <p>
-                                                  Raise sales opportunities through technology assessment
-                                                </p>
-                                                <p>
-                                                  Engage partners at sales support
-                                                </p>
-                                                <p>
-                                                  Bridge the communication between support (Las Colinas) and technical team at assigned accounts
-                                                </p>
-                                                <p>
-                                                  Fix bugs, apply patches, develop core functionalities for early adoption programs and assist development team to report issues, deploy and test beta versions
-                                                </p>
-                                              </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                  1999 &ndash; 2001
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                  Microsoft
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                  Applications Engineer
-                                                </h4>
-                                                <div class="c-work__location">
-                                                  São Paulo, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Course material development in order to evangelize Microsoft Partners Channel related to distributed and workflow systems and smart cards automation
-                                                </p>
-                                                <p>
-                                                  Studied and supported Microsoft Partners Channel at LOB Applications Development. Those applications were widely used at the knowledge management, business intelligence, ERP and e-commerce horizontal markets and at the retail, industry, government, manufacturing, education and financial vertical markets. I also had the opportunity of writing applications with Microsoft Visual Studio and BackOffice servers such as Exchange 2000, SQL 2000/7.0, Active Directory, Site Server and others
-                                                </p>
-                                              </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-                                <div class="c-timeline__item">
-                                    <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                    <div class="o-content">
-                                        <div class="o-grid">
-                                            <div class="o-grid__col-md-5">
-                                                <div class="c-work__timeframe">
-                                                  1998 &ndash; 1999
-                                                </div>
-                                                <h3 class="c-work__heading">
-                                                  Microsoft
-                                                </h3>
-                                                <h4 class="c-work__title">
-                                                  Seminar Group Member
-                                                </h4>
-                                                <div class="c-work__location">
-                                                  São Paulo, Brazil
-                                                </div>
-                                            </div>
-                                            <div class="o-grid__col-md-7">
-                                                <p>
-                                                  Development of scenarios, strategies, briefings and workshops for Tools, Knowledge Management and Business Intelligence
-                                                </p>
-                                                <p>
-                                                  Accomplishment of several seminars in meetings, talks, events and congresses about Microsoft Technology throughout national territory
-                                                </p>
-                                              </div>
-                                        </div><!-- /o-grid -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /c-timeline__item -->
-
-
-                            </div><!-- /c-timeline -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ########### EDUCATION ########## -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Education
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Serious advocate of home self-taught learning new skills
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  u-pt-0">
-                            
-                            <div class="o-content">
-                                <div class="a-education-timeline  c-timeline  t-border-color  o-section__full-top-space">
-                                    <div class="c-timeline__end  t-border-color"></div>
-
-                                    <div class="c-timeline__item">
-                                        <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                        <div class="o-content">
-                                            <div class="o-grid">
-                                                <div class="o-grid__col-md-5">
-                                                    <div class="c-work__timeframe">
-                                                        2018 &ndash; Present
-                                                    </div>
-                                                    <h3 class="c-work__heading">
-                                                        Self Teaching IOT Technologies
-                                                    </h3>
-                                                    <h4 class="c-work__title">
-                                                        IOT and Arduino Practioner
-                                                    </h4>
-                                                    <div class="c-work__location">
-                                                        Brazil
-                                                    </div>
-                                                </div>
-                                                <div class="o-grid__col-md-7">
-                                                    <p>
-                                                      I have been self teaching me the arts of IOT and Industry 4.0 in order to understand how this business works and also to acquire knowledge to be applied at my day-by-day tech work
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-grid -->
-                                        </div><!-- /o-content -->
-                                    </div><!-- /c-timeline__item -->
-
-                                    <div class="c-timeline__item">
-                                        <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                        <div class="o-content">
-                                            <div class="o-grid">
-                                                <div class="o-grid__col-md-5">
-                                                    <div class="c-work__timeframe">
-                                                        2012 &ndash; Present
-                                                    </div>
-                                                    <h3 class="c-work__heading">
-                                                        Self Teaching Non-Microsoft OS's and Technologies
-                                                    </h3>
-                                                    <h4 class="c-work__title">
-                                                        Linux and OSx
-                                                        Node.js, HTML 5 and CSS3 
-                                                    </h4>
-                                                    <div class="c-work__location">
-                                                        Brazil
-                                                    </div>
-                                                </div>
-                                                <div class="o-grid__col-md-7">
-                                                    <p>
-                                                      After a life long of Microsoft Technologies and Microsoft employment I have decided that I needed a radical shift in my technological approaches, and therefore started to take on open source knowledge and usage. From dropping a Windows machine to deliberately avoiding everything Microsoft has their hands on I was able since then to become a very skilled professional in open-source technologies
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-grid -->
-                                        </div><!-- /o-content -->
-                                    </div><!-- /c-timeline__item -->
-
-                                    <div class="c-timeline__item">
-                                        <div class="c-timeline__point  t-timeline__point  t-primary-bg"></div>
-                                        <div class="o-content">
-                                            <div class="o-grid">
-                                                <div class="o-grid__col-md-5">
-                                                    <div class="c-work__timeframe">
-                                                        1993 &ndash; 1995
-                                                    </div>
-                                                    <h3 class="c-work__heading">
-                                                        FECAP - Fundação Escola e Comércio Álvares Penteado
-                                                    </h3>
-                                                    <h4 class="c-work__title">
-                                                      Data Processing and Data Processing Technology
-                                                    </h4>
-                                                    <div class="c-work__location">
-                                                      São Paulo, Brazil
-                                                    </div>
-                                                </div>
-                                                <div class="o-grid__col-md-7">
-                                                    <p>
-                                                      I always knew what I wanted to do in my life in terms of professional choices. When I was thirteen I had my first contact with a software language (Basic) and then, by the age of fifteen I started this three years technical course in order to get an academic certificate in writing code and managing databases.
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-grid -->
-                                        </div><!-- /o-content -->
-                                    </div><!-- /c-timeline__item -->
-
-                                </div><!-- /c-timeline -->
-                            </div><!-- /o-content -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ########### PROFILES ########### -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Profiles
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Busy as usual.
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-
-                                <div class="o-grid__col-xl-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <a href="https://github.com/msant77/" target="_blank" class="t-link-container">
-                                            <div class="o-media  o-media--block">
-                                                <div class="o-media__figure">
-                                                    <div class="c-profile__icon">
-                                                        <i class="fa  fa-lg  fa-github-alt"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="o-media__body  o-content__body">
-                                                    <h3 class="t-link-container__item">
-                                                        GitHub
-                                                    </h3>
-                                                    <p>
-                                                        All my open source projects for you to analyze.
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-media -->
-                                        </a><!-- /t-link-container -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-xl-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <a href="http://stackoverflow.com/users/3280069/marcosantana" target="_blank" class="t-link-container">
-                                            <div class="o-media  o-media--block">
-                                                <div class="o-media__figure">
-                                                    <div class="c-profile__icon">
-                                                        <i class="fa  fa-lg  fa-stack-overflow"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="o-media__body  o-content__body">
-                                                    <h3 class="t-link-container__item">
-                                                        Stack Overflow
-                                                    </h3>
-                                                    <p>
-                                                      An essential tool that I use everyday. I am still shy contributing, but one day my contributions might grow in significance.
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-media -->
-                                        </a><!-- /t-link-container -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-xl-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <a href="https://linkedin.com/in/marcosantana77" target="_blank" class="t-link-container">
-                                            <div class="o-media  o-media--block">
-                                                <div class="o-media__figure">
-                                                    <div class="c-profile__icon">
-                                                        <i class="fa  fa-lg  fa-linkedin"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="o-media__body  o-content__body">
-                                                    <h3 class="t-link-container__item">
-                                                        Linkedin
-                                                    </h3>
-                                                    <p>
-                                                      I still don't write much, but I am always with my up to date resume, looking out for the market opportunities.
-                                                    </p>
-                                                </div>
-                                            </div><!-- /o-media -->
-                                        </a><!-- /t-link-container -->
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-
-                            </div><!-- /o-grid -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-            <!-- ################################ -->
-            <!-- ############ HEADER ############ -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  ">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Recommendations
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    People that loved working with me and I can call friends
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>Claudio Fernando Maciel</h3>
-                                            <h4>CTO at Brokerme</h4>
-                                            <p>
-                                              Marco Santana is a skilled professional, full of surprises when it comes down to bringing up inovative solutions for a hefty array of situations within the IT context.
-                                            </p>
-                                            <p>
-                                              Very easy going person, everyone in the team wil get along with him as soon as one meets him.
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>Rob Ranches</h3>
-                                            <h4>BI Architect / Data Scientist at Bausch Health</h4>
-                                            <p>
-                                              Marco is one of the key figures in developing IT evangelism throughout Brasil, learn fast and is a very dedicated person.
-                                            </p>
-                                            <p>
-                                              As a developer is a keen guy and it's always ready to help the others. 
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>Jean Paulo da Silva Ramos</h3>
-                                            <h4>CEO Ecovilas - Cabo Frio</h4>
-                                            <p>
-                                              Marco is the type of professional you MUST HAVE in your organization, is a kind of professional we met during our career and we want to stay in touch, is one of the best professionals I ever worked with.
-                                            </p>
-                                            <p>
-                                                Extremely oriented to achieve the goals and always available to support others teams.
-                                            </p>
-                                            <p>
-                                              His personal values and professional commitments are impressive. In addition to his deep technical knowledge, which needs no further comments, he has a clear vision of users needs.                                               
-                                            </p>
-                                        </div>
-                                    </div><!-- /o-content -->
-                                </div><!-- /o-grid__col -->
-
-
-                              </div><!-- /o-grid -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-
-            <!-- ################################ -->
-            <!-- ############ FOOTER ############ -->
-            <!-- ################################ -->
-            
-            <section class="o-section  t-section  o-section--footer">
-
-                <div class="o-section__header-bg  t-section__header"></div>
-                <div class="o-section__content-bg  t-section__content"></div>
-
-                <div class="o-container">
-                    <div class="o-section__container">
-
-                        <header class="o-section__header  t-section__header">
-                            <div class="o-content">
-                                <h2 class="o-section__heading">
-                                    Contact
-                                </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Call me, maybe.
-                                </div>
-                            </div>
-                        </header><!-- /o-section__header -->
-
-                        <div class="o-section__content  t-section__content  ">
-                            
-                                <div class="c-footer__contact">
-                                    <div class="o-grid">
-
-                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                        <div class="o-content">
-                                            <div class="o-content__body">
-                                                <h4>Location</h4>
-                                                <address>
-                                                    Florianópolis, Brazil
-                                                </address>
-                                            </div>
-                                        </div><!-- /o-content -->
-                                    </div><!-- /o-grid__col -->
-
-                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                        <div class="o-content">
-                                            <div class="o-content__body">
-                                                <h4>Phone</h4>
-                                                <p>
-                                                    +55 48 9 9608 4789
-                                                </p>
-                                            </div>
-                                        </div><!-- /o-content -->
-                                    </div><!-- /o-grid__col -->
-
-                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                        <div class="o-content">
-                                            <div class="o-content__body">
-                                                <a href="http://msant.org" target="_blank" class="t-link-container">
-                                                    <h4>Web</h4>
-                                                    <p>
-                                                        <span class="t-link-container__item--blended">
-                                                            msant.org
-                                                        </span>
-                                                    </p>
-                                                </a><!-- /o-link-container -->
-                                            </div>
-                                        </div><!-- /o-content -->
-                                    </div><!-- /o-grid__col -->
-
-                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                        <div class="o-content">
-                                            <div class="o-content__body">
-                                                <a href="#" target="_blank" class="t-link-container">
-                                                    <h4>Email</h4>
-                                                    <p>
-                                                        <span class="t-link-container__item--blended">
-                                                            marcosantana@msn.com
-                                                        </span>
-                                                    </p>
-                                                </a><!-- /o-link-container -->
-                                            </div>
-                                        </div><!-- /o-content -->
-                                    </div><!-- /o-grid__col -->
-
-                                </div><!-- /o-grid -->
-                                </div><!-- /c-footer__contact -->
-
-                                <hr class="c-footer__contact-divider" />
-
-                                <div class="o-content">
-                                    <div class="c-footer__bottom">
-                                        <div class="c-footer__brand">
-
-                                            <div class="c-brand">
-                                                <div class="o-content__body">
-                                                    <h1 class="c-brand__title  t-title">
-                                                        <span class="c-brand__sizer  c-brand__sizer--sm">
-                                                            <span class="a-footer  c-brand__first-word  t-title__first-word">
-                                                                Marco
-                                                            </span>
-                                                            <span class="a-footer  c-brand__second-word  t-title__second-word">
-                                                                Santana
-                                                            </span>
-                                                        </span>
-                                                    </h1>
-                                                </div><!-- /o-content__body -->
-                                            </div><!-- /c-brand -->
-
-                                        </div><!-- /c-footer__brand -->
-
-                                        <ul class="c-footer__social-buttons  c-social-buttons  o-content__body">
-                                            <li class="a-footer">
-                                                <a href="https://www.linkedin.com/in/marcosantana77/" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-linkedin"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-footer">
-                                                <a href="https://github.com/msant77" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-github"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-footer">
-                                                <a href="https://stackoverflow.com/users/3280069/marcosantana" target="_blank" class="c-social-button  t-social-button">
-                                                    <i class="fa  fa-lg  fa-stack-overflow"></i>
-                                                </a>
-                                            </li>
-                                            <li class="a-footer">
-                                              <a href="https://facebook.com/marcosantana77" target="_blank" class="c-social-button  t-social-button">
-                                                  <i class="fa  fa-lg  fa-facebook"></i>
-                                              </a>
-                                          </li>                                        </ul><!-- /c-footer__social-buttons -->
-
-                                    </div><!-- /c-footer__bottom -->
-                                </div><!-- /o-content -->
-
-                        </div><!-- /o-section__content -->
-
-                    </div><!-- /o-section__container -->
-                </div><!-- /o-container -->
-
-            </section><!-- /o-section -->
-
-
-
-        </div><!-- /c-main-container -->
-
-    </body>
-
+        <div class="certification-item">
+          <h3 class="certification-item__name">Designing Distributed Applications with Microsoft Visual Basic 6.0</h3>
+          <p class="certification-item__id">Exam 70-175</p>
+        </div>
+
+        <div class="certification-item">
+          <h3 class="certification-item__name">Collaborative Solutions with MS Outlook 2000 / Exchange Server 5.5</h3>
+          <p class="certification-item__id">Exam 70-105</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="site-footer__links" aria-label="Footer social links">
+        <a href="https://www.linkedin.com/in/marcosantana" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/msant77" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </nav>
+      <p class="site-footer__contact">
+        <a href="mailto:marcosantana@msn.com">marcosantana@msn.com</a> · +55 48 9 9173-3374
+      </p>
+      <p class="site-footer__copyright">&copy; 2026 Marco Santana. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+</body>
 </html>
