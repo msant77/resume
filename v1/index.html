@@ -29,7 +29,10 @@
 <body>
 
   <!-- Skip link -->
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
+
+  <!-- Language toggle -->
+  <button class="lang-toggle" aria-label="Switch to Portuguese">PT</button>
 
   <!-- Theme toggle -->
   <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -44,7 +47,7 @@
     <div class="container">
       <img src="assets/images/header/avatar1.png" alt="Photo of Marco Santana" class="avatar" width="160" height="160">
       <h1 class="site-header__name">Marco Santana</h1>
-      <p class="site-header__title">Software Engineer</p>
+      <p class="site-header__title" data-i18n="header.title">Software Engineer</p>
       <p class="site-header__contact">
         <!-- Map pin -->
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -75,17 +78,17 @@
     <!-- ===== ABOUT ===== -->
     <section class="section about animate-on-scroll" id="about">
       <div class="container">
-        <h2 class="section__title">About</h2>
-        <p>
+        <h2 class="section__title" data-i18n="section.about">About</h2>
+        <p data-i18n="about.p1">
           With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and AI-driven products at H2O.ai.
         </p>
-        <p>
+        <p data-i18n="about.p2">
           Today I work as an <strong>AI-native polyglot engineer</strong> — designing and shipping production software across TypeScript, Dart, Swift, and Rust with AI-assisted development as my core methodology. In the first quarter of 2026 alone, I shipped 800+ commits across 8 projects: a multi-tenant insurance SaaS, a cross-platform music notation ecosystem (iPad + macOS App Store), a lunar-aware farm management app for iOS and Apple Watch, a privacy-first database app with Rust P2P sync, a community directory for a Brazilian coastal village, and a developer feedback SDK — all built with AI pair programming at every step.
         </p>
-        <p>
+        <p data-i18n="about.p3">
           I value pragmatic design, clean code, and work that makes a tangible difference.
         </p>
-        <p class="about__languages">
+        <p class="about__languages" data-i18n="about.languages">
           <strong>Languages:</strong> Portuguese (native) · English (full professional) · Spanish (elementary)
         </p>
       </div>
@@ -94,29 +97,29 @@
     <!-- ===== EXPERIENCE ===== -->
     <section class="section animate-on-scroll" id="experience">
       <div class="container">
-        <h2 class="section__title">Experience</h2>
+        <h2 class="section__title" data-i18n="section.experience">Experience</h2>
 
         <div class="timeline">
 
           <!-- Independent Engineer -->
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
-              <h3 class="timeline__company">Independent Software Engineer</h3>
+              <h3 class="timeline__company" data-i18n="exp.independent">Independent Software Engineer</h3>
             </div>
             <div class="timeline__meta">
-              <span>Jan 2025 – Present</span>
-              <span>Santa Catarina, Brazil</span>
+              <span data-i18n="exp.independent.meta">Jan 2025 – Present</span>
+              <span data-i18n="header.location">Santa Catarina, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Designing, building, and shipping production software across five languages and multiple platforms — using AI-assisted development (Claude, ChatGPT, Grok) as a core engineering workflow. 800+ commits across 8 projects in Q1 2026.</p>
+              <p data-i18n="exp.independent.desc">Designing, building, and shipping production software across five languages and multiple platforms — using AI-assisted development (Claude, ChatGPT, Grok) as a core engineering workflow. 800+ commits across 8 projects in Q1 2026.</p>
               <ul>
-                <li><strong>Braxum</strong> — Multi-tenant insurance cooperative SaaS. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.</li>
-                <li><strong>Chordo</strong> — Open-source music notation ecosystem. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.</li>
-                <li><strong>Moonstead</strong> — Lunar-aware farm management for iOS and Apple Watch. SwiftUI, HealthKit, CoreLocation. Real-time activity tracking with heart rate, GPS, cadence, and splits. Custom taxonomy with 250+ SF Symbols, aerial drone overlay, 4-language support.</li>
-                <li><strong>Whisper DB</strong> — Privacy-first database app with P2P sync. Flutter frontend with Rust FFI backend. Ed25519 identity derivation, interactive diagram editor, 300+ tests.</li>
-                <li><strong>Offline-ST</strong> — P2P sync framework in Rust. 10-crate workspace: HLC clocks, CRDTs, multi-transport networking, encrypted messaging, UniFFI bindings for Swift/iOS.</li>
-                <li><strong>alpha-tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.</li>
-                <li><strong>Ponta da Barra</strong> — Community directory for a Brazilian coastal village. Flutter Web on Cloudflare Pages. Offline-first with SQLite WASM, multilingual (PT/EN/ES).</li>
+                <li data-i18n="exp.independent.braxum"><strong>Braxum</strong> — Multi-tenant insurance cooperative SaaS. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.</li>
+                <li data-i18n="exp.independent.chordo"><strong>Chordo</strong> — Open-source music notation ecosystem. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.</li>
+                <li data-i18n="exp.independent.moonstead"><strong>Moonstead</strong> — Lunar-aware farm management for iOS and Apple Watch. SwiftUI, HealthKit, CoreLocation. Real-time activity tracking with heart rate, GPS, cadence, and splits. Custom taxonomy with 250+ SF Symbols, aerial drone overlay, 4-language support.</li>
+                <li data-i18n="exp.independent.whisperdb"><strong>Whisper DB</strong> — Privacy-first database app with P2P sync. Flutter frontend with Rust FFI backend. Ed25519 identity derivation, interactive diagram editor, 300+ tests.</li>
+                <li data-i18n="exp.independent.offlinest"><strong>Offline-ST</strong> — P2P sync framework in Rust. 10-crate workspace: HLC clocks, CRDTs, multi-transport networking, encrypted messaging, UniFFI bindings for Swift/iOS.</li>
+                <li data-i18n="exp.independent.alphatester"><strong>alpha-tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.</li>
+                <li data-i18n="exp.independent.pdb"><strong>Ponta da Barra</strong> — Community directory for a Brazilian coastal village. Flutter Web on Cloudflare Pages. Offline-first with SQLite WASM, multilingual (PT/EN/ES).</li>
               </ul>
             </div>
             <div class="timeline__tech">
@@ -141,13 +144,13 @@
           <!-- AI Studies -->
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
-              <h3 class="timeline__company">AI Engineering / Studies</h3>
+              <h3 class="timeline__company" data-i18n="exp.studies">AI Engineering / Studies</h3>
             </div>
             <div class="timeline__meta">
-              <span>Apr 2024 – Dec 2024</span>
+              <span data-i18n="exp.studies.meta">Apr 2024 – Dec 2024</span>
             </div>
             <div class="timeline__description">
-              <p>Focused period of study after four years at H2O.ai. Deepened expertise in AI engineering — LLMs, retrieval-augmented generation, prompt engineering, and AI-assisted development workflows. Began building the ICLF chord notation specification and early prototypes of the Chordo ecosystem.</p>
+              <p data-i18n="exp.studies.desc">Focused period of study after four years at H2O.ai. Deepened expertise in AI engineering — LLMs, retrieval-augmented generation, prompt engineering, and AI-assisted development workflows. Began building the ICLF chord notation specification and early prototypes of the Chordo ecosystem.</p>
             </div>
           </article>
 
@@ -155,14 +158,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">H2O.ai</h3>
-              <p class="timeline__role">Frontend Engineer</p>
+              <p class="timeline__role" data-i18n="exp.h2o.role">Frontend Engineer</p>
             </div>
             <div class="timeline__meta">
-              <span>May 2020 – Apr 2024 · 4 years</span>
+              <span data-i18n="exp.h2o.meta1">May 2020 – Apr 2024 · 4 years</span>
               <span>Laguna, SC, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Built and maintained the user interface for H2O.ai's machine-learning platform in React and TypeScript. Developed shared component libraries, collaborated closely with design and backend teams, and contributed to internal developer tooling.</p>
+              <p data-i18n="exp.h2o.desc">Built and maintained the user interface for H2O.ai's machine-learning platform in React and TypeScript. Developed shared component libraries, collaborated closely with design and backend teams, and contributed to internal developer tooling.</p>
             </div>
             <div class="timeline__tech">
               <span>React</span>
@@ -181,21 +184,21 @@
               <h3 class="timeline__company">BairesDev</h3>
             </div>
             <div class="timeline__meta">
-              <span>Aug 2018 – Apr 2020 · 1 year 9 months</span>
+              <span data-i18n="exp.bairesdev.meta1">Aug 2018 – Apr 2020 · 1 year 9 months</span>
               <span>Florian&oacute;polis, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Designed and implemented solutions for a North American e-procurement SaaS platform, progressing from senior engineer to team lead.</p>
+              <p data-i18n="exp.bairesdev.desc">Designed and implemented solutions for a North American e-procurement SaaS platform, progressing from senior engineer to team lead.</p>
             </div>
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Technical Team Lead</p>
-              <p class="timeline__subrole-meta">Sep 2019 – Apr 2020</p>
-              <p class="timeline__subrole-desc">Led the team designing and implementing Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services. Onboarded new developers, provided day-to-day technical support to the team, and led grooming and planning meetings.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.bairesdev.lead">Technical Team Lead</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.bairesdev.lead.meta">Sep 2019 – Apr 2020</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.bairesdev.lead.desc">Led the team designing and implementing Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services. Onboarded new developers, provided day-to-day technical support to the team, and led grooming and planning meetings.</p>
             </div>
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Senior Full Stack Engineer</p>
-              <p class="timeline__subrole-meta">Aug 2018 – Sep 2019</p>
-              <p class="timeline__subrole-desc">Designed and implemented solutions with Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.bairesdev.senior">Senior Full Stack Engineer</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.bairesdev.senior.meta">Aug 2018 – Sep 2019</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.bairesdev.senior.desc">Designed and implemented solutions with Dynamic Form Build Generation, WAND Taxonomy, and AWS Lambda/Gateway services.</p>
             </div>
             <div class="timeline__tech">
               <span>AWS Lambda</span>
@@ -209,14 +212,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Softplan</h3>
-              <p class="timeline__role">Full Stack Developer</p>
+              <p class="timeline__role" data-i18n="exp.softplan.role">Full Stack Developer</p>
             </div>
             <div class="timeline__meta">
-              <span>Mar 2018 – Sep 2018 · 7 months</span>
+              <span data-i18n="exp.softplan.meta1">Mar 2018 – Sep 2018 · 7 months</span>
               <span>Florian&oacute;polis, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Built web applications for the civil engineering and construction industry.</p>
+              <p data-i18n="exp.softplan.desc">Built web applications for the civil engineering and construction industry.</p>
             </div>
             <div class="timeline__tech">
               <span>Node.js</span>
@@ -229,14 +232,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Portal Telemedicina</h3>
-              <p class="timeline__role">Lead Technical Architect</p>
+              <p class="timeline__role" data-i18n="exp.telemedicina.role">Lead Technical Architect</p>
             </div>
             <div class="timeline__meta">
-              <span>May 2015 – Mar 2018 · ~3 years</span>
+              <span data-i18n="exp.telemedicina.meta1">May 2015 – Mar 2018 · ~3 years</span>
               <span>Florian&oacute;polis, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Architected and developed a progressive web application for telemedicine. Managed multi-cloud infrastructure spanning IBM SoftLayer, AWS, Azure, and Google Cloud. Supported hiring and onboarding of technical staff.</p>
+              <p data-i18n="exp.telemedicina.desc">Architected and developed a progressive web application for telemedicine. Managed multi-cloud infrastructure spanning IBM SoftLayer, AWS, Azure, and Google Cloud. Supported hiring and onboarding of technical staff.</p>
             </div>
             <div class="timeline__tech">
               <span>ASP.NET Web API</span>
@@ -253,14 +256,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Guru das Ondas</h3>
-              <p class="timeline__role">Web Architect / Developer / Partner-Owner</p>
+              <p class="timeline__role" data-i18n="exp.guru.role">Web Architect / Developer / Partner-Owner</p>
             </div>
             <div class="timeline__meta">
-              <span>May 2014 – May 2015</span>
+              <span data-i18n="exp.guru.meta1">May 2014 – May 2015</span>
               <span>Laguna, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Co-founded and built a surf-related web platform from the ground up.</p>
+              <p data-i18n="exp.guru.desc">Co-founded and built a surf-related web platform from the ground up.</p>
             </div>
             <div class="timeline__tech">
               <span>Node.js</span>
@@ -275,13 +278,13 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Fresh Media</h3>
-              <p class="timeline__role">Web Solutions Architect</p>
+              <p class="timeline__role" data-i18n="exp.freshmedia.role">Web Solutions Architect</p>
             </div>
             <div class="timeline__meta">
-              <span>Oct 2014 – Feb 2015</span>
+              <span data-i18n="exp.freshmedia.meta1">Oct 2014 – Feb 2015</span>
             </div>
             <div class="timeline__description">
-              <p>Designed and built web solutions using WordPress, AWS, PHP, Node.js, and AngularJS.</p>
+              <p data-i18n="exp.freshmedia.desc">Designed and built web solutions using WordPress, AWS, PHP, Node.js, and AngularJS.</p>
             </div>
           </article>
 
@@ -289,13 +292,13 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Geogrid Maps</h3>
-              <p class="timeline__role">Senior Web Developer</p>
+              <p class="timeline__role" data-i18n="exp.geogrid.role">Senior Web Developer</p>
             </div>
             <div class="timeline__meta">
-              <span>Jan 2014 – Jun 2014</span>
+              <span data-i18n="exp.geogrid.meta1">Jan 2014 – Jun 2014</span>
             </div>
             <div class="timeline__description">
-              <p>Migrated GIS features from Flash/ActionScript to JavaScript. Built Google Maps V3 integration for geospatial data visualization.</p>
+              <p data-i18n="exp.geogrid.desc">Migrated GIS features from Flash/ActionScript to JavaScript. Built Google Maps V3 integration for geospatial data visualization.</p>
             </div>
             <div class="timeline__tech">
               <span>JavaScript</span>
@@ -307,13 +310,13 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Intersena</h3>
-              <p class="timeline__role">Senior Software Developer / Architect / DBA</p>
+              <p class="timeline__role" data-i18n="exp.intersena.role">Senior Software Developer / Architect / DBA</p>
             </div>
             <div class="timeline__meta">
-              <span>Oct 2010 – Mar 2014</span>
+              <span data-i18n="exp.intersena.meta1">Oct 2010 – Mar 2014</span>
             </div>
             <div class="timeline__description">
-              <p>Freelance role focused on feature development, database performance optimization, and rewriting complex data routines.</p>
+              <p data-i18n="exp.intersena.desc">Freelance role focused on feature development, database performance optimization, and rewriting complex data routines.</p>
             </div>
           </article>
 
@@ -321,14 +324,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Cetil Sistemas</h3>
-              <p class="timeline__role">Senior Software Architect</p>
+              <p class="timeline__role" data-i18n="exp.cetil.role">Senior Software Architect</p>
             </div>
             <div class="timeline__meta">
-              <span>Nov 2008 – Sep 2010</span>
+              <span data-i18n="exp.cetil.meta1">Nov 2008 – Sep 2010</span>
               <span>Florian&oacute;polis, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Led architecture and development of NFSe (electronic invoice) and time-clock systems. Mentored developers, conducted technical interviews, and served as interim engineering manager.</p>
+              <p data-i18n="exp.cetil.desc">Led architecture and development of NFSe (electronic invoice) and time-clock systems. Mentored developers, conducted technical interviews, and served as interim engineering manager.</p>
             </div>
           </article>
 
@@ -336,14 +339,14 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">Imagem Tecnologia</h3>
-              <p class="timeline__role">Systems Analyst / Developer</p>
+              <p class="timeline__role" data-i18n="exp.imagem.role">Systems Analyst / Developer</p>
             </div>
             <div class="timeline__meta">
-              <span>Jun 2007 – Oct 2008</span>
+              <span data-i18n="exp.imagem.meta1">Jun 2007 – Oct 2008</span>
               <span>Joinville, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Built a web-based GPS tracking system with real-time Google Maps integration for public transit monitoring.</p>
+              <p data-i18n="exp.imagem.desc">Built a web-based GPS tracking system with real-time Google Maps integration for public transit monitoring.</p>
             </div>
             <div class="timeline__tech">
               <span>ASP.NET</span>
@@ -356,52 +359,52 @@
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
               <h3 class="timeline__company">SOCIESC</h3>
-              <p class="timeline__role">Instructor, Student To Business</p>
+              <p class="timeline__role" data-i18n="exp.sociesc.role">Instructor, Student To Business</p>
             </div>
             <div class="timeline__meta">
-              <span>Apr 2008 – Jun 2008</span>
+              <span data-i18n="exp.sociesc.meta1">Apr 2008 – Jun 2008</span>
               <span>Joinville, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Taught a 200-hour Microsoft .NET course covering C#, ASP.NET, and ORM fundamentals. Achieved 100% positive student feedback.</p>
+              <p data-i18n="exp.sociesc.desc">Taught a 200-hour Microsoft .NET course covering C#, ASP.NET, and ORM fundamentals. Achieved 100% positive student feedback.</p>
             </div>
           </article>
 
           <!-- Microsoft Brazil -->
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
-              <h3 class="timeline__company">Microsoft Brazil</h3>
+              <h3 class="timeline__company">Microsoft Brasil</h3>
             </div>
             <div class="timeline__meta">
-              <span>1998 – 2004 · 6 years</span>
+              <span data-i18n="exp.microsoft.meta1">1998 – 2004 · 6 years</span>
               <span>S&atilde;o Paulo, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p>Six years at Microsoft spanning four roles, progressing from technical evangelism to innovation center management.</p>
+              <p data-i18n="exp.microsoft.desc">Six years at Microsoft spanning four roles, progressing from technical evangelism to innovation center management.</p>
             </div>
 
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Innovation Center Program Manager</p>
-              <p class="timeline__subrole-meta">2002 – 2004</p>
-              <p class="timeline__subrole-desc">Selected and mentored top-performing students to build .NET applications. Managed innovation centers across six Brazilian cities: S&atilde;o Paulo, Rio de Janeiro, Curitiba, Porto Alegre, Recife, and Fortaleza.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.microsoft.ic">Innovation Center Program Manager</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.microsoft.ic.meta">2002 – 2004</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.microsoft.ic.desc">Selected and mentored top-performing students to build .NET applications. Managed innovation centers across six Brazilian cities: S&atilde;o Paulo, Rio de Janeiro, Curitiba, Porto Alegre, Recife, and Fortaleza.</p>
             </div>
 
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Account Technical Specialist</p>
-              <p class="timeline__subrole-meta">2001 – 2002</p>
-              <p class="timeline__subrole-desc">Engaged with IT departments at assigned accounts, identified sales opportunities through technology assessment, and served as a liaison between support and technical teams.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.microsoft.ats">Account Technical Specialist</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.microsoft.ats.meta">2001 – 2002</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.microsoft.ats.desc">Engaged with IT departments at assigned accounts, identified sales opportunities through technology assessment, and served as a liaison between support and technical teams.</p>
             </div>
 
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Applications Engineer</p>
-              <p class="timeline__subrole-meta">1999 – 2001</p>
-              <p class="timeline__subrole-desc">Created training materials for the Microsoft Partners Channel. Supported line-of-business application development across enterprise verticals.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.microsoft.ae">Applications Engineer</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.microsoft.ae.meta">1999 – 2001</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.microsoft.ae.desc">Created training materials for the Microsoft Partners Channel. Supported line-of-business application development across enterprise verticals.</p>
             </div>
 
             <div class="timeline__subrole">
-              <p class="timeline__subrole-title">Seminar Group Member</p>
-              <p class="timeline__subrole-meta">1998 – 1999</p>
-              <p class="timeline__subrole-desc">Developed scenarios and delivered seminars on Microsoft technology nationwide.</p>
+              <p class="timeline__subrole-title" data-i18n="exp.microsoft.sg">Seminar Group Member</p>
+              <p class="timeline__subrole-meta" data-i18n="exp.microsoft.sg.meta">1998 – 1999</p>
+              <p class="timeline__subrole-desc" data-i18n="exp.microsoft.sg.desc">Developed scenarios and delivered seminars on Microsoft technology nationwide.</p>
             </div>
           </article>
 
@@ -412,7 +415,7 @@
     <!-- ===== PROJECTS ===== -->
     <section class="section animate-on-scroll" id="projects">
       <div class="container">
-        <h2 class="section__title">Projects</h2>
+        <h2 class="section__title" data-i18n="section.projects">Projects</h2>
 
         <div class="projects-grid">
 
@@ -420,7 +423,7 @@
             <h3 class="project-card__name">
               <a href="https://dev.braxum.com" target="_blank" rel="noopener noreferrer">Braxum</a>
             </h3>
-            <p class="project-card__desc">Multi-tenant insurance cooperative management SaaS. Full production platform with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.</p>
+            <p class="project-card__desc" data-i18n="proj.braxum.desc">Multi-tenant insurance cooperative management SaaS. Full production platform with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.</p>
             <div class="timeline__tech">
               <span>Next.js 16</span>
               <span>TypeScript</span>
@@ -434,7 +437,7 @@
 
           <article class="project-card animate-on-scroll">
             <h3 class="project-card__name">Chordo</h3>
-            <p class="project-card__desc">Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.</p>
+            <p class="project-card__desc" data-i18n="proj.chordo.desc">Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.</p>
             <div class="timeline__tech">
               <span>Dart</span>
               <span>Flutter</span>
@@ -446,7 +449,7 @@
 
           <article class="project-card animate-on-scroll">
             <h3 class="project-card__name">Moonstead</h3>
-            <p class="project-card__desc">Lunar-aware farm management app for iOS and Apple Watch. Tracks real-time health and activity metrics — heart rate, GPS routes, cadence, pace, and splits. Features a custom taxonomy system with 250+ SF Symbols, aerial drone overlay for farm mapping, weather integration, and multilingual support in four languages.</p>
+            <p class="project-card__desc" data-i18n="proj.moonstead.desc">Lunar-aware farm management app for iOS and Apple Watch. Tracks real-time health and activity metrics — heart rate, GPS routes, cadence, pace, and splits. Features a custom taxonomy system with 250+ SF Symbols, aerial drone overlay for farm mapping, weather integration, and multilingual support in four languages.</p>
             <div class="timeline__tech">
               <span>Swift</span>
               <span>SwiftUI</span>
@@ -459,7 +462,7 @@
 
           <article class="project-card animate-on-scroll">
             <h3 class="project-card__name">Whisper DB</h3>
-            <p class="project-card__desc">Privacy-first database application with peer-to-peer sync. All data stays on-device with no cloud accounts required. Features an interactive diagram editor for visualizing table relationships, Ed25519 identity derivation, and a Rust FFI backend for cryptographic operations. 300+ unit and widget tests.</p>
+            <p class="project-card__desc" data-i18n="proj.whisperdb.desc">Privacy-first database application with peer-to-peer sync. All data stays on-device with no cloud accounts required. Features an interactive diagram editor for visualizing table relationships, Ed25519 identity derivation, and a Rust FFI backend for cryptographic operations. 300+ unit and widget tests.</p>
             <div class="timeline__tech">
               <span>Flutter</span>
               <span>Rust</span>
@@ -471,7 +474,7 @@
 
           <article class="project-card animate-on-scroll">
             <h3 class="project-card__name">Offline-ST</h3>
-            <p class="project-card__desc">Peer-to-peer synchronization framework built as a 10-crate Rust workspace. Implements Hybrid Logical Clocks, CRDTs, multi-transport networking, and encrypted messaging. Includes UniFFI bindings for Swift/iOS integration and a CLI with serve daemon for persistent channels.</p>
+            <p class="project-card__desc" data-i18n="proj.offlinest.desc">Peer-to-peer synchronization framework built as a 10-crate Rust workspace. Implements Hybrid Logical Clocks, CRDTs, multi-transport networking, and encrypted messaging. Includes UniFFI bindings for Swift/iOS integration and a CLI with serve daemon for persistent channels.</p>
             <div class="timeline__tech">
               <span>Rust</span>
               <span>CRDTs</span>
@@ -485,7 +488,7 @@
             <h3 class="project-card__name">
               <a href="https://github.com/msant77/iclf-standard" target="_blank" rel="noopener noreferrer">ICLF Standard</a>
             </h3>
-            <p class="project-card__desc">Inline Chorded Lyrics Format — an open plain-text specification for notating song lyrics with precisely positioned chords. Designed for human readability so musicians can open an <code>.iclf</code> file and play instantly. Supports syllable-precise chord alignment, extensible metadata directives, and accessibility for screen readers.</p>
+            <p class="project-card__desc" data-i18n="proj.iclf.desc">Inline Chorded Lyrics Format — an open plain-text specification for notating song lyrics with precisely positioned chords. Designed for human readability so musicians can open an <code>.iclf</code> file and play instantly. Supports syllable-precise chord alignment, extensible metadata directives, and accessibility for screen readers.</p>
             <div class="timeline__tech">
               <span>Specification</span>
               <span>CC BY 4.0</span>
@@ -496,7 +499,7 @@
             <h3 class="project-card__name">
               <a href="https://github.com/msant77/iclf-parser" target="_blank" rel="noopener noreferrer">ICLF Parser</a>
             </h3>
-            <p class="project-card__desc">A Dart library that parses and validates ICLF files into structured data models. Classifies documents as valid, invalid, or recoverable — applying automatic corrections where possible. Includes a ChordMatcher for cross-ecosystem chord validation and a CLI for rendering chord sheets.</p>
+            <p class="project-card__desc" data-i18n="proj.parser.desc">A Dart library that parses and validates ICLF files into structured data models. Classifies documents as valid, invalid, or recoverable — applying automatic corrections where possible. Includes a ChordMatcher for cross-ecosystem chord validation and a CLI for rendering chord sheets.</p>
             <div class="timeline__tech">
               <span>Dart</span>
               <span>Parsing</span>
@@ -509,7 +512,7 @@
             <h3 class="project-card__name">
               <a href="https://github.com/msant77/music-theory" target="_blank" rel="noopener noreferrer">Music Theory</a>
             </h3>
-            <p class="project-card__desc">A Dart package and CLI providing programmatic access to music theory — notes, intervals, chords, instruments, voicing calculation, key detection, Roman numeral analysis, transposition, and capo suggestions. Serves as the theoretical foundation for the Chordo ecosystem.</p>
+            <p class="project-card__desc" data-i18n="proj.musictheory.desc">A Dart package and CLI providing programmatic access to music theory — notes, intervals, chords, instruments, voicing calculation, key detection, Roman numeral analysis, transposition, and capo suggestions. Serves as the theoretical foundation for the Chordo ecosystem.</p>
             <div class="timeline__tech">
               <span>Dart</span>
               <span>CLI</span>
@@ -522,7 +525,7 @@
             <h3 class="project-card__name">
               <a href="https://dev.pontadabarra.info" target="_blank" rel="noopener noreferrer">Ponta da Barra</a>
             </h3>
-            <p class="project-card__desc">Community directory for a coastal village in Laguna, SC, Brazil. Helps locals and tourists find service providers, transport schedules, and trails. Offline-first with bundled data, SQLite WASM for web, responsive hero carousel, and trilingual support (Portuguese, English, Spanish).</p>
+            <p class="project-card__desc" data-i18n="proj.pdb.desc">Community directory for a coastal village in Laguna, SC, Brazil. Helps locals and tourists find service providers, transport schedules, and trails. Offline-first with bundled data, SQLite WASM for web, responsive hero carousel, and trilingual support (Portuguese, English, Spanish).</p>
             <div class="timeline__tech">
               <span>Flutter</span>
               <span>Cloudflare Pages</span>
@@ -538,12 +541,12 @@
     <!-- ===== SKILLS ===== -->
     <section class="section animate-on-scroll" id="skills">
       <div class="container container--wide">
-        <h2 class="section__title">Skills</h2>
+        <h2 class="section__title" data-i18n="section.skills">Skills</h2>
 
         <div class="skills-grid">
 
           <div class="skills-category">
-            <h3 class="skills-category__title">Languages</h3>
+            <h3 class="skills-category__title" data-i18n="skills.languages">Languages</h3>
             <div class="skills-category__tags">
               <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">Dart</span>
@@ -558,7 +561,7 @@
           </div>
 
           <div class="skills-category">
-            <h3 class="skills-category__title">Frameworks &amp; Platforms</h3>
+            <h3 class="skills-category__title" data-i18n="skills.frameworks">Frameworks &amp; Platforms</h3>
             <div class="skills-category__tags">
               <span class="skill-tag">Next.js</span>
               <span class="skill-tag">React</span>
@@ -572,18 +575,18 @@
           </div>
 
           <div class="skills-category">
-            <h3 class="skills-category__title">AI &amp; Development Methodology</h3>
+            <h3 class="skills-category__title" data-i18n="skills.ai">AI &amp; Development Methodology</h3>
             <div class="skills-category__tags">
-              <span class="skill-tag">AI-Assisted Development</span>
+              <span class="skill-tag" data-i18n="skill.ai-dev">AI-Assisted Development</span>
               <span class="skill-tag">Claude</span>
               <span class="skill-tag">LLM Integration</span>
-              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag" data-i18n="skill.prompt-eng">Prompt Engineering</span>
               <span class="skill-tag">RAG Pipelines</span>
             </div>
           </div>
 
           <div class="skills-category">
-            <h3 class="skills-category__title">Cloud &amp; Infrastructure</h3>
+            <h3 class="skills-category__title" data-i18n="skills.cloud">Cloud &amp; Infrastructure</h3>
             <div class="skills-category__tags">
               <span class="skill-tag">AWS</span>
               <span class="skill-tag">Google Cloud</span>
@@ -597,7 +600,7 @@
           </div>
 
           <div class="skills-category">
-            <h3 class="skills-category__title">Data &amp; Databases</h3>
+            <h3 class="skills-category__title" data-i18n="skills.data">Data &amp; Databases</h3>
             <div class="skills-category__tags">
               <span class="skill-tag">PostgreSQL</span>
               <span class="skill-tag">SQLite</span>
@@ -605,20 +608,20 @@
               <span class="skill-tag">MongoDB</span>
               <span class="skill-tag">Redis</span>
               <span class="skill-tag">GRDB</span>
-              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag" data-i18n="skill.data-modeling">Data Modeling</span>
             </div>
           </div>
 
           <div class="skills-category">
-            <h3 class="skills-category__title">Architecture &amp; Practices</h3>
+            <h3 class="skills-category__title" data-i18n="skills.arch">Architecture &amp; Practices</h3>
             <div class="skills-category__tags">
-              <span class="skill-tag">System Architecture</span>
-              <span class="skill-tag">API Design</span>
+              <span class="skill-tag" data-i18n="skill.system-arch">System Architecture</span>
+              <span class="skill-tag" data-i18n="skill.api-design">API Design</span>
               <span class="skill-tag">P2P / CRDTs</span>
               <span class="skill-tag">Offline-First</span>
               <span class="skill-tag">Multi-Tenancy</span>
-              <span class="skill-tag">Technical Leadership</span>
-              <span class="skill-tag">Test Pyramids</span>
+              <span class="skill-tag" data-i18n="skill.tech-leadership">Technical Leadership</span>
+              <span class="skill-tag" data-i18n="skill.test-pyramids">Test Pyramids</span>
             </div>
           </div>
 
@@ -629,13 +632,13 @@
     <!-- ===== RECOMMENDATIONS ===== -->
     <section class="section animate-on-scroll" id="recommendations">
       <div class="container">
-        <h2 class="section__title">Recommendations</h2>
+        <h2 class="section__title" data-i18n="section.recommendations">Recommendations</h2>
 
         <div class="recommendations">
 
           <div class="recommendation-card animate-on-scroll">
             <blockquote>
-              <p>Marco is an exceptional professional with deep knowledge and remarkable technical command. He possesses the rare ability to convey complex ideas with clarity, making him an outstanding communicator and collaborator. His work is consistently of the highest quality, and his commitment to excellence is evident in everything he does. I wholeheartedly recommend Marco for any team looking for a talented, dedicated, and thoughtful engineer.</p>
+              <p data-i18n="rec.claudio">Marco is an exceptional professional with deep knowledge and remarkable technical command. He possesses the rare ability to convey complex ideas with clarity, making him an outstanding communicator and collaborator. His work is consistently of the highest quality, and his commitment to excellence is evident in everything he does. I wholeheartedly recommend Marco for any team looking for a talented, dedicated, and thoughtful engineer.</p>
             </blockquote>
             <div class="recommendation-card__author">
               <p class="recommendation-card__name">Claudio Fernando Maciel</p>
@@ -645,7 +648,7 @@
 
           <div class="recommendation-card animate-on-scroll">
             <blockquote>
-              <p>I had the pleasure of working with Marco at Microsoft Brazil. He is a focused, hard-working professional with deep expertise across databases, web development, and software architecture. Marco is always eager to learn and share knowledge, and he brings a rare combination of technical skill and genuine teamwork. Any organization would benefit from his contributions.</p>
+              <p data-i18n="rec.rob">I had the pleasure of working with Marco at Microsoft Brazil. He is a focused, hard-working professional with deep expertise across databases, web development, and software architecture. Marco is always eager to learn and share knowledge, and he brings a rare combination of technical skill and genuine teamwork. Any organization would benefit from his contributions.</p>
             </blockquote>
             <div class="recommendation-card__author">
               <p class="recommendation-card__name">Rob Ranches</p>
@@ -655,7 +658,7 @@
 
           <div class="recommendation-card animate-on-scroll">
             <blockquote>
-              <p>Marco is an extraordinary professional with solid expertise in software development and architecture. He approaches every project with diligence, creativity, and a genuine desire to deliver the best possible solution. His ability to work across technologies and lead teams makes him an invaluable asset. I highly recommend him.</p>
+              <p data-i18n="rec.jean">Marco is an extraordinary professional with solid expertise in software development and architecture. He approaches every project with diligence, creativity, and a genuine desire to deliver the best possible solution. His ability to work across technologies and lead teams makes him an invaluable asset. I highly recommend him.</p>
             </blockquote>
             <div class="recommendation-card__author">
               <p class="recommendation-card__name">Jean Paulo da Silva Ramos</p>
@@ -670,13 +673,13 @@
     <!-- ===== VOLUNTEER ===== -->
     <section class="section animate-on-scroll" id="volunteer">
       <div class="container">
-        <h2 class="section__title">Volunteer Work</h2>
+        <h2 class="section__title" data-i18n="section.volunteer">Volunteer Work</h2>
 
         <div class="volunteer-card">
           <h3 class="volunteer-card__org">SOS Gravata</h3>
-          <p class="volunteer-card__role">Creator, Developer &amp; Maintainer</p>
-          <p class="volunteer-card__meta">Oct 2013 – Present</p>
-          <p class="volunteer-card__desc">Environmental protection initiative focused on defending coastal ecosystems and aquifer areas in the Gravat&aacute; region of Santa Catarina. Build and maintain the project's web presence and community outreach tools.</p>
+          <p class="volunteer-card__role" data-i18n="vol.sosgravata.role">Creator, Developer &amp; Maintainer</p>
+          <p class="volunteer-card__meta" data-i18n="vol.sosgravata.meta">Oct 2013 – Present</p>
+          <p class="volunteer-card__desc" data-i18n="vol.sosgravata.desc">Environmental protection initiative focused on defending coastal ecosystems and aquifer areas in the Gravat&aacute; region of Santa Catarina. Build and maintain the project's web presence and community outreach tools.</p>
         </div>
       </div>
     </section>
@@ -684,11 +687,11 @@
     <!-- ===== EDUCATION ===== -->
     <section class="section animate-on-scroll" id="education">
       <div class="container">
-        <h2 class="section__title">Education</h2>
+        <h2 class="section__title" data-i18n="section.education">Education</h2>
 
         <div class="education-item">
           <h3 class="education-item__school">FECAP &mdash; Funda&ccedil;&atilde;o Escola de Com&eacute;rcio &Aacute;lvares Penteado</h3>
-          <p class="education-item__degree">Data Processing Technology</p>
+          <p class="education-item__degree" data-i18n="edu.degree">Data Processing Technology</p>
           <p class="education-item__dates">1993 – 1995</p>
         </div>
       </div>
@@ -697,7 +700,7 @@
     <!-- ===== CERTIFICATIONS ===== -->
     <section class="section animate-on-scroll" id="certifications">
       <div class="container">
-        <h2 class="section__title">Certifications</h2>
+        <h2 class="section__title" data-i18n="section.certifications">Certifications</h2>
 
         <div class="certification-item">
           <h3 class="certification-item__name">Designing Desktop Applications with Microsoft Visual Basic 6.0</h3>
@@ -732,12 +735,13 @@
       <p class="site-footer__contact">
         <a href="mailto:marcosantana@msn.com">marcosantana@msn.com</a> · +55 48 9 9173-3374
       </p>
-      <p class="site-footer__copyright">&copy; 2026 Marco Santana. All rights reserved.</p>
+      <p class="site-footer__copyright" data-i18n="footer.copyright">&copy; 2026 Marco Santana. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
 
 </body>
 </html>
