@@ -21,4 +21,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy v1 --project-name=marcosantana-dev
+          command: pages deploy v1 --project-name=marcosantana-dev --branch=production
