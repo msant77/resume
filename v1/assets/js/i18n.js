@@ -64,8 +64,8 @@
       pt: '<strong>Whisper DB</strong> — App de banco de dados privacy-first com sync P2P. Frontend Flutter com backend Rust FFI. Derivação de identidade Ed25519, editor interativo de diagramas, 300+ testes.'
     },
     'exp.independent.offlinest': {
-      en: '<strong>Offline-ST</strong> — P2P sync framework in Rust. 10-crate workspace: HLC clocks, CRDTs, multi-transport networking, encrypted messaging, UniFFI bindings for Swift/iOS.',
-      pt: '<strong>Offline-ST</strong> — Framework de sincronização P2P em Rust. Workspace de 10 crates: relógios HLC, CRDTs, networking multi-transporte, mensageria criptografada, bindings UniFFI para Swift/iOS.'
+      en: '<strong>Offline Studio</strong> — P2P sync framework in Rust. 10-crate workspace: HLC clocks, CRDTs, multi-transport networking, encrypted messaging, UniFFI bindings for Swift/iOS.',
+      pt: '<strong>Offline Studio</strong> — Framework de sincronização P2P em Rust. Workspace de 10 crates: relógios HLC, CRDTs, networking multi-transporte, mensageria criptografada, bindings UniFFI para Swift/iOS.'
     },
     'exp.independent.alphatester': {
       en: '<strong>alpha-tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.',
