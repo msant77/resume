@@ -28,8 +28,8 @@
       pt: 'Com mais de <strong>25 anos em engenharia de software</strong>, construí uma carreira que abrange desenvolvimento full-stack, arquitetura de banco de dados, infraestrutura em nuvem e liderança técnica — de plataformas corporativas na Microsoft Brasil a sistemas de telemedicina, SaaS de e-procurement e produtos de IA na H2O.ai.'
     },
     'about.p2': {
-      en: 'Today I work as an <strong>AI-native polyglot engineer</strong> — designing and shipping production software across TypeScript, Dart, Swift, and Rust with AI-assisted development as my core methodology. In the first quarter of 2026 alone, I shipped 800+ commits across 8 projects: a multi-tenant insurance SaaS, a cross-platform music notation ecosystem (iPad + macOS App Store), a lunar-aware farm management app for iOS and Apple Watch, a privacy-first database app with Rust P2P sync, a community directory for a Brazilian coastal village, and a developer feedback SDK — all built with AI pair programming at every step.',
-      pt: 'Hoje atuo como <strong>engenheiro poliglota AI-native</strong> — projetando e entregando software de produção em TypeScript, Dart, Swift e Rust com desenvolvimento assistido por IA como metodologia central. Somente no primeiro trimestre de 2026, entreguei mais de 800 commits em 8 projetos: um SaaS multi-tenant de seguros, um ecossistema de notação musical multiplataforma (iPad + macOS App Store), um app de gestão rural com ciclo lunar para iOS e Apple Watch, um app de banco de dados privacy-first com sync P2P em Rust, um diretório comunitário para uma vila costeira brasileira, e um SDK de feedback para desenvolvedores — tudo construído com pair programming com IA em cada etapa.'
+      en: 'Today I work as an <strong>AI-native polyglot engineer</strong> — designing and shipping production software across TypeScript, Dart, Swift, and Rust with AI-assisted development as my core methodology. In the first quarter of 2026 alone, I shipped 800+ commits across 8 projects: a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a lunar-aware farm management app for iOS and Apple Watch, a privacy-first database app with Rust P2P sync, a community directory for a Brazilian coastal village, and a developer feedback SDK — all built with AI pair programming at every step.',
+      pt: 'Hoje atuo como <strong>engenheiro poliglota AI-native</strong> — projetando e entregando software de produção em TypeScript, Dart, Swift e Rust com desenvolvimento assistido por IA como metodologia central. Somente no primeiro trimestre de 2026, entreguei mais de 800 commits em 8 projetos: uma plataforma SaaS multi-tenant, um ecossistema de notação musical multiplataforma (iPad + macOS App Store), um app de gestão rural com ciclo lunar para iOS e Apple Watch, um app de banco de dados privacy-first com sync P2P em Rust, um diretório comunitário para uma vila costeira brasileira, e um SDK de feedback para desenvolvedores — tudo construído com pair programming com IA em cada etapa.'
     },
     'about.p3': {
       en: 'I value pragmatic design, clean code, and work that makes a tangible difference.',
@@ -48,8 +48,8 @@
       pt: 'Projetando, construindo e entregando software de produção em cinco linguagens e múltiplas plataformas — usando desenvolvimento assistido por IA (Claude, ChatGPT, Grok) como fluxo de trabalho central. Mais de 800 commits em 8 projetos no T1 2026.'
     },
     'exp.independent.braxum': {
-      en: '<strong>Braxum</strong> — Multi-tenant insurance cooperative SaaS. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.',
-      pt: '<strong>Braxum</strong> — SaaS multi-tenant para cooperativas de seguros. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC com 5 perfis, 2FA TOTP, dashboards D3.js, pirâmide de testes em 4 camadas, Terraform na AWS e GCP, Docker CI/CD.'
+      en: '<strong>Braxum</strong> — Multi-tenant SaaS with strong financial, SGA, and CRM modules. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.',
+      pt: '<strong>Braxum</strong> — SaaS multi-tenant com módulos robustos de financeiro, SGA e CRM. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC com 5 perfis, 2FA TOTP, dashboards D3.js, pirâmide de testes em 4 camadas, Terraform na AWS e GCP, Docker CI/CD.'
     },
     'exp.independent.chordo': {
       en: '<strong>Chordo</strong> — Music notation ecosystem with open-source libraries. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.',
@@ -68,12 +68,12 @@
       pt: '<strong>Offline Studio</strong> — Framework de sincronização P2P em Rust. Workspace de 10 crates: relógios HLC, CRDTs, networking multi-transporte, mensageria criptografada, bindings UniFFI para Swift/iOS.'
     },
     'exp.independent.alphatester': {
-      en: '<strong>alpha-tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.',
-      pt: '<strong>alpha-tester</strong> — SDK de feedback embarcável para apps web. Monorepo Turborepo, API de ingestão Next.js, chaves API modelo Stripe, rate limiting, CORS.'
+      en: '<strong>Alpha Tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.',
+      pt: '<strong>Alpha Tester</strong> — SDK de feedback embarcável para apps web. Monorepo Turborepo, API de ingestão Next.js, chaves API modelo Stripe, rate limiting, CORS.'
     },
     'exp.independent.pdb': {
-      en: '<strong>Ponta da Barra</strong> — Community directory for a Brazilian coastal village. Flutter Web on Cloudflare Pages. Offline-first with SQLite WASM, multilingual (PT/EN/ES).',
-      pt: '<strong>Ponta da Barra</strong> — Diretório comunitário para uma vila costeira brasileira. Flutter Web no Cloudflare Pages. Offline-first com SQLite WASM, multilíngue (PT/EN/ES).'
+      en: '<strong>Ponta da Barra Info</strong> — Community directory for a Brazilian coastal village. Flutter Web on Cloudflare Pages. Offline-first with SQLite WASM, multilingual (PT/EN/ES).',
+      pt: '<strong>Ponta da Barra Info</strong> — Diretório comunitário para uma vila costeira brasileira. Flutter Web no Cloudflare Pages. Offline-first com SQLite WASM, multilíngue (PT/EN/ES).'
     },
 
     // --- Experience: Studies ---
@@ -216,8 +216,8 @@
 
     // --- Projects ---
     'proj.braxum.desc': {
-      en: 'Multi-tenant insurance cooperative management SaaS. Full production platform with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.',
-      pt: 'SaaS multi-tenant para gestão de cooperativas de seguros. Plataforma de produção completa com controle de acesso por perfis (5 perfis), autenticação de dois fatores TOTP, dashboards de visualização de dados com D3.js, quadros Kanban com drag-and-drop, módulo de vistoria veicular com uploads S3 e pirâmide de testes em 4 camadas. Infraestrutura Terraform dual-cloud na AWS e GCP com CI/CD Docker.'
+      en: 'Multi-tenant SaaS platform with strong financial, SGA, and CRM modules. Full production system with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.',
+      pt: 'Plataforma SaaS multi-tenant com módulos robustos de financeiro, SGA e CRM. Sistema de produção completo com controle de acesso por perfis (5 perfis), autenticação de dois fatores TOTP, dashboards de visualização de dados com D3.js, quadros Kanban com drag-and-drop, módulo de vistoria veicular com uploads S3 e pirâmide de testes em 4 camadas. Infraestrutura Terraform dual-cloud na AWS e GCP com CI/CD Docker.'
     },
     'proj.chordo.desc': {
       en: 'Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.',
