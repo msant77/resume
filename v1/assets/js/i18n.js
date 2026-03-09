@@ -292,7 +292,7 @@
     },
     'vol.homestead.org': { en: 'Sustainable Homesteading', pt: 'Homesteading Sustentável' },
     'vol.homestead.role': { en: 'Homesteader & Environmental Steward', pt: 'Homesteader & Guardião Ambiental' },
-    'vol.homestead.meta': { en: '2020 – Present \u00b7 4+ years', pt: '2020 – Presente \u00b7 4+ anos' },
+    'vol.homestead.meta': { en: '2022 – Present \u00b7 4+ years', pt: '2022 – Presente \u00b7 4+ anos' },
     'vol.homestead.desc': {
       en: 'Four years of hands-on sustainable land management in the Atlantic Forest region of Santa Catarina. Practicing polyculture, permaculture, and agro-pasture-forest integration. Planting and nurturing native trees, caring for fruit and native sprouts with community donations, and active forest protection. Zero trees cut down, zero chemical inputs used. Learning and applying regenerative agriculture principles to restore and protect local biodiversity.',
       pt: 'Quatro anos de gestão sustentável de terras na região da Mata Atlântica de Santa Catarina. Praticando policultura, permacultura e integração agro-silvo-pastoril. Plantio e cultivo de árvores nativas, cuidado de mudas frutíferas e nativas com doações comunitárias, e proteção ativa da floresta. Zero árvores derrubadas, zero insumos químicos utilizados. Aprendendo e aplicando princípios de agricultura regenerativa para restaurar e proteger a biodiversidade local.'
