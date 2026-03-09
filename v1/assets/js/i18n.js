@@ -52,8 +52,8 @@
       pt: '<strong>Braxum</strong> — SaaS multi-tenant para cooperativas de seguros. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC com 5 perfis, 2FA TOTP, dashboards D3.js, pirâmide de testes em 4 camadas, Terraform na AWS e GCP, Docker CI/CD.'
     },
     'exp.independent.chordo': {
-      en: '<strong>Chordo</strong> — Open-source music notation ecosystem. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.',
-      pt: '<strong>Chordo</strong> — Ecossistema open-source de notação musical. Projetei a especificação ICLF para cifras em texto puro. Biblioteca de parsing, motor de teoria musical (detecção de tonalidade, calculador de voicings, transposição) e app Flutter multiplataforma publicado na App Store para iPad e macOS. 4 repositórios.'
+      en: '<strong>Chordo</strong> — Music notation ecosystem with open-source libraries. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.',
+      pt: '<strong>Chordo</strong> — Ecossistema de notação musical com bibliotecas open-source. Projetei a especificação ICLF para cifras em texto puro. Biblioteca de parsing, motor de teoria musical (detecção de tonalidade, calculador de voicings, transposição) e app Flutter multiplataforma publicado na App Store para iPad e macOS. 4 repositórios.'
     },
     'exp.independent.moonstead': {
       en: '<strong>Moonstead</strong> — Lunar-aware farm management for iOS and Apple Watch. SwiftUI, HealthKit, CoreLocation. Real-time activity tracking with heart rate, GPS, cadence, and splits. Custom taxonomy with 250+ SF Symbols, aerial drone overlay, 4-language support.',
