@@ -669,9 +669,22 @@ p + p {
   padding: var(--space-6);
 }
 
+.volunteer-card + .volunteer-card {
+  margin-top: var(--space-5);
+}
+
 .volunteer-card__org {
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
+}
+
+.volunteer-card__org a {
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.volunteer-card__org a:hover {
+  color: var(--color-accent);
 }
 
 .volunteer-card__role {

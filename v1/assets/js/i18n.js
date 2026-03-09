@@ -285,10 +285,17 @@
 
     // --- Volunteer ---
     'vol.sosgravata.role': { en: 'Creator, Developer & Maintainer', pt: 'Criador, Desenvolvedor & Mantenedor' },
-    'vol.sosgravata.meta': { en: 'Oct 2013 – Present', pt: 'Out 2013 – Presente' },
+    'vol.sosgravata.meta': { en: 'Oct 2013 – 2020', pt: 'Out 2013 – 2020' },
     'vol.sosgravata.desc': {
-      en: 'Environmental protection initiative focused on defending coastal ecosystems and aquifer areas in the Gravat\u00e1 region of Santa Catarina. Build and maintain the project\'s web presence and community outreach tools.',
-      pt: 'Iniciativa de proteção ambiental focada na defesa de ecossistemas costeiros e áreas de aquíferos na região do Gravatá em Santa Catarina. Construo e mantenho a presença web do projeto e ferramentas de divulgação comunitária.'
+      en: 'Environmental protection initiative that successfully defended coastal ecosystems and aquifer areas in the Gravat\u00e1 region of Santa Catarina from unauthorized construction. Built and maintained the project\'s web presence, community outreach tools, and coordinated public awareness campaigns. The campaign achieved its goal \u2014 the construction was permanently stopped.',
+      pt: 'Iniciativa de proteção ambiental que defendeu com sucesso ecossistemas costeiros e áreas de aquíferos na região do Gravatá em Santa Catarina contra construção não autorizada. Construí e mantive a presença web do projeto, ferramentas de divulgação comunitária e coordenei campanhas de conscientização pública. A campanha atingiu seu objetivo \u2014 a construção foi permanentemente impedida.'
+    },
+    'vol.homestead.org': { en: 'Sustainable Homesteading', pt: 'Homesteading Sustentável' },
+    'vol.homestead.role': { en: 'Homesteader & Environmental Steward', pt: 'Homesteader & Guardião Ambiental' },
+    'vol.homestead.meta': { en: '2020 – Present \u00b7 4+ years', pt: '2020 – Presente \u00b7 4+ anos' },
+    'vol.homestead.desc': {
+      en: 'Four years of hands-on sustainable land management in the Atlantic Forest region of Santa Catarina. Practicing polyculture, permaculture, and agro-pasture-forest integration. Planting and nurturing native trees, caring for fruit and native sprouts with community donations, and active forest protection. Zero trees cut down, zero chemical inputs used. Learning and applying regenerative agriculture principles to restore and protect local biodiversity.',
+      pt: 'Quatro anos de gestão sustentável de terras na região da Mata Atlântica de Santa Catarina. Praticando policultura, permacultura e integração agro-silvo-pastoril. Plantio e cultivo de árvores nativas, cuidado de mudas frutíferas e nativas com doações comunitárias, e proteção ativa da floresta. Zero árvores derrubadas, zero insumos químicos utilizados. Aprendendo e aplicando princípios de agricultura regenerativa para restaurar e proteger a biodiversidade local.'
     },
 
     // --- Education ---
