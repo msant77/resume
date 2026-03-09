@@ -318,10 +318,10 @@
       }
     });
 
-    // Update toggle button text
+    // Update toggle button flag
     var btn = document.querySelector('.lang-toggle');
     if (btn) {
-      btn.textContent = lang === 'en' ? 'PT' : 'EN';
+      btn.textContent = lang === 'en' ? '\uD83C\uDDE7\uD83C\uDDF7' : '\uD83C\uDDFA\uD83C\uDDF8';
       btn.setAttribute('aria-label', lang === 'en' ? 'Mudar para Português' : 'Switch to English');
     }
   }
