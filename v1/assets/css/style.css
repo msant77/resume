@@ -807,24 +807,29 @@ p + p {
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-accent);
-  background: var(--color-accent-faint);
-  border: 1px solid var(--color-accent);
+  background: transparent;
+  border: 1.5px solid var(--color-accent);
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  transition: border-color var(--transition-base), border-width var(--transition-base),
+              color var(--transition-base), background var(--transition-base),
+              box-shadow var(--transition-base);
 }
 
 .pdf-download-btn:hover {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-accent-faint);
+  border-color: var(--color-accent-hover);
+  border-width: 2px;
+  box-shadow: 0 0 12px var(--color-accent-faint);
+  color: var(--color-accent-hover);
 }
 
 .pdf-download-btn svg {
-  transition: color var(--transition-fast);
+  transition: stroke var(--transition-base);
 }
 
 .pdf-download-btn:hover svg {
-  stroke: #fff;
+  stroke: var(--color-accent-hover);
 }
 
 
