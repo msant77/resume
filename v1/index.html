@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marco Santana — Software Engineer</title>
-  <meta name="description" content="Resume of Marco Santana — Software Engineer with 25+ years of experience. TypeScript, Dart, Swift, Rust. AI-assisted development across web, mobile, and native platforms.">
+  <meta name="description" content="Resume of Marco Santana — Software Engineer with 25+ years of experience. TypeScript, Dart, Swift. Full-stack development across web and mobile platforms.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍🦲</text></svg>">
 
   <!-- Flash-free theme detection -->
@@ -81,10 +81,10 @@
       <div class="container">
         <h2 class="section__title" data-i18n="section.about">About</h2>
         <p data-i18n="about.p1">
-          With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and AI-driven products at H2O.ai.
+          With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and machine-learning products at H2O.ai.
         </p>
         <p data-i18n="about.p2">
-          Today I work as an <strong>AI-native polyglot engineer</strong> — designing and shipping production software across TypeScript, Dart, Swift, and Rust with AI-assisted development as my core methodology. In the first quarter of 2026 alone, I shipped 800+ commits across 8 projects: a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a lunar-aware farm management app for iOS and Apple Watch, a privacy-first database app with Rust P2P sync, a community directory for a Brazilian coastal village, and a developer feedback SDK — all built with AI pair programming at every step.
+          Today I design and ship production software across TypeScript, Dart, and Swift. In the first quarter of 2026 alone, I shipped a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a community directory for a Brazilian coastal village, and a developer feedback SDK.
         </p>
         <p data-i18n="about.p3">
           I value pragmatic design, clean code, and work that makes a tangible difference.
@@ -92,6 +92,95 @@
         <p class="about__languages" data-i18n="about.languages">
           <strong>Languages:</strong> Portuguese (native) · English (full professional) · Spanish (elementary)
         </p>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section animate-on-scroll" id="projects">
+      <div class="container">
+        <h2 class="section__title" data-i18n="section.projects">Projects</h2>
+
+        <div class="projects-grid">
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://braxum.com" target="_blank" rel="noopener noreferrer">Braxum</a>
+            </h3>
+            <p class="project-card__desc" data-i18n="proj.braxum.desc">Multi-tenant SaaS platform with strong financial, SGA, and CRM modules. Full production system with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.</p>
+            <div class="timeline__tech">
+              <span>Next.js 16</span>
+              <span>TypeScript</span>
+              <span>PostgreSQL</span>
+              <span>Drizzle</span>
+              <span>D3.js</span>
+              <span>Terraform</span>
+              <span>Docker</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">Chordo</h3>
+            <p class="project-card__desc" data-i18n="proj.chordo.desc">Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>Flutter</span>
+              <span>iPad</span>
+              <span>macOS</span>
+              <span>App Store</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/iclf-standard" target="_blank" rel="noopener noreferrer">ICLF Standard</a>
+            </h3>
+            <p class="project-card__desc" data-i18n="proj.iclf.desc">Inline Chorded Lyrics Format — an open plain-text specification for notating song lyrics with precisely positioned chords. Designed for human readability so musicians can open an <code>.iclf</code> file and play instantly. Supports syllable-precise chord alignment, extensible metadata directives, and accessibility for screen readers.</p>
+            <div class="timeline__tech">
+              <span>Specification</span>
+              <span>CC BY 4.0</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/iclf-parser" target="_blank" rel="noopener noreferrer">ICLF Parser</a>
+            </h3>
+            <p class="project-card__desc" data-i18n="proj.parser.desc">A Dart library that parses and validates ICLF files into structured data models. Classifies documents as valid, invalid, or recoverable — applying automatic corrections where possible. Includes a ChordMatcher for cross-ecosystem chord validation and a CLI for rendering chord sheets.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>Parsing</span>
+              <span>CLI</span>
+              <span>MIT</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://github.com/msant77/music-theory" target="_blank" rel="noopener noreferrer">Music Theory</a>
+            </h3>
+            <p class="project-card__desc" data-i18n="proj.musictheory.desc">A Dart package and CLI providing programmatic access to music theory — notes, intervals, chords, instruments, voicing calculation, key detection, Roman numeral analysis, transposition, and capo suggestions. Serves as the theoretical foundation for the Chordo ecosystem.</p>
+            <div class="timeline__tech">
+              <span>Dart</span>
+              <span>CLI</span>
+              <span>Music Theory</span>
+              <span>MIT</span>
+            </div>
+          </article>
+
+          <article class="project-card animate-on-scroll">
+            <h3 class="project-card__name">
+              <a href="https://pontadabarra.info" target="_blank" rel="noopener noreferrer">Ponta da Barra Info</a>
+            </h3>
+            <p class="project-card__desc" data-i18n="proj.pdb.desc">Community directory for a coastal village in Laguna, SC, Brazil. Helps locals and tourists find service providers, transport schedules, and trails. Offline-first with bundled data, SQLite WASM for web, responsive hero carousel, and trilingual support (Portuguese, English, Spanish).</p>
+            <div class="timeline__tech">
+              <span>Flutter</span>
+              <span>Cloudflare Pages</span>
+              <span>SQLite WASM</span>
+              <span>Multilingual</span>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -112,13 +201,10 @@
               <span data-i18n="header.location">Santa Catarina, Brazil</span>
             </div>
             <div class="timeline__description">
-              <p data-i18n="exp.independent.desc">Designing, building, and shipping production software across five languages and multiple platforms — using AI-assisted development (Claude, ChatGPT, Grok) as a core engineering workflow. 800+ commits across 8 projects in Q1 2026.</p>
+              <p data-i18n="exp.independent.desc">Designing, building, and shipping production software across multiple platforms — web, mobile, and desktop. Offline-first architectures, internationalized interfaces, and thorough test coverage across unit, widget, integration, and end-to-end layers.</p>
               <ul>
                 <li data-i18n="exp.independent.braxum"><strong>Braxum</strong> — Multi-tenant SaaS with strong financial, SGA, and CRM modules. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.</li>
                 <li data-i18n="exp.independent.chordo"><strong>Chordo</strong> — Music notation ecosystem with open-source libraries. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.</li>
-                <li data-i18n="exp.independent.moonstead"><strong>Moonstead</strong> — Lunar-aware farm management for iOS and Apple Watch. SwiftUI, HealthKit, CoreLocation. Real-time activity tracking with heart rate, GPS, cadence, and splits. Custom taxonomy with 250+ SF Symbols, aerial drone overlay, 4-language support.</li>
-                <li data-i18n="exp.independent.whisperdb"><strong>Whisper DB</strong> — Privacy-first database app with P2P sync. Flutter frontend with Rust FFI backend. Ed25519 identity derivation, interactive diagram editor, 300+ tests.</li>
-                <li data-i18n="exp.independent.offlinest"><strong>Offline Studio</strong> — P2P sync framework in Rust. 10-crate workspace: HLC clocks, CRDTs, multi-transport networking, encrypted messaging, UniFFI bindings for Swift/iOS.</li>
                 <li data-i18n="exp.independent.alphatester"><strong>Alpha Tester</strong> — Embeddable feedback SDK for web apps. Turborepo monorepo, Next.js ingest API, Stripe-model API keys, rate limiting, CORS.</li>
                 <li data-i18n="exp.independent.pdb"><strong>Ponta da Barra Info</strong> — Community directory for a Brazilian coastal village. Flutter Web on Cloudflare Pages. Offline-first with SQLite WASM, multilingual (PT/EN/ES).</li>
               </ul>
@@ -126,11 +212,8 @@
             <div class="timeline__tech">
               <span>TypeScript</span>
               <span>Dart</span>
-              <span>Swift</span>
-              <span>Rust</span>
               <span>Next.js</span>
               <span>Flutter</span>
-              <span>SwiftUI</span>
               <span>PostgreSQL</span>
               <span>D3.js</span>
               <span>Terraform</span>
@@ -145,13 +228,13 @@
           <!-- AI Studies -->
           <article class="timeline__item animate-on-scroll">
             <div class="timeline__header">
-              <h3 class="timeline__company" data-i18n="exp.studies">AI Engineering / Studies</h3>
+              <h3 class="timeline__company" data-i18n="exp.studies">Independent Study & Prototyping</h3>
             </div>
             <div class="timeline__meta">
               <span data-i18n="exp.studies.meta">Apr 2024 – Dec 2024</span>
             </div>
             <div class="timeline__description">
-              <p data-i18n="exp.studies.desc">Focused period of study after four years at H2O.ai. Deepened expertise in AI engineering — LLMs, retrieval-augmented generation, prompt engineering, and AI-assisted development workflows. Began building the ICLF chord notation specification and early prototypes of the Chordo ecosystem.</p>
+              <p data-i18n="exp.studies.desc">Focused period after four years at H2O.ai. Designed the ICLF chord notation specification and built the first prototypes of the Chordo ecosystem — parser library, music theory engine, and cross-platform app.</p>
             </div>
           </article>
 
@@ -413,132 +496,6 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section class="section animate-on-scroll" id="projects">
-      <div class="container">
-        <h2 class="section__title" data-i18n="section.projects">Projects</h2>
-
-        <div class="projects-grid">
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">
-              <a href="https://braxum.com" target="_blank" rel="noopener noreferrer">Braxum</a>
-            </h3>
-            <p class="project-card__desc" data-i18n="proj.braxum.desc">Multi-tenant SaaS platform with strong financial, SGA, and CRM modules. Full production system with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.</p>
-            <div class="timeline__tech">
-              <span>Next.js 16</span>
-              <span>TypeScript</span>
-              <span>PostgreSQL</span>
-              <span>Drizzle</span>
-              <span>D3.js</span>
-              <span>Terraform</span>
-              <span>Docker</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">Chordo</h3>
-            <p class="project-card__desc" data-i18n="proj.chordo.desc">Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.</p>
-            <div class="timeline__tech">
-              <span>Dart</span>
-              <span>Flutter</span>
-              <span>iPad</span>
-              <span>macOS</span>
-              <span>App Store</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">Moonstead</h3>
-            <p class="project-card__desc" data-i18n="proj.moonstead.desc">Lunar-aware farm management app for iOS and Apple Watch. Tracks real-time health and activity metrics — heart rate, GPS routes, cadence, pace, and splits. Features a custom taxonomy system with 250+ SF Symbols, aerial drone overlay for farm mapping, weather integration, and multilingual support in four languages.</p>
-            <div class="timeline__tech">
-              <span>Swift</span>
-              <span>SwiftUI</span>
-              <span>watchOS</span>
-              <span>HealthKit</span>
-              <span>CoreLocation</span>
-              <span>GRDB</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">Whisper DB</h3>
-            <p class="project-card__desc" data-i18n="proj.whisperdb.desc">Privacy-first database application with peer-to-peer sync. All data stays on-device with no cloud accounts required. Features an interactive diagram editor for visualizing table relationships, Ed25519 identity derivation, and a Rust FFI backend for cryptographic operations. 300+ unit and widget tests.</p>
-            <div class="timeline__tech">
-              <span>Flutter</span>
-              <span>Rust</span>
-              <span>FFI</span>
-              <span>SQLite</span>
-              <span>P2P</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">Offline Studio</h3>
-            <p class="project-card__desc" data-i18n="proj.offlinest.desc">Peer-to-peer synchronization framework built as a 10-crate Rust workspace. Implements Hybrid Logical Clocks, CRDTs, multi-transport networking, and encrypted messaging. Includes UniFFI bindings for Swift/iOS integration and a CLI with serve daemon for persistent channels.</p>
-            <div class="timeline__tech">
-              <span>Rust</span>
-              <span>CRDTs</span>
-              <span>P2P</span>
-              <span>UniFFI</span>
-              <span>Swift SDK</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">
-              <a href="https://github.com/msant77/iclf-standard" target="_blank" rel="noopener noreferrer">ICLF Standard</a>
-            </h3>
-            <p class="project-card__desc" data-i18n="proj.iclf.desc">Inline Chorded Lyrics Format — an open plain-text specification for notating song lyrics with precisely positioned chords. Designed for human readability so musicians can open an <code>.iclf</code> file and play instantly. Supports syllable-precise chord alignment, extensible metadata directives, and accessibility for screen readers.</p>
-            <div class="timeline__tech">
-              <span>Specification</span>
-              <span>CC BY 4.0</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">
-              <a href="https://github.com/msant77/iclf-parser" target="_blank" rel="noopener noreferrer">ICLF Parser</a>
-            </h3>
-            <p class="project-card__desc" data-i18n="proj.parser.desc">A Dart library that parses and validates ICLF files into structured data models. Classifies documents as valid, invalid, or recoverable — applying automatic corrections where possible. Includes a ChordMatcher for cross-ecosystem chord validation and a CLI for rendering chord sheets.</p>
-            <div class="timeline__tech">
-              <span>Dart</span>
-              <span>Parsing</span>
-              <span>CLI</span>
-              <span>MIT</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">
-              <a href="https://github.com/msant77/music-theory" target="_blank" rel="noopener noreferrer">Music Theory</a>
-            </h3>
-            <p class="project-card__desc" data-i18n="proj.musictheory.desc">A Dart package and CLI providing programmatic access to music theory — notes, intervals, chords, instruments, voicing calculation, key detection, Roman numeral analysis, transposition, and capo suggestions. Serves as the theoretical foundation for the Chordo ecosystem.</p>
-            <div class="timeline__tech">
-              <span>Dart</span>
-              <span>CLI</span>
-              <span>Music Theory</span>
-              <span>MIT</span>
-            </div>
-          </article>
-
-          <article class="project-card animate-on-scroll">
-            <h3 class="project-card__name">
-              <a href="https://pontadabarra.info" target="_blank" rel="noopener noreferrer">Ponta da Barra Info</a>
-            </h3>
-            <p class="project-card__desc" data-i18n="proj.pdb.desc">Community directory for a coastal village in Laguna, SC, Brazil. Helps locals and tourists find service providers, transport schedules, and trails. Offline-first with bundled data, SQLite WASM for web, responsive hero carousel, and trilingual support (Portuguese, English, Spanish).</p>
-            <div class="timeline__tech">
-              <span>Flutter</span>
-              <span>Cloudflare Pages</span>
-              <span>SQLite WASM</span>
-              <span>Multilingual</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ===== SKILLS ===== -->
     <section class="section animate-on-scroll" id="skills">
       <div class="container container--wide">
@@ -552,7 +509,6 @@
               <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">Dart</span>
               <span class="skill-tag">Swift</span>
-              <span class="skill-tag">Rust</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">C# / .NET</span>
               <span class="skill-tag">Go</span>
@@ -572,17 +528,6 @@
               <span class="skill-tag">watchOS</span>
               <span class="skill-tag">D3.js</span>
               <span class="skill-tag">Drizzle ORM</span>
-            </div>
-          </div>
-
-          <div class="skills-category">
-            <h3 class="skills-category__title" data-i18n="skills.ai">AI &amp; Development Methodology</h3>
-            <div class="skills-category__tags">
-              <span class="skill-tag" data-i18n="skill.ai-dev">AI-Assisted Development</span>
-              <span class="skill-tag">Claude</span>
-              <span class="skill-tag">LLM Integration</span>
-              <span class="skill-tag" data-i18n="skill.prompt-eng">Prompt Engineering</span>
-              <span class="skill-tag">RAG Pipelines</span>
             </div>
           </div>
 

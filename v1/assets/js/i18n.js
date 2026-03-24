@@ -24,12 +24,12 @@
 
     // --- About ---
     'about.p1': {
-      en: 'With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and AI-driven products at H2O.ai.',
-      pt: 'Com mais de <strong>25 anos em engenharia de software</strong>, construí uma carreira que abrange desenvolvimento full-stack, arquitetura de banco de dados, infraestrutura em nuvem e liderança técnica — de plataformas corporativas na Microsoft Brasil a sistemas de telemedicina, SaaS de e-procurement e produtos de IA na H2O.ai.'
+      en: 'With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and machine-learning products at H2O.ai.',
+      pt: 'Com mais de <strong>25 anos em engenharia de software</strong>, construí uma carreira que abrange desenvolvimento full-stack, arquitetura de banco de dados, infraestrutura em nuvem e liderança técnica — de plataformas corporativas na Microsoft Brasil a sistemas de telemedicina, SaaS de e-procurement e produtos de machine learning na H2O.ai.'
     },
     'about.p2': {
-      en: 'Today I work as an <strong>AI-native polyglot engineer</strong> — designing and shipping production software across TypeScript, Dart, Swift, and Rust with AI-assisted development as my core methodology. In the first quarter of 2026 alone, I shipped 800+ commits across 8 projects: a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a lunar-aware farm management app for iOS and Apple Watch, a privacy-first database app with Rust P2P sync, a community directory for a Brazilian coastal village, and a developer feedback SDK — all built with AI pair programming at every step.',
-      pt: 'Hoje atuo como <strong>engenheiro poliglota AI-native</strong> — projetando e entregando software de produção em TypeScript, Dart, Swift e Rust com desenvolvimento assistido por IA como metodologia central. Somente no primeiro trimestre de 2026, entreguei mais de 800 commits em 8 projetos: uma plataforma SaaS multi-tenant, um ecossistema de notação musical multiplataforma (iPad + macOS App Store), um app de gestão rural com ciclo lunar para iOS e Apple Watch, um app de banco de dados privacy-first com sync P2P em Rust, um diretório comunitário para uma vila costeira brasileira, e um SDK de feedback para desenvolvedores — tudo construído com pair programming com IA em cada etapa.'
+      en: 'Today I design and ship production software across TypeScript, Dart, and Swift. In the first quarter of 2026 alone, I shipped a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a community directory for a Brazilian coastal village, and a developer feedback SDK.',
+      pt: 'Hoje projeto e entrego software de produção em TypeScript, Dart e Swift. Somente no primeiro trimestre de 2026, entreguei uma plataforma SaaS multi-tenant, um ecossistema de notação musical multiplataforma (iPad + macOS App Store), um diretório comunitário para uma vila costeira brasileira, e um SDK de feedback para desenvolvedores.'
     },
     'about.p3': {
       en: 'I value pragmatic design, clean code, and work that makes a tangible difference.',
@@ -44,8 +44,8 @@
     'exp.independent': { en: 'Independent Software Engineer', pt: 'Engenheiro de Software Independente' },
     'exp.independent.meta': { en: 'Jan 2025 – Present', pt: 'Jan 2025 – Presente' },
     'exp.independent.desc': {
-      en: 'Designing, building, and shipping production software across five languages and multiple platforms — using AI-assisted development (Claude, ChatGPT, Grok) as a core engineering workflow. 800+ commits across 8 projects in Q1 2026.',
-      pt: 'Projetando, construindo e entregando software de produção em cinco linguagens e múltiplas plataformas — usando desenvolvimento assistido por IA (Claude, ChatGPT, Grok) como fluxo de trabalho central. Mais de 800 commits em 8 projetos no T1 2026.'
+      en: 'Designing, building, and shipping production software across multiple platforms — web, mobile, and desktop. Offline-first architectures, internationalized interfaces, and thorough test coverage across unit, widget, integration, and end-to-end layers.',
+      pt: 'Projetando, construindo e entregando software de produção em múltiplas plataformas — web, mobile e desktop. Arquiteturas offline-first, interfaces internacionalizadas e cobertura de testes abrangente em camadas unitária, widget, integração e end-to-end.'
     },
     'exp.independent.braxum': {
       en: '<strong>Braxum</strong> — Multi-tenant SaaS with strong financial, SGA, and CRM modules. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.',
@@ -77,11 +77,11 @@
     },
 
     // --- Experience: Studies ---
-    'exp.studies': { en: 'AI Engineering / Studies', pt: 'Engenharia de IA / Estudos' },
+    'exp.studies': { en: 'Independent Study & Prototyping', pt: 'Estudo Independente & Prototipagem' },
     'exp.studies.meta': { en: 'Apr 2024 – Dec 2024', pt: 'Abr 2024 – Dez 2024' },
     'exp.studies.desc': {
-      en: 'Focused period of study after four years at H2O.ai. Deepened expertise in AI engineering — LLMs, retrieval-augmented generation, prompt engineering, and AI-assisted development workflows. Began building the ICLF chord notation specification and early prototypes of the Chordo ecosystem.',
-      pt: 'Período focado de estudos após quatro anos na H2O.ai. Aprofundei conhecimentos em engenharia de IA — LLMs, geração aumentada por recuperação, engenharia de prompts e fluxos de desenvolvimento assistidos por IA. Iniciei a construção da especificação ICLF de notação de cifras e os primeiros protótipos do ecossistema Chordo.'
+      en: 'Focused period after four years at H2O.ai. Designed the ICLF chord notation specification and built the first prototypes of the Chordo ecosystem — parser library, music theory engine, and cross-platform app.',
+      pt: 'Período focado após quatro anos na H2O.ai. Projetei a especificação ICLF de notação de cifras e construí os primeiros protótipos do ecossistema Chordo — biblioteca de parsing, motor de teoria musical e app multiplataforma.'
     },
 
     // --- Experience: H2O.ai ---
