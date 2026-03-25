@@ -918,7 +918,8 @@ p + p {
 /* ---------- 8. Print / PDF ---------- */
 
 @media print {
-  /* --- Reset for print --- */
+
+  /* --- Reset --- */
   *,
   *::before,
   *::after {
@@ -928,126 +929,202 @@ p + p {
     animation: none !important;
   }
 
-  /* --- Hide interactive/non-print elements --- */
+  /* --- Force light mode --- */
+  :root,
+  [data-theme="dark"] {
+    --color-bg: #ffffff;
+    --color-bg-subtle: #f8f8f6;
+    --color-bg-card: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #4a4a4a;
+    --color-text-faint: #777777;
+    --color-accent: #0D9488;
+    --color-accent-hover: #0B7C72;
+    --color-border: #e0e0dc;
+    --color-border-light: #eaeae6;
+  }
+
+  /* --- Hide non-print elements --- */
   .theme-toggle,
   .lang-toggle,
   .skip-link,
   .site-footer,
   .pdf-download-btn,
-  #at-feedback-fab {
+  .print-hide,
+  #at-feedback-fab,
+  [id^="at-"] {
     display: none !important;
   }
 
-  /* --- Page setup --- */
+  /* --- Page --- */
   @page {
     size: A4;
-    margin: 1.5cm 1.8cm;
+    margin: 2cm 2.2cm;
   }
 
   html {
-    font-size: 9.5pt;
+    font-size: 9pt;
   }
 
   body {
     background: #fff;
     color: #1a1a1a;
-    line-height: 1.5;
+    line-height: 1.45;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* --- Header compact --- */
+  .container,
+  .container--wide {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* ============================
+     HEADER — left-aligned, inline
+     ============================ */
   .site-header {
-    padding: 0 0 0.5rem;
-    border-bottom: 2px solid #0D9488;
+    text-align: left;
+    padding: 0 0 0.4rem;
     margin-bottom: 0.5rem;
+    border-bottom: 2.5px solid #0D9488;
   }
 
   .avatar {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 0.25rem;
+    display: none;
   }
 
   .site-header__name {
-    font-size: 18pt;
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     margin-bottom: 0;
+    color: #1a1a1a;
   }
 
   .site-header__title {
-    font-size: 10pt;
-    margin-bottom: 0.15rem;
+    font-size: 10.5pt;
+    font-weight: 400;
+    color: #0D9488;
+    margin-bottom: 0.2rem;
   }
 
   .site-header__contact,
   .site-header__phone {
     font-size: 8pt;
-    margin-bottom: 0.1rem;
+    color: #4a4a4a;
+    margin-bottom: 0;
+    display: inline;
+  }
+
+  .site-header__contact::after {
+    content: " · ";
   }
 
   .social-links {
-    margin-top: 0.25rem;
-    gap: 0.5rem;
+    display: none;
   }
 
-  .social-links svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  /* --- Sections tight --- */
+  /* ============================
+     SECTION TITLES — accent bar
+     ============================ */
   .section {
-    padding: 0.4rem 0;
+    padding: 0.35rem 0;
   }
 
   .section__title {
-    font-size: 12pt;
-    margin-bottom: 0.3rem;
-    padding-bottom: 0.15rem;
-    border-bottom: 1px solid #ddd;
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     color: #0D9488;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #e0e0dc;
   }
 
-  /* --- About compact --- */
+  /* Force Experience to start on page 2 */
+  #experience {
+    break-before: page;
+  }
+
+  /* ============================
+     ABOUT — tight prose
+     ============================ */
   .about p {
-    font-size: 9pt;
-    margin-bottom: 0.25rem;
+    font-size: 8.5pt;
+    margin-bottom: 0.2rem;
+    color: #333;
   }
 
   .about__languages {
-    font-size: 8.5pt;
+    font-size: 8pt;
+    color: #555;
   }
 
-  /* --- Projects grid: 2-col for print --- */
+  /* ============================
+     PROJECTS — 3-col grid
+     ============================ */
   .projects-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.4rem;
   }
 
   .project-card {
-    padding: 0.35rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
+    padding: 0.3rem 0.4rem;
+    border-left: 3px solid #0D9488;
+    background: #fafaf8;
     break-inside: avoid;
+    border-radius: 0;
   }
 
   .project-card__name {
-    font-size: 9.5pt;
-    margin-bottom: 0.1rem;
+    font-size: 8.5pt;
+    font-weight: 600;
+    margin-bottom: 0.05rem;
+  }
+
+  .project-card__name a {
+    color: #1a1a1a;
   }
 
   .project-card__desc {
-    font-size: 7.5pt;
-    line-height: 1.35;
-    margin-bottom: 0.15rem;
+    font-size: 7pt;
+    line-height: 1.3;
+    color: #444;
+    margin-bottom: 0.1rem;
   }
 
-  /* --- Timeline compact --- */
+  .project-card .timeline__tech {
+    gap: 0.15rem;
+    margin-top: 0.1rem;
+  }
+
+  .project-card .timeline__tech span {
+    font-size: 6pt;
+    padding: 0.02rem 0.2rem;
+    background: #fff;
+    border: 0.5px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+  }
+
+  /* --- Project links: show URL subtly --- */
+  .project-card__name a[href]::after {
+    content: " — " attr(href);
+    font-size: 6pt;
+    color: #999;
+    font-weight: 400;
+  }
+
+  /* ============================
+     EXPERIENCE — clean timeline
+     ============================ */
   .timeline__item {
     padding-left: 0;
     border-left: none;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.25rem;
     break-inside: avoid;
   }
 
@@ -1055,21 +1132,37 @@ p + p {
     display: none;
   }
 
+  .timeline__header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
   .timeline__company {
     font-size: 10pt;
+    font-weight: 600;
+    color: #1a1a1a;
   }
 
   .timeline__role {
-    font-size: 9pt;
+    font-size: 8.5pt;
+    font-weight: 400;
+    color: #555;
   }
 
   .timeline__meta {
-    font-size: 8pt;
-    color: #666;
+    font-size: 7.5pt;
+    color: #777;
+    margin-bottom: 0.1rem;
   }
 
   .timeline__description {
-    font-size: 8.5pt;
+    font-size: 8pt;
+    color: #333;
+  }
+
+  .timeline__description p {
+    margin-bottom: 0.1rem;
   }
 
   .timeline__description ul {
@@ -1078,60 +1171,123 @@ p + p {
   }
 
   .timeline__description li {
-    font-size: 8pt;
-    margin-bottom: 0.1rem;
+    font-size: 7.5pt;
+    margin-bottom: 0.05rem;
+    color: #444;
   }
 
   .timeline__subrole {
-    margin-top: 0.15rem;
+    margin-top: 0.05rem;
+    margin-bottom: 0.05rem;
     padding-left: 0.5rem;
-    border-left: 2px solid #e5e5e5;
+    border-left: 2px solid #e0e0dc;
   }
 
   .timeline__subrole-title {
-    font-size: 9pt;
+    font-size: 8pt;
+    font-weight: 500;
   }
 
   .timeline__subrole-meta {
-    font-size: 7.5pt;
+    font-size: 6.5pt;
+    color: #777;
   }
 
   .timeline__subrole-desc {
-    font-size: 8pt;
-  }
-
-  /* --- Tech tags compact --- */
-  .timeline__tech {
-    gap: 0.2rem;
-    margin-top: 0.15rem;
-  }
-
-  .timeline__tech span,
-  .skill-tag {
     font-size: 7pt;
-    padding: 0.05rem 0.3rem;
-    border: 1px solid #ccc;
-    background: #f7f7f7;
-    color: #333;
+    color: #444;
   }
 
-  /* --- Skills grid: 3-col --- */
+  /* --- Tech tags --- */
+  .timeline__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem;
+    margin-top: 0.1rem;
+  }
+
+  .timeline__tech span {
+    font-size: 6.5pt;
+    padding: 0.03rem 0.25rem;
+    background: #f0f0ec;
+    border: 0.5px solid #d5d5d0;
+    border-radius: 2px;
+    color: #444;
+  }
+
+  /* ============================
+     SKILLS — 3-col, compact
+     ============================ */
   .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.3rem;
+    gap: 0.15rem 0.4rem;
+  }
+
+  #skills {
+    padding-top: 0.2rem;
+    break-inside: avoid;
+  }
+
+  #volunteer {
+    display: none !important;
+  }
+
+  #recommendations {
+    break-inside: avoid;
+  }
+
+  .education-item,
+  .certification-item {
+    break-inside: avoid;
+    margin-bottom: 0.15rem;
+    padding-top: 0.15rem;
+  }
+
+  .education-item__school,
+  .certification-item__name {
+    font-size: 8.5pt;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+  }
+
+  .education-item__degree,
+  .education-item__dates,
+  .certification-item__id {
+    font-size: 7.5pt;
+    color: #666;
+    margin-bottom: 0.08rem;
+  }
+
+  .skills-category {
+    break-inside: avoid;
   }
 
   .skills-category__title {
-    font-size: 8.5pt;
-    margin-bottom: 0.15rem;
+    font-size: 8pt;
+    font-weight: 600;
+    color: #0D9488;
+    margin-bottom: 0.1rem;
   }
 
   .skills-category__tags {
-    gap: 0.15rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.12rem;
   }
 
-  /* --- Recommendations compact --- */
+  .skill-tag {
+    font-size: 6.5pt;
+    padding: 0.03rem 0.25rem;
+    background: #f0f0ec;
+    border: 0.5px solid #d5d5d0;
+    border-radius: 2px;
+    color: #444;
+  }
+
+  /* ============================
+     RECOMMENDATIONS — 3-col
+     ============================ */
   .recommendations {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1139,53 +1295,88 @@ p + p {
   }
 
   .recommendation-card {
-    padding: 0.3rem;
+    padding: 0.25rem 0.35rem;
+    border-left: 2px solid #0D9488;
+    background: #fafaf8;
     break-inside: avoid;
   }
 
   .recommendation-card blockquote p {
-    font-size: 7.5pt;
+    font-size: 7pt;
     font-style: italic;
-    line-height: 1.35;
+    line-height: 1.3;
+    color: #444;
   }
 
   .recommendation-card__name {
-    font-size: 8pt;
+    font-size: 7.5pt;
     font-weight: 600;
+    margin-top: 0.1rem;
+    color: #1a1a1a;
   }
 
   .recommendation-card__title {
-    font-size: 7pt;
-    color: #666;
+    font-size: 6.5pt;
+    color: #777;
   }
 
-  /* --- Volunteer compact --- */
+  /* ============================
+     VOLUNTEER — compact
+     ============================ */
   .volunteer-card {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
     break-inside: avoid;
   }
 
   .volunteer-card__org {
-    font-size: 9.5pt;
+    font-size: 9pt;
+    font-weight: 600;
   }
 
-  .volunteer-card__role,
+  .volunteer-card__org a {
+    color: #1a1a1a;
+  }
+
+  .volunteer-card__role {
+    font-size: 7.5pt;
+    color: #555;
+  }
+
   .volunteer-card__meta {
-    font-size: 8pt;
+    font-size: 7pt;
+    color: #777;
   }
 
   .volunteer-card__desc {
-    font-size: 8pt;
+    font-size: 7.5pt;
+    color: #444;
   }
 
-  /* --- Education & Certifications --- */
-  .education-card,
-  .cert-card {
+  /* ============================
+     EDUCATION & CERTS — inline
+     ============================ */
+  .education-item,
+  .certification-item {
     break-inside: avoid;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
-  /* --- Links: show URL for important ones only --- */
+  .education-item__school,
+  .certification-item__name {
+    font-size: 8.5pt;
+    font-weight: 500;
+  }
+
+  .education-item__degree,
+  .education-item__dates,
+  .certification-item__id {
+    font-size: 7.5pt;
+    color: #666;
+  }
+
+  /* ============================
+     LINKS — clean, no URL noise
+     ============================ */
   a[href] {
     color: #0D9488;
     text-decoration: none;
@@ -1193,19 +1384,5 @@ p + p {
 
   a[href]::after {
     content: none;
-  }
-
-  .project-card__name a[href]::after {
-    content: " (" attr(href) ")";
-    font-size: 6.5pt;
-    color: #888;
-    font-weight: normal;
-  }
-
-  /* --- Container: full width for print --- */
-  .container,
-  .container--wide {
-    max-width: 100%;
-    padding: 0;
   }
 }

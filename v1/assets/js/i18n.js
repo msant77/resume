@@ -44,8 +44,8 @@
     'exp.independent': { en: 'Independent Software Engineer', pt: 'Engenheiro de Software Independente' },
     'exp.independent.meta': { en: 'Jan 2025 – Present', pt: 'Jan 2025 – Presente' },
     'exp.independent.desc': {
-      en: 'Designing, building, and shipping production software across multiple platforms — web, mobile, and desktop. Offline-first architectures, internationalized interfaces, and thorough test coverage across unit, widget, integration, and end-to-end layers.',
-      pt: 'Projetando, construindo e entregando software de produção em múltiplas plataformas — web, mobile e desktop. Arquiteturas offline-first, interfaces internacionalizadas e cobertura de testes abrangente em camadas unitária, widget, integração e end-to-end.'
+      en: 'Author of the projects listed above. Emphasis on offline-first architectures, internationalized interfaces, and thorough test coverage across unit, widget, integration, and end-to-end layers.',
+      pt: 'Autor dos projetos listados acima. Ênfase em arquiteturas offline-first, interfaces internacionalizadas e cobertura de testes abrangente em camadas unitária, widget, integração e end-to-end.'
     },
     'exp.independent.braxum': {
       en: '<strong>Braxum</strong> — Multi-tenant SaaS with strong financial, SGA, and CRM modules. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.',
