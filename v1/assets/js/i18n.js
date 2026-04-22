@@ -76,6 +76,14 @@
       pt: '<strong>Ponta da Barra Info</strong> — Diretório comunitário para uma vila costeira brasileira. Flutter Web no Cloudflare Pages. Offline-first com SQLite WASM, multilíngue (PT/EN/ES).'
     },
 
+    // --- Experience: GoAPICE ---
+    'exp.goapice.role': { en: 'Frontend Engineer', pt: 'Engenheiro Frontend' },
+    'exp.goapice.meta1': { en: 'Feb 2026 – Present', pt: 'Fev 2026 – Presente' },
+    'exp.goapice.desc': {
+      en: 'Developing and maintaining Golyzer, an enterprise BI dashboard platform for interactive data visualization and panel management. Engineered rich text editor integration with TipTap (slash menus, variable completion, user-attribute resolution), conditional formatting engine with runtime evaluation, and master-slave cross-element filtering with automatic propagation. Architected 40+ reusable components across 17+ context providers managing complex state interactions. Contributing to a modernization effort migrating from Next.js 12/React 17 to a Vite/React 18 architecture via Module Federation micro-frontends.',
+      pt: 'Desenvolvimento e manutenção do Golyzer, uma plataforma de BI corporativa para visualização interativa de dados e gestão de painéis. Implementei integração de editor rich text com TipTap (menus slash, completação de variáveis, resolução de atributos de usuário), motor de formatação condicional com avaliação em tempo de execução, e filtragem mestre-escravo entre elementos com propagação automática. Arquitetei 40+ componentes reutilizáveis em 17+ provedores de contexto gerenciando interações complexas de estado. Contribuindo para modernização migrando de Next.js 12/React 17 para arquitetura Vite/React 18 via micro-frontends com Module Federation.'
+    },
+
     // --- Experience: Studies ---
     'exp.studies': { en: 'Independent Study & Prototyping', pt: 'Estudo Independente & Prototipagem' },
     'exp.studies.meta': { en: 'Apr 2024 – Dec 2024', pt: 'Abr 2024 – Dez 2024' },
