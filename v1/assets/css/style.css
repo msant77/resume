@@ -919,6 +919,67 @@ p + p {
 
 @media print {
 
+  /* --- Two-page resume: no recommendations, no 2024 study entry, no trailing blank page --- */
+  #recommendations,
+  #projects,
+  .timeline__item:has([data-i18n="exp.studies"]) {
+    display: none !important;
+  }
+  html, body, main {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #education,
+  .section:last-of-type {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .section:last-of-type,
+  #education {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .project-card,
+  .skills-category {
+    break-inside: avoid;
+  }
+  .timeline__item {
+    break-inside: auto;
+  }
+
+  /* --- Two-page budget: no tech-tag rows, no career recap paragraph, tighter rhythm --- */
+  .timeline__tech,
+  [data-i18n="about.p3"] {
+    display: none !important;
+  }
+  .section {
+    padding: 0.2rem 0 !important;
+  }
+  .section__title {
+    margin-bottom: 0.3rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+  .site-header__name {
+    font-size: 18pt !important;
+  }
+  .site-header {
+    margin-bottom: 0.3rem !important;
+  }
+  .timeline__item {
+    margin-bottom: 0.2rem !important;
+  }
+
+  /* --- Reveal animation: everything prints visible, scrolled or not --- */
+  .reveal,
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   /* --- Reset --- */
   *,
   *::before,
@@ -958,8 +1019,8 @@ p + p {
 
   /* --- Page --- */
   @page {
-    size: A4;
-    margin: 2cm 2.2cm;
+    size: letter;
+    margin: 1.3cm 1.5cm;
   }
 
   html {
@@ -1045,7 +1106,7 @@ p + p {
 
   /* Force Experience to start on page 2 */
   #experience {
-    break-before: page;
+    break-before: auto;
   }
 
   /* ============================
@@ -1063,26 +1124,35 @@ p + p {
   }
 
   /* ============================
-     PROJECTS — 3-col grid
+     PROJECTS — single-column compact list (ATS-friendly)
      ============================ */
   .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
   }
 
   .project-card {
-    padding: 0.3rem 0.4rem;
-    border-left: 3px solid #0D9488;
-    background: #fafaf8;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 0.3rem;
+    padding: 0.1rem 0;
+    border-left: none;
+    background: none;
     break-inside: avoid;
     border-radius: 0;
+    border-bottom: 0.5px solid #eaeae6;
+  }
+
+  .project-card:last-child {
+    border-bottom: none;
   }
 
   .project-card__name {
     font-size: 8.5pt;
     font-weight: 600;
-    margin-bottom: 0.05rem;
+    margin-bottom: 0;
   }
 
   .project-card__name a {
@@ -1090,24 +1160,15 @@ p + p {
   }
 
   .project-card__desc {
-    font-size: 7pt;
-    line-height: 1.3;
+    font-size: 7.5pt;
+    line-height: 1.35;
     color: #444;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0;
+    flex-basis: 100%;
   }
 
   .project-card .timeline__tech {
-    gap: 0.15rem;
-    margin-top: 0.1rem;
-  }
-
-  .project-card .timeline__tech span {
-    font-size: 6pt;
-    padding: 0.02rem 0.2rem;
-    background: #fff;
-    border: 0.5px solid #ccc;
-    border-radius: 2px;
-    color: #555;
+    display: none;
   }
 
   /* --- Project links: show URL subtly --- */
@@ -1125,7 +1186,7 @@ p + p {
     padding-left: 0;
     border-left: none;
     margin-bottom: 0.25rem;
-    break-inside: avoid;
+    break-inside: auto;
   }
 
   .timeline__item::before {

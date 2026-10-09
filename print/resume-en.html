@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Marco Santana — Resume</title>
+<style>
+  :root { --base: 10pt; --ink: #1a1a1a; --muted: #4a4a4a; --accent: #0b6e66; --rule: #c9c9c4; }
+  @page { size: letter; margin: 0.55in 0.65in; }
+  * { box-sizing: border-box; }
+  html { font-size: var(--base); }
+  body { margin: 0; color: var(--ink); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1rem; line-height: 1.32; }
+  p, ul { margin: 0; }
+  ul { padding-left: 1.05em; }
+  li { margin: 0 0 0.18em; }
+  li::marker { color: var(--accent); }
+
+  header { border-bottom: 1.5pt solid var(--accent); padding-bottom: 0.45em; margin-bottom: 0.7em; }
+  .name { font-size: 2.05em; font-weight: 700; letter-spacing: 0.01em; line-height: 1.05; }
+  .title { font-size: 1.15em; color: var(--accent); font-weight: 600; margin-top: 0.15em; }
+  .contact { font-size: 0.9em; color: var(--muted); margin-top: 0.3em; }
+  .contact span + span::before { content: "  ·  "; color: var(--rule); }
+
+  h2 { font-size: 0.9em; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0.95em 0 0.35em; padding-bottom: 0.15em; border-bottom: 0.75pt solid var(--rule); break-after: avoid; }
+  section:first-of-type h2 { margin-top: 0; }
+
+  .summary { font-size: 1em; }
+  .role { margin-bottom: 0.55em; break-inside: auto; }
+  .role-head, .positions, .context { break-after: avoid; }
+  li { break-inside: avoid; }
+  .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; }
+  .org { font-weight: 700; font-size: 1.05em; }
+  .dates { color: var(--muted); font-size: 0.92em; white-space: nowrap; }
+  .positions { color: var(--muted); font-size: 0.95em; margin: 0.05em 0 0.15em; }
+  .positions b { color: var(--ink); font-weight: 600; }
+  .context { color: var(--muted); font-size: 0.95em; margin-bottom: 0.15em; }
+  .earlier { font-size: 0.95em; color: var(--muted); }
+  .earlier b { color: var(--ink); font-weight: 600; }
+
+  .skills p { margin-bottom: 0.18em; }
+  .skills b { font-weight: 600; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name">Marco Santana</div>
+  <div class="title">AI Engineer · Senior Software Architect</div>
+  <div class="contact">
+    <span>Santa Catarina, Brazil (UTC-3)</span><span>marcosantana@msn.com</span><span>linkedin.com/in/marcosantana77</span><span>github.com/msant77</span><span>marcosantana.dev</span>
+  </div>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p class="summary">Senior engineer with 25+ years (ex-Microsoft, ex-H2O.ai) who ships production software through governed agentic workflows and builds the guardrails that make them safe. In 2026: more than 3,000 commits across about 40 repositories; promoted from senior frontend developer to senior software architect at a BI-platform company in eight months; sole author of a 42,800-line CRM module for an ISP; Chordo Pro published on the Apple App Store and the Microsoft Store. Working language English since 2018. Open to relocation and to US hours.</p>
+</section>
+
+<section>
+  <h2>Highlights</h2>
+  <ul>
+    <li>Own the backend, Protobuf contracts and offline-first Flutter field app of a trade-marketing platform: 125 merged MRs across five repositories in ten weeks; backend tests 84 to 725, app tests 145 to 736.</li>
+    <li>Cut a 1.29-million-row paged query from about 35 s to about 2 s by pushing LIMIT/OFFSET down to Trino; redesigned a 46-million-row out-of-memory aggregation to about 12 s per page with exact parity.</li>
+    <li>Run a governed multi-session Claude Code workflow: 64 parallel git worktrees, PreToolUse guard hooks, quality-gate skills, CI guards for schema drift and contract freshness, adversarial review before every merge.</li>
+    <li>Delivered an ISP CRM part-time in 446 billed hours: 28-table schema, 105 endpoints behind 103 permissions, 248 backend tests, 105 end-to-end cases, 23 merged PRs.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="role">
+    <div class="role-head"><span class="org">RDias - GoAPICE</span><span class="dates">Feb 2026 – Present · Remote, Brazil</span></div>
+    <p class="positions"><b>Senior Software Architect</b> (Aug 2026 – Present) · <b>Senior Full-Stack Engineer</b> (May – Jul 2026) · <b>Senior Frontend Developer</b> (Feb – Apr 2026)</p>
+    <p class="context">BI dashboard platform, Trino/StarRocks/Delta Lake lakehouse, and a trade-marketing field platform.</p>
+    <ul>
+      <li>Founded a Protobuf contracts repository as the single source of types for TypeScript, Python and Dart, with buf lint and breaking-change gates, versioned packages and consumer freshness checks in CI; shipped 15 of its 18 releases.</li>
+      <li>Re-platformed the Flutter field app to offline-first (SQLite source of truth, outbox queue, idempotent upserts on client-generated UUIDv7 ids, image compression for 2 GB devices); added its CI; 21 tester builds in 24 days.</li>
+      <li>Benchmarked Trino against StarRocks on replayed production dashboard loads (p50 948 ms vs 3,591 ms; StarRocks failed 11 of 48 requests at 16 concurrent users), turning an engine migration into a tuning decision.</li>
+      <li>Led a compute-amplification audit across four services (14x duplicate calls per panel load; about 60 database queries per save reduced to one or two) and published 21 architecture pages through a Wiki.js publisher I wrote.</li>
+      <li>Built an AWS FinOps pipeline (Cost and Usage Reports, Athena, CloudWatch) that surfaced 13 findings worth 30 to 60 percent of monthly spend, including 87 orphaned EBS volumes totaling 8.6 TB.</li>
+      <li>Wrote the team hook that stops agents from approving, merging or undrafting MRs; hardened the React 18 / Vite / Module Federation modernization (165 commits; unsafe as-any casts 166 to 0 in production code).</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head"><span class="org">Confidential client, a major fiber-optics ISP</span><span class="dates">Apr 2026 – Present · Remote, contract</span></div>
+    <p class="positions"><b>Software Engineer</b>, part-time alongside full-time employment</p>
+    <p class="context">ISP operations platform: React 19, TanStack, FastAPI, SQLModel, PostgreSQL, Redis.</p>
+    <ul>
+      <li>Sole author of the CRM module: 28-table schema, 16 Alembic migrations, 105 FastAPI endpoints behind 103 RBAC capabilities, and a kanban, lead workspace and proposal editor with triggers and cadences (115 commits, 42,800 lines; in final review, Oct 2026).</li>
+      <li>Built the test coverage from zero: 248 pytest functions, the repository's first Playwright suite (105 cases), 87 smoke scripts and a 233-case client validation page.</li>
+      <li>Introduced pull-request delivery to a team that merged straight to main; 23 merged PRs and 409 commits, the most of any contributor during the engagement.</li>
+      <li>Built a guard-railed agent harness for client work (PreToolUse hook, critical-values scanner, pre-push LLM review, parallel agents in isolated working copies); a multi-agent pass took the TypeScript build from 100 errors to 0.</li>
+      <li>Found three blockers in one code review, including a SQL injection; pinned dependencies against the May 2026 npm supply-chain attack and cleared four critical CVEs.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head"><span class="org">Independent Software Engineer</span><span class="dates">Jan 2025 – Present · Santa Catarina, Brazil</span></div>
+    <ul>
+      <li><b>Chordo Pro</b>: Flutter chord-sheet app published on the Apple App Store (iOS, macOS; Mar 2026) and the Microsoft Store (Sep 2026); six releases, 449 tests, fastlane and a CI release pipeline; open-sourced the ICLF specification, parser and music-theory library.</li>
+      <li><b>Alpha Tester</b>, a multi-tenant feedback platform with web and Flutter SDKs (243 tests), live since Aug 2026; <b>GeoDome</b>, a geodesic-dome calculator on a pure-Dart geometry engine, live on the web.</li>
+      <li>Agent tooling: claude-multi routes Claude Code across three subscriptions by directory; spent is a time-tracking CLI with 108 tests; an eight-agent audit of my own practice and a five-agent review of 8,662 prompts set the harness roadmap.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head"><span class="org">H2O.ai (US)</span><span class="dates">May 2020 – Apr 2024 · Remote</span></div>
+    <p class="positions"><b>Frontend Engineer</b></p>
+    <ul>
+      <li>Built and maintained the user interface of H2O.ai's machine-learning platform (React, TypeScript, Storybook, Fluent UI; Go and Buf on the API side): shared component libraries and internal developer tooling, in English, in a distributed US team.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head"><span class="org">BairesDev</span><span class="dates">Aug 2018 – Apr 2020</span></div>
+    <p class="positions"><b>Senior Full Stack Engineer</b>, then <b>Technical Team Lead</b></p>
+    <ul>
+      <li>Delivered features for a North American e-procurement SaaS (dynamic form generation, WAND taxonomy, AWS Lambda and API Gateway services); as lead, onboarded developers and ran grooming and planning with the client in English.</li>
+    </ul>
+  </div>
+
+  <p class="earlier"><b>Earlier:</b> Full Stack Developer, Softplan (2018) · Lead Technical Architect, Portal Telemedicina, telemedicine PWA on IBM Cloud, AWS, Azure and Google Cloud (2015–2018) · Senior Software Architect and interim engineering manager, Cetil Sistemas (2008–2010) · Senior developer, architect and DBA roles (2007–2014) · Microsoft Brasil, four roles up to Innovation Center Program Manager (1998–2004).</p>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <p><b>AI engineering:</b> agent harness design (hooks, permission policies, skills, MCP servers), multi-agent orchestration (parallel worktrees, session handoffs, adversarial review rounds), LLM tool calling and evals (Anthropic, OpenAI, Ollama APIs), spec and prompt writing.</p>
+  <p><b>Languages:</b> TypeScript, Python, Dart, Swift, SQL, Bash, C#.</p>
+  <p><b>Frontend and mobile:</b> React 19, Next.js, Vite, Module Federation, TanStack, Flutter, SwiftUI.</p>
+  <p><b>Backend and data:</b> FastAPI, SQLModel and SQLAlchemy, NestJS, Node.js, Protobuf and buf, Alembic, Drizzle; PostgreSQL, Redis, SQLite, Trino, StarRocks, DuckDB, Delta Lake.</p>
+  <p><b>Cloud and delivery:</b> AWS (EKS, Lambda, Athena, CUR), GCP, Cloudflare, Terraform, Docker, Kubernetes, GitHub Actions, GitLab CI; pytest, Vitest, Playwright, bats, fastlane.</p>
+  <p><b>Studying:</b> Rust, with a peer-to-peer sync engine as the study project.</p>
+</section>
+
+<section>
+  <h2>Education and languages</h2>
+  <div class="two">
+    <p><b>FECAP</b>, São Paulo — Data Processing Technology, 1993–1995</p>
+    <p>Portuguese (native) · English (full professional; working language since 2018) · Spanish (elementary)</p>
+  </div>
+</section>
+
+</body>
+</html>

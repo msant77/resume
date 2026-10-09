@@ -8,7 +8,10 @@
 
   var translations = {
     // --- Header ---
-    'header.title': { en: 'Software Engineer', pt: 'Engenheiro de Software' },
+    'header.title': {
+      en: 'AI Engineer · Agentic Software Delivery',
+      pt: 'Engenheiro de IA · Entrega de Software Agêntica'
+    },
     'header.location': { en: 'Santa Catarina, Brazil', pt: 'Santa Catarina, Brasil' },
     'skip': { en: 'Skip to content', pt: 'Ir para o conteúdo' },
 
@@ -24,32 +27,28 @@
 
     // --- About ---
     'about.p1': {
-      en: 'With over <strong>25 years in software engineering</strong>, I have built a career spanning full-stack development, database architecture, cloud infrastructure, and technical leadership — from enterprise platforms at Microsoft Brazil to telemedicine systems, e-procurement SaaS, and machine-learning products at H2O.ai.',
-      pt: 'Com mais de <strong>25 anos em engenharia de software</strong>, construí uma carreira que abrange desenvolvimento full-stack, arquitetura de banco de dados, infraestrutura em nuvem e liderança técnica — de plataformas corporativas na Microsoft Brasil a sistemas de telemedicina, SaaS de e-procurement e produtos de machine learning na H2O.ai.'
+      en: 'With over <strong>25 years in software engineering</strong>, I now ship production software through agentic workflows and build the guardrails that make them safe: in 2026 alone, more than 3,000 commits across about 40 repositories, 125 merged merge requests in ten weeks on a trade-marketing platform at GoAPICE, a 42,000-line CRM module for an ISP client, and Chordo Pro on the Apple App Store and the Microsoft Store.',
+      pt: 'Com mais de <strong>25 anos em engenharia de software</strong>, hoje entrego software de produção por meio de fluxos de trabalho agênticos e construo as salvaguardas que os tornam seguros: só em 2026, mais de 3.000 commits em cerca de 40 repositórios, 125 merge requests integrados em dez semanas numa plataforma de trade marketing na GoAPICE, um módulo de CRM de 42 mil linhas para um provedor de internet e o Chordo Pro na App Store da Apple e na Microsoft Store.'
     },
     'about.p2': {
-      en: 'Today I design and ship production software across TypeScript, Dart, and Swift. In the first quarter of 2026 alone, I shipped a multi-tenant SaaS platform, a cross-platform music notation ecosystem (iPad + macOS App Store), a community directory for a Brazilian coastal village, and a developer feedback SDK.',
-      pt: 'Hoje projeto e entrego software de produção em TypeScript, Dart e Swift. Somente no primeiro trimestre de 2026, entreguei uma plataforma SaaS multi-tenant, um ecossistema de notação musical multiplataforma (iPad + macOS App Store), um diretório comunitário para uma vila costeira brasileira, e um SDK de feedback para desenvolvedores.'
+      en: 'The AI engineering is hands-on: agent harnesses (guard hooks, quality-gate skills, parallel worktrees, adversarial review rounds) used daily across an employer, a client and my own products, CI guards for schema drift and contract freshness, and audits of my own practice run by agent fleets over thousands of real prompts.',
+      pt: 'A engenharia de IA é mão na massa: harnesses de agentes (hooks de proteção, skills de gates de qualidade, worktrees paralelos, rodadas de revisão adversarial) usados diariamente num empregador, num cliente e nos meus próprios produtos, guardas de CI para deriva de esquema e frescor de contratos, e auditorias da minha própria prática conduzidas por frotas de agentes sobre milhares de prompts reais.'
     },
     'about.p3': {
-      en: 'I value pragmatic design, clean code, and work that makes a tangible difference.',
-      pt: 'Valorizo design pragmático, código limpo e trabalho que faz diferença real.'
+      en: 'Before that: four years on the UI of H2O.ai\'s machine-learning platform, team lead for a North American e-procurement SaaS at BairesDev, lead architect of a telemedicine platform on four clouds, and six years at Microsoft Brasil.',
+      pt: 'Antes disso: quatro anos na interface da plataforma de machine learning da H2O.ai, líder técnico de um SaaS de e-procurement norte-americano na BairesDev, arquiteto líder de uma plataforma de telemedicina em quatro nuvens e seis anos na Microsoft Brasil.'
     },
     'about.languages': {
-      en: '<strong>Languages:</strong> Portuguese (native) · English (full professional) · Spanish (elementary)',
-      pt: '<strong>Idiomas:</strong> Português (nativo) · Inglês (fluente profissional) · Espanhol (elementar)'
+      en: '<strong>Languages:</strong> Portuguese (native) · English (full professional; working language since 2018) · Spanish (elementary)',
+      pt: '<strong>Idiomas:</strong> Português (nativo) · Inglês (fluente profissional; idioma de trabalho desde 2018) · Espanhol (elementar)'
     },
 
     // --- Experience: Independent ---
     'exp.independent': { en: 'Independent Software Engineer', pt: 'Engenheiro de Software Independente' },
     'exp.independent.meta': { en: 'Jan 2025 – Present', pt: 'Jan 2025 – Presente' },
     'exp.independent.desc': {
-      en: 'Author of the projects listed above. Emphasis on offline-first architectures, internationalized interfaces, and thorough test coverage across unit, widget, integration, and end-to-end layers.',
-      pt: 'Autor dos projetos listados acima. Ênfase em arquiteturas offline-first, interfaces internacionalizadas e cobertura de testes abrangente em camadas unitária, widget, integração e end-to-end.'
-    },
-    'exp.independent.braxum': {
-      en: '<strong>Braxum</strong> — Multi-tenant SaaS with strong financial, SGA, and CRM modules. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC with 5 roles, TOTP 2FA, D3.js dashboards, 4-stage test pyramid, Terraform on AWS and GCP, Docker CI/CD.',
-      pt: '<strong>Braxum</strong> — SaaS multi-tenant com módulos robustos de financeiro, SGA e CRM. Next.js 16, TypeScript, PostgreSQL, Drizzle ORM. RBAC com 5 perfis, 2FA TOTP, dashboards D3.js, pirâmide de testes em 4 camadas, Terraform na AWS e GCP, Docker CI/CD.'
+      en: 'Products, open source and agent tooling, built with coding agents under written process (issue before commit, zero-warning gates, human-only issue closure). Chordo Pro is published on the Apple App Store (iOS, macOS) and the Microsoft Store, with the ICLF specification, parser and music-theory library open-sourced alongside it; Alpha Tester and GeoDome are live on the web. Tooling: claude-multi routes Claude Code across three subscriptions by directory; spent is a time-tracking CLI with 108 tests that publishes client reports; an 8-agent audit of my own practice and a 5-agent review of 8,662 prompts drive the harness roadmap.',
+      pt: 'Produtos, código aberto e ferramentas para agentes, construídos com agentes de código sob processo escrito (issue antes do commit, gates sem warnings, fechamento de issues só por humanos). O Chordo Pro está publicado na App Store da Apple (iOS, macOS) e na Microsoft Store, com a especificação ICLF, o parser e a biblioteca de teoria musical abertos ao lado dele; Alpha Tester e GeoDome estão no ar na web. Ferramentas: o claude-multi roteia o Claude Code entre três assinaturas por diretório; o spent é uma CLI de registro de horas com 108 testes que publica relatórios para clientes; uma auditoria da minha própria prática com 8 agentes e uma revisão de 8.662 prompts com 5 agentes orientam o roadmap do harness.'
     },
     'exp.independent.chordo': {
       en: '<strong>Chordo</strong> — Music notation ecosystem with open-source libraries. Designed the ICLF specification for plain-text chord sheets. Parser library, music theory engine (key detection, voicing calculator, transposition), and cross-platform Flutter app shipped to iPad and macOS App Store. 4 repositories.',
@@ -77,11 +76,14 @@
     },
 
     // --- Experience: GoAPICE ---
-    'exp.goapice.role': { en: 'Frontend Engineer', pt: 'Engenheiro Frontend' },
+    'exp.goapice.role': {
+      en: 'Senior Software Architect',
+      pt: 'Arquiteto de Software Sênior'
+    },
     'exp.goapice.meta1': { en: 'Feb 2026 – Present', pt: 'Fev 2026 – Presente' },
     'exp.goapice.desc': {
-      en: 'Developing and maintaining Golyzer, an enterprise BI dashboard platform for interactive data visualization and panel management. Engineered rich text editor integration with TipTap (slash menus, variable completion, user-attribute resolution), conditional formatting engine with runtime evaluation, and master-slave cross-element filtering with automatic propagation. Architected 40+ reusable components across 17+ context providers managing complex state interactions. Contributing to a modernization effort migrating from Next.js 12/React 17 to a Vite/React 18 architecture via Module Federation micro-frontends.',
-      pt: 'Desenvolvimento e manutenção do Golyzer, uma plataforma de BI corporativa para visualização interativa de dados e gestão de painéis. Implementei integração de editor rich text com TipTap (menus slash, completação de variáveis, resolução de atributos de usuário), motor de formatação condicional com avaliação em tempo de execução, e filtragem mestre-escravo entre elementos com propagação automática. Arquitetei 40+ componentes reutilizáveis em 17+ provedores de contexto gerenciando interações complexas de estado. Contribuindo para modernização migrando de Next.js 12/React 17 para arquitetura Vite/React 18 via micro-frontends com Module Federation.'
+      en: 'Own the backend, Protobuf contracts and offline-first Flutter field app of a trade-marketing platform: 125 merged MRs across five repositories in ten weeks, BFF tests 84 → 725, app tests 145 → 736, 21 tester builds in 24 days. Cut a 1.29M-row paged query from ~35 s to ~2 s by pushing LIMIT/OFFSET down to Trino in the Python query engine; redesigned a 46M-row out-of-memory aggregation to ~12 s per page. Benchmarked Trino against StarRocks on replayed production dashboard loads, led a compute-amplification audit across four services, built an AWS FinOps pipeline that surfaced savings worth 30–60% of monthly spend, and published 21 architecture pages through a Wiki.js publisher I wrote. Earlier in the year: 165 commits hardening the Golyzer React 18 / Vite / Module Federation modernization, a TipTap rich-text editor and a conditional-formatting engine. Run a governed multi-session Claude Code workflow (64 parallel worktrees, guard hooks, quality-gate skills) and wrote the team hook that keeps agents from approving or merging MRs.',
+      pt: 'Responsável pelo backend, pelos contratos Protobuf e pelo app de campo Flutter offline-first de uma plataforma de trade marketing: 125 MRs integrados em cinco repositórios em dez semanas, testes do BFF de 84 para 725, testes do app de 145 para 736, 21 builds para testadores em 24 dias. Reduzi uma consulta paginada de 1,29 milhão de linhas de ~35 s para ~2 s levando LIMIT/OFFSET até o Trino no motor de consultas em Python; redesenhei uma agregação de 46 milhões de linhas que estourava a memória para ~12 s por página. Comparei Trino e StarRocks com cargas reais de dashboards reproduzidas, conduzi uma auditoria de amplificação de computação em quatro serviços, construí um pipeline de FinOps na AWS que apontou economias de 30–60% do gasto mensal e publiquei 21 páginas de arquitetura por um publicador Wiki.js que escrevi. No início do ano: 165 commits endurecendo a modernização do Golyzer em React 18 / Vite / Module Federation, um editor de texto rico com TipTap e um motor de formatação condicional. Opero um fluxo de trabalho governado com Claude Code em múltiplas sessões (64 worktrees paralelos, hooks de proteção, skills de gates de qualidade) e escrevi o hook do time que impede agentes de aprovar ou integrar MRs.'
     },
 
     // --- Experience: Studies ---
@@ -96,14 +98,14 @@
     'exp.h2o.role': { en: 'Frontend Engineer', pt: 'Engenheiro Frontend' },
     'exp.h2o.meta1': { en: 'May 2020 – Apr 2024 · 4 years', pt: 'Mai 2020 – Abr 2024 · 4 anos' },
     'exp.h2o.desc': {
-      en: 'Built and maintained the user interface for H2O.ai\'s machine-learning platform in React and TypeScript. Developed shared component libraries, collaborated closely with design and backend teams, and contributed to internal developer tooling.',
-      pt: 'Construí e mantive a interface de usuário da plataforma de machine learning da H2O.ai em React e TypeScript. Desenvolvi bibliotecas de componentes compartilhados, colaborei com times de design e backend, e contribuí para ferramentas internas de desenvolvimento.'
+      en: 'Built and maintained the user interface of H2O.ai\'s machine-learning platform in React and TypeScript, in a US distributed team with English as the working language. Developed shared component libraries, collaborated closely with design and backend teams, and contributed to internal developer tooling.',
+      pt: 'Construí e mantive a interface de usuário da plataforma de machine learning da H2O.ai em React e TypeScript, num time distribuído dos EUA com o inglês como idioma de trabalho. Desenvolvi bibliotecas de componentes compartilhados, colaborei com times de design e backend e contribuí para ferramentas internas de desenvolvimento.'
     },
 
     // --- Experience: BairesDev ---
     'exp.bairesdev.desc': {
-      en: 'Designed and implemented solutions for a North American e-procurement SaaS platform, progressing from senior engineer to team lead.',
-      pt: 'Projetei e implementei soluções para uma plataforma SaaS de e-procurement norte-americana, progredindo de engenheiro sênior a líder técnico.'
+      en: 'Designed and delivered features for a North American e-procurement SaaS, working directly with the client in English, progressing from senior engineer to technical team lead.',
+      pt: 'Projetei e entreguei funcionalidades para um SaaS de e-procurement norte-americano, trabalhando diretamente com o cliente em inglês, progredindo de engenheiro sênior a líder técnico.'
     },
     'exp.bairesdev.meta1': { en: 'Aug 2018 – Apr 2020 · 1 year 9 months', pt: 'Ago 2018 – Abr 2020 · 1 ano e 9 meses' },
     'exp.bairesdev.lead': { en: 'Technical Team Lead', pt: 'Líder Técnico' },
@@ -223,13 +225,9 @@
     },
 
     // --- Projects ---
-    'proj.braxum.desc': {
-      en: 'Multi-tenant SaaS platform with strong financial, SGA, and CRM modules. Full production system with role-based access control (5 roles), TOTP two-factor authentication, D3.js data visualization dashboards, drag-and-drop Kanban boards, vehicle inspection module with S3 uploads, and a 4-stage test pyramid. Dual-cloud Terraform infrastructure on AWS and GCP with Docker CI/CD.',
-      pt: 'Plataforma SaaS multi-tenant com módulos robustos de financeiro, SGA e CRM. Sistema de produção completo com controle de acesso por perfis (5 perfis), autenticação de dois fatores TOTP, dashboards de visualização de dados com D3.js, quadros Kanban com drag-and-drop, módulo de vistoria veicular com uploads S3 e pirâmide de testes em 4 camadas. Infraestrutura Terraform dual-cloud na AWS e GCP com CI/CD Docker.'
-    },
     'proj.chordo.desc': {
-      en: 'Cross-platform music notation ecosystem shipped to the iPad and macOS App Store. Renders ICLF chord sheets with syllable-precise alignment, features a dual-panel visual chord editor, voicing calculator, tag-based song organization, and instrument-aware rendering. Built on a custom music theory engine with key detection, Roman numeral analysis, and transposition.',
-      pt: 'Ecossistema de notação musical multiplataforma publicado na App Store para iPad e macOS. Renderiza cifras ICLF com alinhamento silábico preciso, editor visual de acordes em painel duplo, calculador de voicings, organização de músicas por tags e renderização adaptada ao instrumento. Construído sobre um motor de teoria musical com detecção de tonalidade, análise em numerais romanos e transposição.'
+      en: 'Cross-platform chord-sheet app, live on the Apple App Store (iOS, macOS) since March 2026 and on the Microsoft Store since September 2026. Renders ICLF chord sheets with syllable-precise alignment, a visual chord editor, a voicing calculator and instrument-aware rendering, on a custom music-theory engine with key detection and transposition. Six releases, 449 automated tests, fastlane and a CI release pipeline.',
+      pt: 'App de cifras multiplataforma, publicado na App Store da Apple (iOS, macOS) desde março de 2026 e na Microsoft Store desde setembro de 2026. Renderiza cifras ICLF com alinhamento silábico preciso, editor visual de acordes, calculador de voicings e renderização adaptada ao instrumento, sobre um motor de teoria musical com detecção de tonalidade e transposição. Seis versões, 449 testes automatizados, fastlane e pipeline de release em CI.'
     },
     'proj.moonstead.desc': {
       en: 'Lunar-aware farm management app for iOS and Apple Watch. Tracks real-time health and activity metrics — heart rate, GPS routes, cadence, pace, and splits. Features a custom taxonomy system with 250+ SF Symbols, aerial drone overlay for farm mapping, weather integration, and multilingual support in four languages.',
@@ -263,7 +261,10 @@
     // --- Skills category titles ---
     'skills.languages': { en: 'Languages', pt: 'Linguagens' },
     'skills.frameworks': { en: 'Frameworks & Platforms', pt: 'Frameworks & Plataformas' },
-    'skills.ai': { en: 'AI & Development Methodology', pt: 'IA & Metodologia de Desenvolvimento' },
+    'skills.ai': {
+      en: 'AI Engineering',
+      pt: 'Engenharia de IA'
+    },
     'skills.cloud': { en: 'Cloud & Infrastructure', pt: 'Nuvem & Infraestrutura' },
     'skills.data': { en: 'Data & Databases', pt: 'Dados & Bancos de Dados' },
     'skills.arch': { en: 'Architecture & Practices', pt: 'Arquitetura & Práticas' },
@@ -308,6 +309,91 @@
 
     // --- Education ---
     'edu.degree': { en: 'Data Processing Technology', pt: 'Tecnologia em Processamento de Dados' },
+
+    'exp.isp.role': {
+      en: 'Software Engineer (Contract, part-time)',
+      pt: 'Engenheiro de Software (Contrato, meio período)'
+    },
+
+    'exp.isp.meta': {
+      en: 'Apr 2026 – Present',
+      pt: 'Abr 2026 – Presente'
+    },
+
+    'exp.isp.desc': {
+      en: 'ISP operations platform (React 19, TanStack, FastAPI, SQLModel, PostgreSQL, Redis). Sole author of the CRM module: a 28-table schema, 16 Alembic migrations, 105 FastAPI endpoints behind 103 RBAC capabilities, and a kanban, lead workspace and proposal editor with triggers and cadences — 115 commits and 42.8k lines, with 248 pytest functions, the repository\'s first Playwright suite (105 cases) and a 233-case client validation page. Introduced pull-request delivery to a team that merged straight to main; 23 merged PRs and 409 commits, the most of any contributor during the engagement. Built a guard-railed agent harness for client work (PreToolUse hook, critical-values scanner, pre-push LLM review, parallel agents in isolated working copies); a multi-agent pass took the TypeScript build from 100 errors to 0. 446 logged hours in five months alongside full-time employment, with 22 engineering reports in English.',
+      pt: 'Plataforma de operações de provedor de internet (React 19, TanStack, FastAPI, SQLModel, PostgreSQL, Redis). Autor único do módulo de CRM: esquema com 28 tabelas, 16 migrações Alembic, 105 endpoints FastAPI protegidos por 103 permissões RBAC, e kanban, área de leads e editor de propostas com gatilhos e cadências — 115 commits e 42,8 mil linhas, com 248 funções de teste em pytest, a primeira suíte Playwright do repositório (105 casos) e uma página de validação com 233 casos para o cliente. Introduzi a entrega por pull requests num time que integrava direto na main; 23 PRs integrados e 409 commits, o maior volume entre os contribuidores durante o contrato. Construí um harness de agentes com salvaguardas para trabalho de cliente (hook PreToolUse, varredura de valores críticos, revisão por LLM antes do push, agentes paralelos em cópias de trabalho isoladas); uma passagem multiagente levou o build TypeScript de 100 erros a 0. 446 horas registradas em cinco meses em paralelo ao emprego integral, com 22 relatórios de engenharia em inglês.'
+    },
+
+    'proj.alphatester.desc': {
+      en: 'Multi-tenant feedback-to-fix platform: embeddable web and Flutter SDKs with an offline queue, API-key ingest, an RBAC dashboard with TOTP two-factor authentication, and automatic GitHub issue creation. Live collecting beta-tester feedback since August 2026. 243 tests, Terraform on GCP.',
+      pt: 'Plataforma multi-tenant de feedback até a correção: SDKs embarcáveis para web e Flutter com fila offline, ingestão por chave de API, painel com RBAC e autenticação de dois fatores TOTP e criação automática de issues no GitHub. Coletando feedback de testadores beta desde agosto de 2026. 243 testes, Terraform no GCP.'
+    },
+
+    'proj.geodome.desc': {
+      en: 'Geodesic dome calculator and timber-frame designer: 1V to 6V, Class I and II, cut lists with compound bevels and a triangle-by-triangle build sequence, in eight languages. A pure-Dart geometry engine whose beam fit holds residuals under a micron; its algorithms passed a 41-finding multi-agent adversarial review.',
+      pt: 'Calculadora de domos geodésicos e projetista de estrutura em madeira: 1V a 6V, Classes I e II, listas de corte com chanfros compostos e sequência de montagem triângulo a triângulo, em oito idiomas. Motor geométrico em Dart puro cujo encaixe das vigas mantém resíduos abaixo de um mícron; seus algoritmos passaram por uma revisão adversarial multiagente com 41 achados.'
+    },
+
+    'skill.llm-tools': {
+      en: 'LLM Tool Calling',
+      pt: 'Tool Calling para LLMs'
+    },
+
+    'skill.evals': {
+      en: 'Evals / LLM-as-Judge',
+      pt: 'Avaliações / LLM-como-Juiz'
+    },
+
+    'skill.agent-harness': {
+      en: 'Agent Harnesses (hooks, skills, MCP)',
+      pt: 'Harness de Agentes (hooks, skills, MCP)'
+    },
+
+    'skill.multi-agent': {
+      en: 'Multi-Agent Orchestration',
+      pt: 'Orquestração Multiagente'
+    },
+
+    'skill.ondevice-ml': {
+      en: 'On-device ML (Apple Vision)',
+      pt: 'ML no Dispositivo (Apple Vision)'
+    },
+
+    'skill.ci-gates': {
+      en: 'CI Quality Gates',
+      pt: 'Gates de Qualidade em CI'
+    },
+
+    'exp.goapice.arch': {
+      en: 'Senior Software Architect',
+      pt: 'Arquiteto de Software Sênior'
+    },
+
+    'exp.goapice.arch.meta': {
+      en: 'Aug 2026 – Present',
+      pt: 'Ago 2026 – Presente'
+    },
+
+    'exp.goapice.fs': {
+      en: 'Senior Full-Stack Engineer',
+      pt: 'Engenheiro Full-Stack Sênior'
+    },
+
+    'exp.goapice.fs.meta': {
+      en: 'May 2026 – Jul 2026',
+      pt: 'Mai 2026 – Jul 2026'
+    },
+
+    'exp.goapice.fe': {
+      en: 'Senior Frontend Developer',
+      pt: 'Desenvolvedor Frontend Sênior'
+    },
+
+    'exp.goapice.fe.meta': {
+      en: 'Feb 2026 – Apr 2026',
+      pt: 'Fev 2026 – Abr 2026'
+    },
 
     // --- Footer ---
     'footer.copyright': { en: '\u00a9 2026 Marco Santana. All rights reserved.', pt: '\u00a9 2026 Marco Santana. Todos os direitos reservados.' },
