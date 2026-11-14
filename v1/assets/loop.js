@@ -3,16 +3,19 @@
  *
  * A Story plays one scene declared as data (window.SiteScenes[name], in
  * assets/scenes.js): a timeline of events that changes node status, bars and
- * counters, sends packets along edges, moves the progress rail and writes the
- * session log. A View draws it: ThreeView (assets/hero3d.js, three.js, depth)
- * or DomView (below: HTML cards and SVG edges, the fallback without WebGL and
- * the static picture under prefers-reduced-motion).
+ * counters, sends packets along edges and writes the session log. The stage
+ * is one continuous picture, not a sequence: lanes run side by side, and a
+ * continuous scene repeats its timeline without resetting what it shows.
+ * A View draws it: ThreeView (assets/hero3d.js, three.js, depth) or DomView
+ * (below: HTML cards and SVG edges; the view on narrow stages, without WebGL
+ * and the still picture under prefers-reduced-motion).
  *
- * Interaction is the page: hovering or focusing an object previews its
- * caption, clicking / tapping / Enter pins it (the view focuses that part and
- * dims the rest, the log pins that node's lines), clicking again, clicking the
- * background or Esc returns to the overview. Captions are also in the DOM for
- * screen readers (each keyboard proxy is described by its caption).
+ * Interaction is the page: hovering or focusing an object (a lane, a node,
+ * a link) previews its caption, clicking / tapping / Enter pins it (the view
+ * focuses that part and dims the rest, the log pins that node's lines),
+ * clicking again, clicking the background or Esc returns to the overview.
+ * Captions are also in the DOM for screen readers (each keyboard proxy is
+ * described by its caption).
  *
  * The clock is requestAnimationFrame; it stops when the tab is hidden, the
  * scene is off screen or the visitor presses pause. Every movement eases.
@@ -100,17 +103,12 @@
     this.panel.hidden = false;
     this.place(rect);
   };
-  /* Where the caption goes: a bottom sheet on phones; on wide scenes that ask
-     for it (.cap-docks) a fixed panel outside the 3D area, tied to the object
-     by a thin leader line; otherwise beside the object. */
+  /* Where the caption goes: a bottom sheet on phones, otherwise beside the
+     object (below or above it when there is no room beside it). */
   Captions.prototype.place = function (rect) {
     var p = this.panel, box = this.root.getBoundingClientRect();
     var sheet = window.innerWidth < 768;
-    var docked = !sheet && window.innerWidth >= 1100 && this.root.classList.contains('cap-docks');
     p.classList.toggle('is-sheet', sheet);
-    p.classList.toggle('is-docked', docked);
-    if (docked) { this.dock(rect, box); return; }
-    this.leader(null);
     if (sheet || !rect) { p.style.left = ''; p.style.top = ''; return; }
     var pw = p.offsetWidth || 300, ph = p.offsetHeight || 120, gap = 14;
     var x = rect.right + gap, y, beside = true;
@@ -127,46 +125,9 @@
     p.style.left = Math.round(x) + 'px';
     p.style.top = Math.round(y) + 'px';
   };
-  Captions.prototype.dock = function (rect, box) {
-    var p = this.panel;
-    var copy = this.root.querySelector('.hero-copy h1 + p, .hero-copy');
-    var top = copy ? copy.getBoundingClientRect().bottom - box.top + 24 : 120;
-    p.style.left = '16px';
-    p.style.top = Math.round(Math.max(96, top)) + 'px';
-    if (!rect) { this.leader(null); return; }
-    var pr = p.getBoundingClientRect();
-    var x1 = pr.right - box.left, y1 = pr.top - box.top + Math.min(40, pr.height / 2);
-    var x2 = rect.left + Math.min(18, rect.width / 2), y2 = rect.top + rect.height / 2;
-    if (x2 < x1 + 12) x2 = rect.right;
-    this.leader('M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + 'C' + (x1 + 60).toFixed(1) + ' ' + y1.toFixed(1) + ' ' +
-                (x2 - 60).toFixed(1) + ' ' + y2.toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1), box);
-  };
-  Captions.prototype.leader = function (d, box) {
-    if (!this.lineSvg) {
-      if (!d) return;
-      this.lineSvg = document.createElementNS(SVGNS, 'svg');
-      this.lineSvg.setAttribute('class', 'cap-leader');
-      this.lineSvg.setAttribute('aria-hidden', 'true');
-      this.linePath = document.createElementNS(SVGNS, 'path');
-      this.lineDot = document.createElementNS(SVGNS, 'circle');
-      this.lineDot.setAttribute('r', '3');
-      this.lineSvg.appendChild(this.linePath);
-      this.lineSvg.appendChild(this.lineDot);
-      this.root.appendChild(this.lineSvg);
-    }
-    this.lineSvg.style.display = d ? '' : 'none';
-    if (!d) return;
-    this.lineSvg.setAttribute('width', Math.round(box.width));
-    this.lineSvg.setAttribute('height', Math.round(box.height));
-    this.linePath.setAttribute('d', d);
-    var end = d.split(' ').slice(-2);
-    this.lineDot.setAttribute('cx', end[0]);
-    this.lineDot.setAttribute('cy', end[1]);
-  };
   Captions.prototype.hide = function () {
     this.panel.hidden = true;
     this.pinned = false;
-    this.leader(null);
   };
 
   /* Wire plain HTML objects to a caption panel.
@@ -249,10 +210,10 @@
     this.events = (data.events || []).slice().sort(function (a, b) { return a.t - b.t; });
     this.nodeById = {};
     this.edgeById = {};
-    this.stepById = {};
+    this.laneById = {};
     (data.nodes || []).forEach(function (n) { this.nodeById[n.id] = n; }, this);
     (data.edges || []).forEach(function (e) { this.edgeById[e.id] = e; }, this);
-    (data.steps || []).forEach(function (s) { this.stepById[s.id] = s; }, this);
+    (data.lanes || []).forEach(function (l) { this.laneById[l.id] = l; }, this);
     this.stats = {};
     for (var k in (data.stats || {})) {
       var s = data.stats[k];
@@ -274,7 +235,7 @@
     this.last = 0;
     this.selection = null;
     this.hovered = null;
-    this.activeStep = null;
+    this.started = false;
     var self = this;
     this.frame = function (ts) { self.tick(ts); };
     this.build();
@@ -303,8 +264,8 @@
     if (this.view && this.view.statsChanged) this.view.statsChanged();
   };
 
-  /* Root markup: [data-stage], [data-log], [data-rail], [data-ctl],
-     [data-caption], [data-proxies]; whichever is missing is created. */
+  /* Root markup: [data-stage], [data-log], [data-ctl], [data-caption],
+     [data-proxies]; whichever is missing is created. */
   Story.prototype.part = function (name, tag, cls) {
     var e = this.root.querySelector('[data-' + name + ']');
     if (!e) { e = el(tag, cls); e.setAttribute('data-' + name, ''); this.root.appendChild(e); }
@@ -316,7 +277,6 @@
     this.root.classList.add('story');
     this.stageEl = this.part('stage', 'div', 'story-stage');
     this.logEl = this.part('log', 'div', 'story-log');
-    this.railEl = d.steps ? this.part('rail', 'nav', 'rail') : null;
     this.ctl = this.part('ctl', 'button', 'scene-ctl');
     this.capEl = this.part('caption', 'div', 'cap');
     this.proxiesEl = this.part('proxies', 'ul', 'proxies');
@@ -328,35 +288,6 @@
     this.logEl.appendChild(this.logHead);
     this.logEl.appendChild(this.logList);
 
-    // progress rail
-    if (this.railEl) {
-      this.railEl.setAttribute('aria-label', T('common.rail.label'));
-      var list = el('ol', 'rail-steps');
-      list.style.setProperty('--n', d.steps.length);
-      this.stepEls = {};
-      d.steps.forEach(function (s, i) {
-        var li = el('li', 'rail-step');
-        var b = el('button', 'rail-btn');
-        b.type = 'button';
-        b.appendChild(el('span', 'rail-n', pad(i + 1)));
-        b.appendChild(el('span', 'rail-label', self.stepLabel(s.id)));
-        b.setAttribute('aria-expanded', 'false');
-        b.addEventListener('click', function (e) { e.stopPropagation(); self.pick('step', s.id); });
-        if (!coarse) {
-          b.addEventListener('mouseenter', function () { self.hover('step', s.id); });
-          b.addEventListener('mouseleave', function () { self.hover(null); });
-        }
-        b.addEventListener('focus', function () { self.hover('step', s.id); });
-        b.addEventListener('blur', function () { self.hover(null); });
-        li.appendChild(b);
-        list.appendChild(li);
-        self.stepEls[s.id] = b;
-      });
-      this.railEl.appendChild(list);
-      this.bot = makeBot();
-      this.railEl.appendChild(this.bot);
-    }
-
     // pause control
     this.ctl.type = 'button';
     this.ctl.textContent = T('common.pause');
@@ -364,7 +295,7 @@
     this.ctl.addEventListener('click', function (e) { e.stopPropagation(); self.toggle(); });
     if (reduced) this.ctl.hidden = true;
 
-    // captions and keyboard proxies (one button per node, described by its caption)
+    // captions and keyboard proxies: one button per lane and per node, described by its caption
     this.captions = new Captions(this.root, this.capEl);
     this.captions.onClose = function () { self.clear(); };
     this.proxiesEl.classList.add('proxies');
@@ -372,50 +303,52 @@
     var desc = el('div', 'sr-only');
     this.root.appendChild(desc);
     this.proxyDescs = {};
-    (d.nodes || []).forEach(function (n) {
-      var dd = el('div', '', [].concat(self.tt('node.' + n.id + '.cap')).join(' '));
+    this.proxyItems().forEach(function (it) {
+      var key = it.kind + ':' + it.id;
+      var dd = el('div', '', [].concat(self.tt(it.kind + '.' + it.id + '.cap')).join(' '));
       dd.id = nextId('cap');
       desc.appendChild(dd);
-      self.proxyDescs[n.id] = dd;
+      self.proxyDescs[key] = dd;
       var li = el('li');
-      var b = el('button', 'proxy', self.tt('node.' + n.id + '.title'));
+      var b = el('button', 'proxy', self.tt(it.kind + '.' + it.id + '.title'));
       b.type = 'button';
       b.setAttribute('aria-describedby', dd.id);
       b.setAttribute('aria-expanded', 'false');
-      b.addEventListener('focus', function () { self.hover('node', n.id); });
+      b.addEventListener('focus', function () { self.hover(it.kind, it.id); });
       b.addEventListener('blur', function () { self.hover(null); });
-      b.addEventListener('click', function (e) { e.stopPropagation(); self.pick('node', n.id); });
+      b.addEventListener('click', function (e) { e.stopPropagation(); self.pick(it.kind, it.id); });
       li.appendChild(b);
       self.proxiesEl.appendChild(li);
-      self.proxies[n.id] = b;
+      self.proxies[key] = b;
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && self.selection) {
-        var back = self.selection.kind === 'node' ? self.proxies[self.selection.id] : null;
+        var back = self.proxies[self.selection.kind + ':' + self.selection.id] || null;
         self.clear();
         if (back) back.focus();
       }
     });
   };
 
-  Story.prototype.stepLabel = function (id) {
-    return this.d.stepLabels ? this.tt('stepLabel.' + id) : T('common.rail.' + id);
+  /* what the keyboard walks through: each lane, then each node */
+  Story.prototype.proxyItems = function () {
+    var out = [];
+    (this.d.lanes || []).forEach(function (l) { out.push({ kind: 'lane', id: l.id }); });
+    (this.d.nodes || []).forEach(function (n) { out.push({ kind: 'node', id: n.id }); });
+    return out;
   };
 
   /* the text for the whole scene again, in the new locale */
   Story.prototype.relocale = function () {
     var self = this;
     this.logHead.textContent = T('common.log.head');
-    if (this.railEl) {
-      this.railEl.setAttribute('aria-label', T('common.rail.label'));
-      for (var id in this.stepEls) this.stepEls[id].querySelector('.rail-label').textContent = this.stepLabel(id);
-    }
     this.ctl.textContent = T(this.paused ? 'common.resume' : 'common.pause');
     this.captions.close.setAttribute('aria-label', T('common.closeCaption'));
-    (this.d.nodes || []).forEach(function (n) {
-      self.proxies[n.id].textContent = self.tt('node.' + n.id + '.title');
-      self.proxyDescs[n.id].textContent = [].concat(self.tt('node.' + n.id + '.cap')).join(' ');
+    this.proxyItems().forEach(function (it) {
+      var key = it.kind + ':' + it.id;
+      self.proxies[key].textContent = self.tt(it.kind + '.' + it.id + '.title');
+      self.proxyDescs[key].textContent = [].concat(self.tt(it.kind + '.' + it.id + '.cap')).join(' ');
     });
     if (this.view && this.view.relocale) this.view.relocale();
     this.statsChanged();
@@ -435,18 +368,13 @@
     if (kind === 'edge' && this.edgeById[id]) {
       return { kicker: T('common.kicker.edge'), title: this.tt('edge.' + id + '.title'), lines: lines(this.tt('edge.' + id + '.cap')) };
     }
-    if (kind === 'step' && this.stepById[id]) {
-      return { kicker: T('common.kicker.step'), title: this.stepLabel(id), lines: lines(this.tt('step.' + id)) };
+    if (kind === 'lane' && this.laneById[id]) {
+      return { kicker: T('common.kicker.lane'), title: this.tt('lane.' + id + '.title'), lines: lines(this.tt('lane.' + id + '.cap')) };
     }
     return null;
   };
 
   Story.prototype.anchor = function (kind, id) {
-    if (kind === 'step' && this.stepEls && this.stepEls[id]) {
-      var r = this.stepEls[id].getBoundingClientRect(), b = this.root.getBoundingClientRect();
-      return { left: r.left - b.left, top: r.top - b.top - 8, right: r.right - b.left,
-               bottom: r.bottom - b.top, width: r.width, height: r.height };
-    }
     return this.view && this.view.anchorRect ? this.view.anchorRect(kind, id) : null;
   };
 
@@ -465,7 +393,6 @@
     this.setExpanded(true);
     this.root.classList.add('has-sel');
     var focusNode = kind === 'node' ? id
-      : kind === 'step' ? (this.stepById[id] || {}).focus
       : kind === 'edge' ? (this.edgeById[id] || {}).to : null;
     if (this.view && this.view.select) this.view.select(this.selection, focusNode);
     this.renderLog();
@@ -477,21 +404,10 @@
     }, reduced ? 0 : 700);
   };
 
-  /* swipe: the previous or next step of the rail */
-  Story.prototype.stepBy = function (dir) {
-    var steps = this.d.steps || [];
-    if (!steps.length) return;
-    var cur = this.selection && this.selection.kind === 'step' ? this.selection.id : this.activeStep;
-    var i = -1;
-    for (var k = 0; k < steps.length; k++) if (steps[k].id === cur) i = k;
-    var next = steps[(i + dir + steps.length) % steps.length];
-    this.pick('step', next.id);
-  };
-
   Story.prototype.setExpanded = function (on) {
     var s = this.selection;
     if (!s) return;
-    var b = s.kind === 'node' ? this.proxies[s.id] : s.kind === 'step' && this.stepEls ? this.stepEls[s.id] : null;
+    var b = this.proxies[s.kind + ':' + s.id];
     if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
   };
 
@@ -516,34 +432,23 @@
     if (this.view) this.view.setBar(id, m, v);
   };
 
+  /* Start of a pass. A continuous scene sets its nodes once and then carries
+     everything over (statuses, bars, counters), so the stage never jumps back:
+     only the counters marked reset start again. */
   Story.prototype.resetLoop = function () {
-    var self = this;
-    (this.d.nodes || []).forEach(function (n) {
-      self.state[n.id] = self.state[n.id] || { status: null, bars: {} };
-      (n.meters || []).forEach(function (m) { if (m.kind === 'bar') self.setBar(n.id, m.id, m.value || 0); });
-      self.setStatus(n.id, n.status || 'aguardando');
-    });
+    var self = this, first = !this.started || !this.d.continuous;
+    if (first) {
+      (this.d.nodes || []).forEach(function (n) {
+        self.state[n.id] = self.state[n.id] || { status: null, bars: {} };
+        (n.meters || []).forEach(function (m) { if (m.kind === 'bar') self.setBar(n.id, m.id, m.value || 0); });
+        self.setStatus(n.id, n.status || 'aguardando');
+      });
+    }
+    this.started = true;
     for (var k in this.stats) if (this.stats[k].reset) this.stats[k].value = this.stats[k].initial;
     this.tweens = [];
-    this.setStep(null);
     if (this.view && this.view.reset) this.view.reset();
     this.statsChanged();
-  };
-
-  Story.prototype.setStep = function (id) {
-    if (id && this.view && this.view.step) this.view.step(id);
-    if (!this.stepEls) return;
-    this.activeStep = id;
-    var seen = id ? false : true, steps = this.d.steps;
-    for (var i = 0; i < steps.length; i++) {
-      var b = this.stepEls[steps[i].id];
-      var on = steps[i].id === id;
-      b.classList.toggle('is-on', on);
-      b.classList.toggle('is-past', !seen && !on && !!id);
-      if (on) seen = true;
-      if (on) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
-    }
-    if (this.bot) moveBot(this.bot, this.railEl, id ? this.stepEls[id] : null);
   };
 
   Story.prototype.log = function (entry) {
@@ -613,7 +518,6 @@
         })(s));
       }
     }
-    if (ev.step !== undefined) this.setStep(ev.step);
     if (ev.pulse && !instant && this.view && this.view.pulse) this.view.pulse(ev.pulse);
     if (ev.packet && !instant && this.view) {
       var e = this.edgeById[ev.packet];
@@ -639,7 +543,7 @@
     }
     this.tweens = keep;
     if (this.view) this.view.frame(dt, this.t, this.elapsed);
-    // the 3D objects move (carousel, packets): keep the caption and its leader on them
+    // the 3D objects move (camera drift, packets): keep the caption on them
     var shown = this.selection || this.hovered;
     if (shown && !this.captions.panel.hidden && this.view.tracksEdges) {
       this.captions.place(this.anchor(shown.kind, shown.id));
@@ -728,34 +632,9 @@
     });
   }
 
-  /* ---------- the tester bot on the rail ---------- */
-  function makeBot() {
-    var wrap = el('span', 'bot');
-    wrap.setAttribute('aria-hidden', 'true');
-    wrap.innerHTML =
-      '<svg viewBox="0 0 32 34" width="26" height="28">' +
-      '<line class="bot-ant" x1="16" y1="2" x2="16" y2="7"/><circle class="bot-tip" cx="16" cy="2.5" r="2"/>' +
-      '<rect class="bot-head" x="5" y="7" width="22" height="16" rx="5"/>' +
-      '<rect class="bot-face" x="8.5" y="10.5" width="15" height="9" rx="3"/>' +
-      '<circle class="bot-eye" cx="13" cy="15" r="1.6"/><circle class="bot-eye" cx="19" cy="15" r="1.6"/>' +
-      '<rect class="bot-body" x="9" y="24" width="14" height="6" rx="2"/>' +
-      '<rect class="bot-leg l" x="10" y="30" width="3" height="4" rx="1"/><rect class="bot-leg r" x="19" y="30" width="3" height="4" rx="1"/>' +
-      '</svg>';
-    return wrap;
-  }
-  function moveBot(bot, rail, target) {
-    if (!target) { bot.classList.remove('is-shown'); return; }
-    var r = target.getBoundingClientRect(), b = rail.getBoundingClientRect();
-    bot.style.transform = 'translateX(' + Math.round(r.left - b.left + r.width / 2 - 13) + 'px)';
-    bot.classList.add('is-shown');
-    bot.classList.remove('is-walking');
-    void bot.offsetWidth;
-    bot.classList.add('is-walking');
-  }
-
-  /* ---------- an HTML node card (flat view, and the 3D view's satellites) ---------- */
+  /* ---------- an HTML node card (the flat view) ---------- */
   function htmlCard(s, n) {
-    var c = el('div', 'node r-' + n.role);
+    var c = el('div', 'node r-' + n.role + (n.big ? ' is-big' : ''));
     c.setAttribute('aria-hidden', 'true');
     c.dataset.anchor = n.id;
     var key = function (f) { return function () { return s.tt('node.' + n.id + '.' + f); }; };
@@ -767,7 +646,7 @@
     c.appendChild(sub);
     var meters = {};
     (n.meters || []).forEach(function (m) {
-      var row = el('div', 'm-row is-' + (m.kind || 'text'));
+      var row = el('div', 'm-row is-' + (m.kind || 'text') + (m.big ? ' is-big' : ''));
       var label = el('span', 'm-label');
       if (m.kind !== 'text') s.bind(label, key('m.' + (m.id || m.stat)));
       if (m.kind === 'bar') {
@@ -827,19 +706,22 @@
     var stage = this.stage = el('div', 'dom-stage');
     story.stageEl.classList.add('is-dom');
     story.stageEl.appendChild(stage);
-    if (d.legend) {
-      var legend = el('div', 'dom-legend');
-      legend.setAttribute('aria-hidden', 'true');
-      d.legend.forEach(function (l) {
-        var k = el('span', 'term-key r-' + l.role);
-        k.appendChild(el('i'));
-        var lab = el('span');
-        story.bind(lab, function () { return story.tt('legend.' + l.role); });
-        k.appendChild(lab);
-        legend.appendChild(k);
-      });
-      story.stageEl.insertBefore(legend, stage);
-    }
+    // the lanes: a band behind each one's cards, labelled, with its own caption
+    this.lanes = {};
+    (d.lanes || []).forEach(function (l) {
+      var band = el('div', 'dom-lane r-' + l.role);
+      band.setAttribute('aria-hidden', 'true');
+      var label = el('span', 'lane-label');
+      story.bind(label, function () { return story.tt('lane.' + l.id + '.title'); });
+      band.appendChild(label);
+      label.addEventListener('click', function (e) { e.stopPropagation(); story.pick('lane', l.id); });
+      if (!coarse) {
+        label.addEventListener('mouseenter', function () { story.hover('lane', l.id); });
+        label.addEventListener('mouseleave', function () { story.hover(null); });
+      }
+      stage.appendChild(band);
+      self.lanes[l.id] = { d: l, el: band, label: label };
+    });
     this.svg = svgEl('svg', { 'class': 'term-edges', focusable: 'false', 'aria-hidden': 'true' });
     var defs = svgEl('defs', {});
     this.markerId = nextId('tm');
@@ -891,12 +773,14 @@
     this.wide = wide;
     var d = this.s.d, cols = d.cols || 3;
     this.stage.classList.toggle('is-wide', wide);
-    this.stage.style.gridTemplateColumns = wide ? 'repeat(' + cols + ', minmax(0, 1fr))' : 'repeat(2, minmax(0, 1fr))';
+    var narrowCols = d.narrowCols || 2;
+    this.stage.style.gridTemplateColumns = 'repeat(' + (wide ? cols : narrowCols) + ', minmax(0, 1fr))';
     for (var id in this.cards) {
-      var n = this.cards[id], st = n.el.style, at = n.d.at || [1, 1];
-      if (wide) {
+      var n = this.cards[id], st = n.el.style;
+      var at = wide ? n.d.at : n.d.atNarrow;
+      if (at) {
         st.gridColumn = at[0] + (at[2] ? ' / span ' + at[2] : '');
-        st.gridRow = String(at[1]);
+        st.gridRow = at[1] + (at[3] ? ' / span ' + at[3] : '');
         st.order = '';
       } else {
         st.gridColumn = n.d.half ? 'span 1' : '1 / -1';
@@ -915,12 +799,13 @@
   };
 
   DomView.prototype.route = function (e, a, b, width) {
-    if (e.route === 'over' && this.wide) {
+    var how = this.wide ? e.route : (e.narrowRoute || e.route);
+    if (how === 'over' && this.wide) {
       // the loop back: out on the right, up the gutter, across above the first row, down into the card
       var gr = width - 7, top = b.t - 14;
       return 'M' + a.r + ' ' + a.cy + 'H' + gr + 'V' + top + 'H' + b.cx + 'V' + (b.t - 2);
     }
-    if (e.route === 'side' || e.route === 'over') {
+    if (how === 'side' || how === 'over') {
       var gx = width - 7;
       return 'M' + a.r + ' ' + a.cy + 'H' + gx + 'V' + b.cy + 'H' + (b.r + 2);
     }
@@ -951,6 +836,21 @@
     this.svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
     this.svg.setAttribute('width', w);
     this.svg.setAttribute('height', h);
+    // each lane's band wraps its cards, with room above for its label
+    for (var lid in this.lanes) {
+      var lane = this.lanes[lid], box = null;
+      lane.d.nodes.forEach(function (nid) {
+        var bx = this.box(nid, origin);
+        if (!bx) return;
+        box = box ? { l: Math.min(box.l, bx.l), t: Math.min(box.t, bx.t), r: Math.max(box.r, bx.r), b: Math.max(box.b, bx.b) } : bx;
+      }, this);
+      if (!box) continue;
+      var ls = lane.el.style;
+      ls.left = (box.l - 6) + 'px';
+      ls.top = (box.t - 24) + 'px';
+      ls.width = (box.r - box.l + 12) + 'px';
+      ls.height = (box.b - box.t + 30) + 'px';
+    }
     for (var k in this.edges) {
       var e = this.edges[k];
       var a = this.box(e.d.from, origin), b = this.box(e.d.to, origin);
@@ -1031,11 +931,16 @@
 
   DomView.prototype.hover = function (h) {
     for (var id in this.cards) this.cards[id].el.classList.toggle('is-hover', !!h && h.kind === 'node' && h.id === id);
+    for (var lid in this.lanes) this.lanes[lid].el.classList.toggle('is-hover', !!h && h.kind === 'lane' && h.id === lid);
   };
 
   DomView.prototype.select = function (sel, focusNode) {
     this.stage.classList.toggle('has-sel', !!sel);
-    for (var id in this.cards) this.cards[id].el.classList.toggle('is-sel', id === focusNode);
+    var lane = sel && sel.kind === 'lane' ? this.s.laneById[sel.id] : null;
+    for (var id in this.cards) {
+      this.cards[id].el.classList.toggle('is-sel', id === focusNode || (!!lane && lane.nodes.indexOf(id) >= 0));
+    }
+    for (var lid in this.lanes) this.lanes[lid].el.classList.toggle('is-sel', !!lane && lane.id === lid);
     for (var k in this.edges) {
       var on = !!sel && sel.kind === 'edge' && sel.id === k;
       this.edges[k].path.classList.toggle('is-sel', on);
@@ -1045,6 +950,7 @@
   DomView.prototype.anchorRect = function (kind, id) {
     var root = this.s.root.getBoundingClientRect(), r;
     if (kind === 'node' && this.cards[id]) r = this.cards[id].el.getBoundingClientRect();
+    else if (kind === 'lane' && this.lanes[id]) r = this.lanes[id].el.getBoundingClientRect();
     else if (kind === 'edge' && this.edges[id]) r = this.edges[id].path.getBoundingClientRect();
     if (!r) return null;
     return { left: r.left - root.left, top: r.top - root.top, right: r.right - root.left,
@@ -1074,7 +980,8 @@
       var kind = root.getAttribute('data-view');
       var named = window.SiteViews && window.SiteViews[kind];
       if (named) { story.attach(new named()); return; }
-      var want3d = kind === '3d' && !reduced && webgl();
+      // depth needs room: the whole board is on screen at once, so narrow stages stay flat
+      var want3d = kind === '3d' && !reduced && root.clientWidth >= 700 && webgl();
       if (!want3d) { story.attach(new DomView()); return; }
       root.classList.add('is-3d');
       if (ThreeViewCtor) { attach3d(story); return; }
@@ -1106,8 +1013,6 @@
     htmlCard: htmlCard,
     cardStatus: cardStatus,
     cardSpin: cardSpin,
-    makeBot: makeBot,
-    moveBot: moveBot,
     reduced: reduced,
     coarse: coarse,
     registerView: function (Ctor) {

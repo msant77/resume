@@ -1,153 +1,155 @@
 /*
- * The first viewport: how the work runs, told as what the reader gets.
- * Played by assets/loop.js and drawn in 3D by assets/hero3d.js.
+ * The first viewport: one continuous live stage, played by assets/loop.js
+ * and drawn in depth by assets/hero3d.js (flat HTML/SVG without WebGL, on
+ * phones and under reduced motion).
  *
  * No text lives here: every word is in assets/i18n/<locale>.json, found by
  * convention from the ids below (i18n prefix "hero"):
  *   hero.node.<id>.title | short | sub | cap[]   hero.node.<id>.m.<meter>
- *   hero.edge.<id>.title | cap[]                 hero.step.<id> (caption)
- *   hero.legend.<role>                           hero.log.<k>
- * Rail labels are common.rail.<step id>.
+ *   hero.edge.<id>.title | cap[]                 hero.lane.<id>.title | cap[]
+ *   hero.frame (the stage's outer label)         hero.log.<k>
  *
- * The story, in seven steps: he decides, writes the brief, the builders
- * build, reviewers audit, everything leaves a trail, the client signs off,
- * then work already delivered.
+ * The stage is not a sequence of steps. Three lanes run at the same time,
+ * each at its own rhythm: Harness (brief -> working copy -> inspection),
+ * Production (checks -> release -> report) and Speed (parallel fronts ->
+ * decision). All three feed one Throughput counter that keeps climbing; the
+ * client's team keeps receiving releases and sending validations back.
+ * Business value is the frame around all of it. The timeline repeats with no
+ * reset: statuses and counters carry over, the session log never ends.
  *
  * Structure:
- *   nodes   cards. role = colour: client (you) | human (Marco, the lead) |
- *           agent (builders and reviewers) | github (the trail) |
- *           core (delivered); at / order / half = place in the flat layout.
- *   ring    the steps on the 3D carousel (the running one turns to the
- *           front); satellites = fixed cards outside it, each tied by a
- *           leader to its anchor card.
- *   edges   from -> to; across = arc over the ring; flat: false = drawn in
- *           3D only.
- *   steps   the progress rail; focus = the card the camera goes to.
+ *   nodes   things on the stage. role = colour: harness | production |
+ *           speed | core (throughput) | client (the client's team).
+ *           at = [col, row, colSpan, rowSpan] on wide stages, atNarrow on
+ *           narrow ones (flat view); big = the counter drawn large.
+ *   lanes   the three regions and the nodes in each.
+ *   edges   from -> to; narrowRoute = how the flat view routes it on phones.
  *   events  what happens at t seconds: status, bar ("node.meter": 0-100
  *           over dur), add (counters, kept across loops unless reset),
- *           packet (an edge), step, pulse, log ({n: node, k: key}).
- *           {stat} in a text prints a counter.
+ *           packet (an edge; back = against its direction), pulse,
+ *           log ({n: node, k: key}). {stat} in a text prints a counter.
  */
 window.SiteScenes = window.SiteScenes || {};
 
-window.SiteScenes.hero = {
-  i18n: 'hero',
-  duration: 52,
-  cols: 4,
-  wideMin: 860,
-  logLines: 4,
-  legend: [{ role: 'client' }, { role: 'human' }, { role: 'agent' }, { role: 'github' }, { role: 'core' }],
-  stats: {
-    decisions: { value: 11 },
-    plans: { value: 2 },
-    briefs: { value: 6 },
-    fronts: { value: 3 },
-    reqNo: { value: 41 },
-    changes: { value: 126 },
-    findings: { value: 0, reset: true },
-    risky: { value: 2 },
-    reports: { value: 18 },
-    waiting: { value: 1 },
-    closed: { value: 36 }
-  },
-  ring: ['outcome', 'decide', 'plan', 'brief', 'build', 'review', 'trail', 'validate', 'delivered'],
-  satellites: ['second', 'notes'],
-  satelliteAnchor: 'review',
-  nodes: [
-    { id: 'outcome', role: 'client', at: [1, 1], order: 0,
-      meters: [{ kind: 'text', key: 't1' }] },
-    { id: 'decide', role: 'human', at: [2, 1], order: 1,
-      meters: [{ kind: 'stat', stat: 'decisions' }, { kind: 'text', key: 't1' }] },
-    { id: 'plan', role: 'human', at: [3, 1], order: 2,
-      meters: [{ kind: 'stat', stat: 'plans' }, { kind: 'text', key: 't1' }] },
-    { id: 'brief', role: 'human', at: [4, 1], order: 3,
-      meters: [{ kind: 'stat', stat: 'briefs' }, { kind: 'text', key: 't1' }] },
-    { id: 'notes', role: 'human', small: true, at: [1, 2], order: 7, half: true, anchor: 'trail',
-      meters: [{ kind: 'stat', stat: 'reports' }] },
-    { id: 'trail', role: 'github', at: [2, 2], order: 8,
-      meters: [{ kind: 'stat', stat: 'changes' }, { kind: 'text', key: 't1' }] },
-    { id: 'review', role: 'agent', at: [3, 2], order: 5,
-      meters: [{ kind: 'bar', id: 'rev' }, { kind: 'text', key: 't1' }] },
-    { id: 'build', role: 'agent', at: [4, 2], order: 4,
-      meters: [{ kind: 'bar', id: 'code' }, { kind: 'bar', id: 'checks' }, { kind: 'stat', stat: 'fronts' }] },
-    { id: 'delivered', role: 'core', at: [1, 3], order: 10,
-      meters: [{ kind: 'text', key: 't1' }, { kind: 'text', key: 't2' }, { kind: 'text', key: 't3' }] },
-    { id: 'validate', role: 'client', at: [2, 3], order: 9,
-      meters: [{ kind: 'stat', stat: 'waiting' }, { kind: 'stat', stat: 'closed' }] },
-    { id: 'second', role: 'agent', small: true, at: [3, 3], order: 6, half: true, anchor: 'review',
-      meters: [{ kind: 'stat', stat: 'risky' }] }
-  ],
-  edges: [
-    { id: 'o-d', from: 'outcome', to: 'decide' },
-    { id: 'd-p', from: 'decide', to: 'plan' },
-    { id: 'ok', from: 'outcome', to: 'plan', across: true, flat: false },
-    { id: 'p-b', from: 'plan', to: 'brief' },
-    { id: 'b-bu', from: 'brief', to: 'build' },
-    { id: 'bu-r', from: 'build', to: 'review' },
-    { id: 'r-d', from: 'review', to: 'decide', across: true, flat: false },
-    { id: 's-r', from: 'second', to: 'review' },
-    { id: 'r-t', from: 'review', to: 'trail' },
-    { id: 'n-t', from: 'notes', to: 'trail' },
-    { id: 't-v', from: 'trail', to: 'validate' },
-    { id: 'v-dl', from: 'validate', to: 'delivered' },
-    { id: 'dl-o', from: 'delivered', to: 'outcome', flat: false }
-  ],
-  steps: [
-    { id: 'decide', focus: 'decide' },
-    { id: 'brief', focus: 'brief' },
-    { id: 'build', focus: 'build' },
-    { id: 'audit', focus: 'review' },
-    { id: 'trail', focus: 'trail' },
-    { id: 'validate', focus: 'validate' },
-    { id: 'delivered', focus: 'delivered' }
-  ],
-  events: [
-    // decide: your outcome, my questions, decisions in writing
-    { t: 0.4, step: 'decide', status: { outcome: 'rodando' }, log: { n: 'outcome', k: 'o1' } },
-    { t: 1.8, log: { n: 'outcome', k: 'o2' } },
-    { t: 2.6, packet: 'o-d', dur: 1.6 },
-    { t: 4.2, status: { outcome: 'concluído', decide: 'rodando' }, add: { decisions: 1 }, log: { n: 'decide', k: 'd1' } },
-    { t: 5.6, log: { n: 'decide', k: 'd2' } },
-    { t: 6.4, packet: 'd-p', dur: 1.5 },
-    // brief: one plan per front, approved by you; one brief per builder
-    { t: 7.9, step: 'brief', status: { decide: 'concluído', plan: 'rodando' }, log: { n: 'plan', k: 'p1' } },
-    { t: 9.2, status: { outcome: 'rodando' }, packet: 'ok', dur: 1.8, log: { n: 'outcome', k: 'o3' } },
-    { t: 11.0, status: { outcome: 'concluído', plan: 'concluído' }, add: { plans: 1 }, log: { n: 'plan', k: 'p2' } },
-    { t: 11.6, packet: 'p-b', dur: 1.4, add: { reqNo: 1 } },
-    { t: 13.0, status: { brief: 'rodando' }, log: { n: 'brief', k: 'b1' } },
-    { t: 13.9, add: { briefs: 1 }, log: { n: 'brief', k: 'b2' } },
-    { t: 14.4, packet: 'b-bu', dur: 1.5 },
-    // build: builders in parallel, automatic checks on every change
-    { t: 15.9, step: 'build', status: { brief: 'concluído', build: 'rodando' }, bar: { 'build.code': 100 }, dur: 3.0,
-      log: { n: 'build', k: 'u1' } },
-    { t: 16.6, add: { changes: 1 } },
-    { t: 17.4, log: { n: 'build', k: 'u2' } },
-    { t: 18.8, bar: { 'build.checks': 100 }, dur: 1.6, add: { changes: 1 }, log: { n: 'build', k: 'u3' } },
-    { t: 20.6, status: { build: 'concluído' }, packet: 'bu-r', dur: 1.4 },
-    // audit: never the author; a second review on risky changes; findings come back to me
-    { t: 22.0, step: 'audit', status: { review: 'rodando' }, bar: { 'review.rev': 100 }, dur: 2.0,
-      log: { n: 'review', k: 'r1' } },
-    { t: 23.6, status: { second: 'rodando' }, packet: 's-r', dur: 1.3, add: { risky: 1 }, log: { n: 'second', k: 's1' } },
-    { t: 24.2, add: { findings: 2 } },
-    { t: 25.0, status: { second: 'concluído' }, log: { n: 'review', k: 'r2' } },
-    { t: 25.4, status: { review: 'concluído' }, packet: 'r-d', dur: 1.8 },
-    { t: 27.2, status: { decide: 'rodando' }, add: { decisions: 1 }, log: { n: 'decide', k: 'd3' } },
-    // trail: every change points to its request; notes in plain language
-    { t: 28.4, step: 'trail', status: { decide: 'concluído' }, packet: 'r-t', dur: 1.4 },
-    { t: 29.8, status: { trail: 'rodando' }, log: { n: 'trail', k: 't1' } },
-    { t: 31.0, status: { notes: 'rodando' }, packet: 'n-t', dur: 1.3, add: { reports: 1 }, log: { n: 'notes', k: 'n1' } },
-    { t: 32.3, status: { notes: 'concluído', trail: 'concluído' }, log: { n: 'trail', k: 't2' } },
-    { t: 32.8, packet: 't-v', dur: 1.5, add: { waiting: 1 } },
-    // validate: nothing goes live without you; at most three waiting
-    { t: 34.3, step: 'validate', status: { validate: 'rodando' }, log: { n: 'validate', k: 'v1' } },
-    { t: 36.0, log: { n: 'validate', k: 'v2' } },
-    { t: 38.0, status: { validate: 'concluído' }, add: { closed: 1, waiting: -1 }, log: { n: 'validate', k: 'v3' } },
-    { t: 38.6, packet: 'v-dl', dur: 1.4 },
-    // delivered: work already in the field
-    { t: 40.0, step: 'delivered', status: { delivered: 'rodando' }, log: { n: 'delivered', k: 'x1' } },
-    { t: 42.0, log: { n: 'delivered', k: 'x2' } },
-    { t: 44.0, log: { n: 'delivered', k: 'x3' } },
-    { t: 46.0, packet: 'dl-o', dur: 2.4 },
-    { t: 48.4, status: { delivered: 'concluído' }, pulse: 'outcome', log: { n: 'outcome', k: 'o4' } }
-  ]
-};
+(function () {
+  var D = 18;           // one pass of the timeline, in seconds; it repeats seamlessly
+  var events = [];
+  function at(t, ev) { ev.t = Math.round(t * 100) / 100; events.push(ev); }
+
+  // Harness: twice a pass. A written brief, an isolated working copy, an independent inspection.
+  [0, 9].forEach(function (o, i) {
+    at(o + 0.0, { status: { brief: 'rodando' }, add: { briefs: 1 }, bar: { 'copy.work': 0 }, dur: 0.3,
+                  log: { n: 'brief', k: 'h1' } });
+    at(o + 0.8, { packet: 'h1', dur: 1.4 });
+    at(o + 2.2, { status: { brief: 'concluído', copy: 'rodando' }, bar: { 'copy.work': 100 }, dur: 2.2 });
+    if (i === 0) at(o + 2.6, { log: { n: 'copy', k: 'c1' } });
+    at(o + 4.6, { status: { copy: 'concluído' }, packet: 'h2', dur: 1.3, bar: { 'inspect.rev': 0 } });
+    at(o + 5.9, { status: { inspect: 'rodando' }, bar: { 'inspect.rev': 100 }, dur: 1.5, log: { n: 'inspect', k: 'i1' } });
+    at(o + 6.6, { add: { findings: 1 } });
+    at(o + 7.5, { status: { inspect: 'concluído' }, packet: 'h3', dur: 1.2 });
+    at(o + 8.7, { add: { delivered: 1, fromHarness: 1 }, pulse: 'throughput' });
+  });
+
+  // Production: three times a pass. Automatic checks, a release, a session report.
+  [0.3, 6.3, 12.2].forEach(function (o, i) {
+    at(o + 0.0, { status: { checks: 'rodando' }, bar: { 'checks.run': 0 }, dur: 0.2 });
+    at(o + 0.2, { bar: { 'checks.run': 100 }, dur: 1.4, add: { checks: 12 } });
+    if (i === 0) at(o + 1.2, { log: { n: 'checks', k: 'k1' } });
+    at(o + 1.7, { status: { checks: 'concluído' }, packet: 'p1', dur: 1.1 });
+    at(o + 2.8, { status: { release: 'rodando' }, add: { releases: 1 }, log: { n: 'release', k: 'r1' } });
+    at(o + 3.4, { status: { release: 'concluído' }, packet: 'p2', dur: 1.0 });
+    at(o + 4.4, { status: { report: 'rodando' }, add: { reports: 1 } });
+    if (i === 1) at(o + 4.5, { log: { n: 'report', k: 'n1' } });
+    at(o + 4.6, { status: { report: 'concluído' }, packet: 'p3', dur: 1.0 });
+    at(o + 5.6, { add: { delivered: 1, fromProduction: 1 }, pulse: 'throughput' });
+  });
+
+  // Speed: four times a pass. Fronts move in parallel; decisions come fast.
+  [0, 4.5, 9, 13.5].forEach(function (o, i) {
+    at(o + 0.0, { status: { fronts: 'rodando' }, bar: { 'fronts.f1': 0, 'fronts.f2': 0, 'fronts.f3': 0 }, dur: 0.25 });
+    at(o + 0.3, { bar: { 'fronts.f1': 100 }, dur: 0.9 });
+    at(o + 0.3, { bar: { 'fronts.f2': 100 }, dur: 1.3 });
+    at(o + 0.3, { bar: { 'fronts.f3': 100 }, dur: 1.1 });
+    at(o + 1.2, { packet: 's1', dur: 0.9 });
+    at(o + 2.1, { status: { decision: 'rodando', fronts: 'concluído' }, add: { decisions: 1 } });
+    if (i % 2 === 0) at(o + 2.2, { log: { n: 'decision', k: i === 0 ? 'q1' : 'q2' } });
+    at(o + 2.9, { status: { decision: 'concluído' }, packet: 's2', dur: 1.0 });
+    at(o + 3.9, { add: { delivered: 1, fromSpeed: 1 }, pulse: 'throughput' });
+  });
+
+  // Integration: the client's team keeps receiving releases and sending validations back.
+  [1.8, 7.8, 13.6].forEach(function (o, i) {
+    at(o + 0.0, { packet: 't1', dur: 1.4, status: { team: 'rodando' } });
+    if (i !== 1) at(o + 1.4, { log: { n: 'team', k: i === 0 ? 'm1' : 'm2' } });
+    at(o + 2.6, { packet: 't1', back: true, dur: 1.4, role: 'client', add: { validations: 1 } });
+    at(o + 3.0, { log: { n: 'team', k: 'm3' } });
+    at(o + 4.0, { status: { team: 'concluído' } });
+  });
+
+  // the log line that says why the loop restarts: it never stops
+  at(17.5, { log: { n: 'throughput', k: 'w1' } });
+
+  window.SiteScenes.hero = {
+    i18n: 'hero',
+    duration: D,
+    continuous: true,
+    cols: 5,
+    narrowCols: 3,
+    wideMin: 860,
+    logLines: 6,
+    stats: {
+      briefs: { value: 6 },
+      findings: { value: 0, reset: true },
+      checks: { value: 0 },
+      releases: { value: 4 },
+      reports: { value: 18 },
+      fronts: { value: 3 },
+      decisions: { value: 11 },
+      validations: { value: 36 },
+      delivered: { value: 126 },
+      fromHarness: { value: 42 },
+      fromProduction: { value: 51 },
+      fromSpeed: { value: 33 }
+    },
+    lanes: [
+      { id: 'harness', role: 'harness', nodes: ['brief', 'copy', 'inspect'] },
+      { id: 'production', role: 'production', nodes: ['checks', 'release', 'report'] },
+      { id: 'speed', role: 'speed', nodes: ['fronts', 'decision'] }
+    ],
+    nodes: [
+      { id: 'brief', role: 'harness', at: [1, 1], atNarrow: [1, 1],
+        meters: [{ kind: 'stat', stat: 'briefs' }, { kind: 'text', key: 't1' }] },
+      { id: 'copy', role: 'harness', at: [2, 1], atNarrow: [2, 1],
+        meters: [{ kind: 'bar', id: 'work' }, { kind: 'text', key: 't1' }] },
+      { id: 'inspect', role: 'harness', at: [3, 1], atNarrow: [3, 1],
+        meters: [{ kind: 'bar', id: 'rev' }, { kind: 'stat', stat: 'findings' }] },
+      { id: 'checks', role: 'production', at: [1, 2], atNarrow: [1, 2],
+        meters: [{ kind: 'stat', stat: 'checks' }, { kind: 'bar', id: 'run' }] },
+      { id: 'release', role: 'production', at: [2, 2], atNarrow: [2, 2],
+        meters: [{ kind: 'stat', stat: 'releases' }, { kind: 'text', key: 't1' }] },
+      { id: 'report', role: 'production', at: [3, 2], atNarrow: [3, 2],
+        meters: [{ kind: 'stat', stat: 'reports' }, { kind: 'text', key: 't1' }] },
+      { id: 'fronts', role: 'speed', at: [1, 3, 2], atNarrow: [1, 3, 2],
+        meters: [{ kind: 'bar', id: 'f1' }, { kind: 'bar', id: 'f2' }, { kind: 'bar', id: 'f3' }] },
+      { id: 'decision', role: 'speed', at: [3, 3], atNarrow: [3, 3],
+        meters: [{ kind: 'stat', stat: 'decisions' }, { kind: 'text', key: 't1' }] },
+      { id: 'throughput', role: 'core', big: true, status: 'rodando', at: [4, 1, 1, 3], atNarrow: [1, 4, 3],
+        meters: [{ kind: 'stat', stat: 'delivered', big: true }, { kind: 'stat', stat: 'fromHarness' },
+                 { kind: 'stat', stat: 'fromProduction' }, { kind: 'stat', stat: 'fromSpeed' }] },
+      { id: 'team', role: 'client', at: [5, 1, 1, 3], atNarrow: [1, 5, 3],
+        meters: [{ kind: 'stat', stat: 'validations' }, { kind: 'text', key: 't1' }] }
+    ],
+    edges: [
+      { id: 'h1', from: 'brief', to: 'copy' },
+      { id: 'h2', from: 'copy', to: 'inspect' },
+      { id: 'h3', from: 'inspect', to: 'throughput', narrowRoute: 'side' },
+      { id: 'p1', from: 'checks', to: 'release' },
+      { id: 'p2', from: 'release', to: 'report' },
+      { id: 'p3', from: 'report', to: 'throughput', narrowRoute: 'side' },
+      { id: 's1', from: 'fronts', to: 'decision' },
+      { id: 's2', from: 'decision', to: 'throughput', narrowRoute: 'side' },
+      { id: 't1', from: 'throughput', to: 'team' }
+    ],
+    events: events
+  };
+})();

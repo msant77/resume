@@ -4,7 +4,7 @@
     "title": "Marco Santana — how I work",
     "description": "Marco Santana, senior software engineer with 25+ years in software. You bring the outcome; he leads an AI-assisted team that delivers it, with written briefs, independent review, a trail for every change and nothing live without your sign-off. Résumé included.",
     "ogTitle": "Marco Santana — how I work",
-    "ogDescription": "You bring the outcome. I decide, write the brief and review; AI-assisted builders build; reviewers audit; every change leaves a trail; you sign off. Then what I have delivered."
+    "ogDescription": "Business value, delivered week after week: a harness for AI-assisted work, releases in production and speed, adding up to throughput. Then what I have delivered."
   },
   "common": {
     "skip": "Skip to content",
@@ -26,322 +26,256 @@
     "resume": "resume",
     "closeCaption": "Close caption",
     "log": {
-      "head": "session log",
+      "head": "session log · live",
       "pinned": "log · {name} · pinned",
       "empty": "nothing yet in this round; the next line shows up here."
     },
     "kicker": {
       "edge": "link",
-      "step": "step"
+      "lane": "lane"
     },
     "status": {
       "wait": "waiting",
       "run": "running",
       "done": "done",
       "skip": "skipped"
-    },
-    "rail": {
-      "label": "Steps of the work",
-      "decide": "Decide",
-      "brief": "Brief",
-      "build": "Build",
-      "audit": "Audit",
-      "trail": "Trail",
-      "validate": "Sign-off",
-      "delivered": "Delivered"
     }
   },
   "home": {
     "eyebrow": "Marco Santana · how I work",
-    "h1": "You bring the outcome. I lead the team that delivers it.",
-    "lede": "Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.",
-    "hint": "hover or tap the cards · Tab walks the steps · Esc goes back",
-    "hintTouch": "tap a card to read it · swipe to change step"
+    "h1": "Business value, delivered week after week.",
+    "lede": "Senior engineer, 25 years in software. A harness for AI-assisted work, releases in production and speed add up to throughput: reviewed work, delivered every week.",
+    "hint": "hover or tap anything on the stage · Tab walks it · Esc goes back",
+    "hintTouch": "tap a lane or a card to read it"
   },
   "hero": {
-    "summary": "Animation of how Marco Santana works: you bring the outcome you need and he comes back with questions before a quote, writing every decision down with a recommendation; one plan per front, approved by you before any code is written, and a written brief for each builder; AI-assisted builders work in parallel, one front each, with automatic checks on every change; a reviewer who is never the author audits each delivery, and on payments, data and migrations a second review tries to break the change first; every change points back to the request that justified it, and every delivery comes with notes in plain language; nothing goes live without your sign-off, and you close the request yourself; then work already delivered.",
-    "legend": {
-      "client": "you",
-      "human": "Marco, the lead",
-      "agent": "AI-assisted builders and reviewers",
-      "github": "the trail",
-      "core": "delivered"
+    "frame": "Business value",
+    "frameNote": "a measurable result for the company that hired the work",
+    "summary": "A live stage of how the work runs, framed by business value. Three lanes run at the same time: Harness (written briefs, isolated working copies, independent inspection), Production (automatic checks, releases, a report after every working session) and Speed (parallel fronts, fast decisions). All three feed one Throughput counter of delivered, reviewed work that keeps climbing, while the client's team keeps receiving releases and sending validations back. It never stops.",
+    "lane": {
+      "harness": {
+        "title": "Harness",
+        "cap": [
+          "The working setup that makes AI-assisted building safe: written briefs, isolated working copies and rules the builders cannot cross.",
+          "Independent inspection, and every change traceable to a request."
+        ]
+      },
+      "production": {
+        "title": "Production",
+        "cap": [
+          "What comes out is reviewed, checked and goes live: releases, not demos or prototypes.",
+          "Automatic checks on every change, and a written report after every working session."
+        ]
+      },
+      "speed": {
+        "title": "Speed",
+        "cap": [
+          "Weeks, not quarters: fronts move in parallel, one builder each.",
+          "The lead decides fast because the harness carries the risk."
+        ]
+      }
     },
     "node": {
-      "outcome": {
-        "title": "Your outcome",
-        "short": "you",
-        "sub": "in your own words",
-        "m": {
-          "t1": "a call, a document, a screen"
-        },
-        "cap": [
-          "You bring the outcome you need, in your own words: a call, a document, a screen you already have.",
-          "I come back with questions before a quote."
-        ]
-      },
-      "decide": {
-        "title": "I decide",
-        "short": "Marco",
-        "sub": "questions before a quote",
-        "m": {
-          "decisions": "decisions written",
-          "t1": "each with a recommendation"
-        },
-        "cap": [
-          "You bring the outcome you need. I come back with questions before a quote.",
-          "Every decision is written down, with a recommendation."
-        ]
-      },
-      "plan": {
-        "title": "The plan",
-        "short": "plan",
+      "brief": {
+        "title": "Written brief",
+        "short": "brief",
         "sub": "one per front",
         "m": {
-          "plans": "approved by you",
-          "t1": "before any code is written"
-        },
-        "cap": [
-          "One plan per front, approved by you before any code is written.",
-          "It says what is in, what is out, and in which order."
-        ]
-      },
-      "brief": {
-        "title": "The brief",
-        "short": "brief",
-        "sub": "one per builder",
-        "m": {
           "briefs": "briefs written",
-          "t1": "the goal and the limits"
+          "t1": "the why and what done means"
         },
         "cap": [
-          "Each builder gets a written brief: the goal, the limits, what not to touch.",
-          "Each request is written with the why and what done means."
+          "Each front starts from a written brief: the why, what done means, the limits.",
+          "A builder never starts from a chat message."
         ]
       },
-      "build": {
-        "title": "The builders",
-        "short": "builders",
-        "sub": "AI-assisted · one front each",
+      "copy": {
+        "title": "Working copy",
+        "short": "copy",
+        "sub": "isolated, one per builder",
         "m": {
-          "code": "building",
-          "checks": "automatic checks",
-          "fronts": "fronts in parallel"
+          "work": "building",
+          "t1": "rules it cannot cross"
         },
         "cap": [
-          "AI-assisted builders work in parallel, one front each.",
-          "A team's pace, with one person accountable.",
-          "Automatic checks run on every change."
+          "Each builder works in its own isolated working copy.",
+          "Guard rules block what a builder may not touch."
         ]
       },
-      "review": {
-        "title": "The reviewers",
-        "short": "reviewer",
+      "inspect": {
+        "title": "Inspection",
+        "short": "inspection",
         "sub": "never the author",
         "m": {
-          "rev": "reads the delivery",
-          "t1": "{findings} findings, sent to me"
+          "rev": "inspecting",
+          "findings": "findings this pass"
         },
         "cap": [
-          "The reviewer is never the author and never edits what it reviews.",
-          "Findings come back to me, and I decide what gets fixed now."
+          "An independent inspector reads every delivery against its request and tries to break it.",
+          "It never edits what it inspects; findings go to the lead."
         ]
       },
-      "second": {
-        "title": "Second review",
-        "short": "2nd review",
-        "sub": "payments, data, migrations",
+      "checks": {
+        "title": "Automatic checks",
+        "short": "checks",
+        "sub": "on every change",
         "m": {
-          "risky": "risky changes"
+          "checks": "checks passed",
+          "run": "running"
         },
         "cap": [
-          "On payments, data and migrations, a second review tries to break the change before you see it."
+          "Automatic checks run on every change, before anything moves on."
         ]
       },
-      "trail": {
-        "title": "The trail",
-        "short": "trail",
-        "sub": "every change has a reason",
+      "release": {
+        "title": "Release",
+        "short": "release",
+        "sub": "reviewed, live",
         "m": {
-          "changes": "changes linked",
-          "t1": "request #{reqNo}"
+          "releases": "releases",
+          "t1": "not a demo, not a prototype"
         },
         "cap": [
-          "Every change points back to the request that justified it.",
-          "Months later, anyone can see why something was done."
+          "What comes out is a reviewed release that goes live, not a demo or a prototype."
         ]
       },
-      "notes": {
-        "title": "Plain-language notes",
-        "short": "notes",
-        "sub": "with every delivery",
+      "report": {
+        "title": "Session report",
+        "short": "report",
+        "sub": "after every session",
         "m": {
-          "reports": "reports written"
+          "reports": "reports written",
+          "t1": "what changed, what to test"
         },
         "cap": [
-          "Decision makers read reports, not code: every delivery says what changed and what to test.",
-          "Every working session ends with a written report."
+          "Every working session ends with a written report: what changed and what to test."
         ]
       },
-      "validate": {
-        "title": "Your sign-off",
-        "short": "you",
-        "sub": "you test · you close",
+      "fronts": {
+        "title": "Parallel fronts",
+        "short": "fronts",
+        "sub": "one builder each",
         "m": {
-          "waiting": "waiting for you",
-          "closed": "closed by you"
+          "f1": "front 1",
+          "f2": "front 2",
+          "f3": "front 3"
         },
         "cap": [
-          "Nothing goes live without your sign-off, and you close the request yourself.",
-          "At most three deliveries waiting for you: the pace follows yours."
+          "Several fronts move at the same time, one builder each.",
+          "Weeks, not quarters."
         ]
       },
-      "delivered": {
-        "title": "Delivered",
-        "short": "delivered",
-        "sub": "deadlines and results",
+      "decision": {
+        "title": "Decision",
+        "short": "decision",
+        "sub": "by the lead",
         "m": {
-          "t1": "CRM · three months",
-          "t2": "field platform · ten weeks",
-          "t3": "app on two stores"
+          "decisions": "decisions written",
+          "t1": "fast, with the risk covered"
         },
         "cap": [
-          "A CRM integrated with a fiber provider's system, in three months.",
-          "A field platform with an app that works offline, in ten weeks.",
-          "An app on the Apple and Microsoft stores, backed by 449 automatic checks."
+          "A senior lead decides and writes each decision down.",
+          "Decisions come fast because the harness carries the risk."
+        ]
+      },
+      "throughput": {
+        "title": "Throughput",
+        "short": "throughput",
+        "sub": "delivered, reviewed work",
+        "m": {
+          "delivered": "delivered and reviewed",
+          "fromHarness": "via harness",
+          "fromProduction": "via production",
+          "fromSpeed": "via speed"
+        },
+        "cap": [
+          "Harness, production and speed together: a sustained volume of delivered, reviewed work, week after week.",
+          "The counter never resets."
+        ]
+      },
+      "team": {
+        "title": "The client's team",
+        "short": "client's team",
+        "sub": "in its own tools and repositories",
+        "m": {
+          "validations": "validations sent back",
+          "t1": "reviews · validates · releases"
+        },
+        "cap": [
+          "Autonomous, ongoing work with outstanding team integration: the work goes on between meetings, inside the client's own tools and repositories.",
+          "The client's people review, validate and release; then the loop goes on. It never stops."
         ]
       }
     },
     "edge": {
-      "o-d": {
-        "title": "your outcome",
-        "cap": [
-          "You describe it; I answer with questions, not a quote."
-        ]
-      },
-      "d-p": {
-        "title": "decisions",
-        "cap": [
-          "Each decision becomes part of a written plan."
-        ]
-      },
-      "ok": {
-        "title": "your approval",
-        "cap": [
-          "You approve the plan. Nothing else starts the work."
-        ]
-      },
-      "p-b": {
-        "title": "fronts",
-        "cap": [
-          "The approved plan is split into fronts, one per builder."
-        ]
-      },
-      "b-bu": {
+      "h1": {
         "title": "brief",
         "cap": [
-          "A written brief per builder: the goal, the limits, what not to touch."
+          "The written brief opens an isolated working copy."
         ]
       },
-      "bu-r": {
-        "title": "delivery",
+      "h2": {
+        "title": "change",
         "cap": [
-          "Small changes, each one pointing to its request."
+          "The finished change goes to an inspector who did not write it."
         ]
       },
-      "r-d": {
-        "title": "findings",
+      "h3": {
+        "title": "inspected work",
         "cap": [
-          "The reviewer's findings come back to me; I decide what gets fixed now."
+          "Only inspected work counts toward throughput."
         ]
       },
-      "s-r": {
-        "title": "second review",
+      "p1": {
+        "title": "checks passed",
         "cap": [
-          "On risky changes, a second review tries to break it first."
+          "Only a change that passed every check becomes a release."
         ]
       },
-      "r-t": {
-        "title": "reviewed",
+      "p2": {
+        "title": "release notes",
         "cap": [
-          "Only a reviewed delivery moves on."
+          "Each release carries notes in plain language."
         ]
       },
-      "n-t": {
-        "title": "notes",
+      "p3": {
+        "title": "in production",
         "cap": [
-          "Every delivery carries notes in plain language: what changed, what to test."
+          "Live and reported: it counts toward throughput."
         ]
       },
-      "t-v": {
-        "title": "for your review",
+      "s1": {
+        "title": "ready",
         "cap": [
-          "The delivery waits for you, with notes and a list of what to test."
+          "Fronts that finish come to the lead for a decision."
         ]
       },
-      "v-dl": {
-        "title": "live",
+      "s2": {
+        "title": "decided",
         "cap": [
-          "Signed off by you, then live."
+          "Decided and written down; the next front starts."
         ]
       },
-      "dl-o": {
-        "title": "the next outcome",
+      "t1": {
+        "title": "releases and validations",
         "cap": [
-          "The next outcome starts the same way."
+          "Releases land in the client's own repositories; validations come back from the client's team."
         ]
       }
     },
-    "step": {
-      "decide": [
-        "You bring the outcome you need. I come back with questions before a quote, and every decision is written down with a recommendation."
-      ],
-      "brief": [
-        "One plan per front, approved by you before any code is written. Each builder gets a written brief: the goal, the limits, what not to touch."
-      ],
-      "build": [
-        "AI-assisted builders work in parallel, one front each: a team's pace, with one person accountable."
-      ],
-      "audit": [
-        "The reviewer is never the author and never edits what it reviews. On payments, data and migrations, a second review tries to break the change before you see it."
-      ],
-      "trail": [
-        "Every change points back to the request that justified it. You read reports, not code: every delivery says what changed and what to test."
-      ],
-      "validate": [
-        "Nothing goes live without your sign-off, and you close the request yourself. At most three deliveries wait for you: the pace follows yours."
-      ],
-      "delivered": [
-        "A CRM integrated with a fiber provider's system in three months; a field platform with an app that works offline in ten weeks; an app on the Apple and Microsoft stores."
-      ]
-    },
     "log": {
-      "o1": "outcome: field visits logged with no signal",
-      "o2": "a call and two screenshots shared",
-      "d1": "five questions back, no quote yet",
-      "d2": "decision {decisions} written · with a recommendation",
-      "p1": "plan v1 · scope, order, what could go wrong",
-      "o3": "you approve plan v1",
-      "p2": "plan v1 approved · work may start",
-      "b1": "request #{reqNo} · the why, what done means",
-      "b2": "brief: goal, limits, what not to touch",
-      "u1": "front 1 of {fronts} · starts from the brief",
-      "u2": "change {changes} → request #{reqNo}",
-      "u3": "automatic checks on every change · all passed",
-      "r1": "delivery read against request #{reqNo}",
-      "s1": "touches stored data · trying to break it",
-      "r2": "{findings} findings · none blocking",
-      "d3": "one fix now, one becomes its own request",
-      "t1": "every change linked to request #{reqNo}",
-      "n1": "notes: what changed, what to test",
-      "t2": "session report {reports} written",
-      "v1": "{waiting} deliveries waiting for you · limit 3",
-      "v2": "you test it on your phone",
-      "v3": "request #{reqNo} closed by you · live",
-      "x1": "CRM for a fiber provider · three months",
-      "x2": "field platform, works offline · ten weeks",
-      "x3": "app on the Apple and Microsoft stores",
-      "o4": "the next outcome starts the same way"
+      "h1": "brief {briefs} · the why, what done means, the limits",
+      "c1": "isolated working copy · guard rules on",
+      "i1": "inspector tries to break the change",
+      "k1": "{checks} automatic checks · all passed",
+      "r1": "release {releases} · reviewed, live",
+      "n1": "session report {reports} · what changed, what to test",
+      "q1": "{fronts} fronts in parallel · decision {decisions} written",
+      "q2": "decision {decisions} · the next front starts",
+      "m1": "release lands in the client's repository",
+      "m2": "the client's team reviews the release",
+      "m3": "validated by the client's team · {validations} so far",
+      "w1": "{delivered} delivered and reviewed · the work goes on"
     }
   },
   "work": {
