@@ -424,7 +424,7 @@ a.work-tile:hover strong { text-decoration: underline; }
 
 /* the builder walking along the rail */
 .bot {
-  position: absolute; left: 14px; top: -26px; width: 26px; height: 28px; opacity: 0;
+  position: absolute; left: 0; top: -26px; width: 26px; height: 28px; opacity: 0;
   transition: transform .9s cubic-bezier(.45, 0, .2, 1), opacity .4s ease; pointer-events: none;
 }
 .bot.is-shown { opacity: 1; }
