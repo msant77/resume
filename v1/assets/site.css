@@ -266,6 +266,8 @@ a.work-tile:hover strong { text-decoration: underline; }
   position: relative; padding: 16px 18px 14px 22px;
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
 }
+.job { scroll-margin-top: 16px; }
+.job:target { border-color: var(--accent); }
 .job::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 3px; border-radius: 3px; background: var(--accent); }
 .job-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; }
 .job-org { margin: 0; font-size: 1.12rem; font-weight: 700; }
