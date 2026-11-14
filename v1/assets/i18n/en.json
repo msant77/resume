@@ -28,6 +28,54 @@
     "h1": "You bring the outcome. I lead the team that delivers it.",
     "lede": "Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him."
   },
+  "how": {
+    "title": "How I work",
+    "note": "A small squad with fixed seats: one person accountable, AI-assisted builders, an inspector who is never the author, and you.",
+    "squad": "The squad",
+    "youGet": "You get",
+    "seat": {
+      "lead": {
+        "title": "The lead",
+        "who": "Me: a senior engineer, accountable for the result",
+        "does": "Decides, writes the brief for each front, reviews every delivery and is the only one who writes to the repository.",
+        "gets": "A trail for every change: each one points back to the request that justified it."
+      },
+      "builders": {
+        "title": "The builders",
+        "who": "AI-assisted, one front each",
+        "does": "Implement from a written brief, each in its own isolated working copy, with automatic checks on every change.",
+        "gets": "A team's pace, and a written report after every working session."
+      },
+      "inspector": {
+        "title": "The inspector",
+        "who": "Separate, never the author",
+        "does": "Reviews every delivery without editing it and tries to break it before it is accepted.",
+        "gets": "What reaches you has already survived someone trying to break it."
+      },
+      "owner": {
+        "title": "You, the owner",
+        "who": "The client",
+        "does": "You test each reviewed delivery, close the request and decide when it goes live.",
+        "gets": "Nothing goes live without your sign-off, and the pace follows yours."
+      }
+    },
+    "cycle": {
+      "title": "One request, start to finish",
+      "request": "Written request",
+      "brief": "Brief",
+      "build": "Build",
+      "inspect": "Inspect",
+      "reviewed": "Reviewed delivery",
+      "validate": "You validate",
+      "live": "Live"
+    },
+    "who": {
+      "you": "you",
+      "lead": "lead",
+      "builders": "builders",
+      "inspector": "inspector"
+    }
+  },
   "work": {
     "title": "What I have delivered",
     "note": "Results first; the details are in the résumé below.",

@@ -28,6 +28,54 @@
     "h1": "Você traz o resultado. Eu lidero a equipe que entrega.",
     "lede": "Engenheiro sênior, 25 anos em software. Uma pessoa responsável, com uma equipe assistida por IA por trás."
   },
+  "how": {
+    "title": "Como trabalho",
+    "note": "Uma equipe pequena, com lugares fixos: uma pessoa responsável, construtores assistidos por IA, um inspetor que nunca é o autor, e você.",
+    "squad": "A equipe",
+    "youGet": "Você recebe",
+    "seat": {
+      "lead": {
+        "title": "O líder",
+        "who": "Eu: um engenheiro sênior, responsável pelo resultado",
+        "does": "Decide, escreve o brief de cada frente, revisa cada entrega e é o único que grava no repositório.",
+        "gets": "Um rastro de cada mudança: cada uma aponta para o pedido que a justificou."
+      },
+      "builders": {
+        "title": "Os construtores",
+        "who": "Assistidos por IA, uma frente cada",
+        "does": "Implementam a partir de um brief escrito, cada um na sua cópia de trabalho isolada, com conferência automática a cada mudança.",
+        "gets": "A velocidade de uma equipe, e um relatório escrito ao fim de cada sessão de trabalho."
+      },
+      "inspector": {
+        "title": "O inspetor",
+        "who": "Separado, nunca o autor",
+        "does": "Revisa cada entrega sem editá-la e tenta quebrá-la antes que seja aceita.",
+        "gets": "O que chega até você já resistiu a alguém tentando quebrá-lo."
+      },
+      "owner": {
+        "title": "Você, o dono",
+        "who": "O cliente",
+        "does": "Você testa cada entrega revisada, fecha o pedido e decide quando vai ao ar.",
+        "gets": "Nada vai ao ar sem a sua validação, e o ritmo acompanha o seu."
+      }
+    },
+    "cycle": {
+      "title": "Um pedido, do começo ao fim",
+      "request": "Pedido escrito",
+      "brief": "Brief",
+      "build": "Construção",
+      "inspect": "Inspeção",
+      "reviewed": "Entrega revisada",
+      "validate": "Você valida",
+      "live": "No ar"
+    },
+    "who": {
+      "you": "você",
+      "lead": "líder",
+      "builders": "construtores",
+      "inspector": "inspetor"
+    }
+  },
   "work": {
     "title": "O que já entreguei",
     "note": "Primeiro o resultado; os detalhes estão no currículo logo abaixo.",
