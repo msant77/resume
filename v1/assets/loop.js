@@ -120,16 +120,27 @@
     p.classList.toggle('is-sheet', sheet);
     if (sheet || !rect) { p.style.left = ''; p.style.top = ''; return; }
     var pw = p.offsetWidth || 300, ph = p.offsetHeight || 120, gap = 14;
+    // the caption stays inside its area (the stage), never over the page copy around it
+    var top = 8, bottom = box.height - 8, right = box.width - 8;
+    if (this.area) {
+      var a = this.area.getBoundingClientRect();
+      top = Math.max(top, a.top - box.top + 8);
+      bottom = Math.min(bottom, a.bottom - box.top - 8);
+      right = Math.min(right, a.right - box.left - 8);
+    }
     var x = rect.right + gap, y, beside = true;
     if (x + pw > box.width - 8) x = rect.left - gap - pw;
     if (x < 8) { beside = false; x = Math.max(8, Math.min(box.width - pw - 8, rect.left + rect.width / 2 - pw / 2)); }
     if (beside) {
       y = rect.top + rect.height / 2 - ph / 2;
-      y = Math.max(8, Math.min(box.height - ph - 8, y));
+      y = Math.max(top, Math.min(bottom - ph, y));
     } else {
-      // no room beside it (a narrow card): below the object, or above it, never over it
+      // no room beside it (a wide lane): below the object, or above it, else in the stage's top corner
       y = rect.bottom + gap;
-      if (y + ph > box.height - 8 && rect.top - gap - ph >= 8) y = rect.top - gap - ph;
+      if (y + ph > bottom) {
+        if (rect.top - gap - ph >= top) y = rect.top - gap - ph;
+        else { y = top; x = right - pw; }
+      }
     }
     p.style.left = Math.round(x) + 'px';
     p.style.top = Math.round(y) + 'px';
@@ -306,6 +317,7 @@
 
     // captions and keyboard proxies: one button per lane and per node, described by its caption
     this.captions = new Captions(this.root, this.capEl);
+    this.captions.area = this.stageEl.parentNode && this.stageEl.parentNode.classList.contains('stage-frame') ? this.stageEl.parentNode : this.stageEl;
     this.captions.onClose = function () { self.clear(); };
     this.proxiesEl.classList.add('proxies');
     this.proxies = {};
