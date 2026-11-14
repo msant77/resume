@@ -35,15 +35,12 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/i18n.js" defer></script>
 <script src="/assets/theme.js" defer></script>
-<script src="/assets/scenes.js" defer></script>
-<script src="/assets/loop.js" defer></script>
-<script type="module" src="/assets/hero3d.js"></script>
 </head>
 <body>
 
 <a href="#main" class="skip-link" data-i18n="common.skip">Ir al contenido</a>
 
-<header class="top is-over">
+<header class="top">
   <a href="/es/" class="wordmark" data-href="home" aria-label="Marco Santana">
     <span class="mark" aria-hidden="true">MS</span><span class="word">Marco Santana</span>
   </a>
@@ -67,21 +64,12 @@
 
 <main id="main">
 
-  <section class="hero" id="how" aria-labelledby="hero-title" data-story="hero" data-view="3d">
-    <div class="story-stage" data-stage><button type="button" class="scene-ctl" data-ctl>pause</button></div>
-    <div class="hero-copy">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-copy">
       <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · cómo trabajo</p>
       <h1 id="hero-title" data-i18n="home.h1">Tú traes el resultado. Yo dirijo el equipo que lo entrega.</h1>
       <p class="hero-lede" data-i18n="home.lede">Ingeniero sénior, 25 años en software. Una persona responsable, con un equipo asistido por IA detrás.</p>
-      <p class="hero-hint"><span class="hint-mouse" data-i18n="home.hint">pasa el puntero o toca las tarjetas · Tab recorre las etapas · Esc vuelve</span><span class="hint-touch" data-i18n="home.hintTouch">toca una tarjeta para leerla · desliza para cambiar de etapa</span></p>
     </div>
-    <p class="sr-only" data-i18n="hero.summary">Animación de cómo trabaja Marco Santana: traes el resultado que necesitas y él vuelve con preguntas antes del presupuesto, con cada decisión por escrito y una recomendación; un plan por frente, aprobado por ti antes de escribir código, y un brief escrito para cada constructor; constructores asistidos por IA trabajan en paralelo, un frente cada uno, con comprobaciones automáticas en cada cambio; un revisor que nunca es el autor audita cada entrega, y en pagos, datos y migraciones una segunda revisión intenta romper el cambio antes; cada cambio apunta a la solicitud que lo justificó, y cada entrega llega con notas en lenguaje sencillo; nada sale en línea sin tu aprobación, y la solicitud la cierras tú; después, lo que ya se entregó.</p>
-    <ul class="proxies" data-proxies></ul>
-    <div class="hero-dock">
-      <div class="story-log" data-log></div>
-      <nav class="rail" data-rail aria-label="Steps of the work"></nav>
-    </div>
-    <div data-caption></div>
   </section>
 
   <section id="work" class="section work" aria-labelledby="work-title">

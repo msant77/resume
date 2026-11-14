@@ -1,13 +1,10 @@
 /*
- * marcosantana.dev — the page, its live scene and the résumé.
+ * marcosantana.dev — the page and the résumé. A still page: hover and focus
+ * states only, nothing that loops or plays.
  *
  * Palette: the owner's own tokens. Light is a warm paper page with ink text
  * and one copper accent; dark is a warm charcoal page with near-white text
- * and a lighter copper. The live scene runs on "terminals" drawn from the
- * dark tokens in both themes (deep charcoal surface, near-white text, the
- * copper as the single accent, the lead's colour), so the 3D cards, the
- * session log and the rail keep their contrast whatever the page behind
- * them is.
+ * and a lighter copper.
  *
  * Every text pair passes WCAG AA; ratios are in the comments. The plain
  * accent (--accent) is for fills, rules and focus-free decoration only,
@@ -15,7 +12,7 @@
  *
  * Theme: the system preference unless the visitor picked one with the
  * header toggle (localStorage "theme"), applied as <html data-theme>
- * before paint. Every colour of the scene (3D included) comes from here.
+ * before paint.
  */
 
 @font-face {
@@ -49,20 +46,6 @@
   --focus: #9a3a12;
   --shadow-card: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 12px 26px -16px rgba(40, 24, 10, .40), 0 2px 5px -3px rgba(40, 24, 10, .22);
   --hero-bg: radial-gradient(120% 80% at 50% 38%, #f3ece1 0%, var(--bg) 70%);
-
-  /* scene terminals: the dark tokens, on both pages */
-  --term-bg: #100e0b;
-  --term-panel: #1e1a16;     /* text 15.11, muted 7.82 */
-  --term-chrome: #181511;
-  --term-text: #f4efe7;
-  --term-muted: #b8ad9d;
-  --term-line: #4a4137;
-  --scene-accent: #f6a868;   /* 8.83 on panel, 9.84 on term-bg; term-bg on it 9.84 */
-  --role-client: #8fd0f2;    /* you: 10.27 on panel */
-  --role-human: #f6a868;     /* Marco, the lead (the accent): 8.83 */
-  --role-agent: #c7b6fb;     /* builders and reviewers: 9.48 */
-  --role-github: #a9d98e;    /* the trail: 10.71 */
-  --role-core: #f2d478;      /* delivered: 11.91 */
 }
 
 /* ---- Dark ---- */
@@ -82,8 +65,6 @@
     --focus: #f7b27a;
     --shadow-card: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 14px 30px -16px rgba(0, 0, 0, .75), 0 2px 6px -3px rgba(0, 0, 0, .5);
     --hero-bg: radial-gradient(120% 80% at 50% 38%, #221b14 0%, var(--bg) 70%);
-    --term-bg: #0d0b09;
-    --term-line: #443b31;
   }
 }
 :root[data-theme="dark"] {
@@ -101,8 +82,6 @@
   --focus: #f7b27a;
   --shadow-card: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 14px 30px -16px rgba(0, 0, 0, .75), 0 2px 6px -3px rgba(0, 0, 0, .5);
   --hero-bg: radial-gradient(120% 80% at 50% 38%, #221b14 0%, var(--bg) 70%);
-  --term-bg: #0d0b09;
-  --term-line: #443b31;
 }
 
 /* ---- Base ---- */
@@ -316,272 +295,12 @@ a.work-tile:hover strong { text-decoration: underline; }
 .plain-item .job-role { margin: 2px 0 0; }
 .plain-item .job-meta { margin: 2px 0 8px; }
 
-/* ==== Live scene (on this palette) ==== */
-.r-client { --role: var(--role-client); }
-.r-core   { --role: var(--role-core); }
-.r-agent  { --role: var(--role-agent); }
-.r-github { --role: var(--role-github); }
-.r-human  { --role: var(--role-human); }
+/* ==== Hero: the title and the lead call to action ==== */
 .eyebrow { margin: 0 0 8px; font: 600 .82rem/1.3 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
-
-/* ---- the hero is the scene ---- */
-.top.is-over { position: absolute; top: 0; left: 0; right: 0; background: transparent; border-bottom: 0; }
-.hero {
-  position: relative; min-height: 100vh; min-height: 100svh; padding: 0; overflow: hidden;
-  isolation: isolate; background: var(--hero-bg);
-}
-.hero.is-3d .story-stage { position: absolute; inset: 0; z-index: 0; }
-.hero-canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; }
-.hero-copy {
-  position: relative; z-index: 3; pointer-events: none;
-  max-width: var(--max); margin: 0 auto; padding: 92px 16px 0; transition: opacity .5s ease;
-}
-.hero-copy h1 { max-width: 14em; margin: 0 0 8px; font-size: 2.2rem; font-weight: 800; text-wrap: balance; }
-.hero-lede { max-width: 34em; margin: 0 0 6px; color: var(--muted); font-size: 1rem; }
-.hero.has-sel .hero-copy { opacity: .55; }
-.hero-hint { margin: 0; font: 12.5px/1.5 var(--font-mono); color: var(--muted); }
-.hero .proxies {
-  position: relative; z-index: 4; list-style: none; margin: 8px auto 0; padding: 0 16px;
-  max-width: var(--max); display: flex; flex-wrap: wrap; gap: 6px; height: 0; overflow: visible;
-}
-.proxies { list-style: none; margin: 0; padding: 0; }
-.proxy {
-  position: absolute; left: -9999px;
-  font: 12px var(--font-mono); padding: 4px 10px; border-radius: 999px; min-height: 32px;
-  background: var(--term-panel); color: var(--term-text); border: 1px solid var(--scene-accent);
-}
-.proxy:focus { position: static; left: auto; }
-.scene-ctl {
-  position: absolute; z-index: 4; right: 16px; top: 84px;
-  font: 12px var(--font-mono); min-height: 32px; padding: 4px 12px; border-radius: 6px;
-  color: var(--term-text); background: var(--term-panel); border: 1px solid var(--term-line); cursor: pointer;
-}
-.scene-ctl:hover { border-color: var(--scene-accent); }
-
-/* satellites: fixed cards outside the 3D carousel, tied by a leader to their anchor */
-.satellites {
-  position: absolute; z-index: 4; right: 16px; top: 132px; width: 214px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.satellites .node { font: 11.5px/1.45 var(--font-mono); padding: 7px 10px; }
-.satellites .node-title { font-size: 15px; }
-.node.is-satellite.is-sel { transform: none; }
-.sat-leaders { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: visible; }
-.sat-leader { fill: none; stroke: var(--role); stroke-width: 1.2; stroke-dasharray: 3 4; transition: opacity .4s ease; }
-.sat-packet { fill: var(--role); filter: drop-shadow(0 0 5px var(--role)); }
-
-/* bottom dock: session log + progress rail */
-.hero-dock {
-  position: absolute; z-index: 3; left: 50%; bottom: 16px; transform: translateX(-50%);
-  width: min(var(--max), calc(100% - 32px));
-  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: 12px; align-items: end;
-}
-.story-log {
-  font: 11.5px/1.55 var(--font-mono); color: var(--term-text);
-  background: var(--term-bg); border: 1px solid var(--term-line); border-radius: 8px;
-  padding: 6px 10px 8px; box-shadow: var(--shadow-card); pointer-events: none;
-}
-.story-log.is-pinned { border-color: var(--scene-accent); }
-.log-head { color: var(--term-muted); letter-spacing: .04em; }
-.story-log.is-pinned .log-head { color: var(--scene-accent); }
-.log-list { list-style: none; margin: 0; padding: 0; min-height: 6.2em; }
-.log-list li { display: grid; grid-template-columns: 5.8em 7.6em minmax(0, 1fr); gap: 8px; }
-.log-list li.is-new { animation: log-in .45s cubic-bezier(.22, .8, .3, 1); }
-.log-empty { color: var(--term-muted); display: block !important; }
-.log-t { color: var(--term-muted); }
-.log-who { color: var(--role); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.log-x { overflow-wrap: anywhere; }
-@keyframes log-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-
-/* progress rail */
-.rail {
-  position: relative; padding: 10px 14px 8px;
-  background: var(--term-bg); border: 1px solid var(--term-line); border-radius: 8px;
-  box-shadow: var(--shadow-card); font-family: var(--font-mono);
-}
-.rail-steps {
-  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr));
-  position: relative;
-}
-.rail-steps::before { content: ""; position: absolute; left: 6%; right: 6%; bottom: 3px; height: 1px; background: var(--term-line); }
-.rail-btn {
-  position: relative; display: flex; flex-direction: column; align-items: center; gap: 0;
-  width: 100%; min-height: 44px; padding: 2px 2px 10px; cursor: pointer;
-  font: 11px/1.3 var(--font-mono); color: var(--term-muted); background: none; border: 0;
-}
-.rail-btn::after {
-  content: ""; position: absolute; bottom: 0; left: 50%; width: 7px; height: 7px; margin-left: -3.5px;
-  border-radius: 50%; background: var(--term-bg); border: 1px solid var(--term-line);
-  transition: background .4s ease, border-color .4s ease, box-shadow .4s ease;
-}
-.rail-n { opacity: .8; }
-.rail-label {
-  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  font: 700 12px/1.3 var(--font-sans); letter-spacing: .03em; text-transform: uppercase; color: var(--term-text);
-}
-.rail-btn.is-past::after { background: var(--term-line); }
-.rail-btn.is-on .rail-label, .rail-btn.is-on .rail-n { color: var(--scene-accent); }
-.rail-btn.is-on::after { background: var(--scene-accent); border-color: var(--scene-accent); box-shadow: 0 0 10px var(--scene-accent); }
-.rail-btn[aria-expanded="true"] .rail-label { text-decoration: underline; text-underline-offset: 4px; }
-.rail-btn:focus-visible { outline: 2px solid var(--scene-accent); outline-offset: 2px; }
-
-/* the builder walking along the rail */
-.bot {
-  position: absolute; left: 0; top: -26px; width: 26px; height: 28px; opacity: 0;
-  transition: transform .9s cubic-bezier(.45, 0, .2, 1), opacity .4s ease; pointer-events: none;
-}
-.bot.is-shown { opacity: 1; }
-.bot svg { display: block; overflow: visible; }
-.bot-head { fill: var(--term-panel); stroke: var(--scene-accent); stroke-width: 1.5; }
-.bot-face { fill: var(--term-bg); }
-.bot-eye, .bot-tip, .bot-leg { fill: var(--scene-accent); }
-.bot-ant { stroke: var(--scene-accent); stroke-width: 1.5; }
-.bot-body { fill: var(--term-panel); stroke: var(--scene-accent); stroke-width: 1.2; }
-.bot.is-walking .bot-leg.l { animation: bot-step .3s ease-in-out 3 alternate; }
-.bot.is-walking .bot-leg.r { animation: bot-step .3s ease-in-out 3 alternate-reverse; }
-.bot.is-walking svg { animation: bot-bob .3s ease-in-out 3 alternate; }
-@keyframes bot-step { from { transform: translateY(0); } to { transform: translateY(-2px); } }
-@keyframes bot-bob { from { transform: translateY(0); } to { transform: translateY(-1.5px); } }
-.is-paused .bot svg, .is-paused .bot-leg { animation: none; }
-
-/* caption panel: beside the object, docked on wide 3D scenes, a bottom sheet on phones */
-.cap {
-  position: absolute; z-index: 10; width: min(320px, calc(100% - 32px));
-  padding: 12px 34px 12px 14px; border-radius: 10px;
-  font: 12.5px/1.55 var(--font-mono); color: var(--term-text);
-  background: var(--term-panel); border: 1px solid var(--term-line);
-  box-shadow: var(--shadow-card), 0 0 0 1px rgba(0, 0, 0, .08);
-  animation: cap-in .3s cubic-bezier(.22, .8, .3, 1);
-}
-.cap[hidden] { display: none; }
-.cap.is-pinned { border-color: var(--scene-accent); }
-.cap-kicker { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--term-muted); }
-.cap-title { font: 700 18px/1.2 var(--font-sans); color: var(--scene-accent); margin: 2px 0 6px; }
-.cap-body p { margin: 0 0 4px; }
-.cap-close {
-  position: absolute; top: 4px; right: 4px; width: 32px; height: 32px; border-radius: 6px;
-  font: 18px/1 var(--font-sans); color: var(--term-text); background: transparent; border: 1px solid transparent; cursor: pointer;
-}
-.cap:not(.is-pinned) .cap-close { display: none; }
-.cap:not(.is-pinned) { pointer-events: none; }   /* a preview never stands between the pointer and an object */
-.cap-close:hover { border-color: var(--term-line); }
-.cap.is-docked { width: 300px; animation: none; }
-.cap-leader { position: absolute; left: 0; top: 0; z-index: 9; pointer-events: none; overflow: visible; }
-.cap-leader path { fill: none; stroke: var(--scene-accent); stroke-width: 1; stroke-dasharray: 2 3; }
-.cap-leader circle { fill: var(--scene-accent); }
-.cap.is-sheet {
-  position: fixed; left: 8px; right: 8px; bottom: 8px; top: auto; width: auto; z-index: 40;
-  padding-right: 48px; animation: sheet-in .35s cubic-bezier(.22, .8, .3, 1);
-}
-.cap.is-sheet .cap-close { width: 44px; height: 44px; top: 0; right: 0; }
-@keyframes cap-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-@keyframes sheet-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
-
-@media (min-width: 960px) {
-  .hero-copy { padding-top: 104px; }
-  .hero-copy h1 { font-size: 3rem; }
-}
-/* below 1100 px the hero is the compact rendering: title, the scene, satellites, rail, log */
-@media (max-width: 1099px) {
-  .top.is-over { position: relative; background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--line); }
-  .hero { min-height: 0; display: flex; flex-direction: column; overflow: visible; padding: 0 0 12px; }
-  .hero-copy { order: -1; width: 100%; max-width: none; margin: 0; padding: 16px 16px 10px; }
-  .hero-copy h1 { font-size: 1.75rem; }
-  .hero-lede { font-size: .95rem; }
-  .hero-hint { font-size: 13px; }
-  .hero.is-3d .story-stage {
-    position: relative; inset: auto; order: 0; height: min(50vh, 430px); min-height: 330px; margin: 0 8px;
-    border-radius: 14px; overflow: hidden; background: var(--bg-alt); border: 1px solid var(--line);
-  }
-  .hero .scene-ctl { top: 10px; right: 10px; min-height: 44px; padding: 6px 16px; font-size: 14px; }
-  .hero .satellites { position: static; order: 2; width: auto; margin: 8px 8px 0; flex-direction: row; gap: 8px; }
-  .satellites .node { flex: 1 1 0; min-width: 0; min-height: 44px; font-size: 13px; padding: 6px 10px; }
-  .satellites .node-title { font-size: 15px; }
-  .satellites .node .m-row, .satellites .node-sub { display: none; }
-  .hero .sat-leaders { display: none; }
-  .hero-dock { position: static; order: 3; transform: none; width: auto; align-self: stretch; margin: 30px 8px 0; display: flex; flex-direction: column; gap: 8px; }
-  .hero-dock > * { width: 100%; }
-  .hero .rail { order: 1; }
-  .hero .story-log { order: 2; }
-  .story-log { font-size: 13px; padding: 6px 10px 8px; }
-  .log-list { min-height: 0; max-height: calc(3 * 1.55em); overflow-y: auto; overscroll-behavior: contain; }
-  .log-list li { grid-template-columns: 7.5em minmax(0, 1fr); }
-  .log-list li .log-t { display: none; }
-  .rail { padding: 8px 4px 6px; }
-  .rail-label { font-size: 11px; letter-spacing: 0; text-transform: none; }
-  .rail-n { display: none; }
-  .hero .proxies { height: 0; }
-}
-@media (max-width: 420px) {
-  .rail-label { font-size: 9.5px; }
-  .hero-copy h1 { font-size: 1.55rem; }
-}
-/* phones: the stage is as tall as the front card needs (the card spans 80 % of the width) plus room for the pause control */
-@media (max-width: 440px) {
-  .hero.is-3d .story-stage { height: calc(56vw + 76px); min-height: 0; }
-}
-@media (max-width: 340px) {
-  .rail-label { font-size: 9px; }
-}
-@media (hover: none) { .hint-mouse { display: none; } }
-@media (hover: hover) { .hint-touch { display: none; } }
-
-/* ---- flat scene (no WebGL, or reduced motion) ---- */
-.story-stage.is-dom { position: relative; z-index: 1; padding: 12px 16px 8px; width: 100%; max-width: var(--max); margin: 0 auto; }
-.dom-legend {
-  display: flex; flex-wrap: wrap; gap: 2px 16px; justify-content: center;
-  font: 12px var(--font-mono); color: var(--muted); margin: 8px 0 14px;
-}
-.term-key { display: inline-flex; align-items: center; gap: 6px; }
-.term-key i { width: 9px; height: 9px; background: var(--role); border-radius: 2px; flex: none; outline: 1px solid var(--line); }
-.dom-stage {
-  position: relative; display: grid; gap: 28px 12px; font: 12px/1.5 var(--font-mono);
-  grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 20px 18px 0 4px;
-}
-.dom-stage.is-wide { gap: 34px 26px; }
-.term-edges { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.edge { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 2 3; }
-.edge.is-hot, .edge.is-sel { stroke: var(--role, var(--scene-accent)); stroke-dasharray: none; stroke-width: 1.8; }
-.edge.is-sel { stroke: var(--accent); }
-.edge-hit { fill: none; stroke: transparent; stroke-width: 16; pointer-events: stroke; cursor: pointer; }
-.edge-head { fill: var(--muted); }
-.packet circle { fill: var(--role); }
-.packet .trail { opacity: .45; }
-.node {
-  position: relative; z-index: 1; min-width: 0; cursor: pointer;
-  background: var(--term-panel); color: var(--term-text);
-  border: 1.5px solid var(--role); border-radius: 8px; padding: 8px 10px;
-  box-shadow: var(--shadow-card); transition: box-shadow .4s ease, opacity .4s ease, transform .4s cubic-bezier(.22, .8, .3, 1);
-}
-.node.is-active, .node.is-pulse, .node.is-hover, .node.is-sel {
-  box-shadow: var(--shadow-card), 0 0 0 1px var(--scene-accent), 0 0 22px -4px var(--scene-accent);
-}
-.node.is-sel { transform: translateY(-3px); }
-.dom-stage.has-sel .node:not(.is-sel) { opacity: .35; }
-.node-title { color: var(--role); font: 700 15px/1.25 var(--font-sans); }
-.node-sub { color: var(--term-muted); }
-.m-row { display: flex; align-items: center; gap: 8px; }
-.m-label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.m-val { color: var(--role); font-weight: 700; white-space: nowrap; }
-.m-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.m-bar { flex: 0 0 34%; height: 9px; border: 1px solid var(--term-line); border-radius: 2px; background: var(--term-bg); overflow: hidden; }
-.m-bar i { display: block; height: 100%; width: 0; background: var(--role); }
-.node-status { margin-top: 2px; color: var(--term-muted); }
-.node.st-run .node-status, .node.st-done .node-status { color: var(--role); }
-.st-glyph { display: inline-block; width: 1.4em; }
-.hero:not(.is-3d) { min-height: 0; padding-bottom: 24px; display: flex; flex-direction: column; }
-.hero:not(.is-3d) .hero-dock { position: relative; left: auto; bottom: auto; transform: none; margin: 12px auto 0; }
-.hero:not(.is-3d) .hero-copy { order: -1; width: 100%; padding-bottom: 8px; }
-.hero:not(.is-3d) .scene-ctl { display: none; }
-@media (min-width: 1100px) {
-  .hero:not(.is-3d) .hero-copy { padding-top: 96px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .log-list li.is-new, .cap, .cap.is-sheet { animation: none; }
-  .node, .bot, .rail-btn::after, .hero-copy { transition: none; }
-  .bot.is-walking svg, .bot.is-walking .bot-leg { animation: none; }
-}
+.hero { padding: 56px 0 48px; background: var(--hero-bg); border-bottom: 1px solid var(--line); }
+.hero-copy h1 { max-width: 16em; margin: 0 0 12px; font-size: clamp(1.75rem, 5vw, 3rem); font-weight: 800; text-wrap: balance; }
+.hero-lede { max-width: 34em; margin: 0 0 24px; color: var(--muted); font-size: 1.08rem; }
+@media (min-width: 960px) { .hero { padding: 88px 0 72px; } }
 
 /* ---- print: the résumé only ---- */
 @media print {

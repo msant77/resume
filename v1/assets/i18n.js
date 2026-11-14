@@ -12,8 +12,8 @@
  *
  * Locale: ?lang= wins, then the page's preset (generated entry pages), then
  * the saved choice (localStorage "lang"), then navigator.languages, then
- * English. Switching re-renders in place and fires "site:locale" so
- * the scene and the theme toggle redraw their text.
+ * English. Switching re-renders in place and fires "site:locale" so the
+ * theme toggle redraws its label.
  */
 (function () {
   'use strict';

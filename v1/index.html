@@ -34,15 +34,12 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/i18n.js" defer></script>
 <script src="/assets/theme.js" defer></script>
-<script src="/assets/scenes.js" defer></script>
-<script src="/assets/loop.js" defer></script>
-<script type="module" src="/assets/hero3d.js"></script>
 </head>
 <body>
 
 <a href="#main" class="skip-link" data-i18n="common.skip">Skip to content</a>
 
-<header class="top is-over">
+<header class="top">
   <a href="/" class="wordmark" data-href="home" aria-label="Marco Santana">
     <span class="mark" aria-hidden="true">MS</span><span class="word">Marco Santana</span>
   </a>
@@ -66,21 +63,12 @@
 
 <main id="main">
 
-  <section class="hero" id="how" aria-labelledby="hero-title" data-story="hero" data-view="3d">
-    <div class="story-stage" data-stage><button type="button" class="scene-ctl" data-ctl>pause</button></div>
-    <div class="hero-copy">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-copy">
       <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · how I work</p>
       <h1 id="hero-title" data-i18n="home.h1">You bring the outcome. I lead the team that delivers it.</h1>
       <p class="hero-lede" data-i18n="home.lede">Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.</p>
-      <p class="hero-hint"><span class="hint-mouse" data-i18n="home.hint">hover or tap the cards · Tab walks the steps · Esc goes back</span><span class="hint-touch" data-i18n="home.hintTouch">tap a card to read it · swipe to change step</span></p>
     </div>
-    <p class="sr-only" data-i18n="hero.summary">Animation of how Marco Santana works: you bring the outcome you need and he comes back with questions before a quote, writing every decision down with a recommendation; one plan per front, approved by you before any code is written, and a written brief for each builder; AI-assisted builders work in parallel, one front each, with automatic checks on every change; a reviewer who is never the author audits each delivery, and on payments, data and migrations a second review tries to break the change first; every change points back to the request that justified it, and every delivery comes with notes in plain language; nothing goes live without your sign-off, and you close the request yourself; then work already delivered.</p>
-    <ul class="proxies" data-proxies></ul>
-    <div class="hero-dock">
-      <div class="story-log" data-log></div>
-      <nav class="rail" data-rail aria-label="Steps of the work"></nav>
-    </div>
-    <div data-caption></div>
   </section>
 
   <section id="work" class="section work" aria-labelledby="work-title">
