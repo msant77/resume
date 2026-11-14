@@ -35,12 +35,15 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/i18n.js" defer></script>
 <script src="/assets/theme.js" defer></script>
+<script src="/assets/scenes.js" defer></script>
+<script src="/assets/loop.js" defer></script>
+<script type="module" src="/assets/hero3d.js"></script>
 </head>
 <body>
 
 <a href="#main" class="skip-link" data-i18n="common.skip">Ir al contenido</a>
 
-<header class="top">
+<header class="top is-over">
   <a href="/es/" class="wordmark" data-href="home" aria-label="Marco Santana">
     <span class="mark" aria-hidden="true">MS</span><span class="word">Marco Santana</span>
   </a>
@@ -64,39 +67,21 @@
 
 <main id="main">
 
-  <section class="hero" id="how" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div class="hero-head">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · cómo trabajo</p>
-          <h1 id="hero-title" data-i18n="home.h1">Tú traes el resultado. Yo dirijo el equipo que lo entrega.</h1>
-          <p class="hero-lede" data-i18n="home.lede">Recibes el resultado que necesitas en semanas, con un rastro escrito de cada cambio y nada en línea sin tu aprobación.</p>
-          <p class="hero-more"><a href="#work" data-i18n="home.seeWork">Mira lo que ya entregué</a></p>
-        </div>
-        <div class="hero-actions">
-          <p class="label" data-i18n="resume.pdf.label">Descarga el currículum</p>
-          <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
-          <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
-        </div>
-      </div>
-      <h2 id="journey-title" class="how-sub" data-i18n="how.journey.title">Trabajar conmigo, paso a paso</h2>
-      <ol class="cycle" aria-labelledby="journey-title">
-        <li><span class="cycle-step" data-i18n="how.journey.ask.title">Tú pides</span><span class="cycle-line" data-i18n="how.journey.ask.line">una solicitud escrita: el porqué y qué significa terminado</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.approve.title">Apruebas el plan</span><span class="cycle-line" data-i18n="how.journey.approve.line">antes de escribir código</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.build.title">Se construye y se comprueba</span><span class="cycle-line" data-i18n="how.journey.build.line">comprobaciones automáticas, después una revisión independiente</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.test.title">Tú pruebas</span><span class="cycle-line" data-i18n="how.journey.test.line">una entrega revisada, con notas de qué probar</span></li>
-        <li class="is-go"><span class="cycle-step" data-i18n="how.journey.go.title">Tú das luz verde</span><span class="cycle-line" data-i18n="how.journey.go.line">nada sale en línea antes</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.report.title">Recibes un informe</span><span class="cycle-line" data-i18n="how.journey.report.line">al final de cada sesión de trabajo</span></li>
-      </ol>
-      <div class="people">
-        <h2 id="people-title" class="how-sub" data-i18n="how.people.title">Quién hace el trabajo</h2>
-        <ul class="people-list" aria-labelledby="people-title">
-          <li><strong data-i18n="how.people.lead.role">Un líder sénior (yo)</strong> <span data-i18n="how.people.lead.does">decide, escribe los briefs, revisa cada entrega</span></li>
-          <li><strong data-i18n="how.people.builders.role">Constructores asistidos por IA</strong> <span data-i18n="how.people.builders.does">un frente cada uno</span></li>
-          <li><strong data-i18n="how.people.inspector.role">Un inspector aparte</strong> <span data-i18n="how.people.inspector.does">intenta romperlo antes de que lo veas</span></li>
-        </ul>
-      </div>
+  <section class="hero" id="how" aria-labelledby="hero-title" data-story="hero" data-view="3d">
+    <div class="story-stage" data-stage><button type="button" class="scene-ctl" data-ctl>pause</button></div>
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · cómo trabajo</p>
+      <h1 id="hero-title" data-i18n="home.h1">Tú traes el resultado. Yo dirijo el equipo que lo entrega.</h1>
+      <p class="hero-lede" data-i18n="home.lede">Ingeniero sénior, 25 años en software. Una persona responsable, con un equipo asistido por IA detrás.</p>
+      <p class="hero-hint"><span class="hint-mouse" data-i18n="home.hint">pasa el puntero o toca las tarjetas · Tab recorre las etapas · Esc vuelve</span><span class="hint-touch" data-i18n="home.hintTouch">toca una tarjeta para leerla · desliza para cambiar de etapa</span></p>
     </div>
+    <p class="sr-only" data-i18n="hero.summary">Animación de cómo trabaja Marco Santana: traes el resultado que necesitas y él vuelve con preguntas antes del presupuesto, con cada decisión por escrito y una recomendación; un plan por frente, aprobado por ti antes de escribir código, y un brief escrito para cada constructor; constructores asistidos por IA trabajan en paralelo, un frente cada uno, con comprobaciones automáticas en cada cambio; un revisor que nunca es el autor audita cada entrega, y en pagos, datos y migraciones una segunda revisión intenta romper el cambio antes; cada cambio apunta a la solicitud que lo justificó, y cada entrega llega con notas en lenguaje sencillo; nada sale en línea sin tu aprobación, y la solicitud la cierras tú; después, lo que ya se entregó.</p>
+    <ul class="proxies" data-proxies></ul>
+    <div class="hero-dock">
+      <div class="story-log" data-log></div>
+      <nav class="rail" data-rail aria-label="Steps of the work"></nav>
+    </div>
+    <div data-caption></div>
   </section>
 
   <section id="work" class="section work" aria-labelledby="work-title">

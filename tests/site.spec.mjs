@@ -1,7 +1,6 @@
-// The page in every language, width and theme: it loads without console
-// errors, never scrolls sideways, stays still (nothing animates, no canvas),
-// leads with the outcome, the résumé PDFs and the journey of one request,
-// and keeps the work, the résumé and the switchers working.
+// The page in every language, width, theme and motion setting: it loads
+// without console errors, never scrolls sideways, opens on the scene and
+// keeps the résumé, the PDFs and the switchers working.
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
@@ -13,6 +12,7 @@ const LOCALES = [
 ];
 const WIDTHS = [320, 375, 1280];
 const SCHEMES = ['light', 'dark'];
+const MOTIONS = ['no-preference', 'reduce'];
 
 /* collect console errors and uncaught exceptions for the whole test */
 function watch(page) {
@@ -22,6 +22,11 @@ function watch(page) {
   page.on('requestfailed', (r) => errors.push(`request failed: ${r.url()} ${r.failure()?.errorText}`));
   page.on('response', (r) => { if (r.status() >= 400) errors.push(`HTTP ${r.status()}: ${r.url()}`); });
   return errors;
+}
+
+/* the scene has mounted: either the 3D canvas or the flat cards are on the page */
+async function sceneReady(page) {
+  await page.waitForFunction(() => document.querySelector('.hero-canvas, .dom-stage .node'));
 }
 
 async function noSideScroll(page) {
@@ -34,53 +39,40 @@ async function noSideScroll(page) {
 for (const { path, loc, d } of LOCALES) {
   for (const width of WIDTHS) {
     for (const colorScheme of SCHEMES) {
-      test(`${loc} ${width}px ${colorScheme}`, async ({ browser }) => {
-        const context = await browser.newContext({
-          viewport: { width, height: width < 600 ? 740 : 800 }, colorScheme
+      for (const reducedMotion of MOTIONS) {
+        test(`${loc} ${width}px ${colorScheme} motion:${reducedMotion}`, async ({ browser }) => {
+          const context = await browser.newContext({
+            viewport: { width, height: width < 600 ? 740 : 800 }, colorScheme, reducedMotion
+          });
+          const page = await context.newPage();
+          const errors = watch(page);
+          await page.goto(path, { waitUntil: 'networkidle' });
+          await sceneReady(page);
+
+          await expect(page.locator('html')).toHaveAttribute('lang', loc);
+          await expect(page.locator('h1')).toHaveText(d.home.h1);
+          // the scene is the first thing on the page, and it starts within the first viewport
+          const heroTop = await page.locator('#how').evaluate((el) => el.getBoundingClientRect().top);
+          expect(heroTop).toBeLessThan(200);
+          const view = await page.locator('#how').evaluate((el) => el.classList.contains('is-3d') ? '3d' : 'flat');
+          expect(view).toBe(reducedMotion === 'reduce' ? 'flat' : '3d');
+          await expect(page.locator('.rail-btn')).toHaveCount(7);
+
+          // let the scene run a little, then scroll through the whole page
+          await page.waitForTimeout(reducedMotion === 'reduce' ? 300 : 2500);
+          await noSideScroll(page);
+          await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+          await page.waitForTimeout(200);
+          await noSideScroll(page);
+
+          await expect(page.locator('.work-tile')).toHaveCount(9);
+          await expect(page.locator('#experience .job')).toHaveCount(16);
+          await expect(page.locator('#resume h2')).toHaveText(d.resume.h2);
+
+          expect(errors, errors.join('\n')).toEqual([]);
+          await context.close();
         });
-        const page = await context.newPage();
-        const errors = watch(page);
-        await page.goto(path, { waitUntil: 'networkidle' });
-
-        await expect(page.locator('html')).toHaveAttribute('lang', loc);
-        await expect(page.locator('h1')).toHaveText(d.home.h1);
-        // the résumé PDFs are the first call to action, inside the first screen
-        const pdf = page.locator('.hero-actions a.btn').first();
-        await expect(pdf).toBeInViewport();
-
-        // a still page: no canvas, nothing animating
-        await expect(page.locator('canvas')).toHaveCount(0);
-        expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
-
-        // the first screen sells the outcome: a link down to the work delivered,
-        // the journey of one request from the reader's side, then the people behind it
-        await expect(page.locator('.hero-more a')).toHaveAttribute('href', '#work');
-        await expect(page.locator('.hero-more a')).toHaveText(d.home.seeWork);
-        await expect(page.locator('#how .cycle > li')).toHaveCount(6);
-        await expect(page.locator('#how .cycle .cycle-step').first()).toHaveText(d.how.journey.ask.title);
-        await expect(page.locator('#how .cycle li.is-go .cycle-step')).toHaveText(d.how.journey.go.title);
-        await expect(page.locator('#how .people-list > li')).toHaveCount(3);
-        if (width >= 1040) {
-          // wide screens: title, PDFs, the whole journey and the people strip without scrolling
-          const peopleBottom = await page.locator('.people').evaluate((el) => el.getBoundingClientRect().bottom);
-          expect(peopleBottom, 'the journey and the people fit the first screen').toBeLessThanOrEqual(800);
-        } else {
-          // phones: the journey starts on the first screen
-          await expect(page.locator('.cycle > li').first()).toBeInViewport({ ratio: 0.2 });
-        }
-
-        await noSideScroll(page);
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.waitForTimeout(200);
-        await noSideScroll(page);
-
-        await expect(page.locator('.work-tile')).toHaveCount(9);
-        await expect(page.locator('#experience .job')).toHaveCount(16);
-        await expect(page.locator('#resume h2')).toHaveText(d.resume.h2);
-
-        expect(errors, errors.join('\n')).toEqual([]);
-        await context.close();
-      });
+      }
     }
   }
 }
@@ -101,15 +93,15 @@ test('entry pages carry hreflang alternates and their own canonical URL', async 
 
 test('the language switcher re-renders in place', async ({ page }) => {
   const errors = watch(page);
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('/');
+  await sceneReady(page);
   for (const { loc, d } of [LOCALES[1], LOCALES[2], LOCALES[0]]) {
     await page.locator(`[data-lang-btn="${loc}"]`).click();
     await expect(page.locator('html')).toHaveAttribute('lang', loc);
     await expect(page.locator('h1')).toHaveText(d.home.h1);
     await expect(page.locator('#experience-title')).toHaveText(d.resume.section.experience);
     await expect(page.locator(`[data-lang-btn="${loc}"]`)).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.cycle .cycle-step').first()).toHaveText(d.how.journey.ask.title);
-    await expect(page.locator('.people-list strong').first()).toHaveText(d.how.people.lead.role);
+    await expect(page.locator('.rail-btn .rail-label').first()).toHaveText(d.common.rail.decide);
   }
   expect(errors, errors.join('\n')).toEqual([]);
 });
@@ -128,13 +120,54 @@ test('the theme toggle switches light and dark', async ({ page }) => {
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
 });
 
-test('both résumé PDFs are served, from the first screen and the résumé', async ({ page, request }) => {
+for (const reducedMotion of ['no-preference', 'reduce']) {
+  test(`captions open from the keyboard and Esc goes back (motion:${reducedMotion})`, async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion });
+    const page = await context.newPage();
+    const errors = watch(page);
+    await page.goto('/');
+    await sceneReady(page);
+    const d = LOCALES[0].d;
+    // a step of the rail
+    await page.locator('.rail-btn').nth(3).click();
+    await expect(page.locator('.cap')).toBeVisible();
+    await expect(page.locator('.cap-title')).toHaveText(d.common.rail.audit);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.cap')).toBeHidden();
+    // a card, through its keyboard proxy
+    const proxy = page.locator('.proxy').first();
+    await proxy.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.cap-title')).toHaveText(d.hero.node.outcome.title);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.cap')).toBeHidden();
+    expect(errors, errors.join('\n')).toEqual([]);
+    await context.close();
+  });
+}
+
+test('without WebGL the scene falls back to the flat view', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  await context.addInitScript(() => {
+    const get = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (kind, ...rest) {
+      return /webgl/i.test(kind) ? null : get.call(this, kind, ...rest);
+    };
+  });
+  const page = await context.newPage();
+  const errors = watch(page);
   await page.goto('/');
-  for (const where of ['.hero-actions', '.profile-actions']) {
-    const links = await page.locator(`${where} a.btn`).evaluateAll((as) => as.map((a) => a.getAttribute('href')));
-    expect(links).toEqual(['/Marco_Santana_Resume.pdf', '/Marco_Santana_Curriculo.pdf']);
-  }
-  const hrefs = ['/Marco_Santana_Resume.pdf', '/Marco_Santana_Curriculo.pdf'];
+  await page.waitForSelector('.dom-stage .node');
+  await expect(page.locator('#how')).not.toHaveClass(/is-3d/);
+  await expect(page.locator('.dom-stage .node')).toHaveCount(11);
+  expect(errors, errors.join('\n')).toEqual([]);
+  await context.close();
+});
+
+test('both résumé PDFs are served', async ({ page, request }) => {
+  await page.goto('/');
+  const hrefs = await page.locator('.profile-actions a.btn').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
+  expect(hrefs).toEqual(['/Marco_Santana_Resume.pdf', '/Marco_Santana_Curriculo.pdf']);
   for (const href of hrefs) {
     const r = await request.get(href);
     expect(r.status()).toBe(200);

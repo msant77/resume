@@ -21,56 +21,327 @@
     },
     "lang": {
       "label": "Language"
+    },
+    "pause": "pause",
+    "resume": "resume",
+    "closeCaption": "Close caption",
+    "log": {
+      "head": "session log",
+      "pinned": "log · {name} · pinned",
+      "empty": "nothing yet in this round; the next line shows up here."
+    },
+    "kicker": {
+      "edge": "link",
+      "step": "step"
+    },
+    "status": {
+      "wait": "waiting",
+      "run": "running",
+      "done": "done",
+      "skip": "skipped"
+    },
+    "rail": {
+      "label": "Steps of the work",
+      "decide": "Decide",
+      "brief": "Brief",
+      "build": "Build",
+      "audit": "Audit",
+      "trail": "Trail",
+      "validate": "Sign-off",
+      "delivered": "Delivered"
     }
   },
   "home": {
     "eyebrow": "Marco Santana · how I work",
     "h1": "You bring the outcome. I lead the team that delivers it.",
-    "lede": "You get the result you need in weeks, with a written trail for every change and nothing live without your sign-off.",
-    "seeWork": "See what I have delivered"
+    "lede": "Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.",
+    "hint": "hover or tap the cards · Tab walks the steps · Esc goes back",
+    "hintTouch": "tap a card to read it · swipe to change step"
   },
-  "how": {
-    "journey": {
-      "title": "Working with me, step by step",
-      "ask": {
-        "title": "You ask",
-        "line": "a written request: the why and what done means"
+  "hero": {
+    "summary": "Animation of how Marco Santana works: you bring the outcome you need and he comes back with questions before a quote, writing every decision down with a recommendation; one plan per front, approved by you before any code is written, and a written brief for each builder; AI-assisted builders work in parallel, one front each, with automatic checks on every change; a reviewer who is never the author audits each delivery, and on payments, data and migrations a second review tries to break the change first; every change points back to the request that justified it, and every delivery comes with notes in plain language; nothing goes live without your sign-off, and you close the request yourself; then work already delivered.",
+    "legend": {
+      "client": "you",
+      "human": "Marco, the lead",
+      "agent": "AI-assisted builders and reviewers",
+      "github": "the trail",
+      "core": "delivered"
+    },
+    "node": {
+      "outcome": {
+        "title": "Your outcome",
+        "short": "you",
+        "sub": "in your own words",
+        "m": {
+          "t1": "a call, a document, a screen"
+        },
+        "cap": [
+          "You bring the outcome you need, in your own words: a call, a document, a screen you already have.",
+          "I come back with questions before a quote."
+        ]
       },
-      "approve": {
-        "title": "You approve the plan",
-        "line": "before any code is written"
+      "decide": {
+        "title": "I decide",
+        "short": "Marco",
+        "sub": "questions before a quote",
+        "m": {
+          "decisions": "decisions written",
+          "t1": "each with a recommendation"
+        },
+        "cap": [
+          "You bring the outcome you need. I come back with questions before a quote.",
+          "Every decision is written down, with a recommendation."
+        ]
+      },
+      "plan": {
+        "title": "The plan",
+        "short": "plan",
+        "sub": "one per front",
+        "m": {
+          "plans": "approved by you",
+          "t1": "before any code is written"
+        },
+        "cap": [
+          "One plan per front, approved by you before any code is written.",
+          "It says what is in, what is out, and in which order."
+        ]
+      },
+      "brief": {
+        "title": "The brief",
+        "short": "brief",
+        "sub": "one per builder",
+        "m": {
+          "briefs": "briefs written",
+          "t1": "the goal and the limits"
+        },
+        "cap": [
+          "Each builder gets a written brief: the goal, the limits, what not to touch.",
+          "Each request is written with the why and what done means."
+        ]
       },
       "build": {
-        "title": "It is built and checked",
-        "line": "automatic checks, then an independent review"
+        "title": "The builders",
+        "short": "builders",
+        "sub": "AI-assisted · one front each",
+        "m": {
+          "code": "building",
+          "checks": "automatic checks",
+          "fronts": "fronts in parallel"
+        },
+        "cap": [
+          "AI-assisted builders work in parallel, one front each.",
+          "A team's pace, with one person accountable.",
+          "Automatic checks run on every change."
+        ]
       },
-      "test": {
-        "title": "You test",
-        "line": "a reviewed delivery, with notes on what to test"
+      "review": {
+        "title": "The reviewers",
+        "short": "reviewer",
+        "sub": "never the author",
+        "m": {
+          "rev": "reads the delivery",
+          "t1": "{findings} findings, sent to me"
+        },
+        "cap": [
+          "The reviewer is never the author and never edits what it reviews.",
+          "Findings come back to me, and I decide what gets fixed now."
+        ]
       },
-      "go": {
-        "title": "You say go",
-        "line": "nothing goes live before that"
+      "second": {
+        "title": "Second review",
+        "short": "2nd review",
+        "sub": "payments, data, migrations",
+        "m": {
+          "risky": "risky changes"
+        },
+        "cap": [
+          "On payments, data and migrations, a second review tries to break the change before you see it."
+        ]
       },
-      "report": {
-        "title": "You get a report",
-        "line": "after every working session"
+      "trail": {
+        "title": "The trail",
+        "short": "trail",
+        "sub": "every change has a reason",
+        "m": {
+          "changes": "changes linked",
+          "t1": "request #{reqNo}"
+        },
+        "cap": [
+          "Every change points back to the request that justified it.",
+          "Months later, anyone can see why something was done."
+        ]
+      },
+      "notes": {
+        "title": "Plain-language notes",
+        "short": "notes",
+        "sub": "with every delivery",
+        "m": {
+          "reports": "reports written"
+        },
+        "cap": [
+          "Decision makers read reports, not code: every delivery says what changed and what to test.",
+          "Every working session ends with a written report."
+        ]
+      },
+      "validate": {
+        "title": "Your sign-off",
+        "short": "you",
+        "sub": "you test · you close",
+        "m": {
+          "waiting": "waiting for you",
+          "closed": "closed by you"
+        },
+        "cap": [
+          "Nothing goes live without your sign-off, and you close the request yourself.",
+          "At most three deliveries waiting for you: the pace follows yours."
+        ]
+      },
+      "delivered": {
+        "title": "Delivered",
+        "short": "delivered",
+        "sub": "deadlines and results",
+        "m": {
+          "t1": "CRM · three months",
+          "t2": "field platform · ten weeks",
+          "t3": "app on two stores"
+        },
+        "cap": [
+          "A CRM integrated with a fiber provider's system, in three months.",
+          "A field platform with an app that works offline, in ten weeks.",
+          "An app on the Apple and Microsoft stores, backed by 449 automatic checks."
+        ]
       }
     },
-    "people": {
-      "title": "Who does the work",
-      "lead": {
-        "role": "A senior lead (me)",
-        "does": "decides, writes the briefs, reviews every delivery"
+    "edge": {
+      "o-d": {
+        "title": "your outcome",
+        "cap": [
+          "You describe it; I answer with questions, not a quote."
+        ]
       },
-      "builders": {
-        "role": "AI-assisted builders",
-        "does": "one front each"
+      "d-p": {
+        "title": "decisions",
+        "cap": [
+          "Each decision becomes part of a written plan."
+        ]
       },
-      "inspector": {
-        "role": "A separate inspector",
-        "does": "tries to break it before you see it"
+      "ok": {
+        "title": "your approval",
+        "cap": [
+          "You approve the plan. Nothing else starts the work."
+        ]
+      },
+      "p-b": {
+        "title": "fronts",
+        "cap": [
+          "The approved plan is split into fronts, one per builder."
+        ]
+      },
+      "b-bu": {
+        "title": "brief",
+        "cap": [
+          "A written brief per builder: the goal, the limits, what not to touch."
+        ]
+      },
+      "bu-r": {
+        "title": "delivery",
+        "cap": [
+          "Small changes, each one pointing to its request."
+        ]
+      },
+      "r-d": {
+        "title": "findings",
+        "cap": [
+          "The reviewer's findings come back to me; I decide what gets fixed now."
+        ]
+      },
+      "s-r": {
+        "title": "second review",
+        "cap": [
+          "On risky changes, a second review tries to break it first."
+        ]
+      },
+      "r-t": {
+        "title": "reviewed",
+        "cap": [
+          "Only a reviewed delivery moves on."
+        ]
+      },
+      "n-t": {
+        "title": "notes",
+        "cap": [
+          "Every delivery carries notes in plain language: what changed, what to test."
+        ]
+      },
+      "t-v": {
+        "title": "for your review",
+        "cap": [
+          "The delivery waits for you, with notes and a list of what to test."
+        ]
+      },
+      "v-dl": {
+        "title": "live",
+        "cap": [
+          "Signed off by you, then live."
+        ]
+      },
+      "dl-o": {
+        "title": "the next outcome",
+        "cap": [
+          "The next outcome starts the same way."
+        ]
       }
+    },
+    "step": {
+      "decide": [
+        "You bring the outcome you need. I come back with questions before a quote, and every decision is written down with a recommendation."
+      ],
+      "brief": [
+        "One plan per front, approved by you before any code is written. Each builder gets a written brief: the goal, the limits, what not to touch."
+      ],
+      "build": [
+        "AI-assisted builders work in parallel, one front each: a team's pace, with one person accountable."
+      ],
+      "audit": [
+        "The reviewer is never the author and never edits what it reviews. On payments, data and migrations, a second review tries to break the change before you see it."
+      ],
+      "trail": [
+        "Every change points back to the request that justified it. You read reports, not code: every delivery says what changed and what to test."
+      ],
+      "validate": [
+        "Nothing goes live without your sign-off, and you close the request yourself. At most three deliveries wait for you: the pace follows yours."
+      ],
+      "delivered": [
+        "A CRM integrated with a fiber provider's system in three months; a field platform with an app that works offline in ten weeks; an app on the Apple and Microsoft stores."
+      ]
+    },
+    "log": {
+      "o1": "outcome: field visits logged with no signal",
+      "o2": "a call and two screenshots shared",
+      "d1": "five questions back, no quote yet",
+      "d2": "decision {decisions} written · with a recommendation",
+      "p1": "plan v1 · scope, order, what could go wrong",
+      "o3": "you approve plan v1",
+      "p2": "plan v1 approved · work may start",
+      "b1": "request #{reqNo} · the why, what done means",
+      "b2": "brief: goal, limits, what not to touch",
+      "u1": "front 1 of {fronts} · starts from the brief",
+      "u2": "change {changes} → request #{reqNo}",
+      "u3": "automatic checks on every change · all passed",
+      "r1": "delivery read against request #{reqNo}",
+      "s1": "touches stored data · trying to break it",
+      "r2": "{findings} findings · none blocking",
+      "d3": "one fix now, one becomes its own request",
+      "t1": "every change linked to request #{reqNo}",
+      "n1": "notes: what changed, what to test",
+      "t2": "session report {reports} written",
+      "v1": "{waiting} deliveries waiting for you · limit 3",
+      "v2": "you test it on your phone",
+      "v3": "request #{reqNo} closed by you · live",
+      "x1": "CRM for a fiber provider · three months",
+      "x2": "field platform, works offline · ten weeks",
+      "x3": "app on the Apple and Microsoft stores",
+      "o4": "the next outcome starts the same way"
     }
   },
   "work": {

@@ -34,12 +34,15 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/i18n.js" defer></script>
 <script src="/assets/theme.js" defer></script>
+<script src="/assets/scenes.js" defer></script>
+<script src="/assets/loop.js" defer></script>
+<script type="module" src="/assets/hero3d.js"></script>
 </head>
 <body>
 
 <a href="#main" class="skip-link" data-i18n="common.skip">Skip to content</a>
 
-<header class="top">
+<header class="top is-over">
   <a href="/" class="wordmark" data-href="home" aria-label="Marco Santana">
     <span class="mark" aria-hidden="true">MS</span><span class="word">Marco Santana</span>
   </a>
@@ -63,39 +66,21 @@
 
 <main id="main">
 
-  <section class="hero" id="how" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div class="hero-head">
-        <div class="hero-copy">
-          <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · how I work</p>
-          <h1 id="hero-title" data-i18n="home.h1">You bring the outcome. I lead the team that delivers it.</h1>
-          <p class="hero-lede" data-i18n="home.lede">You get the result you need in weeks, with a written trail for every change and nothing live without your sign-off.</p>
-          <p class="hero-more"><a href="#work" data-i18n="home.seeWork">See what I have delivered</a></p>
-        </div>
-        <div class="hero-actions">
-          <p class="label" data-i18n="resume.pdf.label">Download the résumé</p>
-          <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
-          <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
-        </div>
-      </div>
-      <h2 id="journey-title" class="how-sub" data-i18n="how.journey.title">Working with me, step by step</h2>
-      <ol class="cycle" aria-labelledby="journey-title">
-        <li><span class="cycle-step" data-i18n="how.journey.ask.title">You ask</span><span class="cycle-line" data-i18n="how.journey.ask.line">a written request: the why and what done means</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.approve.title">You approve the plan</span><span class="cycle-line" data-i18n="how.journey.approve.line">before any code is written</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.build.title">It is built and checked</span><span class="cycle-line" data-i18n="how.journey.build.line">automatic checks, then an independent review</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.test.title">You test</span><span class="cycle-line" data-i18n="how.journey.test.line">a reviewed delivery, with notes on what to test</span></li>
-        <li class="is-go"><span class="cycle-step" data-i18n="how.journey.go.title">You say go</span><span class="cycle-line" data-i18n="how.journey.go.line">nothing goes live before that</span></li>
-        <li><span class="cycle-step" data-i18n="how.journey.report.title">You get a report</span><span class="cycle-line" data-i18n="how.journey.report.line">after every working session</span></li>
-      </ol>
-      <div class="people">
-        <h2 id="people-title" class="how-sub" data-i18n="how.people.title">Who does the work</h2>
-        <ul class="people-list" aria-labelledby="people-title">
-          <li><strong data-i18n="how.people.lead.role">A senior lead (me)</strong> <span data-i18n="how.people.lead.does">decides, writes the briefs, reviews every delivery</span></li>
-          <li><strong data-i18n="how.people.builders.role">AI-assisted builders</strong> <span data-i18n="how.people.builders.does">one front each</span></li>
-          <li><strong data-i18n="how.people.inspector.role">A separate inspector</strong> <span data-i18n="how.people.inspector.does">tries to break it before you see it</span></li>
-        </ul>
-      </div>
+  <section class="hero" id="how" aria-labelledby="hero-title" data-story="hero" data-view="3d">
+    <div class="story-stage" data-stage><button type="button" class="scene-ctl" data-ctl>pause</button></div>
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · how I work</p>
+      <h1 id="hero-title" data-i18n="home.h1">You bring the outcome. I lead the team that delivers it.</h1>
+      <p class="hero-lede" data-i18n="home.lede">Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.</p>
+      <p class="hero-hint"><span class="hint-mouse" data-i18n="home.hint">hover or tap the cards · Tab walks the steps · Esc goes back</span><span class="hint-touch" data-i18n="home.hintTouch">tap a card to read it · swipe to change step</span></p>
     </div>
+    <p class="sr-only" data-i18n="hero.summary">Animation of how Marco Santana works: you bring the outcome you need and he comes back with questions before a quote, writing every decision down with a recommendation; one plan per front, approved by you before any code is written, and a written brief for each builder; AI-assisted builders work in parallel, one front each, with automatic checks on every change; a reviewer who is never the author audits each delivery, and on payments, data and migrations a second review tries to break the change first; every change points back to the request that justified it, and every delivery comes with notes in plain language; nothing goes live without your sign-off, and you close the request yourself; then work already delivered.</p>
+    <ul class="proxies" data-proxies></ul>
+    <div class="hero-dock">
+      <div class="story-log" data-log></div>
+      <nav class="rail" data-rail aria-label="Steps of the work"></nav>
+    </div>
+    <div data-caption></div>
   </section>
 
   <section id="work" class="section work" aria-labelledby="work-title">

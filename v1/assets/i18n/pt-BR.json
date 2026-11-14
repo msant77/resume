@@ -21,56 +21,327 @@
     },
     "lang": {
       "label": "Idioma"
+    },
+    "pause": "pausar",
+    "resume": "continuar",
+    "closeCaption": "Fechar legenda",
+    "log": {
+      "head": "registro da sessão",
+      "pinned": "registro · {name} · fixado",
+      "empty": "nada ainda nesta volta; a próxima linha aparece aqui."
+    },
+    "kicker": {
+      "edge": "conexão",
+      "step": "etapa"
+    },
+    "status": {
+      "wait": "aguardando",
+      "run": "rodando",
+      "done": "concluído",
+      "skip": "ignorado"
+    },
+    "rail": {
+      "label": "Etapas do trabalho",
+      "decide": "Decisão",
+      "brief": "Brief",
+      "build": "Equipe",
+      "audit": "Auditoria",
+      "trail": "Rastro",
+      "validate": "Validação",
+      "delivered": "Entregas"
     }
   },
   "home": {
     "eyebrow": "Marco Santana · como eu trabalho",
     "h1": "Você traz o resultado. Eu lidero a equipe que entrega.",
-    "lede": "Você recebe o resultado que precisa em semanas, com rastro escrito de cada mudança e nada no ar sem a sua validação.",
-    "seeWork": "Veja o que já entreguei"
+    "lede": "Engenheiro sênior, 25 anos em software. Uma pessoa responsável, com uma equipe assistida por IA por trás.",
+    "hint": "passe o mouse ou toque nos cartões · Tab percorre as etapas · Esc volta",
+    "hintTouch": "toque num cartão para ler · deslize para mudar de etapa"
   },
-  "how": {
-    "journey": {
-      "title": "Trabalhar comigo, passo a passo",
-      "ask": {
-        "title": "Você pede",
-        "line": "um pedido escrito: o porquê e o critério de pronto"
+  "hero": {
+    "summary": "Animação de como Marco Santana trabalha: você traz o resultado que precisa e ele devolve perguntas antes do preço, com cada decisão escrita e uma recomendação; um plano por frente, aprovado por você antes de qualquer linha de código, e um brief escrito para cada construtor; construtores assistidos por IA trabalham em paralelo, uma frente cada, com conferência automática a cada mudança; um revisor que nunca é o autor audita cada entrega, e em pagamentos, dados e migrações uma segunda revisão tenta quebrar a mudança antes; cada mudança aponta para o pedido que a justificou, e cada entrega vem com notas em linguagem simples; nada vai ao ar sem a sua validação, e quem fecha o pedido é você; depois, o que já foi entregue.",
+    "legend": {
+      "client": "você",
+      "human": "Marco, o responsável",
+      "agent": "construtores e revisores assistidos por IA",
+      "github": "o rastro",
+      "core": "entregue"
+    },
+    "node": {
+      "outcome": {
+        "title": "Seu resultado",
+        "short": "você",
+        "sub": "nas suas palavras",
+        "m": {
+          "t1": "ligação, documento ou tela"
+        },
+        "cap": [
+          "Você traz o resultado que precisa, nas suas palavras: uma ligação, um documento, uma tela que você já tem.",
+          "Eu devolvo perguntas antes do preço."
+        ]
       },
-      "approve": {
-        "title": "Você aprova o plano",
-        "line": "antes de qualquer linha de código"
+      "decide": {
+        "title": "Eu decido",
+        "short": "Marco",
+        "sub": "perguntas antes do preço",
+        "m": {
+          "decisions": "decisões escritas",
+          "t1": "cada uma com recomendação"
+        },
+        "cap": [
+          "Você traz o resultado que precisa. Eu devolvo perguntas antes do preço.",
+          "Cada decisão fica escrita, com uma recomendação."
+        ]
+      },
+      "plan": {
+        "title": "O plano",
+        "short": "plano",
+        "sub": "um por frente",
+        "m": {
+          "plans": "aprovados por você",
+          "t1": "antes de qualquer código"
+        },
+        "cap": [
+          "Um plano por frente, aprovado por você antes de qualquer linha de código.",
+          "Ele diz o que entra, o que fica de fora e em que ordem."
+        ]
+      },
+      "brief": {
+        "title": "O brief",
+        "short": "brief",
+        "sub": "um por construtor",
+        "m": {
+          "briefs": "briefs escritos",
+          "t1": "objetivo e limites"
+        },
+        "cap": [
+          "Cada construtor recebe um brief escrito: objetivo, limites, o que não tocar.",
+          "Cada pedido é escrito com o porquê e o critério de pronto."
+        ]
       },
       "build": {
-        "title": "É construído e conferido",
-        "line": "conferência automática, depois uma revisão independente"
+        "title": "Os construtores",
+        "short": "construtores",
+        "sub": "assistidos por IA, em paralelo",
+        "m": {
+          "code": "construindo",
+          "checks": "conferência",
+          "fronts": "frentes em paralelo"
+        },
+        "cap": [
+          "Construtores assistidos por IA trabalham em paralelo, uma frente cada.",
+          "A velocidade de uma equipe, com um único responsável.",
+          "Conferência automática a cada mudança."
+        ]
       },
-      "test": {
-        "title": "Você testa",
-        "line": "uma entrega revisada, com notas do que testar"
+      "review": {
+        "title": "Os revisores",
+        "short": "revisor",
+        "sub": "nunca é o autor",
+        "m": {
+          "rev": "lê a entrega",
+          "t1": "{findings} achados, para mim"
+        },
+        "cap": [
+          "Quem revisa não é quem fez, e nunca edita o que revisa.",
+          "Os achados voltam para mim, e eu decido o que se corrige agora."
+        ]
       },
-      "go": {
-        "title": "Você libera",
-        "line": "nada vai ao ar antes disso"
+      "second": {
+        "title": "Segunda revisão",
+        "short": "2ª revisão",
+        "sub": "pagamentos, dados, migrações",
+        "m": {
+          "risky": "mudanças de risco"
+        },
+        "cap": [
+          "Em pagamentos, dados e migrações, uma segunda revisão tenta quebrar a mudança antes de você ver."
+        ]
       },
-      "report": {
-        "title": "Você recebe um relatório",
-        "line": "ao fim de cada sessão de trabalho"
+      "trail": {
+        "title": "O rastro",
+        "short": "rastro",
+        "sub": "toda mudança tem motivo",
+        "m": {
+          "changes": "mudanças ligadas",
+          "t1": "pedido #{reqNo}"
+        },
+        "cap": [
+          "Cada mudança aponta para o pedido que a justificou.",
+          "Meses depois, qualquer pessoa vê por que algo foi feito."
+        ]
+      },
+      "notes": {
+        "title": "Notas em linguagem simples",
+        "short": "notas",
+        "sub": "em cada entrega",
+        "m": {
+          "reports": "relatórios escritos"
+        },
+        "cap": [
+          "Quem decide lê relatórios, não código: cada entrega vem com notas do que mudou e do que testar.",
+          "Cada sessão de trabalho termina com um relatório escrito."
+        ]
+      },
+      "validate": {
+        "title": "Sua validação",
+        "short": "você",
+        "sub": "você testa · você fecha",
+        "m": {
+          "waiting": "esperando por você",
+          "closed": "fechados por você"
+        },
+        "cap": [
+          "Nada vai ao ar sem a sua validação, e quem fecha o pedido é você.",
+          "No máximo três entregas esperando a sua leitura: o ritmo acompanha o seu."
+        ]
+      },
+      "delivered": {
+        "title": "Entregue",
+        "short": "entregue",
+        "sub": "prazos e resultados",
+        "m": {
+          "t1": "CRM · três meses",
+          "t2": "plataforma de campo · dez semanas",
+          "t3": "app em duas lojas"
+        },
+        "cap": [
+          "Um CRM integrado ao sistema de um provedor de fibra, em três meses.",
+          "Uma plataforma de campo com app que funciona sem internet, em dez semanas.",
+          "Um app nas lojas da Apple e da Microsoft, com 449 conferências automáticas."
+        ]
       }
     },
-    "people": {
-      "title": "Quem faz o trabalho",
-      "lead": {
-        "role": "Um líder sênior (eu)",
-        "does": "decide, escreve os briefs, revisa cada entrega"
+    "edge": {
+      "o-d": {
+        "title": "seu resultado",
+        "cap": [
+          "Você descreve; eu respondo com perguntas, não com um orçamento."
+        ]
       },
-      "builders": {
-        "role": "Construtores assistidos por IA",
-        "does": "uma frente cada"
+      "d-p": {
+        "title": "decisões",
+        "cap": [
+          "Cada decisão vira parte de um plano escrito."
+        ]
       },
-      "inspector": {
-        "role": "Um inspetor separado",
-        "does": "tenta quebrar antes de você ver"
+      "ok": {
+        "title": "sua aprovação",
+        "cap": [
+          "Você aprova o plano. Nada mais dá início ao trabalho."
+        ]
+      },
+      "p-b": {
+        "title": "frentes",
+        "cap": [
+          "O plano aprovado é dividido em frentes, uma por construtor."
+        ]
+      },
+      "b-bu": {
+        "title": "brief",
+        "cap": [
+          "Um brief escrito por construtor: objetivo, limites, o que não tocar."
+        ]
+      },
+      "bu-r": {
+        "title": "entrega",
+        "cap": [
+          "Mudanças pequenas, cada uma apontando para o seu pedido."
+        ]
+      },
+      "r-d": {
+        "title": "achados",
+        "cap": [
+          "Os achados do revisor voltam para mim; eu decido o que se corrige agora."
+        ]
+      },
+      "s-r": {
+        "title": "segunda revisão",
+        "cap": [
+          "Em mudanças de risco, uma segunda revisão tenta quebrar antes."
+        ]
+      },
+      "r-t": {
+        "title": "revisada",
+        "cap": [
+          "Só uma entrega revisada segue adiante."
+        ]
+      },
+      "n-t": {
+        "title": "notas",
+        "cap": [
+          "Cada entrega leva notas em linguagem simples: o que mudou, o que testar."
+        ]
+      },
+      "t-v": {
+        "title": "para a sua leitura",
+        "cap": [
+          "A entrega espera por você, com notas e a lista do que testar."
+        ]
+      },
+      "v-dl": {
+        "title": "no ar",
+        "cap": [
+          "Validada por você, e então no ar."
+        ]
+      },
+      "dl-o": {
+        "title": "o próximo resultado",
+        "cap": [
+          "O próximo resultado começa do mesmo jeito."
+        ]
       }
+    },
+    "step": {
+      "decide": [
+        "Você traz o resultado que precisa. Eu devolvo perguntas antes do preço, e cada decisão fica escrita, com uma recomendação."
+      ],
+      "brief": [
+        "Um plano por frente, aprovado por você antes de qualquer linha de código. Cada construtor recebe um brief escrito: objetivo, limites, o que não tocar."
+      ],
+      "build": [
+        "Construtores assistidos por IA trabalham em paralelo, uma frente cada: a velocidade de uma equipe, com um único responsável."
+      ],
+      "audit": [
+        "Quem revisa não é quem fez, e nunca edita o que revisa. Em pagamentos, dados e migrações, uma segunda revisão tenta quebrar a mudança antes de você ver."
+      ],
+      "trail": [
+        "Cada mudança aponta para o pedido que a justificou. Você lê relatórios, não código: cada entrega vem com notas do que mudou e do que testar."
+      ],
+      "validate": [
+        "Nada vai ao ar sem a sua validação, e quem fecha o pedido é você. No máximo três entregas esperando a sua leitura: o ritmo acompanha o seu."
+      ],
+      "delivered": [
+        "Um CRM integrado ao sistema de um provedor de fibra em três meses; uma plataforma de campo com app que funciona sem internet em dez semanas; um app nas lojas da Apple e da Microsoft."
+      ]
+    },
+    "log": {
+      "o1": "resultado: visitas registradas mesmo sem sinal",
+      "o2": "uma ligação e duas capturas de tela",
+      "d1": "cinco perguntas de volta, ainda sem preço",
+      "d2": "decisão {decisions} escrita · com recomendação",
+      "p1": "plano v1 · escopo, ordem, o que pode dar errado",
+      "o3": "você aprova o plano v1",
+      "p2": "plano v1 aprovado · o trabalho pode começar",
+      "b1": "pedido #{reqNo} · o porquê e o critério de pronto",
+      "b2": "brief: objetivo, limites, o que não tocar",
+      "u1": "frente 1 de {fronts} · começa pelo brief",
+      "u2": "mudança {changes} → pedido #{reqNo}",
+      "u3": "conferência automática a cada mudança · tudo certo",
+      "r1": "entrega lida contra o pedido #{reqNo}",
+      "s1": "mexe em dados gravados · tentando quebrar",
+      "r2": "{findings} achados · nenhum bloqueia",
+      "d3": "uma correção agora, outra vira um pedido próprio",
+      "t1": "cada mudança ligada ao pedido #{reqNo}",
+      "n1": "notas: o que mudou, o que testar",
+      "t2": "relatório {reports} da sessão escrito",
+      "v1": "{waiting} entregas esperando por você · limite 3",
+      "v2": "você testa no seu celular",
+      "v3": "pedido #{reqNo} fechado por você · no ar",
+      "x1": "CRM para um provedor de fibra · três meses",
+      "x2": "plataforma de campo, funciona sem internet · dez semanas",
+      "x3": "app nas lojas da Apple e da Microsoft",
+      "o4": "o próximo resultado começa do mesmo jeito"
     }
   },
   "work": {

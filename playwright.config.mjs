@@ -14,7 +14,9 @@ export default defineConfig({
   outputDir: 'node_modules/.playwright/test-results',
   use: {
     baseURL: `http://localhost:${PORT}`,
-    channel: process.env.PW_BUNDLED ? undefined : 'chrome'
+    channel: process.env.PW_BUNDLED ? undefined : 'chrome',
+    // WebGL in headless Chrome goes through SwiftShader, so the 3D view is exercised too
+    launchOptions: { args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader'] }
   },
   webServer: {
     command: `node scripts/serve.mjs ${PORT}`,
