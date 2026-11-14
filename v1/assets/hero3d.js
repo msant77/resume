@@ -387,8 +387,8 @@ class ThreeView {
     const p0 = new THREE.Vector3(a.home.x + dir * a.w / 2, ya, a.home.z + 0.05);
     const p1 = new THREE.Vector3(b.home.x - dir * b.w / 2, yb, b.home.z + 0.05);
     const ctrl = p0.clone().add(p1).multiplyScalar(0.5);
-    ctrl.z += 0.9;
-    ctrl.y += 0.25;
+    ctrl.z += e.over ? 1.4 : 0.9;
+    ctrl.y += e.over ? 2.3 : 0.25;
     return new THREE.QuadraticBezierCurve3(p0, ctrl, p1);
   }
 

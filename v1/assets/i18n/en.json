@@ -51,12 +51,12 @@
   "hero": {
     "frame": "Business value",
     "frameNote": "a measurable result for the company that hired the work",
-    "summary": "A live stage of how the work runs, framed by business value. Three lanes run at the same time: Harness (written briefs, isolated working copies, independent inspection), Production (automatic checks, releases, a report after every working session) and Speed (parallel fronts, fast decisions). All three feed one Throughput counter of delivered, reviewed work that keeps climbing, while the client's team keeps receiving releases and sending validations back. It never stops.",
+    "summary": "A live stage of how the work runs, framed by business value. Three lanes run at the same time: Harness (written briefs, isolated working copies, a simulator with stand-ins for every external system, independent inspection), Production (automatic checks, releases, a report after every working session, reported hours) and Speed (parallel fronts, fast decisions). All three feed one Throughput counter of delivered, reviewed work that keeps climbing, while the client's team keeps receiving releases and sending validations back. It never stops.",
     "lane": {
       "harness": {
         "title": "Harness",
         "cap": [
-          "The working setup that makes AI-assisted building safe: written briefs, isolated working copies and rules the builders cannot cross.",
+          "The working setup that makes AI-assisted building safe: written briefs, isolated working copies, a simulator for every external system and rules the builders cannot cross.",
           "Independent inspection, and every change traceable to a request."
         ]
       },
@@ -64,7 +64,7 @@
         "title": "Production",
         "cap": [
           "What comes out is reviewed, checked and goes live: releases, not demos or prototypes.",
-          "Automatic checks on every change, and a written report after every working session."
+          "Automatic checks on every change, a written report after every working session, and every hour reported."
         ]
       },
       "speed": {
@@ -100,6 +100,19 @@
         "cap": [
           "Each builder works in its own isolated working copy.",
           "Guard rules block what a builder may not touch."
+        ]
+      },
+      "simulator": {
+        "title": "Simulator",
+        "short": "simulator",
+        "sub": "stand-ins for every external system",
+        "m": {
+          "simRuns": "runs",
+          "t1": "0 writes outside the sandbox"
+        },
+        "cap": [
+          "Every external system the squad touches has a stand-in for building and testing (test doubles, evaluation harness, contract tests, shadow mode), so no real repository or client system is written to while the work is rehearsed.",
+          "The stand-ins are kept honest by a small set of checks against the real system, and by the owner validating every real write."
         ]
       },
       "inspect": {
@@ -150,6 +163,20 @@
         "cap": [
           "Every working session ends with a written report: what changed and what to test."
         ]
+      },
+      "hours": {
+        "title": "Reported hours",
+        "short": "hours",
+        "sub": "a page per engagement",
+        "m": {
+          "hours": "hours logged",
+          "t1": "published week by week"
+        },
+        "cap": [
+          "Every engagement gets a page where each hour is logged by a command as the work happens, tied to the request it served, and published week by week.",
+          "A studio practice on every engagement, and the tool is open source."
+        ],
+        "linkText": "Open source: github.com/msant77/spent"
       },
       "fronts": {
         "title": "Parallel fronts",
@@ -217,7 +244,13 @@
       "h2": {
         "title": "change",
         "cap": [
-          "The finished change goes to an inspector who did not write it."
+          "The change runs against stand-ins first, never against a real system."
+        ]
+      },
+      "h4": {
+        "title": "rehearsed change",
+        "cap": [
+          "Only a change rehearsed against the stand-ins goes to inspection."
         ]
       },
       "h3": {
@@ -244,6 +277,12 @@
           "Live and reported: it counts toward throughput."
         ]
       },
+      "p4": {
+        "title": "logged hours",
+        "cap": [
+          "Each session's hours are logged by a command, tied to the request they served."
+        ]
+      },
       "s1": {
         "title": "ready",
         "cap": [
@@ -266,10 +305,12 @@
     "log": {
       "h1": "brief {briefs} · the why, what done means, the limits",
       "c1": "isolated working copy · guard rules on",
+      "g1": "simulator: {simRuns} runs, 0 writes outside the sandbox",
       "i1": "inspector tries to break the change",
       "k1": "{checks} automatic checks · all passed",
       "r1": "release {releases} · reviewed, live",
       "n1": "session report {reports} · what changed, what to test",
+      "u1": "hours: {hours} logged, each tied to its request",
       "q1": "{fronts} fronts in parallel · decision {decisions} written",
       "q2": "decision {decisions} · the next front starts",
       "m1": "release lands in the client's repository",

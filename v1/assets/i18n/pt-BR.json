@@ -51,12 +51,12 @@
   "hero": {
     "frame": "Valor de negócio",
     "frameNote": "um resultado mensurável para a empresa que contratou o trabalho",
-    "summary": "Um palco ao vivo de como o trabalho acontece, emoldurado pelo valor de negócio. Três faixas rodam ao mesmo tempo: Harness (briefs escritos, cópias de trabalho isoladas, inspeção independente), Produção (conferência automática, entregas, um relatório ao fim de cada sessão de trabalho) e Velocidade (frentes paralelas, decisões rápidas). As três alimentam um único contador de Vazão, de trabalho entregue e revisado, que não para de subir, enquanto a equipe do cliente recebe entregas e devolve validações. Ele nunca para.",
+    "summary": "Um palco ao vivo de como o trabalho acontece, emoldurado pelo valor de negócio. Três faixas rodam ao mesmo tempo: Harness (briefs escritos, cópias de trabalho isoladas, um simulador com substitutos de cada sistema externo, inspeção independente), Produção (conferência automática, entregas, um relatório ao fim de cada sessão de trabalho, horas reportadas) e Velocidade (frentes paralelas, decisões rápidas). As três alimentam um único contador de Vazão, de trabalho entregue e revisado, que não para de subir, enquanto a equipe do cliente recebe entregas e devolve validações. Ele nunca para.",
     "lane": {
       "harness": {
         "title": "Harness",
         "cap": [
-          "O ambiente de trabalho que torna seguro construir com IA: briefs escritos, cópias de trabalho isoladas e regras que os construtores não conseguem ultrapassar.",
+          "O ambiente de trabalho que torna seguro construir com IA: briefs escritos, cópias de trabalho isoladas, um simulador para cada sistema externo e regras que os construtores não conseguem ultrapassar.",
           "Inspeção independente, e cada mudança rastreável até um pedido."
         ]
       },
@@ -64,7 +64,7 @@
         "title": "Produção",
         "cap": [
           "O que sai é revisado, conferido e vai ao ar: entregas, não demonstrações nem protótipos.",
-          "Conferência automática a cada mudança, e um relatório escrito ao fim de cada sessão de trabalho."
+          "Conferência automática a cada mudança, um relatório escrito ao fim de cada sessão de trabalho e cada hora reportada."
         ]
       },
       "speed": {
@@ -100,6 +100,19 @@
         "cap": [
           "Cada construtor trabalha na sua própria cópia de trabalho isolada.",
           "Regras de proteção bloqueiam o que um construtor não pode tocar."
+        ]
+      },
+      "simulator": {
+        "title": "Simulador",
+        "short": "simulador",
+        "sub": "substitutos de cada sistema externo",
+        "m": {
+          "simRuns": "execuções",
+          "t1": "0 escritas fora da sandbox"
+        },
+        "cap": [
+          "Cada sistema externo que a equipe toca tem um substituto para construir e testar (dublês de teste, harness de avaliação, testes de contrato, modo sombra), então nenhum repositório real nem sistema do cliente recebe escrita enquanto o trabalho é ensaiado.",
+          "Os substitutos se mantêm fiéis graças a um pequeno conjunto de verificações contra o sistema real e ao dono validando cada escrita real."
         ]
       },
       "inspect": {
@@ -150,6 +163,20 @@
         "cap": [
           "Cada sessão de trabalho termina com um relatório escrito: o que mudou e o que testar."
         ]
+      },
+      "hours": {
+        "title": "Horas reportadas",
+        "short": "horas",
+        "sub": "uma página por contrato",
+        "m": {
+          "hours": "horas registradas",
+          "t1": "publicadas semana a semana"
+        },
+        "cap": [
+          "Cada contrato ganha uma página onde cada hora é registrada por um comando enquanto o trabalho acontece, ligada ao pedido que atendeu, e publicada semana a semana.",
+          "Uma prática do estúdio em todo contrato, e a ferramenta é de código aberto."
+        ],
+        "linkText": "Código aberto: github.com/msant77/spent"
       },
       "fronts": {
         "title": "Frentes paralelas",
@@ -217,7 +244,13 @@
       "h2": {
         "title": "mudança",
         "cap": [
-          "A mudança pronta vai para um inspetor que não a escreveu."
+          "A mudança roda primeiro contra substitutos, nunca contra um sistema real."
+        ]
+      },
+      "h4": {
+        "title": "mudança ensaiada",
+        "cap": [
+          "Só uma mudança ensaiada contra os substitutos vai para a inspeção."
         ]
       },
       "h3": {
@@ -244,6 +277,12 @@
           "No ar e relatada: conta para a vazão."
         ]
       },
+      "p4": {
+        "title": "horas registradas",
+        "cap": [
+          "As horas de cada sessão são registradas por um comando, ligadas ao pedido que atenderam."
+        ]
+      },
       "s1": {
         "title": "pronta",
         "cap": [
@@ -266,10 +305,12 @@
     "log": {
       "h1": "brief {briefs} · o porquê, o critério de pronto, os limites",
       "c1": "cópia de trabalho isolada · regras de proteção ativas",
+      "g1": "simulador: {simRuns} execuções, 0 escritas fora da sandbox",
       "i1": "o inspetor tenta quebrar a mudança",
       "k1": "{checks} conferências automáticas · todas aprovadas",
       "r1": "entrega {releases} · revisada, no ar",
       "n1": "relatório da sessão {reports} · o que mudou, o que testar",
+      "u1": "horas: {hours} registradas, cada uma ligada ao seu pedido",
       "q1": "{fronts} frentes em paralelo · decisão {decisions} escrita",
       "q2": "decisão {decisions} · a próxima frente começa",
       "m1": "a entrega chega ao repositório do cliente",

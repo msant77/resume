@@ -51,12 +51,12 @@
   "hero": {
     "frame": "Valor de negocio",
     "frameNote": "un resultado medible para la empresa que contrató el trabajo",
-    "summary": "Un escenario en vivo de cómo avanza el trabajo, enmarcado por el valor de negocio. Tres carriles corren a la vez: Harness (briefs escritos, copias de trabajo aisladas, inspección independiente), Producción (comprobaciones automáticas, entregas, un informe al final de cada sesión de trabajo) y Velocidad (frentes en paralelo, decisiones rápidas). Los tres alimentan un único contador de Caudal, de trabajo entregado y revisado, que no deja de subir, mientras el equipo del cliente recibe entregas y devuelve validaciones. Nunca se detiene.",
+    "summary": "Un escenario en vivo de cómo avanza el trabajo, enmarcado por el valor de negocio. Tres carriles corren a la vez: Harness (briefs escritos, copias de trabajo aisladas, un simulador con sustitutos de cada sistema externo, inspección independiente), Producción (comprobaciones automáticas, entregas, un informe al final de cada sesión de trabajo, horas reportadas) y Velocidad (frentes en paralelo, decisiones rápidas). Los tres alimentan un único contador de Caudal, de trabajo entregado y revisado, que no deja de subir, mientras el equipo del cliente recibe entregas y devuelve validaciones. Nunca se detiene.",
     "lane": {
       "harness": {
         "title": "Harness",
         "cap": [
-          "El entorno de trabajo que hace seguro construir con IA: briefs escritos, copias de trabajo aisladas y reglas que los constructores no pueden cruzar.",
+          "El entorno de trabajo que hace seguro construir con IA: briefs escritos, copias de trabajo aisladas, un simulador para cada sistema externo y reglas que los constructores no pueden cruzar.",
           "Inspección independiente, y cada cambio trazable hasta una solicitud."
         ]
       },
@@ -64,7 +64,7 @@
         "title": "Producción",
         "cap": [
           "Lo que sale está revisado, comprobado y sale en línea: entregas, no demostraciones ni prototipos.",
-          "Comprobaciones automáticas en cada cambio, y un informe escrito al final de cada sesión de trabajo."
+          "Comprobaciones automáticas en cada cambio, un informe escrito al final de cada sesión de trabajo y cada hora reportada."
         ]
       },
       "speed": {
@@ -100,6 +100,19 @@
         "cap": [
           "Cada constructor trabaja en su propia copia de trabajo aislada.",
           "Reglas de protección bloquean lo que un constructor no puede tocar."
+        ]
+      },
+      "simulator": {
+        "title": "Simulador",
+        "short": "simulador",
+        "sub": "sustitutos de cada sistema externo",
+        "m": {
+          "simRuns": "ejecuciones",
+          "t1": "0 escrituras fuera del sandbox"
+        },
+        "cap": [
+          "Cada sistema externo que toca el equipo tiene un sustituto para construir y probar (dobles de prueba, harness de evaluación, pruebas de contrato, modo sombra), así que ningún repositorio real ni sistema del cliente recibe escrituras mientras se ensaya el trabajo.",
+          "Los sustitutos se mantienen fieles gracias a un pequeño conjunto de comprobaciones contra el sistema real y al dueño, que valida cada escritura real."
         ]
       },
       "inspect": {
@@ -150,6 +163,20 @@
         "cap": [
           "Cada sesión de trabajo termina con un informe escrito: qué cambió y qué probar."
         ]
+      },
+      "hours": {
+        "title": "Horas reportadas",
+        "short": "horas",
+        "sub": "una página por contrato",
+        "m": {
+          "hours": "horas registradas",
+          "t1": "publicadas semana a semana"
+        },
+        "cap": [
+          "Cada contrato tiene una página donde cada hora se registra con un comando mientras ocurre el trabajo, ligada a la solicitud que atendió, y se publica semana a semana.",
+          "Una práctica del estudio en cada contrato, y la herramienta es de código abierto."
+        ],
+        "linkText": "Código abierto: github.com/msant77/spent"
       },
       "fronts": {
         "title": "Frentes en paralelo",
@@ -217,7 +244,13 @@
       "h2": {
         "title": "cambio",
         "cap": [
-          "El cambio terminado va a un inspector que no lo escribió."
+          "El cambio corre primero contra sustitutos, nunca contra un sistema real."
+        ]
+      },
+      "h4": {
+        "title": "cambio ensayado",
+        "cap": [
+          "Solo un cambio ensayado contra los sustitutos pasa a inspección."
         ]
       },
       "h3": {
@@ -244,6 +277,12 @@
           "En línea e informada: cuenta para el caudal."
         ]
       },
+      "p4": {
+        "title": "horas registradas",
+        "cap": [
+          "Las horas de cada sesión se registran con un comando, ligadas a la solicitud que atendieron."
+        ]
+      },
       "s1": {
         "title": "lista",
         "cap": [
@@ -266,10 +305,12 @@
     "log": {
       "h1": "brief {briefs} · el porqué, qué significa terminado, los límites",
       "c1": "copia de trabajo aislada · reglas de protección activas",
+      "g1": "simulador: {simRuns} ejecuciones, 0 escrituras fuera del sandbox",
       "i1": "el inspector intenta romper el cambio",
       "k1": "{checks} comprobaciones automáticas · todas superadas",
       "r1": "entrega {releases} · revisada, en línea",
       "n1": "informe de sesión {reports} · qué cambió, qué probar",
+      "u1": "horas: {hours} registradas, cada una ligada a su solicitud",
       "q1": "{fronts} frentes en paralelo · decisión {decisions} escrita",
       "q2": "decisión {decisions} · empieza el siguiente frente",
       "m1": "la entrega llega al repositorio del cliente",

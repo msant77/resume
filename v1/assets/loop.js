@@ -98,6 +98,15 @@
     this.title.textContent = cap.title || '';
     this.body.textContent = '';
     (cap.lines || []).forEach(function (line) { this.body.appendChild(el('p', '', line)); }, this);
+    if (cap.link) {
+      // a node may offer one public link; it can be followed once the caption is pinned
+      var a = el('a', 'cap-link', cap.link.text);
+      a.href = cap.link.href;
+      a.rel = 'noopener noreferrer';
+      var lp = el('p');
+      lp.appendChild(a);
+      this.body.appendChild(lp);
+    }
     this.pinned = !!pinned;
     this.panel.classList.toggle('is-pinned', this.pinned);
     this.panel.hidden = false;
@@ -363,7 +372,9 @@
   Story.prototype.capFor = function (kind, id) {
     var self = this, lines = function (v) { return [].concat(v).map(function (l) { return self.fill(l); }); };
     if (kind === 'node' && this.nodeById[id]) {
-      return { kicker: '', title: this.tt('node.' + id + '.title'), lines: lines(this.tt('node.' + id + '.cap')) };
+      var n = this.nodeById[id];
+      return { kicker: '', title: this.tt('node.' + id + '.title'), lines: lines(this.tt('node.' + id + '.cap')),
+               link: n.link ? { href: n.link, text: this.tt('node.' + id + '.linkText') } : null };
     }
     if (kind === 'edge' && this.edgeById[id]) {
       return { kicker: T('common.kicker.edge'), title: this.tt('edge.' + id + '.title'), lines: lines(this.tt('edge.' + id + '.cap')) };

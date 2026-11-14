@@ -423,6 +423,7 @@ a.work-tile:hover strong { text-decoration: underline; }
 .cap-kicker { font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--term-muted); }
 .cap-title { font: 700 18px/1.2 var(--font-sans); color: var(--scene-accent); margin: 2px 0 6px; }
 .cap-body p { margin: 0 0 4px; }
+.cap-link { color: var(--scene-accent); text-decoration: underline; text-underline-offset: 3px; }
 .cap-close {
   position: absolute; top: 4px; right: 4px; width: 32px; height: 32px; border-radius: 6px;
   font: 18px/1 var(--font-sans); color: var(--term-text); background: transparent; border: 1px solid transparent; cursor: pointer;

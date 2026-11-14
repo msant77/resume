@@ -10,9 +10,9 @@
  *   hero.frame (the stage's outer label)         hero.log.<k>
  *
  * The stage is not a sequence of steps. Three lanes run at the same time,
- * each at its own rhythm: Harness (brief -> working copy -> inspection),
- * Production (checks -> release -> report) and Speed (parallel fronts ->
- * decision). All three feed one Throughput counter that keeps climbing; the
+ * each at its own rhythm: Harness (brief -> working copy -> simulator ->
+ * inspection), Production (checks -> release -> report, and the report's
+ * second output, reported hours) and Speed (parallel fronts -> decision). All three feed one Throughput counter that keeps climbing; the
  * client's team keeps receiving releases and sending validations back.
  * Business value is the frame around all of it. The timeline repeats with no
  * reset: statuses and counters carry over, the session log never ends.
@@ -21,9 +21,11 @@
  *   nodes   things on the stage. role = colour: harness | production |
  *           speed | core (throughput) | client (the client's team).
  *           at = [col, row, colSpan, rowSpan] on wide stages, atNarrow on
- *           narrow ones (flat view); big = the counter drawn large.
+ *           narrow ones (flat view); big = the counter drawn large;
+ *           link = a URL the pinned caption offers (text: node.<id>.linkText).
  *   lanes   the three regions and the nodes in each.
- *   edges   from -> to; narrowRoute = how the flat view routes it on phones.
+ *   edges   from -> to; narrowRoute = how the flat view routes it on phones;
+ *           over = the 3D link arcs high, over the card between its ends.
  *   events  what happens at t seconds: status, bar ("node.meter": 0-100
  *           over dur), add (counters, kept across loops unless reset),
  *           packet (an edge; back = against its direction), pulse,
@@ -36,22 +38,28 @@ window.SiteScenes = window.SiteScenes || {};
   var events = [];
   function at(t, ev) { ev.t = Math.round(t * 100) / 100; events.push(ev); }
 
-  // Harness: twice a pass. A written brief, an isolated working copy, an independent inspection.
+  // Harness: twice a pass. A written brief, an isolated working copy, a rehearsal
+  // against stand-ins in the simulator, an independent inspection.
   [0, 9].forEach(function (o, i) {
     at(o + 0.0, { status: { brief: 'rodando' }, add: { briefs: 1 }, bar: { 'copy.work': 0 }, dur: 0.3,
                   log: { n: 'brief', k: 'h1' } });
-    at(o + 0.8, { packet: 'h1', dur: 1.4 });
-    at(o + 2.2, { status: { brief: 'concluído', copy: 'rodando' }, bar: { 'copy.work': 100 }, dur: 2.2 });
-    if (i === 0) at(o + 2.6, { log: { n: 'copy', k: 'c1' } });
-    at(o + 4.6, { status: { copy: 'concluído' }, packet: 'h2', dur: 1.3, bar: { 'inspect.rev': 0 } });
-    at(o + 5.9, { status: { inspect: 'rodando' }, bar: { 'inspect.rev': 100 }, dur: 1.5, log: { n: 'inspect', k: 'i1' } });
-    at(o + 6.6, { add: { findings: 1 } });
-    at(o + 7.5, { status: { inspect: 'concluído' }, packet: 'h3', dur: 1.2 });
-    at(o + 8.7, { add: { delivered: 1, fromHarness: 1 }, pulse: 'throughput' });
+    at(o + 0.6, { packet: 'h1', dur: 1.2 });
+    at(o + 1.8, { status: { brief: 'concluído', copy: 'rodando' }, bar: { 'copy.work': 100 }, dur: 1.7 });
+    if (i === 0) at(o + 2.2, { log: { n: 'copy', k: 'c1' } });
+    at(o + 3.6, { status: { copy: 'concluído' }, packet: 'h2', dur: 1.0, bar: { 'inspect.rev': 0 } });
+    at(o + 4.6, { status: { simulator: 'rodando' }, add: { simRuns: 7 } });
+    at(o + 4.9, { log: { n: 'simulator', k: 'g1' } });
+    at(o + 5.4, { status: { simulator: 'concluído' }, packet: 'h4', dur: 1.0 });
+    at(o + 6.4, { status: { inspect: 'rodando' }, bar: { 'inspect.rev': 100 }, dur: 1.1 });
+    if (i === 1) at(o + 6.5, { log: { n: 'inspect', k: 'i1' } });
+    at(o + 6.9, { add: { findings: 1 } });
+    at(o + 7.6, { status: { inspect: 'concluído' }, packet: 'h3', dur: 1.0 });
+    at(o + 8.6, { add: { delivered: 1, fromHarness: 1 }, pulse: 'throughput' });
   });
 
-  // Production: three times a pass. Automatic checks, a release, a session report.
-  [0.3, 6.3, 12.2].forEach(function (o, i) {
+  // Production: three times a pass. Automatic checks, a release, a session report,
+  // and the report's second output: the hours, logged as the work happens.
+  [0.2, 6.1, 11.9].forEach(function (o, i) {
     at(o + 0.0, { status: { checks: 'rodando' }, bar: { 'checks.run': 0 }, dur: 0.2 });
     at(o + 0.2, { bar: { 'checks.run': 100 }, dur: 1.4, add: { checks: 12 } });
     if (i === 0) at(o + 1.2, { log: { n: 'checks', k: 'k1' } });
@@ -61,7 +69,11 @@ window.SiteScenes = window.SiteScenes || {};
     at(o + 4.4, { status: { report: 'rodando' }, add: { reports: 1 } });
     if (i === 1) at(o + 4.5, { log: { n: 'report', k: 'n1' } });
     at(o + 4.6, { status: { report: 'concluído' }, packet: 'p3', dur: 1.0 });
+    at(o + 4.6, { packet: 'p4', dur: 0.9 });
+    at(o + 5.5, { status: { hours: 'rodando' }, add: { hours: 2 } });
+    if (i === 2) at(o + 5.55, { log: { n: 'hours', k: 'u1' } });
     at(o + 5.6, { add: { delivered: 1, fromProduction: 1 }, pulse: 'throughput' });
+    at(o + 5.9, { status: { hours: 'concluído' } });
   });
 
   // Speed: four times a pass. Fronts move in parallel; decisions come fast.
@@ -93,12 +105,14 @@ window.SiteScenes = window.SiteScenes || {};
     i18n: 'hero',
     duration: D,
     continuous: true,
-    cols: 5,
-    narrowCols: 3,
+    cols: 6,
+    narrowCols: 2,
     wideMin: 860,
     logLines: 6,
     stats: {
       briefs: { value: 6 },
+      simRuns: { value: 14 },
+      hours: { value: 212 },
       findings: { value: 0, reset: true },
       checks: { value: 0 },
       releases: { value: 4 },
@@ -112,8 +126,8 @@ window.SiteScenes = window.SiteScenes || {};
       fromSpeed: { value: 33 }
     },
     lanes: [
-      { id: 'harness', role: 'harness', nodes: ['brief', 'copy', 'inspect'] },
-      { id: 'production', role: 'production', nodes: ['checks', 'release', 'report'] },
+      { id: 'harness', role: 'harness', nodes: ['brief', 'copy', 'simulator', 'inspect'] },
+      { id: 'production', role: 'production', nodes: ['checks', 'release', 'report', 'hours'] },
       { id: 'speed', role: 'speed', nodes: ['fronts', 'decision'] }
     ],
     nodes: [
@@ -121,31 +135,37 @@ window.SiteScenes = window.SiteScenes || {};
         meters: [{ kind: 'stat', stat: 'briefs' }, { kind: 'text', key: 't1' }] },
       { id: 'copy', role: 'harness', at: [2, 1], atNarrow: [2, 1],
         meters: [{ kind: 'bar', id: 'work' }, { kind: 'text', key: 't1' }] },
-      { id: 'inspect', role: 'harness', at: [3, 1], atNarrow: [3, 1],
+      { id: 'simulator', role: 'harness', at: [3, 1], atNarrow: [1, 2],
+        meters: [{ kind: 'stat', stat: 'simRuns' }, { kind: 'text', key: 't1' }] },
+      { id: 'inspect', role: 'harness', at: [4, 1], atNarrow: [2, 2],
         meters: [{ kind: 'bar', id: 'rev' }, { kind: 'stat', stat: 'findings' }] },
-      { id: 'checks', role: 'production', at: [1, 2], atNarrow: [1, 2],
+      { id: 'checks', role: 'production', at: [1, 2], atNarrow: [1, 3],
         meters: [{ kind: 'stat', stat: 'checks' }, { kind: 'bar', id: 'run' }] },
-      { id: 'release', role: 'production', at: [2, 2], atNarrow: [2, 2],
+      { id: 'release', role: 'production', at: [2, 2], atNarrow: [2, 3],
         meters: [{ kind: 'stat', stat: 'releases' }, { kind: 'text', key: 't1' }] },
-      { id: 'report', role: 'production', at: [3, 2], atNarrow: [3, 2],
+      { id: 'report', role: 'production', at: [3, 2], atNarrow: [1, 4],
         meters: [{ kind: 'stat', stat: 'reports' }, { kind: 'text', key: 't1' }] },
-      { id: 'fronts', role: 'speed', at: [1, 3, 2], atNarrow: [1, 3, 2],
+      { id: 'hours', role: 'production', at: [4, 2], atNarrow: [2, 4], link: 'https://github.com/msant77/spent',
+        meters: [{ kind: 'stat', stat: 'hours' }, { kind: 'text', key: 't1' }] },
+      { id: 'fronts', role: 'speed', at: [1, 3, 3], atNarrow: [1, 5],
         meters: [{ kind: 'bar', id: 'f1' }, { kind: 'bar', id: 'f2' }, { kind: 'bar', id: 'f3' }] },
-      { id: 'decision', role: 'speed', at: [3, 3], atNarrow: [3, 3],
+      { id: 'decision', role: 'speed', at: [4, 3], atNarrow: [2, 5],
         meters: [{ kind: 'stat', stat: 'decisions' }, { kind: 'text', key: 't1' }] },
-      { id: 'throughput', role: 'core', big: true, status: 'rodando', at: [4, 1, 1, 3], atNarrow: [1, 4, 3],
+      { id: 'throughput', role: 'core', big: true, status: 'rodando', at: [5, 1, 1, 3], atNarrow: [1, 6, 2],
         meters: [{ kind: 'stat', stat: 'delivered', big: true }, { kind: 'stat', stat: 'fromHarness' },
                  { kind: 'stat', stat: 'fromProduction' }, { kind: 'stat', stat: 'fromSpeed' }] },
-      { id: 'team', role: 'client', at: [5, 1, 1, 3], atNarrow: [1, 5, 3],
+      { id: 'team', role: 'client', at: [6, 1, 1, 3], atNarrow: [1, 7, 2],
         meters: [{ kind: 'stat', stat: 'validations' }, { kind: 'text', key: 't1' }] }
     ],
     edges: [
       { id: 'h1', from: 'brief', to: 'copy' },
-      { id: 'h2', from: 'copy', to: 'inspect' },
+      { id: 'h2', from: 'copy', to: 'simulator' },
+      { id: 'h4', from: 'simulator', to: 'inspect' },
       { id: 'h3', from: 'inspect', to: 'throughput', narrowRoute: 'side' },
       { id: 'p1', from: 'checks', to: 'release' },
       { id: 'p2', from: 'release', to: 'report' },
-      { id: 'p3', from: 'report', to: 'throughput', narrowRoute: 'side' },
+      { id: 'p3', from: 'report', to: 'throughput', narrowRoute: 'side', over: true },
+      { id: 'p4', from: 'report', to: 'hours' },
       { id: 's1', from: 'fronts', to: 'decision' },
       { id: 's2', from: 'decision', to: 'throughput', narrowRoute: 'side' },
       { id: 't1', from: 'throughput', to: 'team' }
