@@ -4,7 +4,7 @@
     "title": "Marco Santana — como eu trabalho",
     "description": "Marco Santana, engenheiro de software sênior com mais de 25 anos em software. Você traz o resultado; ele lidera uma equipe assistida por IA que entrega, com briefs escritos, revisão independente, rastro de cada mudança e nada no ar sem a sua validação. Currículo incluído.",
     "ogTitle": "Marco Santana — como eu trabalho",
-    "ogDescription": "Valor de negócio, entregue semana após semana: uma estrutura para o trabalho com IA, entregas em produção e velocidade, somando vazão. Depois, o que já entreguei."
+    "ogDescription": "Valor de negócio, entregue semana após semana: um harness para o trabalho com IA, entregas em produção e velocidade, somando vazão. Depois, o que já entreguei."
   },
   "common": {
     "skip": "Ir para o conteúdo",
@@ -44,19 +44,19 @@
   "home": {
     "eyebrow": "Marco Santana · como eu trabalho",
     "h1": "Valor de negócio, entregue semana após semana.",
-    "lede": "Engenheiro sênior, 25 anos em software. Uma estrutura para o trabalho com IA, entregas em produção e velocidade somam vazão: trabalho revisado, entregue toda semana.",
+    "lede": "Engenheiro sênior, 25 anos em software. Um harness para o trabalho com IA, entregas em produção e velocidade somam vazão: trabalho revisado, entregue toda semana.",
     "hint": "passe o mouse ou toque em qualquer parte do palco · Tab percorre · Esc volta",
     "hintTouch": "toque numa faixa ou num cartão para ler"
   },
   "hero": {
     "frame": "Valor de negócio",
     "frameNote": "um resultado mensurável para a empresa que contratou o trabalho",
-    "summary": "Um palco ao vivo de como o trabalho acontece, emoldurado pelo valor de negócio. Três faixas rodam ao mesmo tempo: Estrutura (briefs escritos, cópias de trabalho isoladas, inspeção independente), Produção (conferência automática, entregas, um relatório ao fim de cada sessão de trabalho) e Velocidade (frentes paralelas, decisões rápidas). As três alimentam um único contador de Vazão, de trabalho entregue e revisado, que não para de subir, enquanto a equipe do cliente recebe entregas e devolve validações. Ele nunca para.",
+    "summary": "Um palco ao vivo de como o trabalho acontece, emoldurado pelo valor de negócio. Três faixas rodam ao mesmo tempo: Harness (briefs escritos, cópias de trabalho isoladas, inspeção independente), Produção (conferência automática, entregas, um relatório ao fim de cada sessão de trabalho) e Velocidade (frentes paralelas, decisões rápidas). As três alimentam um único contador de Vazão, de trabalho entregue e revisado, que não para de subir, enquanto a equipe do cliente recebe entregas e devolve validações. Ele nunca para.",
     "lane": {
       "harness": {
-        "title": "Estrutura",
+        "title": "Harness",
         "cap": [
-          "A estrutura de trabalho que torna seguro construir com IA: briefs escritos, cópias de trabalho isoladas e regras que os construtores não conseguem ultrapassar.",
+          "O ambiente de trabalho que torna seguro construir com IA: briefs escritos, cópias de trabalho isoladas e regras que os construtores não conseguem ultrapassar.",
           "Inspeção independente, e cada mudança rastreável até um pedido."
         ]
       },
@@ -71,7 +71,7 @@
         "title": "Velocidade",
         "cap": [
           "Semanas, não trimestres: as frentes andam em paralelo, um construtor cada.",
-          "O líder decide rápido porque a estrutura carrega o risco."
+          "O líder decide rápido porque o harness carrega o risco."
         ]
       }
     },
@@ -175,7 +175,7 @@
         },
         "cap": [
           "Um líder sênior decide e deixa cada decisão por escrito.",
-          "As decisões saem rápido porque a estrutura carrega o risco."
+          "As decisões saem rápido porque o harness carrega o risco."
         ]
       },
       "throughput": {
@@ -184,12 +184,12 @@
         "sub": "trabalho entregue e revisado",
         "m": {
           "delivered": "entregue e revisado",
-          "fromHarness": "pela estrutura",
+          "fromHarness": "pelo harness",
           "fromProduction": "pela produção",
           "fromSpeed": "pela velocidade"
         },
         "cap": [
-          "Estrutura, produção e velocidade juntas: um volume constante de trabalho entregue e revisado, semana após semana.",
+          "Harness, produção e velocidade juntos: um volume constante de trabalho entregue e revisado, semana após semana.",
           "O contador nunca zera."
         ]
       },
