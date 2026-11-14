@@ -1,7 +1,7 @@
 // The page in every language, width and theme: it loads without console
 // errors, never scrolls sideways, stays still (nothing animates, no canvas),
-// leads with the résumé PDFs and the squad, and keeps the résumé and the
-// switchers working.
+// leads with the outcome, the résumé PDFs and the journey of one request,
+// and keeps the work, the résumé and the switchers working.
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
@@ -52,20 +52,22 @@ for (const { path, loc, d } of LOCALES) {
         await expect(page.locator('canvas')).toHaveCount(0);
         expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
 
-        // the squad sits in the hero, where the scene was: four seats, then the seven steps of one request
-        await expect(page.locator('#how .seats > li')).toHaveCount(4);
-        await expect(page.locator('#how .cycle')).toBeVisible();
+        // the first screen sells the outcome: a link down to the work delivered,
+        // the journey of one request from the reader's side, then the people behind it
+        await expect(page.locator('.hero-more a')).toHaveAttribute('href', '#work');
+        await expect(page.locator('.hero-more a')).toHaveText(d.home.seeWork);
+        await expect(page.locator('#how .cycle > li')).toHaveCount(6);
+        await expect(page.locator('#how .cycle .cycle-step').first()).toHaveText(d.how.journey.ask.title);
+        await expect(page.locator('#how .cycle li.is-go .cycle-step')).toHaveText(d.how.journey.go.title);
+        await expect(page.locator('#how .people-list > li')).toHaveCount(3);
         if (width >= 1040) {
-          // wide screens: title, PDFs and all four seats on the first screen, without scrolling
-          const seatsBottom = await page.locator('.seats').evaluate((el) => el.getBoundingClientRect().bottom);
-          expect(seatsBottom, 'the four seats fit the first screen').toBeLessThanOrEqual(800);
+          // wide screens: title, PDFs, the whole journey and the people strip without scrolling
+          const peopleBottom = await page.locator('.people').evaluate((el) => el.getBoundingClientRect().bottom);
+          expect(peopleBottom, 'the journey and the people fit the first screen').toBeLessThanOrEqual(800);
         } else {
-          // phones: the first seat starts on the first screen
-          await expect(page.locator('.seat').first()).toBeInViewport();
+          // phones: the journey starts on the first screen
+          await expect(page.locator('.cycle > li').first()).toBeInViewport({ ratio: 0.2 });
         }
-        await expect(page.locator('.seat-title').first()).toHaveText(d.how.seat.lead.title);
-        await expect(page.locator('.cycle > li')).toHaveCount(7);
-        await expect(page.locator('.cycle .cycle-step').last()).toHaveText(d.how.cycle.live);
 
         await noSideScroll(page);
         await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
@@ -106,8 +108,8 @@ test('the language switcher re-renders in place', async ({ page }) => {
     await expect(page.locator('h1')).toHaveText(d.home.h1);
     await expect(page.locator('#experience-title')).toHaveText(d.resume.section.experience);
     await expect(page.locator(`[data-lang-btn="${loc}"]`)).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.seat-title').first()).toHaveText(d.how.seat.lead.title);
-    await expect(page.locator('.cycle .cycle-step').first()).toHaveText(d.how.cycle.request);
+    await expect(page.locator('.cycle .cycle-step').first()).toHaveText(d.how.journey.ask.title);
+    await expect(page.locator('.people-list strong').first()).toHaveText(d.how.people.lead.role);
   }
   expect(errors, errors.join('\n')).toEqual([]);
 });
