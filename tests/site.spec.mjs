@@ -203,6 +203,24 @@ test('without WebGL the scene falls back to the flat view', async ({ browser }) 
   await context.close();
 });
 
+test('the first two work cards lead to their experience entries, in every language', async ({ page }) => {
+  for (const { path, d } of LOCALES) {
+    await page.goto(path);
+    await expect(page.locator('#work-title')).toHaveText(d.work.title);
+    await expect(page.locator('#experience #job-isp')).toHaveCount(1);
+    await expect(page.locator('#experience #job-goapice')).toHaveCount(1);
+    const hrefs = await page.locator('.work-row > li:nth-child(-n+2) a.work-tile').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
+    expect(hrefs).toEqual(['#job-isp', '#job-goapice']);
+    for (const href of hrefs) {
+      // a same-page anchor whose target exists on this language's own page
+      await expect(page.locator(`[id="${href.slice(1)}"]`)).toHaveCount(1);
+    }
+    await page.locator('.work-row a.work-tile[href="#job-isp"]').click();
+    await expect(page).toHaveURL(new RegExp(`${path.replace(/\//g, '\\/')}#job-isp$`));
+    await expect(page.locator('#job-isp')).toBeInViewport();
+  }
+});
+
 test('both résumé PDFs are served', async ({ page, request }) => {
   await page.goto('/');
   const hrefs = await page.locator('.profile-actions a.btn').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
