@@ -61,8 +61,8 @@ for (const { path, loc, d } of LOCALES) {
           // one continuous stage: no carousel, no rail of steps, no walker
           await expect(page.locator('.rail, .rail-btn, .bot, .satellites')).toHaveCount(0);
           await expect(page.locator('.frame-label strong')).toHaveText(d.hero.frame);
-          // a keyboard proxy for each lane and each node
-          await expect(page.locator('.proxy')).toHaveCount(13);
+          // a keyboard proxy for each lane (3) and each node (12)
+          await expect(page.locator('.proxy')).toHaveCount(15);
           if (view === 'flat') {
             await expect(page.locator('.dom-lane')).toHaveCount(3);
             await expect(page.locator('.dom-lane .lane-label').first()).toHaveText(d.hero.lane.harness.title);
@@ -184,6 +184,47 @@ test('the stage never stops: the throughput counter climbs and the log keeps wri
   await context.close();
 });
 
+test('the Harness lane rehearses in the simulator; reported hours link to the open-source tool', async ({ browser }) => {
+  for (const { path, d } of LOCALES) {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    const errors = watch(page);
+    await page.goto(path);
+    await sceneReady(page);
+    // "Harness" stays untranslated in every language
+    expect(d.hero.lane.harness.title).toBe('Harness');
+    await expect(page.locator('.dom-lane .lane-label').first()).toHaveText('Harness');
+    // the simulator sits in the Harness lane, the reported hours in Production
+    const lane = (id) => page.locator('.dom-lane .lane-label', { hasText: d.hero.lane[id].title });
+    await expect(lane('harness')).toHaveCount(1);
+    await expect(page.locator('.node .node-title', { hasText: d.hero.node.simulator.title })).toHaveCount(1);
+    await expect(page.locator('.node .node-title', { hasText: d.hero.node.hours.title })).toHaveCount(1);
+    // the hours caption offers the tool's public repository, and nothing else
+    await page.locator('.proxy', { hasText: d.hero.node.hours.title }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.cap-title')).toHaveText(d.hero.node.hours.title);
+    await expect(page.locator('.cap a.cap-link')).toHaveAttribute('href', 'https://github.com/msant77/spent');
+    await page.keyboard.press('Escape');
+    expect(errors, errors.join('\n')).toEqual([]);
+    await context.close();
+  }
+});
+
+test('a pinned lane caption stays inside the stage', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  const page = await context.newPage();
+  await page.goto('/');
+  await sceneReady(page);
+  await page.locator('.proxy').first().focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(1200);
+  const cap = await page.locator('.cap').boundingBox();
+  const frame = await page.locator('.stage-frame').boundingBox();
+  expect(cap.y).toBeGreaterThanOrEqual(frame.y);
+  expect(cap.y + cap.height).toBeLessThanOrEqual(frame.y + frame.height);
+  await context.close();
+});
+
 test('without WebGL the scene falls back to the flat view', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
   await context.addInitScript(() => {
@@ -197,7 +238,7 @@ test('without WebGL the scene falls back to the flat view', async ({ browser }) 
   await page.goto('/');
   await page.waitForSelector('.dom-stage .node');
   await expect(page.locator('#how')).not.toHaveClass(/is-3d/);
-  await expect(page.locator('.dom-stage .node')).toHaveCount(10);
+  await expect(page.locator('.dom-stage .node')).toHaveCount(12);
   await expect(page.locator('.dom-lane')).toHaveCount(3);
   expect(errors, errors.join('\n')).toEqual([]);
   await context.close();
