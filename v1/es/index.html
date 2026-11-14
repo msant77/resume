@@ -64,51 +64,48 @@
 
 <main id="main">
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-copy">
-      <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · cómo trabajo</p>
-      <h1 id="hero-title" data-i18n="home.h1">Tú traes el resultado. Yo dirijo el equipo que lo entrega.</h1>
-      <p class="hero-lede" data-i18n="home.lede">Ingeniero sénior, 25 años en software. Una persona responsable, con un equipo asistido por IA detrás.</p>
-      <div class="hero-actions">
-        <p class="label" data-i18n="resume.pdf.label">Descarga el currículum</p>
-        <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
-        <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="how" class="section how" aria-labelledby="how-title">
+  <section class="hero" id="how" aria-labelledby="hero-title">
     <div class="wrap">
-      <h2 id="how-title" class="section-title" data-i18n="how.title">Cómo trabajo</h2>
-      <p class="how-note" data-i18n="how.note">Un equipo pequeño con puestos fijos: una persona responsable, constructores asistidos por IA, un inspector que nunca es el autor, y tú.</p>
-      <h3 id="squad-title" class="how-sub" data-i18n="how.squad">El equipo</h3>
+      <div class="hero-head">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · cómo trabajo</p>
+          <h1 id="hero-title" data-i18n="home.h1">Tú traes el resultado. Yo dirijo el equipo que lo entrega.</h1>
+          <p class="hero-lede" data-i18n="home.lede">Ingeniero sénior, 25 años en software. Una persona responsable, con un equipo asistido por IA detrás.</p>
+        </div>
+        <div class="hero-actions">
+          <p class="label" data-i18n="resume.pdf.label">Descarga el currículum</p>
+          <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
+          <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
+        </div>
+      </div>
+      <h2 id="squad-title" class="how-sub" data-i18n="how.squad">El equipo</h2>
       <ul class="seats" aria-labelledby="squad-title">
         <li class="seat seat--lead">
-          <h4 class="seat-title" data-i18n="how.seat.lead.title">El líder</h4>
+          <h3 class="seat-title" data-i18n="how.seat.lead.title">El líder</h3>
           <p class="seat-who" data-i18n="how.seat.lead.who">Yo: un ingeniero sénior, responsable del resultado</p>
           <p class="seat-does" data-i18n="how.seat.lead.does">Decide, escribe el brief de cada frente, revisa cada entrega y es el único que escribe en el repositorio.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">Recibes</span> <span data-i18n="how.seat.lead.gets">Un rastro de cada cambio: cada uno apunta a la solicitud que lo justificó.</span></p>
         </li>
         <li class="seat seat--builders">
-          <h4 class="seat-title" data-i18n="how.seat.builders.title">Los constructores</h4>
+          <h3 class="seat-title" data-i18n="how.seat.builders.title">Los constructores</h3>
           <p class="seat-who" data-i18n="how.seat.builders.who">Asistidos por IA, un frente cada uno</p>
           <p class="seat-does" data-i18n="how.seat.builders.does">Implementan a partir de un brief escrito, cada uno en su propia copia de trabajo aislada, con comprobaciones automáticas en cada cambio.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">Recibes</span> <span data-i18n="how.seat.builders.gets">El ritmo de un equipo, y un informe escrito al final de cada sesión de trabajo.</span></p>
         </li>
         <li class="seat seat--inspector">
-          <h4 class="seat-title" data-i18n="how.seat.inspector.title">El inspector</h4>
+          <h3 class="seat-title" data-i18n="how.seat.inspector.title">El inspector</h3>
           <p class="seat-who" data-i18n="how.seat.inspector.who">Aparte, nunca el autor</p>
           <p class="seat-does" data-i18n="how.seat.inspector.does">Revisa cada entrega sin editarla e intenta romperla antes de que se acepte.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">Recibes</span> <span data-i18n="how.seat.inspector.gets">Lo que te llega ya resistió a alguien que intentó romperlo.</span></p>
         </li>
         <li class="seat seat--owner">
-          <h4 class="seat-title" data-i18n="how.seat.owner.title">Tú, el dueño</h4>
+          <h3 class="seat-title" data-i18n="how.seat.owner.title">Tú, el dueño</h3>
           <p class="seat-who" data-i18n="how.seat.owner.who">El cliente</p>
           <p class="seat-does" data-i18n="how.seat.owner.does">Pruebas cada entrega revisada, cierras la solicitud y decides cuándo sale en línea.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">Recibes</span> <span data-i18n="how.seat.owner.gets">Nada sale en línea sin tu aprobación, y el ritmo sigue el tuyo.</span></p>
         </li>
       </ul>
-      <h3 id="cycle-title" class="how-sub" data-i18n="how.cycle.title">Una solicitud, de principio a fin</h3>
+      <h2 id="cycle-title" class="how-sub" data-i18n="how.cycle.title">Una solicitud, de principio a fin</h2>
       <ol class="cycle" aria-labelledby="cycle-title">
         <li><span class="cycle-step" data-i18n="how.cycle.request">Solicitud escrita</span><span class="cycle-seat" data-i18n="how.who.you">tú</span></li>
         <li><span class="cycle-step" data-i18n="how.cycle.brief">Brief</span><span class="cycle-seat" data-i18n="how.who.lead">líder</span></li>

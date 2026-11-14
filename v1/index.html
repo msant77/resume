@@ -63,51 +63,48 @@
 
 <main id="main">
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-copy">
-      <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · how I work</p>
-      <h1 id="hero-title" data-i18n="home.h1">You bring the outcome. I lead the team that delivers it.</h1>
-      <p class="hero-lede" data-i18n="home.lede">Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.</p>
-      <div class="hero-actions">
-        <p class="label" data-i18n="resume.pdf.label">Download the résumé</p>
-        <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
-        <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="how" class="section how" aria-labelledby="how-title">
+  <section class="hero" id="how" aria-labelledby="hero-title">
     <div class="wrap">
-      <h2 id="how-title" class="section-title" data-i18n="how.title">How I work</h2>
-      <p class="how-note" data-i18n="how.note">A small squad with fixed seats: one person accountable, AI-assisted builders, an inspector who is never the author, and you.</p>
-      <h3 id="squad-title" class="how-sub" data-i18n="how.squad">The squad</h3>
+      <div class="hero-head">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="home.eyebrow">Marco Santana · how I work</p>
+          <h1 id="hero-title" data-i18n="home.h1">You bring the outcome. I lead the team that delivers it.</h1>
+          <p class="hero-lede" data-i18n="home.lede">Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him.</p>
+        </div>
+        <div class="hero-actions">
+          <p class="label" data-i18n="resume.pdf.label">Download the résumé</p>
+          <a class="btn btn--primary" href="/Marco_Santana_Resume.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.en">PDF · English</span></a>
+          <a class="btn" href="/Marco_Santana_Curriculo.pdf" hreflang="pt-BR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span data-i18n="resume.pdf.pt">PDF · Português</span></a>
+        </div>
+      </div>
+      <h2 id="squad-title" class="how-sub" data-i18n="how.squad">The squad</h2>
       <ul class="seats" aria-labelledby="squad-title">
         <li class="seat seat--lead">
-          <h4 class="seat-title" data-i18n="how.seat.lead.title">The lead</h4>
+          <h3 class="seat-title" data-i18n="how.seat.lead.title">The lead</h3>
           <p class="seat-who" data-i18n="how.seat.lead.who">Me: a senior engineer, accountable for the result</p>
           <p class="seat-does" data-i18n="how.seat.lead.does">Decides, writes the brief for each front, reviews every delivery and is the only one who writes to the repository.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">You get</span> <span data-i18n="how.seat.lead.gets">A trail for every change: each one points back to the request that justified it.</span></p>
         </li>
         <li class="seat seat--builders">
-          <h4 class="seat-title" data-i18n="how.seat.builders.title">The builders</h4>
+          <h3 class="seat-title" data-i18n="how.seat.builders.title">The builders</h3>
           <p class="seat-who" data-i18n="how.seat.builders.who">AI-assisted, one front each</p>
           <p class="seat-does" data-i18n="how.seat.builders.does">Implement from a written brief, each in its own isolated working copy, with automatic checks on every change.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">You get</span> <span data-i18n="how.seat.builders.gets">A team's pace, and a written report after every working session.</span></p>
         </li>
         <li class="seat seat--inspector">
-          <h4 class="seat-title" data-i18n="how.seat.inspector.title">The inspector</h4>
+          <h3 class="seat-title" data-i18n="how.seat.inspector.title">The inspector</h3>
           <p class="seat-who" data-i18n="how.seat.inspector.who">Separate, never the author</p>
           <p class="seat-does" data-i18n="how.seat.inspector.does">Reviews every delivery without editing it and tries to break it before it is accepted.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">You get</span> <span data-i18n="how.seat.inspector.gets">What reaches you has already survived someone trying to break it.</span></p>
         </li>
         <li class="seat seat--owner">
-          <h4 class="seat-title" data-i18n="how.seat.owner.title">You, the owner</h4>
+          <h3 class="seat-title" data-i18n="how.seat.owner.title">You, the owner</h3>
           <p class="seat-who" data-i18n="how.seat.owner.who">The client</p>
           <p class="seat-does" data-i18n="how.seat.owner.does">You test each reviewed delivery, close the request and decide when it goes live.</p>
           <p class="seat-gets"><span class="seat-gets-label" data-i18n="how.youGet">You get</span> <span data-i18n="how.seat.owner.gets">Nothing goes live without your sign-off, and the pace follows yours.</span></p>
         </li>
       </ul>
-      <h3 id="cycle-title" class="how-sub" data-i18n="how.cycle.title">One request, start to finish</h3>
+      <h2 id="cycle-title" class="how-sub" data-i18n="how.cycle.title">One request, start to finish</h2>
       <ol class="cycle" aria-labelledby="cycle-title">
         <li><span class="cycle-step" data-i18n="how.cycle.request">Written request</span><span class="cycle-seat" data-i18n="how.who.you">you</span></li>
         <li><span class="cycle-step" data-i18n="how.cycle.brief">Brief</span><span class="cycle-seat" data-i18n="how.who.lead">lead</span></li>
