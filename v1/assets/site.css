@@ -245,6 +245,9 @@ a.work-tile:hover strong { text-decoration: underline; }
 .profile-contact svg { width: 14px; height: 14px; flex: none; }
 .profile-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .profile-actions .label { width: 100%; margin: 0; font-size: .85rem; color: var(--muted); }
+/* the PDF in the reader's language leads: Portuguese on the Portuguese page */
+:root:lang(pt) .profile-actions a[hreflang="pt-BR"] { background: var(--accent-ink); border-color: var(--accent-ink); color: var(--on-accent); }
+:root:lang(pt) .profile-actions a[hreflang="en"] { background: var(--card); border-color: var(--line); color: var(--ink); }
 .social { display: inline-flex; gap: 4px; margin-left: 4px; }
 .social a { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; color: var(--ink); }
 .social a:hover { color: var(--accent-ink); background: var(--accent-soft); }
@@ -515,7 +518,7 @@ a.work-tile:hover strong { text-decoration: underline; }
 }
 /* phones: the stage is as tall as the front card needs (the card spans 80 % of the width) plus room for the pause control */
 @media (max-width: 440px) {
-  .hero.is-3d .story-stage { height: calc(64vw + 76px); min-height: 0; }
+  .hero.is-3d .story-stage { height: calc(56vw + 76px); min-height: 0; }
 }
 @media (max-width: 340px) {
   .rail-label { font-size: 9px; }
