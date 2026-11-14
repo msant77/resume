@@ -1,0 +1,585 @@
+{
+  "meta": {
+    "locale": "pt_BR",
+    "title": "Marco Santana — como eu trabalho",
+    "description": "Marco Santana, engenheiro de software sênior com mais de 25 anos em software. Você traz o resultado; ele lidera uma equipe assistida por IA que entrega, com briefs escritos, revisão independente, rastro de cada mudança e nada no ar sem a sua validação. Currículo incluído.",
+    "ogTitle": "Marco Santana — como eu trabalho",
+    "ogDescription": "Você traz o resultado. Eu decido, escrevo o brief e reviso; construtores assistidos por IA constroem; revisores auditam; cada mudança deixa rastro; você valida. Depois, o que já entreguei."
+  },
+  "common": {
+    "skip": "Ir para o conteúdo",
+    "nav": {
+      "main": "Seções",
+      "how": "Como trabalho",
+      "work": "Entregas",
+      "resume": "Currículo",
+      "contact": "Contato"
+    },
+    "theme": {
+      "toDark": "Usar tema escuro",
+      "toLight": "Usar tema claro"
+    },
+    "lang": {
+      "label": "Idioma"
+    },
+    "pause": "pausar",
+    "resume": "continuar",
+    "closeCaption": "Fechar legenda",
+    "log": {
+      "head": "registro da sessão",
+      "pinned": "registro · {name} · fixado",
+      "empty": "nada ainda nesta volta; a próxima linha aparece aqui."
+    },
+    "kicker": {
+      "edge": "conexão",
+      "step": "etapa"
+    },
+    "status": {
+      "wait": "aguardando",
+      "run": "rodando",
+      "done": "concluído",
+      "skip": "ignorado"
+    },
+    "rail": {
+      "label": "Etapas do trabalho",
+      "decide": "Decisão",
+      "brief": "Brief",
+      "build": "Construção",
+      "audit": "Auditoria",
+      "trail": "Rastro",
+      "validate": "Validação",
+      "delivered": "Entregas"
+    }
+  },
+  "home": {
+    "eyebrow": "Marco Santana · como eu trabalho",
+    "h1": "Você traz o resultado. Eu lidero a equipe que entrega.",
+    "lede": "Engenheiro sênior, 25 anos em software. Uma pessoa responsável, com uma equipe assistida por IA por trás.",
+    "hint": "passe o mouse ou toque nos cartões · Tab percorre as etapas · Esc volta",
+    "hintTouch": "toque num cartão para ler · deslize para mudar de etapa"
+  },
+  "hero": {
+    "summary": "Animação de como Marco Santana trabalha: você traz o resultado que precisa e ele devolve perguntas antes do preço, com cada decisão escrita e uma recomendação; um plano por frente, aprovado por você antes de qualquer linha de código, e um brief escrito para cada construtor; construtores assistidos por IA trabalham em paralelo, uma frente cada, com conferência automática a cada mudança; um revisor que nunca é o autor audita cada entrega, e em pagamentos, dados e migrações uma segunda revisão tenta quebrar a mudança antes; cada mudança aponta para o pedido que a justificou, e cada entrega vem com notas em linguagem simples; nada vai ao ar sem a sua validação, e quem fecha o pedido é você; depois, o que já foi entregue.",
+    "legend": {
+      "client": "você",
+      "human": "Marco, o responsável",
+      "agent": "construtores e revisores assistidos por IA",
+      "github": "o rastro",
+      "core": "entregue"
+    },
+    "node": {
+      "outcome": {
+        "title": "Seu resultado",
+        "short": "você",
+        "sub": "nas suas palavras",
+        "m": {
+          "t1": "uma ligação, um documento, uma tela"
+        },
+        "cap": [
+          "Você traz o resultado que precisa, nas suas palavras: uma ligação, um documento, uma tela que você já tem.",
+          "Eu devolvo perguntas antes do preço."
+        ]
+      },
+      "decide": {
+        "title": "Eu decido",
+        "short": "Marco",
+        "sub": "perguntas antes do preço",
+        "m": {
+          "decisions": "decisões escritas",
+          "t1": "cada uma com recomendação"
+        },
+        "cap": [
+          "Você traz o resultado que precisa. Eu devolvo perguntas antes do preço.",
+          "Cada decisão fica escrita, com uma recomendação."
+        ]
+      },
+      "plan": {
+        "title": "O plano",
+        "short": "plano",
+        "sub": "um por frente",
+        "m": {
+          "plans": "aprovados por você",
+          "t1": "antes de qualquer código"
+        },
+        "cap": [
+          "Um plano por frente, aprovado por você antes de qualquer linha de código.",
+          "Ele diz o que entra, o que fica de fora e em que ordem."
+        ]
+      },
+      "brief": {
+        "title": "O brief",
+        "short": "brief",
+        "sub": "um por construtor",
+        "m": {
+          "briefs": "briefs escritos",
+          "t1": "objetivo e limites"
+        },
+        "cap": [
+          "Cada construtor recebe um brief escrito: objetivo, limites, o que não tocar.",
+          "Cada pedido é escrito com o porquê e o critério de pronto."
+        ]
+      },
+      "build": {
+        "title": "Os construtores",
+        "short": "construtores",
+        "sub": "assistidos por IA · uma frente cada",
+        "m": {
+          "code": "construindo",
+          "checks": "conferência automática",
+          "fronts": "frentes em paralelo"
+        },
+        "cap": [
+          "Construtores assistidos por IA trabalham em paralelo, uma frente cada.",
+          "A velocidade de uma equipe, com um único responsável.",
+          "Conferência automática a cada mudança."
+        ]
+      },
+      "review": {
+        "title": "Os revisores",
+        "short": "revisor",
+        "sub": "nunca é o autor",
+        "m": {
+          "rev": "lê a entrega",
+          "t1": "{findings} achados, para mim"
+        },
+        "cap": [
+          "Quem revisa não é quem fez, e nunca edita o que revisa.",
+          "Os achados voltam para mim, e eu decido o que se corrige agora."
+        ]
+      },
+      "second": {
+        "title": "Segunda revisão",
+        "short": "2ª revisão",
+        "sub": "pagamentos, dados, migrações",
+        "m": {
+          "risky": "mudanças de risco"
+        },
+        "cap": [
+          "Em pagamentos, dados e migrações, uma segunda revisão tenta quebrar a mudança antes de você ver."
+        ]
+      },
+      "trail": {
+        "title": "O rastro",
+        "short": "rastro",
+        "sub": "toda mudança tem motivo",
+        "m": {
+          "changes": "mudanças ligadas",
+          "t1": "pedido #{reqNo}"
+        },
+        "cap": [
+          "Cada mudança aponta para o pedido que a justificou.",
+          "Meses depois, qualquer pessoa vê por que algo foi feito."
+        ]
+      },
+      "notes": {
+        "title": "Notas em linguagem simples",
+        "short": "notas",
+        "sub": "em cada entrega",
+        "m": {
+          "reports": "relatórios escritos"
+        },
+        "cap": [
+          "Quem decide lê relatórios, não código: cada entrega vem com notas do que mudou e do que testar.",
+          "Cada sessão de trabalho termina com um relatório escrito."
+        ]
+      },
+      "validate": {
+        "title": "Sua validação",
+        "short": "você",
+        "sub": "você testa · você fecha",
+        "m": {
+          "waiting": "esperando por você",
+          "closed": "fechados por você"
+        },
+        "cap": [
+          "Nada vai ao ar sem a sua validação, e quem fecha o pedido é você.",
+          "No máximo três entregas esperando a sua leitura: o ritmo acompanha o seu."
+        ]
+      },
+      "delivered": {
+        "title": "Entregue",
+        "short": "entregue",
+        "sub": "prazos e resultados",
+        "m": {
+          "t1": "CRM · três meses",
+          "t2": "plataforma de campo · dez semanas",
+          "t3": "app em duas lojas"
+        },
+        "cap": [
+          "Um CRM integrado ao sistema de um provedor de fibra, em três meses.",
+          "Uma plataforma de campo com app que funciona sem internet, em dez semanas.",
+          "Um app nas lojas da Apple e da Microsoft, com 449 conferências automáticas."
+        ]
+      }
+    },
+    "edge": {
+      "o-d": {
+        "title": "seu resultado",
+        "cap": [
+          "Você descreve; eu respondo com perguntas, não com um orçamento."
+        ]
+      },
+      "d-p": {
+        "title": "decisões",
+        "cap": [
+          "Cada decisão vira parte de um plano escrito."
+        ]
+      },
+      "ok": {
+        "title": "sua aprovação",
+        "cap": [
+          "Você aprova o plano. Nada mais dá início ao trabalho."
+        ]
+      },
+      "p-b": {
+        "title": "frentes",
+        "cap": [
+          "O plano aprovado é dividido em frentes, uma por construtor."
+        ]
+      },
+      "b-bu": {
+        "title": "brief",
+        "cap": [
+          "Um brief escrito por construtor: objetivo, limites, o que não tocar."
+        ]
+      },
+      "bu-r": {
+        "title": "entrega",
+        "cap": [
+          "Mudanças pequenas, cada uma apontando para o seu pedido."
+        ]
+      },
+      "r-d": {
+        "title": "achados",
+        "cap": [
+          "Os achados do revisor voltam para mim; eu decido o que se corrige agora."
+        ]
+      },
+      "s-r": {
+        "title": "segunda revisão",
+        "cap": [
+          "Em mudanças de risco, uma segunda revisão tenta quebrar antes."
+        ]
+      },
+      "r-t": {
+        "title": "revisada",
+        "cap": [
+          "Só uma entrega revisada segue adiante."
+        ]
+      },
+      "n-t": {
+        "title": "notas",
+        "cap": [
+          "Cada entrega leva notas em linguagem simples: o que mudou, o que testar."
+        ]
+      },
+      "t-v": {
+        "title": "para a sua leitura",
+        "cap": [
+          "A entrega espera por você, com notas e a lista do que testar."
+        ]
+      },
+      "v-dl": {
+        "title": "no ar",
+        "cap": [
+          "Validada por você, e então no ar."
+        ]
+      },
+      "dl-o": {
+        "title": "o próximo resultado",
+        "cap": [
+          "O próximo resultado começa do mesmo jeito."
+        ]
+      }
+    },
+    "step": {
+      "decide": [
+        "Você traz o resultado que precisa. Eu devolvo perguntas antes do preço, e cada decisão fica escrita, com uma recomendação."
+      ],
+      "brief": [
+        "Um plano por frente, aprovado por você antes de qualquer linha de código. Cada construtor recebe um brief escrito: objetivo, limites, o que não tocar."
+      ],
+      "build": [
+        "Construtores assistidos por IA trabalham em paralelo, uma frente cada: a velocidade de uma equipe, com um único responsável."
+      ],
+      "audit": [
+        "Quem revisa não é quem fez, e nunca edita o que revisa. Em pagamentos, dados e migrações, uma segunda revisão tenta quebrar a mudança antes de você ver."
+      ],
+      "trail": [
+        "Cada mudança aponta para o pedido que a justificou. Você lê relatórios, não código: cada entrega vem com notas do que mudou e do que testar."
+      ],
+      "validate": [
+        "Nada vai ao ar sem a sua validação, e quem fecha o pedido é você. No máximo três entregas esperando a sua leitura: o ritmo acompanha o seu."
+      ],
+      "delivered": [
+        "Um CRM integrado ao sistema de um provedor de fibra em três meses; uma plataforma de campo com app que funciona sem internet em dez semanas; um app nas lojas da Apple e da Microsoft."
+      ]
+    },
+    "log": {
+      "o1": "resultado: visitas registradas mesmo sem sinal",
+      "o2": "uma ligação e duas capturas de tela",
+      "d1": "cinco perguntas de volta, ainda sem preço",
+      "d2": "decisão {decisions} escrita · com recomendação",
+      "p1": "plano v1 · escopo, ordem, o que pode dar errado",
+      "o3": "você aprova o plano v1",
+      "p2": "plano v1 aprovado · o trabalho pode começar",
+      "b1": "pedido #{reqNo} · o porquê e o critério de pronto",
+      "b2": "brief: objetivo, limites, o que não tocar",
+      "u1": "frente 1 de {fronts} · começa pelo brief",
+      "u2": "mudança {changes} → pedido #{reqNo}",
+      "u3": "conferência automática a cada mudança · tudo certo",
+      "r1": "entrega lida contra o pedido #{reqNo}",
+      "s1": "mexe em dados gravados · tentando quebrar",
+      "r2": "{findings} achados · nenhum bloqueia",
+      "d3": "uma correção agora, outra vira um pedido próprio",
+      "t1": "cada mudança ligada ao pedido #{reqNo}",
+      "n1": "notas: o que mudou, o que testar",
+      "t2": "relatório {reports} da sessão escrito",
+      "v1": "{waiting} entregas esperando por você · limite 3",
+      "v2": "você testa no seu celular",
+      "v3": "pedido #{reqNo} fechado por você · no ar",
+      "x1": "CRM para um provedor de fibra · três meses",
+      "x2": "plataforma de campo, funciona sem internet · dez semanas",
+      "x3": "app nas lojas da Apple e da Microsoft",
+      "o4": "o próximo resultado começa do mesmo jeito"
+    }
+  },
+  "work": {
+    "title": "O que já entreguei",
+    "note": "Primeiro o resultado; os detalhes estão no currículo logo abaixo.",
+    "isp": {
+      "name": "Provedor de fibra óptica (cliente confidencial)",
+      "result": "Um CRM integrado ao sistema de um provedor de fibra, em três meses."
+    },
+    "field": {
+      "result": "Uma plataforma de campo com app que funciona sem internet, em dez semanas."
+    },
+    "chordo": "Um app nas lojas da Apple e da Microsoft, com 449 conferências automáticas.",
+    "alphatester": "Seus usuários avisam de dentro do app, com a tela junto. Coletando feedback real desde agosto de 2026.",
+    "geodome": "Uma calculadora de domos em oito idiomas; sua geometria passou por uma segunda revisão que tentou quebrá-la, com 41 achados.",
+    "pdb": "Um guia de uma vila costeira que funciona sem internet, em três idiomas.",
+    "iclf": "Um formato aberto em texto puro para letras com acordes, legível por pessoas e por leitores de tela.",
+    "parser": "Lê e confere cifras, e corrige sozinho o que dá para corrigir.",
+    "musictheory": "O motor de teoria musical por trás do Chordo: acordes, tonalidades, transposição."
+  },
+  "resume": {
+    "title": "Engenheiro de IA · Entrega de Software Agêntica",
+    "place": {
+      "sc": "Santa Catarina, Brasil",
+      "remoteBr": "Remoto · Brasil",
+      "remoteUs": "Remoto · empresa dos EUA",
+      "floripa": "Florianópolis, Brasil",
+      "laguna": "Laguna, Brasil",
+      "joinville": "Joinville, Brasil",
+      "saopaulo": "São Paulo, Brasil"
+    },
+    "section": {
+      "about": "Sobre",
+      "experience": "Experiência",
+      "projects": "Projetos",
+      "skills": "Competências",
+      "recommendations": "Recomendações",
+      "volunteer": "Trabalho Voluntário",
+      "education": "Formação"
+    },
+    "about": {
+      "p1": "Com mais de <strong>25 anos em engenharia de software</strong>, hoje entrego software de produção por meio de fluxos de trabalho agênticos e construo as salvaguardas que os tornam seguros: só em 2026, mais de 3.000 commits em cerca de 40 repositórios, 125 merge requests integrados em dez semanas numa plataforma de trade marketing na GoAPICE, um módulo de CRM de 42 mil linhas para um provedor de internet e o Chordo Pro na App Store da Apple e na Microsoft Store.",
+      "p2": "A engenharia de IA é mão na massa: harnesses de agentes (hooks de proteção, skills de gates de qualidade, worktrees paralelos, rodadas de revisão adversarial) usados diariamente num empregador, num cliente e nos meus próprios produtos, guardas de CI para deriva de esquema e frescor de contratos, e auditorias da minha própria prática conduzidas por frotas de agentes sobre milhares de prompts reais.",
+      "p3": "Antes disso: quatro anos na interface da plataforma de machine learning da H2O.ai, líder técnico de um SaaS de e-procurement norte-americano na BairesDev, arquiteto líder de uma plataforma de telemedicina em quatro nuvens e seis anos na Microsoft Brasil.",
+      "languages": "<strong>Idiomas:</strong> Português (nativo) · Inglês (fluente profissional; idioma de trabalho desde 2018) · Espanhol (elementar)"
+    },
+    "exp": {
+      "goapice": {
+        "role": "Arquiteto de Software Sênior",
+        "dates": "Fev 2026 – Presente",
+        "desc": "Responsável pelo backend, pelos contratos Protobuf e pelo app de campo Flutter offline-first de uma plataforma de trade marketing: 125 MRs integrados em cinco repositórios em dez semanas, testes do BFF de 84 para 725, testes do app de 145 para 736, 21 builds para testadores em 24 dias. Reduzi uma consulta paginada de 1,29 milhão de linhas de ~35 s para ~2 s levando LIMIT/OFFSET até o Trino no motor de consultas em Python; redesenhei uma agregação de 46 milhões de linhas que estourava a memória para ~12 s por página. Comparei Trino e StarRocks com cargas reais de dashboards reproduzidas, conduzi uma auditoria de amplificação de computação em quatro serviços, construí um pipeline de FinOps na AWS que apontou economias de 30–60% do gasto mensal e publiquei 21 páginas de arquitetura por um publicador Wiki.js que escrevi. No início do ano: 165 commits endurecendo a modernização do Golyzer em React 18 / Vite / Module Federation, um editor de texto rico com TipTap e um motor de formatação condicional. Opero um fluxo de trabalho governado com Claude Code em múltiplas sessões (64 worktrees paralelos, hooks de proteção, skills de gates de qualidade) e escrevi o hook do time que impede agentes de aprovar ou integrar MRs.",
+        "arch": {
+          "title": "Arquiteto de Software Sênior",
+          "dates": "Ago 2026 – Presente"
+        },
+        "fs": {
+          "title": "Engenheiro Full-Stack Sênior",
+          "dates": "Mai 2026 – Jul 2026"
+        },
+        "fe": {
+          "title": "Desenvolvedor Frontend Sênior",
+          "dates": "Fev 2026 – Abr 2026"
+        }
+      },
+      "isp": {
+        "role": "Engenheiro de Software (Contrato, meio período)",
+        "dates": "Abr 2026 – Presente",
+        "desc": "Plataforma de operações de provedor de internet (React 19, TanStack, FastAPI, SQLModel, PostgreSQL, Redis). Autor único do módulo de CRM: esquema com 28 tabelas, 16 migrações Alembic, 105 endpoints FastAPI protegidos por 103 permissões RBAC, e kanban, área de leads e editor de propostas com gatilhos e cadências — 115 commits e 42,8 mil linhas, com 248 funções de teste em pytest, a primeira suíte Playwright do repositório (105 casos) e uma página de validação com 233 casos para o cliente. Introduzi a entrega por pull requests num time que integrava direto na main; 23 PRs integrados e 409 commits, o maior volume entre os contribuidores durante o contrato. Construí um harness de agentes com salvaguardas para trabalho de cliente (hook PreToolUse, varredura de valores críticos, revisão por LLM antes do push, agentes paralelos em cópias de trabalho isoladas); uma passagem multiagente levou o build TypeScript de 100 erros a 0. 446 horas registradas em cinco meses em paralelo ao emprego integral, com 22 relatórios de engenharia em inglês.",
+        "name": "Provedor de fibra óptica (cliente confidencial)"
+      },
+      "independent": {
+        "name": "Engenheiro de Software Independente",
+        "dates": "Jan 2025 – Presente",
+        "desc": "Produtos, código aberto e ferramentas para agentes, construídos com agentes de código sob processo escrito (issue antes do commit, gates sem warnings, fechamento de issues só por humanos). O Chordo Pro está publicado na App Store da Apple (iOS, macOS) e na Microsoft Store, com a especificação ICLF, o parser e a biblioteca de teoria musical abertos ao lado dele; Alpha Tester e GeoDome estão no ar na web. Ferramentas: o claude-multi roteia o Claude Code entre três assinaturas por diretório; o spent é uma CLI de registro de horas com 108 testes que publica relatórios para clientes; uma auditoria da minha própria prática com 8 agentes e uma revisão de 8.662 prompts com 5 agentes orientam o roadmap do harness."
+      },
+      "studies": {
+        "name": "Estudo Independente & Prototipagem",
+        "dates": "Abr 2024 – Dez 2024",
+        "desc": "Período focado após quatro anos na H2O.ai. Projetei a especificação ICLF de notação de cifras e construí os primeiros protótipos do ecossistema Chordo — biblioteca de parsing, motor de teoria musical e app multiplataforma."
+      },
+      "h2o": {
+        "role": "Engenheiro Frontend",
+        "dates": "Mai 2020 – Abr 2024 · 4 anos",
+        "desc": "Construí e mantive a interface de usuário da plataforma de machine learning da H2O.ai em React e TypeScript, num time distribuído dos EUA com o inglês como idioma de trabalho. Desenvolvi bibliotecas de componentes compartilhados, colaborei com times de design e backend e contribuí para ferramentas internas de desenvolvimento."
+      },
+      "bairesdev": {
+        "dates": "Ago 2018 – Abr 2020 · 1 ano e 9 meses",
+        "desc": "Projetei e entreguei funcionalidades para um SaaS de e-procurement norte-americano, trabalhando diretamente com o cliente em inglês, progredindo de engenheiro sênior a líder técnico.",
+        "lead": {
+          "title": "Líder Técnico",
+          "dates": "Set 2019 – Abr 2020",
+          "desc": "Liderei o time no design e implementação de Geração Dinâmica de Formulários, Taxonomia WAND e serviços AWS Lambda/Gateway. Realizei onboarding de novos desenvolvedores, suporte técnico diário ao time e conduzi reuniões de grooming e planejamento."
+        },
+        "senior": {
+          "title": "Engenheiro Full Stack Sênior",
+          "dates": "Ago 2018 – Set 2019",
+          "desc": "Projetei e implementei soluções com Geração Dinâmica de Formulários, Taxonomia WAND e serviços AWS Lambda/Gateway."
+        }
+      },
+      "softplan": {
+        "role": "Desenvolvedor Full Stack",
+        "dates": "Mar 2018 – Set 2018 · 7 meses",
+        "desc": "Desenvolvi aplicações web para a indústria de engenharia civil e construção."
+      },
+      "telemedicina": {
+        "role": "Arquiteto Técnico Líder",
+        "dates": "Mai 2015 – Mar 2018 · ~3 anos",
+        "desc": "Arquitetei e desenvolvi uma aplicação web progressiva para telemedicina. Gerenciei infraestrutura multi-cloud em IBM SoftLayer, AWS, Azure e Google Cloud. Apoiei contratação e onboarding da equipe técnica."
+      },
+      "guru": {
+        "role": "Arquiteto Web / Desenvolvedor / Sócio",
+        "dates": "Mai 2014 – Mai 2015",
+        "desc": "Cofundei e construí do zero uma plataforma web voltada ao surf."
+      },
+      "freshmedia": {
+        "role": "Arquiteto de Soluções Web",
+        "dates": "Out 2014 – Fev 2015",
+        "desc": "Projetei e construí soluções web com WordPress, AWS, PHP, Node.js e AngularJS."
+      },
+      "geogrid": {
+        "role": "Desenvolvedor Web Sênior",
+        "dates": "Jan 2014 – Jun 2014",
+        "desc": "Migrei funcionalidades GIS de Flash/ActionScript para JavaScript. Construí integração com Google Maps V3 para visualização de dados geoespaciais."
+      },
+      "intersena": {
+        "role": "Desenvolvedor Sênior / Arquiteto / DBA",
+        "dates": "Out 2010 – Mar 2014",
+        "desc": "Atuação freelance focada em desenvolvimento de funcionalidades, otimização de performance de banco de dados e reescrita de rotinas complexas de dados."
+      },
+      "cetil": {
+        "role": "Arquiteto de Software Sênior",
+        "dates": "Nov 2008 – Set 2010",
+        "desc": "Liderei arquitetura e desenvolvimento de sistemas NFSe (nota fiscal eletrônica) e ponto eletrônico. Mentorei desenvolvedores, conduzi entrevistas técnicas e atuei como gerente de engenharia interino."
+      },
+      "imagem": {
+        "role": "Analista de Sistemas / Desenvolvedor",
+        "dates": "Jun 2007 – Out 2008",
+        "desc": "Construí um sistema de rastreamento GPS via web com integração em tempo real ao Google Maps para monitoramento de transporte público."
+      },
+      "sociesc": {
+        "role": "Instrutor, Student To Business",
+        "dates": "Abr 2008 – Jun 2008",
+        "desc": "Ministrei curso de 200 horas em Microsoft .NET cobrindo C#, ASP.NET e fundamentos de ORM. Alcancei 100% de avaliação positiva dos alunos."
+      },
+      "microsoft": {
+        "dates": "1998 – 2004 · 6 anos",
+        "desc": "Seis anos na Microsoft em quatro funções, progredindo de evangelismo técnico a gestão de centros de inovação.",
+        "ic": {
+          "title": "Gerente de Programa de Centros de Inovação",
+          "dates": "2002 – 2004",
+          "desc": "Selecionei e mentorei estudantes de alto desempenho para construir aplicações .NET. Gerenciei centros de inovação em seis cidades brasileiras: São Paulo, Rio de Janeiro, Curitiba, Porto Alegre, Recife e Fortaleza."
+        },
+        "ats": {
+          "title": "Especialista Técnico de Contas",
+          "dates": "2001 – 2002",
+          "desc": "Atuei junto a departamentos de TI nas contas atribuídas, identifiquei oportunidades de vendas por avaliação tecnológica e servi como elo entre equipes de suporte e técnicas."
+        },
+        "ae": {
+          "title": "Engenheiro de Aplicações",
+          "dates": "1999 – 2001",
+          "desc": "Criei materiais de treinamento para o Canal de Parceiros Microsoft. Apoiei o desenvolvimento de aplicações de negócios em verticais corporativas."
+        },
+        "sg": {
+          "title": "Membro do Grupo de Seminários",
+          "dates": "1998 – 1999",
+          "desc": "Desenvolvi cenários e ministrei seminários sobre tecnologia Microsoft em todo o país."
+        }
+      }
+    },
+    "proj": {
+      "chordo": "App de cifras multiplataforma, publicado na App Store da Apple (iOS, macOS) desde março de 2026 e na Microsoft Store desde setembro de 2026. Renderiza cifras ICLF com alinhamento silábico preciso, editor visual de acordes, calculador de voicings e renderização adaptada ao instrumento, sobre um motor de teoria musical com detecção de tonalidade e transposição. Seis versões, 449 testes automatizados, fastlane e pipeline de release em CI.",
+      "alphatester": "Plataforma multi-tenant de feedback até a correção: SDKs embarcáveis para web e Flutter com fila offline, ingestão por chave de API, painel com RBAC e autenticação de dois fatores TOTP e criação automática de issues no GitHub. Coletando feedback de testadores beta desde agosto de 2026. 243 testes, Terraform no GCP.",
+      "geodome": "Calculadora de domos geodésicos e projetista de estrutura em madeira: 1V a 6V, Classes I e II, listas de corte com chanfros compostos e sequência de montagem triângulo a triângulo, em oito idiomas. Motor geométrico em Dart puro cujo encaixe das vigas mantém resíduos abaixo de um mícron; seus algoritmos passaram por uma revisão adversarial multiagente com 41 achados.",
+      "pdb": "Diretório comunitário para uma vila costeira em Laguna, SC, Brasil. Ajuda moradores e turistas a encontrar prestadores de serviço, horários de transporte e trilhas. Offline-first com dados embarcados, SQLite WASM para web, carrossel responsivo e suporte trilíngue (Português, Inglês, Espanhol).",
+      "iclf": "Inline Chorded Lyrics Format — especificação aberta em texto puro para notação de letras com acordes posicionados com precisão. Projetada para legibilidade humana para que músicos possam abrir um arquivo <code>.iclf</code> e tocar instantaneamente. Suporta alinhamento silábico preciso de acordes, diretivas de metadados extensíveis e acessibilidade para leitores de tela.",
+      "parser": "Biblioteca Dart que faz parsing e validação de arquivos ICLF em modelos de dados estruturados. Classifica documentos como válidos, inválidos ou recuperáveis — aplicando correções automáticas quando possível. Inclui ChordMatcher para validação de acordes entre ecossistemas e CLI para renderização de cifras.",
+      "musictheory": "Pacote Dart e CLI com acesso programático à teoria musical — notas, intervalos, acordes, instrumentos, cálculo de voicings, detecção de tonalidade, análise em numerais romanos, transposição e sugestões de capotraste. Serve como base teórica do ecossistema Chordo."
+    },
+    "skills": {
+      "cat": {
+        "ai": "Engenharia de IA",
+        "languages": "Linguagens",
+        "frameworks": "Frameworks & Plataformas",
+        "cloud": "Nuvem & Infraestrutura",
+        "data": "Dados & Bancos de Dados",
+        "arch": "Arquitetura & Práticas"
+      },
+      "tag": {
+        "llm-tools": "Tool Calling para LLMs",
+        "evals": "Avaliações / LLM-como-Juiz",
+        "agent-harness": "Harness de Agentes (hooks, skills, MCP)",
+        "multi-agent": "Orquestração Multiagente",
+        "ondevice-ml": "ML no Dispositivo (Apple Vision)",
+        "prompt-eng": "Engenharia de Prompts",
+        "data-modeling": "Modelagem de Dados",
+        "system-arch": "Arquitetura de Sistemas",
+        "api-design": "Design de APIs",
+        "ci-gates": "Gates de Qualidade em CI",
+        "test-pyramids": "Pirâmides de Teste",
+        "tech-leadership": "Liderança Técnica"
+      }
+    },
+    "rec": {
+      "claudio": "Marco é um profissional excepcional com profundo conhecimento e notável domínio técnico. Ele possui a rara habilidade de transmitir ideias complexas com clareza, tornando-o um comunicador e colaborador extraordinário. Seu trabalho é consistentemente da mais alta qualidade, e seu compromisso com a excelência é evidente em tudo o que faz. Recomendo Marco de todo coração para qualquer equipe que busque um engenheiro talentoso, dedicado e criterioso.",
+      "rob": "Tive o prazer de trabalhar com Marco na Microsoft Brasil. Ele é um profissional focado e dedicado, com profunda expertise em bancos de dados, desenvolvimento web e arquitetura de software. Marco está sempre disposto a aprender e compartilhar conhecimento, e traz uma rara combinação de habilidade técnica e verdadeiro espírito de equipe. Qualquer organização se beneficiaria de suas contribuições.",
+      "jean": "Marco é um profissional extraordinário com sólida expertise em desenvolvimento e arquitetura de software. Ele aborda cada projeto com diligência, criatividade e um desejo genuíno de entregar a melhor solução possível. Sua capacidade de trabalhar com múltiplas tecnologias e liderar equipes o torna um ativo inestimável. Recomendo-o fortemente."
+    },
+    "vol": {
+      "sosgravata": {
+        "role": "Criador, Desenvolvedor & Mantenedor",
+        "dates": "Out 2013 – 2020",
+        "desc": "Iniciativa de proteção ambiental que defendeu com sucesso ecossistemas costeiros e áreas de aquíferos na região do Gravatá em Santa Catarina contra construção não autorizada. Construí e mantive a presença web do projeto, ferramentas de divulgação comunitária e coordenei campanhas de conscientização pública. A campanha atingiu seu objetivo — a construção foi permanentemente impedida."
+      },
+      "homestead": {
+        "org": "Homesteading Sustentável",
+        "role": "Homesteader & Guardião Ambiental",
+        "dates": "2022 – Presente · 4+ anos",
+        "desc": "Quatro anos de gestão sustentável de terras na região da Mata Atlântica de Santa Catarina. Praticando policultura, permacultura e integração agro-silvo-pastoril. Plantio e cultivo de árvores nativas, cuidado de mudas frutíferas e nativas com doações comunitárias, e proteção ativa da floresta. Zero árvores derrubadas, zero insumos químicos utilizados. Aprendendo e aplicando princípios de agricultura regenerativa para restaurar e proteger a biodiversidade local."
+      }
+    },
+    "edu": {
+      "degree": "Tecnologia em Processamento de Dados"
+    },
+    "h2": "Currículo",
+    "photoAlt": "Foto de Marco Santana",
+    "social": "Perfis sociais",
+    "pdf": {
+      "label": "Baixe o currículo",
+      "en": "PDF · English",
+      "pt": "PDF · Português"
+    }
+  },
+  "contact": {
+    "title": "Conte o resultado que você precisa",
+    "p": "Um e-mail basta. Respondo em português ou inglês, com perguntas antes do preço.",
+    "meta": "Santa Catarina, Brasil · UTC-3 · remoto"
+  },
+  "foot": {
+    "copyright": "© 2026 Marco Santana. Todos os direitos reservados."
+  }
+}
