@@ -44,7 +44,7 @@
       "label": "Etapas del trabajo",
       "decide": "Decisión",
       "brief": "Brief",
-      "build": "Construcción",
+      "build": "Equipo",
       "audit": "Auditoría",
       "trail": "Rastro",
       "validate": "Aprobación",
@@ -73,7 +73,7 @@
         "short": "tú",
         "sub": "en tus palabras",
         "m": {
-          "t1": "una llamada, un documento, una pantalla"
+          "t1": "llamada, documento o pantalla"
         },
         "cap": [
           "Traes el resultado que necesitas, en tus palabras: una llamada, un documento, una pantalla que ya tienes.",
@@ -122,10 +122,10 @@
       "build": {
         "title": "Los constructores",
         "short": "constructores",
-        "sub": "asistidos por IA · un frente cada uno",
+        "sub": "asistidos por IA, en paralelo",
         "m": {
           "code": "construyendo",
-          "checks": "comprobaciones automáticas",
+          "checks": "comprobaciones",
           "fronts": "frentes en paralelo"
         },
         "cap": [
