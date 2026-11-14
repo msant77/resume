@@ -1,6 +1,6 @@
 // The page in every language, width and theme: it loads without console
 // errors, never scrolls sideways, stays still (nothing animates, no canvas),
-// leads with the résumé PDFs and keeps the squad, the résumé and the
+// leads with the résumé PDFs and the squad, and keeps the résumé and the
 // switchers working.
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -52,9 +52,17 @@ for (const { path, loc, d } of LOCALES) {
         await expect(page.locator('canvas')).toHaveCount(0);
         expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
 
-        // the squad: four seats, then the seven steps of one request
-        await expect(page.locator('#how-title')).toHaveText(d.how.title);
-        await expect(page.locator('.seats > li')).toHaveCount(4);
+        // the squad sits in the hero, where the scene was: four seats, then the seven steps of one request
+        await expect(page.locator('#how .seats > li')).toHaveCount(4);
+        await expect(page.locator('#how .cycle')).toBeVisible();
+        if (width >= 1040) {
+          // wide screens: title, PDFs and all four seats on the first screen, without scrolling
+          const seatsBottom = await page.locator('.seats').evaluate((el) => el.getBoundingClientRect().bottom);
+          expect(seatsBottom, 'the four seats fit the first screen').toBeLessThanOrEqual(800);
+        } else {
+          // phones: the first seat starts on the first screen
+          await expect(page.locator('.seat').first()).toBeInViewport();
+        }
         await expect(page.locator('.seat-title').first()).toHaveText(d.how.seat.lead.title);
         await expect(page.locator('.cycle > li')).toHaveCount(7);
         await expect(page.locator('.cycle .cycle-step').last()).toHaveText(d.how.cycle.live);

@@ -1,6 +1,6 @@
 # marcosantana.dev
 
-Personal site of Marco Santana. A still page: the first screen leads with the résumé PDFs; under it, how the work runs, in the reader's terms (the squad's seats, what each one gives the client, and the cycle of one request); then past work as a row of tiles, the résumé as proof, and contact. Nothing on it loops or plays: hover and focus states only.
+Personal site of Marco Santana. A still page: the first screen carries the title, the résumé PDFs and how the work runs, in the reader's terms (the squad's four seats, what each one gives the client, and the cycle of one request); then past work as a row of tiles, the résumé as proof, and contact. Nothing on it loops or plays: hover and focus states only.
 
 Static files, no build step: `v1/` is the site root and is published as is.
 
@@ -38,7 +38,7 @@ npm test             # i18n check, html-validate on the three pages, Playwright
 npm run serve        # v1/ on http://localhost:4173/, served the way the deploy publishes it
 ```
 
-Playwright loads every language at 320, 375 and 1280 px, light and dark, and fails on any console error, any sideways scroll, a canvas or a running animation; it also checks that the PDFs are on the first screen, the squad's four seats and seven steps, the switchers, and both PDFs. It uses the installed Google Chrome; set `PW_BUNDLED=1` to use Playwright's own Chromium.
+Playwright loads every language at 320, 375 and 1280 px, light and dark, and fails on any console error, any sideways scroll, a canvas or a running animation; it also checks that the PDFs and the squad's four seats are on the first screen (all four at 1280 px), the seven steps of the cycle, the switchers, and both PDFs. It uses the installed Google Chrome; set `PW_BUNDLED=1` to use Playwright's own Chromium.
 
 ## Deploy
 
