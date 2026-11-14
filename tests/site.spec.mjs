@@ -1,6 +1,7 @@
 // The page in every language, width, theme and motion setting: it loads
-// without console errors, never scrolls sideways, opens on the scene and
-// keeps the résumé, the PDFs and the switchers working.
+// without console errors, never scrolls sideways, opens on the live stage
+// (lanes, never a carousel or a rail of steps) and keeps the résumé, the
+// PDFs and the switchers working.
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
@@ -24,7 +25,7 @@ function watch(page) {
   return errors;
 }
 
-/* the scene has mounted: either the 3D canvas or the flat cards are on the page */
+/* the stage has mounted: either the 3D canvas or the flat cards are on the page */
 async function sceneReady(page) {
   await page.waitForFunction(() => document.querySelector('.hero-canvas, .dom-stage .node'));
 }
@@ -51,15 +52,33 @@ for (const { path, loc, d } of LOCALES) {
 
           await expect(page.locator('html')).toHaveAttribute('lang', loc);
           await expect(page.locator('h1')).toHaveText(d.home.h1);
-          // the scene is the first thing on the page, and it starts within the first viewport
+          // the stage is the first thing on the page, and it starts within the first viewport
           const heroTop = await page.locator('#how').evaluate((el) => el.getBoundingClientRect().top);
           expect(heroTop).toBeLessThan(200);
+          // depth where there is room for the whole board and motion is welcome; flat otherwise
           const view = await page.locator('#how').evaluate((el) => el.classList.contains('is-3d') ? '3d' : 'flat');
-          expect(view).toBe(reducedMotion === 'reduce' ? 'flat' : '3d');
-          await expect(page.locator('.rail-btn')).toHaveCount(7);
+          expect(view).toBe(reducedMotion === 'reduce' || width < 700 ? 'flat' : '3d');
+          // one continuous stage: no carousel, no rail of steps, no walker
+          await expect(page.locator('.rail, .rail-btn, .bot, .satellites')).toHaveCount(0);
+          await expect(page.locator('.frame-label strong')).toHaveText(d.hero.frame);
+          // a keyboard proxy for each lane and each node
+          await expect(page.locator('.proxy')).toHaveCount(13);
+          if (view === 'flat') {
+            await expect(page.locator('.dom-lane')).toHaveCount(3);
+            await expect(page.locator('.dom-lane .lane-label').first()).toHaveText(d.hero.lane.harness.title);
+          }
+          if (view === '3d' && width >= 1100) {
+            // the whole stage, Business value frame included, on the first screen
+            const bottom = await page.locator('.stage-frame').evaluate((el) => el.getBoundingClientRect().bottom);
+            expect(bottom, 'the stage fits the first screen').toBeLessThanOrEqual(800);
+          }
 
-          // let the scene run a little, then scroll through the whole page
+          // let the stage run a little, then scroll through the whole page
           await page.waitForTimeout(reducedMotion === 'reduce' ? 300 : 2500);
+          if (reducedMotion !== 'reduce') {
+            // the session log is writing
+            await expect.poll(() => page.locator('.log-list li:not(.log-empty)').count(), { timeout: 10_000 }).toBeGreaterThan(1);
+          }
           await noSideScroll(page);
           await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
           await page.waitForTimeout(200);
@@ -101,7 +120,8 @@ test('the language switcher re-renders in place', async ({ page }) => {
     await expect(page.locator('h1')).toHaveText(d.home.h1);
     await expect(page.locator('#experience-title')).toHaveText(d.resume.section.experience);
     await expect(page.locator(`[data-lang-btn="${loc}"]`)).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.rail-btn .rail-label').first()).toHaveText(d.common.rail.decide);
+    await expect(page.locator('.proxy').first()).toHaveText(d.hero.lane.harness.title);
+    await expect(page.locator('.frame-label strong')).toHaveText(d.hero.frame);
   }
   expect(errors, errors.join('\n')).toEqual([]);
 });
@@ -128,23 +148,41 @@ for (const reducedMotion of ['no-preference', 'reduce']) {
     await page.goto('/');
     await sceneReady(page);
     const d = LOCALES[0].d;
-    // a step of the rail
-    await page.locator('.rail-btn').nth(3).click();
+    // a lane, through its keyboard proxy
+    const lane = page.locator('.proxy').first();
+    await lane.focus();
+    await page.keyboard.press('Enter');
     await expect(page.locator('.cap')).toBeVisible();
-    await expect(page.locator('.cap-title')).toHaveText(d.common.rail.audit);
+    await expect(page.locator('.cap-title')).toHaveText(d.hero.lane.harness.title);
     await page.keyboard.press('Escape');
     await expect(page.locator('.cap')).toBeHidden();
-    // a card, through its keyboard proxy
-    const proxy = page.locator('.proxy').first();
-    await proxy.focus();
+    // a node: the throughput counter
+    const node = page.locator('.proxy', { hasText: d.hero.node.throughput.title });
+    await node.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.cap-title')).toHaveText(d.hero.node.outcome.title);
+    await expect(page.locator('.cap-title')).toHaveText(d.hero.node.throughput.title);
     await page.keyboard.press('Escape');
     await expect(page.locator('.cap')).toBeHidden();
     expect(errors, errors.join('\n')).toEqual([]);
     await context.close();
   });
 }
+
+test('the stage never stops: the throughput counter climbs and the log keeps writing', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 375, height: 740 } });
+  const page = await context.newPage();
+  const errors = watch(page);
+  await page.goto('/');
+  await page.waitForSelector('.dom-stage .node');
+  const counter = page.locator('.node.is-big .m-row.is-big .m-val');
+  const read = async () => Number((await counter.textContent()).replace(/\D/g, ''));
+  const before = await read();
+  await page.waitForTimeout(7000);
+  expect(await read()).toBeGreaterThan(before);
+  expect(await page.locator('.log-list li:not(.log-empty)').count()).toBeGreaterThan(3);
+  expect(errors, errors.join('\n')).toEqual([]);
+  await context.close();
+});
 
 test('without WebGL the scene falls back to the flat view', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
@@ -159,7 +197,8 @@ test('without WebGL the scene falls back to the flat view', async ({ browser }) 
   await page.goto('/');
   await page.waitForSelector('.dom-stage .node');
   await expect(page.locator('#how')).not.toHaveClass(/is-3d/);
-  await expect(page.locator('.dom-stage .node')).toHaveCount(11);
+  await expect(page.locator('.dom-stage .node')).toHaveCount(10);
+  await expect(page.locator('.dom-lane')).toHaveCount(3);
   expect(errors, errors.join('\n')).toEqual([]);
   await context.close();
 });
