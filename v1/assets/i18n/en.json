@@ -26,52 +26,51 @@
   "home": {
     "eyebrow": "Marco Santana · how I work",
     "h1": "You bring the outcome. I lead the team that delivers it.",
-    "lede": "Senior engineer, 25 years in software. One person accountable, an AI-assisted team behind him."
+    "lede": "You get the result you need in weeks, with a written trail for every change and nothing live without your sign-off.",
+    "seeWork": "See what I have delivered"
   },
   "how": {
-    "squad": "The squad",
-    "youGet": "You get",
-    "seat": {
-      "lead": {
-        "title": "The lead",
-        "who": "Me: a senior engineer, accountable for the result",
-        "does": "Decides, writes the brief for each front, reviews every delivery and is the only one who writes to the repository.",
-        "gets": "A trail for every change: each one points back to the request that justified it."
+    "journey": {
+      "title": "Working with me, step by step",
+      "ask": {
+        "title": "You ask",
+        "line": "a written request: the why and what done means"
       },
-      "builders": {
-        "title": "The builders",
-        "who": "AI-assisted, one front each",
-        "does": "Implement from a written brief, each in its own isolated working copy, with automatic checks on every change.",
-        "gets": "A team's pace, and a written report after every working session."
+      "approve": {
+        "title": "You approve the plan",
+        "line": "before any code is written"
       },
-      "inspector": {
-        "title": "The inspector",
-        "who": "Separate, never the author",
-        "does": "Reviews every delivery without editing it and tries to break it before it is accepted.",
-        "gets": "What reaches you has already survived someone trying to break it."
+      "build": {
+        "title": "It is built and checked",
+        "line": "automatic checks, then an independent review"
       },
-      "owner": {
-        "title": "You, the owner",
-        "who": "The client",
-        "does": "You test each reviewed delivery, close the request and decide when it goes live.",
-        "gets": "Nothing goes live without your sign-off, and the pace follows yours."
+      "test": {
+        "title": "You test",
+        "line": "a reviewed delivery, with notes on what to test"
+      },
+      "go": {
+        "title": "You say go",
+        "line": "nothing goes live before that"
+      },
+      "report": {
+        "title": "You get a report",
+        "line": "after every working session"
       }
     },
-    "cycle": {
-      "title": "One request, start to finish",
-      "request": "Written request",
-      "brief": "Brief",
-      "build": "Build",
-      "inspect": "Inspect",
-      "reviewed": "Reviewed delivery",
-      "validate": "You validate",
-      "live": "Live"
-    },
-    "who": {
-      "you": "you",
-      "lead": "lead",
-      "builders": "builders",
-      "inspector": "inspector"
+    "people": {
+      "title": "Who does the work",
+      "lead": {
+        "role": "A senior lead (me)",
+        "does": "decides, writes the briefs, reviews every delivery"
+      },
+      "builders": {
+        "role": "AI-assisted builders",
+        "does": "one front each"
+      },
+      "inspector": {
+        "role": "A separate inspector",
+        "does": "tries to break it before you see it"
+      }
     }
   },
   "work": {

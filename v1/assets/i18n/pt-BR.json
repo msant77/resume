@@ -26,52 +26,51 @@
   "home": {
     "eyebrow": "Marco Santana · como eu trabalho",
     "h1": "Você traz o resultado. Eu lidero a equipe que entrega.",
-    "lede": "Engenheiro sênior, 25 anos em software. Uma pessoa responsável, com uma equipe assistida por IA por trás."
+    "lede": "Você recebe o resultado que precisa em semanas, com rastro escrito de cada mudança e nada no ar sem a sua validação.",
+    "seeWork": "Veja o que já entreguei"
   },
   "how": {
-    "squad": "A equipe",
-    "youGet": "Você recebe",
-    "seat": {
-      "lead": {
-        "title": "O líder",
-        "who": "Eu: um engenheiro sênior, responsável pelo resultado",
-        "does": "Decide, escreve o brief de cada frente, revisa cada entrega e é o único que grava no repositório.",
-        "gets": "Um rastro de cada mudança: cada uma aponta para o pedido que a justificou."
+    "journey": {
+      "title": "Trabalhar comigo, passo a passo",
+      "ask": {
+        "title": "Você pede",
+        "line": "um pedido escrito: o porquê e o critério de pronto"
       },
-      "builders": {
-        "title": "Os construtores",
-        "who": "Assistidos por IA, uma frente cada",
-        "does": "Implementam a partir de um brief escrito, cada um na sua cópia de trabalho isolada, com conferência automática a cada mudança.",
-        "gets": "A velocidade de uma equipe, e um relatório escrito ao fim de cada sessão de trabalho."
+      "approve": {
+        "title": "Você aprova o plano",
+        "line": "antes de qualquer linha de código"
       },
-      "inspector": {
-        "title": "O inspetor",
-        "who": "Separado, nunca o autor",
-        "does": "Revisa cada entrega sem editá-la e tenta quebrá-la antes que seja aceita.",
-        "gets": "O que chega até você já resistiu a alguém tentando quebrá-lo."
+      "build": {
+        "title": "É construído e conferido",
+        "line": "conferência automática, depois uma revisão independente"
       },
-      "owner": {
-        "title": "Você, o dono",
-        "who": "O cliente",
-        "does": "Você testa cada entrega revisada, fecha o pedido e decide quando vai ao ar.",
-        "gets": "Nada vai ao ar sem a sua validação, e o ritmo acompanha o seu."
+      "test": {
+        "title": "Você testa",
+        "line": "uma entrega revisada, com notas do que testar"
+      },
+      "go": {
+        "title": "Você libera",
+        "line": "nada vai ao ar antes disso"
+      },
+      "report": {
+        "title": "Você recebe um relatório",
+        "line": "ao fim de cada sessão de trabalho"
       }
     },
-    "cycle": {
-      "title": "Um pedido, do começo ao fim",
-      "request": "Pedido escrito",
-      "brief": "Brief",
-      "build": "Construção",
-      "inspect": "Inspeção",
-      "reviewed": "Entrega revisada",
-      "validate": "Você valida",
-      "live": "No ar"
-    },
-    "who": {
-      "you": "você",
-      "lead": "líder",
-      "builders": "construtores",
-      "inspector": "inspetor"
+    "people": {
+      "title": "Quem faz o trabalho",
+      "lead": {
+        "role": "Um líder sênior (eu)",
+        "does": "decide, escreve os briefs, revisa cada entrega"
+      },
+      "builders": {
+        "role": "Construtores assistidos por IA",
+        "does": "uma frente cada"
+      },
+      "inspector": {
+        "role": "Um inspetor separado",
+        "does": "tenta quebrar antes de você ver"
+      }
     }
   },
   "work": {
